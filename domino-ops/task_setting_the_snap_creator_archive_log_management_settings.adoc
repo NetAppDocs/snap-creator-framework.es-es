@@ -1,0 +1,74 @@
+---
+permalink: domino-ops/task_setting_the_snap_creator_archive_log_management_settings.html 
+sidebar: sidebar 
+keywords: domino, ibm, cleaning up, purging, archives, archived, copies, transaction, logs 
+summary: Si utiliza el registro de transacciones de Domino, los archivos del plug-in de IBM Domino copian los registros de transacciones de Domino en el directorio chcambiinfo para utilizarlos en operaciones de restauración actualizadas. Debe habilitar la gestión del registro de transacciones antes de que Snap Creator borre las copias de los registros de transacciones que ya no necesita. 
+---
+= Limpieza de copias archivadas de registros de transacciones de Domino
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Si utiliza el registro de transacciones de Domino, los archivos del plug-in de IBM Domino copian los registros de transacciones de Domino en el directorio chcambiinfo para utilizarlos en operaciones de restauración actualizadas. Debe habilitar la gestión del registro de transacciones antes de que Snap Creator borre las copias de los registros de transacciones que ya no necesita.
+
+El complemento Domino almacena los archivos de intercambio y las copias archivadas de los registros de transacciones de Domino en el directorio chcambiinfo. El plugin borra automáticamente los archivos .info en función de la política de retención de la configuración. No limpia las copias innecesarias de los registros de transacciones a menos que habilite explícitamente la administración de registros de transacciones en Snap Creator.
+
+Al configurar la administración del registro de transacciones, asegúrese de encontrar un equilibrio adecuado entre el número de copias archivadas de registros de transacciones que desea retener para operaciones de restauración de último minuto y el tamaño del volumen que contiene el directorio chcambiinfo.
+
+
+IMPORTANT: No configure el parámetro del directorio Registro de archivo en la ruta de los registros de transacciones de Domino. Si lo hace, puede dañar su entorno Domino.
+
+. En el panel Perfiles y configuraciones, seleccione el archivo de configuración y haga clic en la ficha *Administración de registros de archivo*.
+. En la ficha *Administración de registros de archivo*, especifique los siguientes valores para la configuración de administración del registro de transacciones:
++
+|===
+| Parámetro | Ajuste | Descripción 
+
+
+ a| 
+Activar el registro de archivo
+ a| 
+Y
+ a| 
+Permite la limpieza del registro de transacciones.
+
+
+
+ a| 
+Retención del registro de archivo
+ a| 
+Introduzca un valor mayor o igual que el número de días que se conservan las copias de Snapshot.
+ a| 
+La cantidad de días durante los cuales se retendrán los registros de transacciones.
+
+
+
+ a| 
+Directorio de registro de archivo
+ a| 
+registro/información de intercambio
+ a| 
+El directorio que se va a limpiar. *Importante:* no especifique la ruta de los registros de transacciones de Domino. Si lo hace, puede dañar su entorno Domino.
+
+
+
+ a| 
+Extensión del registro de archivo
+ a| 
+ a| 
+Extensión para copias de archivos de registro de transacciones de Domino.
+
+
+
+ a| 
+Búsqueda recursiva de registro de archivo
+ a| 
+N
+ a| 
+El plug-in de Snap Creator coloca los archivos .txn en el subdirectorio logs del directorio chcambiinfo, por lo que no es necesaria una búsqueda recursiva.
+
+|===
+. Haga clic en *Guardar* en el panel Contenido de configuración para guardar los cambios.
+

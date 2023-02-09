@@ -1,0 +1,19 @@
+---
+permalink: installation/concept_upgrading_from_snap_creator_4_3_x.html 
+sidebar: sidebar 
+keywords: upgrading, upgrade, snap, creator, 4.3 
+summary: Puede actualizar desde Snap Creator 4.3.x, incluidas todas las versiones de parches disponibles actualmente. 
+---
+= Actualizar desde Snap Creator 4.3.x
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Puede actualizar desde Snap Creator 4.3.x, incluidas todas las versiones de parches disponibles actualmente.
+
+El procedimiento de actualización es el mismo para Snap Creator Framework 4.1.x y 4.3.x.
+
+
+NOTE: Si actualiza Snap Creator Framework 4.3.1 a una versión de parche 4.3.1, debe omitir el paso final de ejecutar el comando java -jar snapcreator.jar -upgrade.

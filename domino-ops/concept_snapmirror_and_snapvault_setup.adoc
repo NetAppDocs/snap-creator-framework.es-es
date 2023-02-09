@@ -1,0 +1,19 @@
+---
+permalink: domino-ops/concept_snapmirror_and_snapvault_setup.html 
+sidebar: sidebar 
+keywords: domino, ibm, snapmirror, snapvault, setup 
+summary: SnapMirror es la tecnología de recuperación ante desastres diseñada para la conmutación del almacenamiento principal al almacenamiento secundario en un sitio geográficamente remoto. SnapVault es la tecnología de archivado, diseñada para la replicación de copias snapshot disco a disco con el fin de cumplir normativas y para otros fines relacionados con la regulación. 
+---
+= Configuración de SnapMirror y SnapVault
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+SnapMirror es la tecnología de recuperación ante desastres diseñada para la conmutación del almacenamiento principal al almacenamiento secundario en un sitio geográficamente remoto. SnapVault es la tecnología de archivado, diseñada para la replicación de copias snapshot disco a disco con el fin de cumplir normativas y para otros fines relacionados con la regulación.
+
+Antes de poder utilizar Snap Creator con estos productos, debe configurar una relación de protección de datos entre los volúmenes de origen y de destino; a continuación, inicialice la relación.
+
+
+NOTE: Los procedimientos descritos en esta sección describen cómo configurar las relaciones de replicación en Clustered Data ONTAP. Puede encontrar información acerca de cómo configurar estas relaciones en Data ONTAP operando en 7-Mode en la .

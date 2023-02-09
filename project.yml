@@ -1,0 +1,689 @@
+---
+settings:
+  name: Snap Creator Framework
+  internal:
+    pdf_enabled: true
+  prod:
+    pdf_enabled: true
+    harmony_enabled: false
+  langs: es-es,us-en,ja-jp,ko-kr,zh-cn,zh-tw,de-de,fr-fr
+sidebar:
+  entries:
+  - title: Inicio
+    url: "/index.html"
+  - title: Notas de la versión
+    url: "/releasenotes.html"
+  - title: Instalación
+    url: "/installation/index.html"
+    entries:
+    - title: Lo que hace Snap Creator Framework
+      url: "/installation/concept_what_snap_creator_does.html"
+      entries:
+      - title: Arquitectura de Snap Creator
+        url: "/installation/concept_snap_creator_architecture.html"
+        entries:
+        - title: Servidor de Snap Creator
+          url: "/installation/concept_scf_component_server.html"
+        - title: Agente de Snap Creator
+          url: "/installation/concept_scf_component_agent.html"
+        - title: Complementos para la integración de aplicaciones
+          url: "/installation/concept_plug_ins_for_application_integration.html"
+    - title: Requisitos previos a la instalación de Snap Creator
+      url: "/installation/concept_preinstallation_requirements_for_snap_creator.html"
+      entries:
+      - title: Requisitos de instalación y configuración de Snap Creator
+        url: "/installation/concept_snap_creator_installation_and_configuration_requirements.html"
+      - title: Descarga del software Snap Creator
+        url: "/installation/task_downloading_the_snap_creator_software.html"
+      - title: Crear un usuario de Snap Creator para Data ONTAP
+        url: "/installation/concept_creating_a_snap_creator_user_for_data_ontap.html"
+        entries:
+        - title: Creación de un usuario de Snap Creator para Data ONTAP funcionando
+            en 7-Mode
+          url: "/installation/task_creating_a_snap_creator_user_for_data_ontap_operating_in_7_mode.html"
+        - title: Creación de un usuario de Snap Creator para Clustered Data ONTAP
+          url: "/installation/task_creating_a_snap_creator_user_for_clustered_ontap.html"
+      - title: Instalación de Java en hosts de Snap Creator
+        url: "/installation/task_installing_java_on_snap_creator_hosts.html"
+      - title: Sincronización del tiempo en los hosts de Snap Creator Server y Agent
+        url: "/installation/concept_set_up_the_hosts_to_be_in_sync_with_the_same_ntp_server.html"
+      - title: Configuración de los ajustes del complemento Domino
+        url: "/installation/concept_configuring_settings_for_the_domino_plug_in.html"
+        entries:
+        - title: 'Configuración de los ajustes específicos de Windows: Adición de
+            la ruta a las variables de entorno'
+          url: "/installation/task_configure_windows_specific_settings_adding_path_to_the_environment_variables.html"
+        - title: 'Configuración de la configuración específica de UNIX: Creación de
+            enlaces simbólicos'
+          url: "/installation/concept_configuring_unix_specific_settings_creating_symbolic_links.html"
+          entries:
+          - title: Creación de enlaces simbólicos para el plugin Domino en hosts Linux
+              y Solaris
+            url: "/installation/task_creating_symbolic_links_for_domino_plug_in_on_linux_and_solaris_hosts.html"
+          - title: Creación de enlaces simbólicos para el plugin de Domino en hosts
+              AIX
+            url: "/installation/task_creating_symbolic_links_for_domino_plug_in_on_aix_hosts.html"
+    - title: Instalar el servidor de Snap Creator
+      url: "/installation/concept_installing_the_snap_creator_server.html"
+      entries:
+      - title: Instalar Snap Creator Server en un host de Windows
+        url: "/installation/task_installing_the_snap_creator_server_on_a_windows_host.html"
+        entries:
+        - title: Inicio del servidor desde el símbolo del sistema
+          url: "/installation/task_starting_the_server_from_a_command_prompt.html"
+      - title: Instalar Snap Creator Server en sistemas basados en UNIX
+        url: "/installation/task_installing_the_snap_creator_server_on_unix.html"
+    - title: Instalación del agente de Snap Creator
+      url: "/installation/concept_install_snap_creator_agent.html"
+      entries:
+      - title: Instalación del agente de Snap Creator en Windows
+        url: "/installation/task_installing_snap_creator_agent_on_windows.html"
+        entries:
+        - title: Iniciar el agente desde un símbolo del sistema
+          url: "/installation/task_starting_the_agent_from_a_command_prompt.html"
+      - title: Instalación del agente de Snap Creator en sistemas basados en UNIX
+        url: "/installation/task_installing_the_snap_creator_agent_on_unix.html"
+      - title: Cambiar el puerto del agente de Snap Creator tras la instalación
+        url: "/installation/task_changing_the_snap_creator_agent_port_after_installation.html"
+    - title: Actualizar Snap Creator
+      url: "/installation/concept_upgrading_snap_creator.html"
+      entries:
+      - title: Comprobando el tamaño del monitor de trabajo
+        url: "/installation/task_checking_job_monitor_size.html"
+      - title: Actualizar desde versiones anteriores a Snap Creator 3.6
+        url: "/installation/concept_upgrading_from_releases_earlier_than_snap_creator_3_6.html"
+      - title: Actualizar desde Snap Creator 3.6.x
+        url: "/installation/concept_upgrading_from_snap_creator_3_6_x.html"
+        entries:
+        - title: Actualizar Snap Creator Server 3.6.x en Windows
+          url: "/installation/task_upgrading_the_snap_creator_server_3_6_x_on_windows.html"
+        - title: Actualizar Snap Creator Server 3.6.x en sistemas basados en UNIX
+          url: "/installation/task_upgrading_the_snap_creator_server_3_6_x_on_unix.html"
+        - title: Actualizar Snap Creator Agent 3.6.x en Windows
+          url: "/installation/task_upgrading_the_snap_creator_agent_3_6_x_on_windows.html"
+        - title: Actualización de Snap Creator Agent 3.6.x en UNIX
+          url: "/installation/task_upgrading_the_snap_creator_agent_3_6_x_on_unix.html"
+      - title: Actualizar desde Snap Creator 4.0.x
+        url: "/installation/concept_upgrading_from_snap_creator_4_0_x.html"
+        entries:
+        - title: Actualizar Snap Creator Server 4.0.x en Windows
+          url: "/installation/task_upgrading_the_snap_creator_server_4_0_x_on_windows.html"
+        - title: Actualizar Snap Creator Server 4.0.x en sistemas basados en UNIX
+          url: "/installation/task_upgrading_the_snap_creator_server_4_0_x_on_unix.html"
+        - title: Actualizar Snap Creator Agent 4.0.x en Windows
+          url: "/installation/task_upgrading_the_snap_creator_agent_4_0_x_on_windows.html"
+        - title: Actualización de Snap Creator Agent 4.0.x en UNIX
+          url: "/installation/task_upgrading_the_snap_creator_agent_4_0_x_on_unix.html"
+      - title: Actualizar desde Snap Creator 4.1.x
+        url: "/installation/concept_upgrading_from_snap_creator_4_1.html"
+        entries:
+        - title: Actualizar Snap Creator Server 4.1.x en Windows
+          url: "/installation/task_upgrading_snap_creator_server_4_1_x_on_windows.html"
+        - title: Actualizar Snap Creator Server 4.1.x en sistemas basados en UNIX
+          url: "/installation/task_upgrading_snap_creator_server_4_1_x_on_unix_based_systems.html"
+        - title: Actualizar Snap Creator Agent 4.1.x en Windows
+          url: "/installation/task_upgrading_snap_creator_agent_4_1_x_on_windows.html"
+        - title: Actualizar Snap Creator Agent 4.1.x en sistemas basados en UNIX
+          url: "/installation/task_upgrading_snap_creator_agent_4_1_x_on_unix.html"
+      - title: Actualizar desde Snap Creator 4.3.x
+        url: "/installation/concept_upgrading_from_snap_creator_4_3_x.html"
+    - title: Desinstalando Snap Creator
+      url: "/installation/concept_uninstalling_snap_creator.html"
+      entries:
+      - title: Desinstalar Snap Creator en Windows
+        url: "/installation/task_uninstalling_snap_creator_on_windows.html"
+      - title: Desinstalar Snap Creator en UNIX
+        url: "/installation/concept_uninstalling_snap_creator_on_unix.html"
+        entries:
+        - title: Desinstalación de Snap Creator Agent en UNIX
+          url: "/installation/task_uninstalling_snap_creator_agent_from_unix.html"
+        - title: Desinstalar Snap Creator Server en UNIX
+          url: "/installation/task_uninstalling_snap_creator_server_on_unix.html"
+    - title: Referencia de CLI
+      url: "/installation/concept_cli_reference.html"
+      entries:
+      - title: Comandos de la CLI para crear un rol para un usuario de Snap Creator
+          en Clustered Data ONTAP
+        url: "/installation/reference_cli_commands_for_creating_a_role_for_a_snap_creator_user_in_clustered_data_ontap.html"
+        entries:
+        - title: Comandos de la CLI para crear roles de clúster
+          url: "/installation/reference_cli_command_for_creating_cluster_roles.html"
+        - title: Comandos de la CLI para crear roles de SVM
+          url: "/installation/reference_cli_commands_for_creating_svm_roles.html"
+  - title: Operaciones del complemento IBM® Domino®
+    url: "/domino-ops/index.html"
+    entries:
+    - title: Información general sobre el complemento IBM Domino
+      url: "/domino-ops/concept_ibm_domino_plug_in_overview.html"
+      entries:
+      - title: Comprender las operaciones de backup del plugin de IBM Domino
+        url: "/domino-ops/concept_backup_operations_using_domino_plug_in.html"
+      - title: Comprender las operaciones de restauración del plugin de IBM Domino
+        url: "/domino-ops/concept_restore_operations_using_domino_plug_in.html"
+    - title: Flujo de trabajo de backup y recuperación de IBM Domino
+      url: "/domino-ops/concept_ibm_domino_backup_and_recovery_workflow.html"
+    - title: Preparación para copia de seguridad y restauración de IBM Domino
+      url: "/domino-ops/concept_preparing_for_ibm_domino_backup_and_restore_operations.html"
+      entries:
+      - title: Requisitos de distribución de almacenamiento
+        url: "/domino-ops/reference_storage_layout_requirements.html"
+      - title: Configuración de SnapMirror y SnapVault
+        url: "/domino-ops/concept_snapmirror_and_snapvault_setup.html"
+        entries:
+        - title: Preparar los sistemas de almacenamiento para la replicación de SnapMirror
+          url: "/domino-ops/task_preparing_storage_systems_for_snapmirror_replication.html"
+        - title: Preparar sistemas de almacenamiento para la replicación de SnapVault
+          url: "/domino-ops/task_preparing_storage_systems_for_snapvault_replication.html"
+    - title: Crear una configuración de backup y restauración
+      url: "/domino-ops/concept_creating_a_configuration_for_domino_using_the_gui.html"
+      entries:
+      - title: Inicio de sesión en la interfaz gráfica de usuario de Snap Creator
+        url: "/domino-ops/concept_general_configuration_file_information.html"
+      - title: Crear un archivo de configuración
+        url: "/domino-ops/task_using_the_gui_to_create_a_configuration_file.html"
+      - title: Adición de comandos a la configuración de backup y restauración
+        url: "/domino-ops/concept_adding_commands_to_the_backup_and_restore_configuration.html"
+        entries:
+        - title: Permitir comandos complementarios en el agente de Snap Creator
+          url: "/domino-ops/concept_allowing_additional_commands_through_the_snap_creator_agent.html"
+        - title: Agregar comandos complementarios a la configuración
+          url: "/domino-ops/task_configuring_snap_creator_to_use_snapdrive_by_using_the_gui.html"
+      - title: Limpieza de copias archivadas de registros de transacciones de Domino
+        url: "/domino-ops/task_setting_the_snap_creator_archive_log_management_settings.html"
+      - title: Hacer una copia de seguridad del directorio chcambiinfo
+        url: "/domino-ops/concept_use_meta_data_volumes_setting_to_back_up_the_changeinfo_directory.html"
+    - title: Realizar backups de bases de datos
+      url: "/domino-ops/concept_create_a_domino_backup_using_snap_creator.html"
+      entries:
+      - title: Realizar backups de bases de datos bajo demanda
+        url: "/domino-ops/task_creating_a_domino_backup_using_the_snap_creator_gui.html"
+      - title: Programación de backups
+        url: "/domino-ops/task_scheduling_actions_using_the_snap_creator_gui.html"
+    - title: Restaurar bases de datos
+      url: "/domino-ops/concept_domino_database_restore_overview.html"
+      entries:
+      - title: Restauración de un volumen
+        url: "/domino-ops/task_performing_point_in_time_volume_restore.html"
+      - title: Restauración de archivos individuales
+        url: "/domino-ops/task_performing_point_in_time_single_file_restore_with_nfs.html"
+      - title: Restaurar archivos individuales en un entorno SAN
+        url: "/domino-ops/concept_single_file_restore_in_fc_iscsi_environments.html"
+        entries:
+        - title: Uso de SnapDrive para montar una copia Snapshot
+          url: "/domino-ops/task_using_snapdrive_for_windows_to_mount_snapshot_copy.html"
+        - title: Copia del archivo en el directorio de restauración de datos
+          url: "/domino-ops/task_copying_files_to_restore_location.html"
+        - title: Usar una acción personalizada de Snap Creator para completar el procesamiento
+            de la restauración
+          url: "/domino-ops/task_running_snap_creator_by_using_the_custom_action.html"
+        - title: Desconectando la copia snapshot
+          url: "/domino-ops/task_disconnecting_snapshot_copy.html"
+    - title: Ver el estado de los trabajos y los registros
+      url: "/domino-ops/concept_accessing_snap_creator_log_files.html"
+      entries:
+      - title: Ver el estado de los trabajos y los registros en Job Monitor
+        url: "/domino-ops/task_using_the_snap_creator_job_monitor_to_review_logs.html"
+      - title: Ver registros en el panel Reports
+        url: "/domino-ops/task_using_the_snap_creator_reports_option_to_view_logs.html"
+      - title: Uso de scdump para recopilar registros en un formato comprimido
+        url: "/domino-ops/task_creating_an_scdump_using_the_snap_creator_gui.html"
+    - title: Solución de problemas de errores específicos del plug-in Domino
+      url: "/domino-ops/reference_domino_plug_in_specific_errors.html"
+    - title: A continuación, ¿dónde ir
+      url: "/domino-ops/reference_references.html"
+  - title: Operaciones del complemento SAP HANA®
+    url: "/sap-hana-ops/index.html"
+    entries:
+    - title: Información general de la solución de backup y restauración de SAP HANA
+      url: "/sap-hana-ops/concept_sap_hana_backup_and_restore_solution_overview.html"
+      entries:
+      - title: Consideraciones para realizar un backup de sistemas SAP HANA
+        url: "/sap-hana-ops/concept_considerations_for_backing_up_sap_hana_systems.html"
+      - title: La solución de NetApp
+        url: "/sap-hana-ops/concept_the_netapp_solution.html"
+      - title: Componentes de la solución de backup
+        url: "/sap-hana-ops/concept_backup_solution_components.html"
+      - title: Información general sobre el plugin de SAP HANA
+        url: "/sap-hana-ops/concept_sap_hana_plug_in_overview.html"
+      - title: Requisitos
+        url: "/sap-hana-ops/concept_requirements.html"
+    - title: Instalar y configurar los componentes de software necesarios
+      url: "/sap-hana-ops/task_installing_and_configuring_required_software_components.html"
+      entries:
+      - title: Supuestos de configuración en esta guía
+        url: "/sap-hana-ops/concept_setup_assumptions_in_this_guide.html"
+      - title: Configuración utilizada con Clustered Data ONTAP
+        url: "/sap-hana-ops/concept_setup_used_with_clustered_data_ontap.html"
+    - title: Configuración de backups de datos
+      url: "/sap-hana-ops/concept_configuring_data_backups.html"
+      entries:
+      - title: Configuración del usuario de copia de seguridad y hdbuserstore
+        url: "/sap-hana-ops/task_configuring_the_backup_user_and_hdbuserstore.html"
+      - title: Configurar las relaciones de SnapVault
+        url: "/sap-hana-ops/task_configuring_snapvault_relationships.html"
+      - title: Iniciar las relaciones de SnapVault
+        url: "/sap-hana-ops/concept_starting_the_snapvault_relationships.html"
+        entries:
+        - title: Iniciar las relaciones de SnapVault con Data ONTAP funcionando en
+            7-Mode
+          url: "/sap-hana-ops/task_starting_the_snapvault_relationships_with_data_ontap_operating_in_7_mode.html"
+        - title: Inicio de las relaciones de SnapVault con Clustered Data ONTAP
+          url: "/sap-hana-ops/task_starting_the_snapvault_relationships_with_clustered_data_ontap.html"
+      - title: Configurar el backup de la base de datos SAP HANA y Snap Creator Framework
+        url: "/sap-hana-ops/task_configuring_the_snap_creator_framework_and_sap_hana_database_backup.html"
+    - title: Configurar SAP HANA para entornos SAN
+      url: "/sap-hana-ops/task_configuring_sap_hana_for_san_environments.html"
+    - title: Configuración de backups de registros
+      url: "/sap-hana-ops/task_configuring_log_backups.html"
+      entries:
+      - title: Mantenimiento de backups de registros
+        url: "/sap-hana-ops/concept_housekeeping_of_log_backups.html"
+      - title: Modificar el mantenimiento de backups de registros
+        url: "/sap-hana-ops/task_modifying_the_housekeeping_of_log_backups.html"
+    - title: Ejecución de backups de base de datos
+      url: "/sap-hana-ops/concept_executing_database_backups.html"
+      entries:
+      - title: Información general sobre backups de bases de datos
+        url: "/sap-hana-ops/task_overview_of_database_backups.html"
+      - title: Realizar backups de la base de datos con la interfaz gráfica de usuario
+          de Snap Creator
+        url: "/sap-hana-ops/task_backing_up_the_database_with_the_snap_creator_gui.html"
+      - title: Realizar backups de la base de datos con la línea de comandos de Snap
+          Creator
+        url: "/sap-hana-ops/task_backing_up_the_database_with_snap_creator_command_line.html"
+      - title: Revisión de backups disponibles en SAP HANA Studio
+        url: "/sap-hana-ops/concept_reviewing_available_backups_in_sap_hana_studio.html"
+    - title: Comprobaciones de backup e integridad de bases de datos basadas en archivos
+        de SAP HANA
+      url: "/sap-hana-ops/concept_sap_hana_file_based_backup_and_database_integrity_checks.html"
+      entries:
+      - title: Modificación de la configuración de copia de seguridad basada en archivos
+        url: "/sap-hana-ops/task_modifying_configuration_for_file_based_backup.html"
+      - title: Modificación de la configuración de comprobaciones de integridad de
+          base de datos
+        url: "/sap-hana-ops/task_modifying_configuration_for_database_integrity_checks.html"
+      - title: Programación de backups basados en archivos
+        url: "/sap-hana-ops/task_scheduling_file_based_backup.html"
+      - title: Programar comprobaciones de integridad de la base de datos
+        url: "/sap-hana-ops/task_scheduling_database_integrity_checks.html"
+      - title: Realizar backups basados en archivos desde la interfaz gráfica de usuario
+          de Snap Creator
+        url: "/sap-hana-ops/task_performing_file_based_backup_from_the_snap_creator_gui.html"
+      - title: Realización de backups basados en archivos desde la línea de comandos
+          de Snap Creator
+        url: "/sap-hana-ops/task_performing_file_based_backup_from_snap_creator_command_line.html"
+      - title: Realizar comprobaciones de integridad de la base de datos desde la
+          interfaz gráfica de usuario de Snap Creator
+        url: "/sap-hana-ops/task_performing_database_integrity_checks_with_snap_creator_gui.html"
+      - title: Realizar comprobaciones de integridad de la base de datos desde la
+          línea de comandos de Snap Creator
+        url: "/sap-hana-ops/task_performing_database_integrity_checks_from_snap_creator_command_line.html"
+    - title: Restaurar y recuperar bases de datos SAP HANA
+      url: "/sap-hana-ops/task_restoring_and_recovering_sap_hana_databases.html"
+      entries:
+      - title: Restaurar y recuperar bases de datos a partir del almacenamiento primario
+        url: "/sap-hana-ops/task_restoring_and_recovering_databases_from_primary_storage.html"
+      - title: Restaurar y recuperar bases de datos a partir de almacenamiento secundario
+        url: "/sap-hana-ops/task_restoring_and_recovering_database_from_secondary_storage.html"
+      - title: Reanudar una relación de SnapVault después de una restauración
+        url: "/sap-hana-ops/concept_resuming_a_snapvault_relationship_after_a_restore.html"
+        entries:
+        - title: Reanudación de una relación de SnapVault con Data ONTAP en 7-Mode
+          url: "/sap-hana-ops/task_resuming_a_snapvault_relationship_with_data_ontap_operating_in_7_mode.html"
+        - title: Reanudar una relación de SnapVault con Clustered Data ONTAP
+          url: "/sap-hana-ops/task_resuming_a_snapvault_relationship_with_clustered_data_ontap.html"
+      - title: Restauración de bases de datos después de un fallo en el almacenamiento
+          primario
+        url: "/sap-hana-ops/concept_restoring_databases_after_primary_storage_failure.html"
+        entries:
+        - title: Restauración de bases de datos después de un fallo de almacenamiento
+            primario con Data ONTAP en 7-Mode
+          url: "/sap-hana-ops/task_restoring_databases_after_a_primary_storage_failure_with_data_ontap_operating_in_7_mode.html"
+        - title: Restauración de bases de datos después de un fallo de almacenamiento
+            principal con Clustered Data ONTAP
+          url: "/sap-hana-ops/task_restoring_databases_after_a_primary_storage_failure_with_clustered_data_ontap.html"
+    - title: Parámetros del plugin de SAP HANA
+      url: "/sap-hana-ops/reference_sap_hana_plug_in_parameters.html"
+    - title: Resolución de problemas
+      url: "/sap-hana-ops/reference_troubleshooting.html"
+    - title: A continuación, ¿dónde ir
+      url: "/sap-hana-ops/reference_where_to_go_next_sap_hana.html"
+  - title: Administración
+    url: "/administration/index.html"
+    entries:
+    - title: Lo que hace Snap Creator Framework
+      url: "/administration/concept_what_snap_creator_does.html"
+      entries:
+      - title: Ventajas de utilizar Snap Creator
+        url: "/administration/concept_benefits_of_using_snap_creator.html"
+    - title: Arquitectura de Snap Creator
+      url: "/administration/concept_snap_creator_architecture.html"
+      entries:
+      - title: Descripción general de Snap Creator Server
+        url: "/administration/concept_what_snap_creator_server_overview.html"
+      - title: Descripción general del agente de Snap Creator
+        url: "/administration/concept_what_snap_creator_agent_is.html"
+      - title: Complementos para la integración de aplicaciones
+        url: "/administration/concept_scf_component_plug_ins_ag.html"
+    - title: Gestión de Snap Creator Server
+      url: "/administration/concept_managing_snap_creator_server.html"
+      entries:
+      - title: Inicio, verificación y detención de Snap Creator Server en Windows
+        url: "/administration/task_starting_verifying_and_stopping_the_snap_creator_server_on_windows.html"
+      - title: Iniciar, verificar y detener Snap Creator Server en UNIX
+        url: "/administration/task_starting_verifying_and_stopping_the_snap_creator_server_on_unix.html"
+      - title: Cambiar el puerto de Snap Creator Server tras la instalación
+        url: "/administration/task_changing_the_snap_creator_server_port.html"
+      - title: Configurar las credenciales del servidor de Snap Creator
+        url: "/administration/task_setting_snap_creator_server_credentials.html"
+    - title: Administrar el agente de Snap Creator
+      url: "/administration/concept_managing_snap_creator_agent.html"
+      entries:
+      - title: Inicio, verificación y detención del agente de Snap Creator en Windows
+        url: "/administration/task_starting_verifying_and_stopping_the_snap_creator_agent_on_windows.html"
+      - title: Inicio, verificación y detención de Snap Creator Agent en UNIX
+        url: "/administration/task_starting_verifying_and_stopping_the_snap_creator_agent_on_unix.html"
+      - title: Cambiar el puerto del agente de Snap Creator tras la instalación
+        url: "/administration/task_changing_the_snap_creator_agent_port_after_installation.html"
+      - title: Seguridad del agente de Snap Creator
+        url: "/administration/concept_snap_creator_agent_security.html"
+        entries:
+        - title: Administración de la seguridad del agente de Snap Creator
+          url: "/administration/task_managing_snap_creator_agent_security.html"
+        - title: Personalización del almacén de claves predeterminado
+          url: "/administration/task_customizing_the_default_keystore.html"
+    - title: Flujo de trabajo de backup y recuperación
+      url: "/administration/concept_backup_and_recovery_workflow_with_plug_ins.html"
+      entries:
+      - title: Creación de perfiles
+        url: "/administration/task_creating_profiles.html"
+      - title: Crear archivos de configuración global
+        url: "/administration/task_creating_global_configuration_files.html"
+      - title: Creando archivos de configuración
+        url: "/administration/task_creating_configuration_files_using_sc_gui.html"
+      - title: Crear backups
+        url: "/administration/task_creating_backups_using_the_snap_creator_gui.html"
+      - title: Supervisar trabajos de
+        url: "/administration/task_monitoring_jobs_using_the_gui.html"
+      - title: Supervisión de registros
+        url: "/administration/task_monitoring_logs_by_using_the_snap_creator_gui.html"
+      - title: Creación de trabajos programados
+        url: "/administration/task_creating_scheduled_jobs_using_sc_gui.html"
+      - title: Creación de políticas de retención
+        url: "/administration/concept_creating_retention_policies.html"
+        entries:
+        - title: Directrices para definir políticas de Snap Creator
+          url: "/administration/concept_guidelines_to_define_snap_creator_policies.html"
+        - title: Creando tipos de backup
+          url: "/administration/task_creating_backup_types.html"
+        - title: Creación de programaciones de políticas
+          url: "/administration/task_creating_policy_schedules.html"
+        - title: Crear políticas
+          url: "/administration/task_creating_policies.html"
+        - title: Asignación de políticas
+          url: "/administration/task_assigning_policies.html"
+      - title: Crear clones
+        url: "/administration/concept_creating_clones.html"
+        entries:
+        - title: Crear clones a partir de un backup nuevo
+          url: "/administration/task_creating_clones_from_a_new_backup.html"
+        - title: Crear clones a partir de un backup existente
+          url: "/administration/task_creating_clones_using_a_mounted_backup.html"
+      - title: Realizando operaciones de restauración
+        url: "/administration/concept_performing_restore_operations.html"
+        entries:
+        - title: Restauración de volúmenes
+          url: "/administration/task_performing_volume_restore_using_the_gui.html"
+        - title: Ejecución de operaciones de restauración de archivos individuales
+          url: "/administration/task_performing_single_file_restore_using_the_gui.html"
+        - title: Realización de operaciones de restauración definidas por la aplicación
+          url: "/administration/task_performing_application_defined_restore_operations.html"
+    - title: Gestión del acceso de usuarios
+      url: "/administration/concept_managing_user_access.html"
+      entries:
+      - title: Creando usuarios de Snap Creator
+        url: "/administration/task_creating_users.html"
+      - title: Asignar perfiles a usuarios de Snap Creator
+        url: "/administration/task_assigning_profiles_to_snap_creator_users.html"
+      - title: Ver una lista de usuarios de Snap Creator y perfiles asignados mediante
+          la CLI
+        url: "/administration/task_viewing_a_list_of_users_with_profiles_by_using_the_cli.html"
+      - title: Creando roles de Snap Creator
+        url: "/administration/task_creating_snap_creator_roles.html"
+      - title: Asignar roles a usuarios de Snap Creator
+        url: "/administration/task_assigning_roles_to_snap_creator_users.html"
+      - title: Ver una lista de usuarios de Snap Creator y roles asignados
+        url: "/administration/task_viewing_a_list_of_snap_creator_users_by_using_the_gui.html"
+      - title: Ver los usuarios de Snap Creator asignados a un rol mediante la CLI
+        url: "/administration/task_viewing_user_names_assigned_to_a_role_by_using_the_cli.html"
+      - title: Crear permisos de Snap Creator mediante la CLI
+        url: "/administration/task_creating_snap_creator_permissions.html"
+      - title: Asignar permisos a roles de Snap Creator
+        url: "/administration/task_assigning_permissions_to_snap_creator_roles.html"
+      - title: Crear una lista de todos los permisos de Snap Creator mediante la CLI
+        url: "/administration/task_viewing_a_list_all_snap_creator_permissions_by_using_the_cli.html"
+      - title: Ver los permisos de Snap Creator asignados a un rol
+        url: "/administration/task_viewing_permissions_assigned_to_a_role_by_using_the_gui.html"
+    - title: Gestión de perfiles
+      url: "/administration/concept_managing_profiles.html"
+      entries:
+      - title: Creación de perfiles
+        url: "/administration/task_creating_profiles.html"
+      - title: Ver perfiles
+        url: "/administration/task_viewing_snap_creator_profiles.html"
+      - title: Eliminar perfiles
+        url: "/administration/task_deleting_snap_creator_profiles.html"
+    - title: Gestión de archivos de configuración
+      url: "/administration/concept_managing_configuration_files.html"
+      entries:
+      - title: Creando archivos de configuración
+        url: "/administration/task_creating_configuration_files_using_sc_gui.html"
+      - title: Crear nuevos archivos de configuración descargando los archivos de
+          configuración existentes
+        url: "/administration/task_creating_new_configuration_files_by_downloading_existing_configuration_files.html"
+      - title: Crear nuevos archivos de configuración copiando los archivos de configuración
+          existentes
+        url: "/administration/task_creating_new_configuration_files_by_copying_existing_configuration_files_using_the_cli.html"
+      - title: Ver una lista de archivos de configuración asignados a un perfil
+        url: "/administration/task_viewing_assigned_configuration_files_for_a_profile.html"
+      - title: Eliminar archivos de configuración de un perfil
+        url: "/administration/task_deleting_configuration_files.html"
+    - title: Gestión de políticas de retención
+      url: "/administration/concept_managing_policies.html"
+      entries:
+      - title: Creando tipos de backup
+        url: "/administration/task_creating_backup_types.html"
+      - title: Creación de programaciones de políticas
+        url: "/administration/task_creating_policy_schedules.html"
+      - title: Crear políticas
+        url: "/administration/task_creating_policies.html"
+      - title: Asignación de políticas
+        url: "/administration/task_assigning_policies.html"
+      - title: Visualización de políticas de retención
+        url: "/administration/task_viewing_policies.html"
+      - title: Eliminar políticas de retención
+        url: "/administration/task_deleting_retention_policies.html"
+    - title: Gestionar backups
+      url: "/administration/concept_managing_backups.html"
+      entries:
+      - title: Debe realizarse una copia de seguridad de la información de Snap Creator
+        url: "/administration/reference_what_you_should_back_up.html"
+      - title: Crear backups
+        url: "/administration/task_creating_backups_using_the_snap_creator_gui.html"
+      - title: Ver una lista de copias de seguridad de un archivo de configuración
+        url: "/administration/task_viewing_a_list_of_backup_copies_of_a_configuration_file.html"
+      - title: Eliminar backups
+        url: "/administration/task_deleting_backups.html"
+    - title: Gestión de trabajos programados
+      url: "/administration/concept_managing_scheduled_jobs.html"
+      entries:
+      - title: Creación de trabajos programados
+        url: "/administration/task_creating_scheduled_jobs_using_sc_gui.html"
+      - title: Ejecución de trabajos programados
+        url: "/administration/task_running_a_scheduled_job.html"
+      - title: Visualización de una lista de trabajos programados
+        url: "/administration/task_viewing_a_list_of_scheduled_jobs.html"
+      - title: Edición de trabajos programados
+        url: "/administration/task_editing_scheduled_jobs.html"
+      - title: Eliminación de trabajos programados
+        url: "/administration/task_deleting_scheduled_jobs.html"
+    - title: Gestionar clones
+      url: "/administration/concept_managing_clones.html"
+      entries:
+      - title: Crear clones a partir de un backup nuevo
+        url: "/administration/task_creating_clones_from_a_new_backup.html"
+      - title: Crear clones a partir de un backup existente
+        url: "/administration/task_creating_clones_using_a_mounted_backup.html"
+      - title: Desmontar clones
+        url: "/administration/task_deleting_clones.html"
+    - title: Es necesario contar con información sobre el complemento para configurar
+        Snap Creator
+      url: "/administration/reference_information_required_to_configure_snap_creator.html"
+      entries:
+      - title: Plugin de registro de archivo
+        url: "/administration/reference_archive_log_plug_in.html"
+      - title: Complemento Citrix XenServer
+        url: "/administration/reference_citrix_xen_plug_in.html"
+      - title: Complemento DB2
+        url: "/administration/reference_db2_plug_in.html"
+      - title: Complemento IBM Domino
+        url: "/administration/reference_ibm_domino_plug_in.html"
+      - title: Plug-in maxdb
+        url: "/administration/reference_maxdb_plug_in.html"
+      - title: Plugin de MySQL
+        url: "/administration/reference_mysql_plug_in_parameters_settings_and_descriptions.html"
+      - title: Plugin de Oracle
+        url: "/administration/reference_oracle_plug_in.html"
+      - title: Directrices sobre el complemento Red Hat KVM
+        url: "/administration/reference_red_hat_kvm_plug_in.html"
+      - title: Complemento de SAP HANA
+        url: "/administration/reference_sap_hana_plug_in.html"
+      - title: Complemento de SnapManager para Microsoft Exchange
+        url: "/administration/reference_snapmanager_for_microsoft_exchange_plug_in.html"
+      - title: Complemento de SnapManager para Microsoft SQL Server
+        url: "/administration/reference_snapmanager_for_microsoft_sql_server_plug_in.html"
+      - title: Complemento ASE de Sybase
+        url: "/administration/reference_sybase_plug_in.html"
+      - title: Complemento de VMware VIBE
+        url: "/administration/reference_vmware_vibe_plug_in.html"
+        entries:
+        - title: Requisitos para las operaciones de backup y restauración de vCloud
+            vApp mediante el complemento de VMware
+          url: "/administration/concept_requirements_for_vcloud_vapp_backup_and_restore_operations_using_the_vmware_plug_in.html"
+        - title: Backup y restauración de máquinas virtuales mediante el complemento
+            VMware
+          url: "/administration/concept_vm_backup_and_restore_using_vmware_plug_in.html"
+      - title: Uso del marco de plugins para crear plugins personalizados
+        url: "/administration/concept_using_the_plug_in_framework_to_create_custom_plug_ins.html"
+      - title: Configurar Snap Creator para operaciones de inactividad de aplicaciones
+          multinivel cuando se utilizan complementos del hipervisor
+        url: "/administration/task_configuring_snap_creator_for_multilevel_application_quiesce_operations.html"
+    - title: Solucionar problemas de Snap Creator
+      url: "/administration/reference_troubleshooting_snap_creator_issues.html"
+      entries:
+      - title: Tipos de mensajes de error y registros de solución de problemas
+        url: "/administration/reference_logs.html"
+        entries:
+        - title: Realización de un volcado de Snap Creator
+          url: "/administration/task_running_a_snap_creator_dump.html"
+      - title: Solucionar los errores de la interfaz gráfica de usuario de Snap Creator
+        url: "/administration/concept_troubleshooting_snap_creator_gui_errors.html"
+        entries:
+        - title: No se puede conectar a la GUI de Snap Creator
+          url: "/administration/reference_cannot_connect_to_the_gui.html"
+        - title: Error al iniciar la GUI de Snap Creator
+          url: "/administration/reference_error_starting_the_gui.html"
+      - title: Solucionar problemas de red
+        url: "/administration/reference_troubleshooting_network_issues.html"
+      - title: Resolución de problemas de seguridad
+        url: "/administration/concept_troubleshooting_security_issues.html"
+        entries:
+        - title: Defectos criptográficos en Seguridad de la capa de transporte
+          url: "/administration/reference_transport_layer_security_tls.html"
+        - title: El certificado SSL autofirmado no coincide con la URL
+          url: "/administration/reference_self_signed_ssl_certificate.html"
+        - title: Se requiere un certificado SSL firmado por CA para Snap Creator Framework
+          url: "/administration/reference_ca_signed_ssl_certificate.html"
+      - title: Solucionar problemas de Snap Creator Server o Snap Creator Agent
+        url: "/administration/concept_troubleshooting_snap_creator_server_or_agent_issues.html"
+        entries:
+        - title: El servidor o el agente de Snap Creator no se está iniciando
+          url: "/administration/reference_snap_creator_server_or_agent_not_starting.html"
+        - title: El agente de Snap Creator no responde
+          url: "/administration/reference_snap_creator_agent_not_responding.html"
+        - title: Restablecimiento de la contraseña de Snap Creator
+          url: "/administration/reference_snap_creator_password_reset.html"
+      - title: Solucionar problemas de errores de comandos de la CLI
+        url: "/administration/concept_troubleshooting_cli_command_errors.html"
+        entries:
+        - title: El comando CLI produce un error Prohibido 403
+          url: "/administration/reference_cli_command_results_in_403_forbidden_error.html"
+        - title: El comando de la CLI produce un error 404 no se encuentra
+          url: "/administration/reference_cli_command_results_in_404_not_found_error.html"
+        - title: El comando CLI produce un error de objeto 500 no se puede encontrar
+          url: "/administration/reference_cli_command_results_in_500_cannot_locate_object_error.html"
+        - title: El comando de la CLI produce un error de conexión con errores 500
+          url: "/administration/reference_cli_command_results_in_500_connect_failed_error.html"
+      - title: ClonVol informa que no existe agregado
+        url: "/administration/reference_clonevol_reports_that_aggregate_does_not_exist.html"
+      - title: Mensajes de error
+        url: "/administration/reference_error_messages.html"
+        entries:
+        - title: Mensajes de error de Snap Creator Framework
+          url: "/administration/reference_snap_creator_framework_error_messages.html"
+        - title: Mensajes de error del agente de Snap Creator
+          url: "/administration/reference_snap_creator_agent_error_messages.html"
+        - title: Mensajes de error del repositorio
+          url: "/administration/reference_repository_error_messages.html"
+        - title: Mensajes de error de almacenamiento
+          url: "/administration/reference_storage_error_messages.html"
+        - title: Mensajes de error de la interfaz gráfica de usuario de Snap Creator
+          url: "/administration/reference_snap_creator_gui_error_messages.html"
+    - title: Variables, parámetros y comandos del archivo de configuración de Snap
+        Creator
+      url: "/administration/reference_snap_creator_configuration_file_variables.html"
+      entries:
+      - title: Descripciones de variables y parámetros de Snap Creator
+        url: "/administration/reference_snap_creator_variable_and_parameter_descriptions.html"
+      - title: Parámetros para configurar el cliente host de Snap Creator Agent y
+          el servidor de Snap Creator
+        url: "/administration/reference_parameters_used_to_configure_the_client_and_server.html"
+      - title: Para conectarse a las unidades vFiler e interfaces
+        url: "/administration/reference_parameters_to_connect_to_vfiler_units_and_interface.html"
+      - title: Parámetros para configurar las operaciones de clonado
+        url: "/administration/reference_parameters_to_set_up_cloning.html"
+      - title: Parámetros para configurar la gestión de eventos
+        url: "/administration/reference_parameters_to_set_up_event_management.html"
+      - title: Parámetros para configurar la consola de Operations Manager
+        url: "/administration/reference_parameters_to_set_up_operations_manager_console.html"
+      - title: Parámetros para configurar OSSV
+        url: "/administration/reference_parameters_to_set_up_ossv.html"
+      - title: Parámetros para configurar SnapMirror
+        url: "/administration/reference_parameters_to_set_up_snapmirror.html"
+      - title: Parámetros para configurar las copias Snapshot
+        url: "/administration/reference_parameters_to_set_up_a_snapshot_copy.html"
+      - title: Parámetros para configurar SnapVault
+        url: "/administration/reference_parameters_to_set_up_snapvault.html"
+      - title: Parámetros para configurar la funcionalidad de protección de datos
+          de la Consola de gestión de NetApp
+        url: "/administration/reference_parameters_to_set_up_netapp_management_console_data_protection_capability.html"
+      - title: Comandos de APLICACIÓN
+        url: "/administration/reference_app_commands.html"
+      - title: Comandos de montaje y desmontaje
+        url: "/administration/reference_mount_and_unmount_commands.html"
+      - title: COMANDOS PREVIOS
+        url: "/administration/reference_pre_commands.html"
+      - title: COMANDOS POSTERIORES
+        url: "/administration/reference_post_commands.html"
+    - title: Terminología de Snap Creator
+      url: "/administration/reference_snap_creator_terminology.html"
+    - title: Directrices para usar la interfaz de línea de comandos de Snap Creator
+      url: "/administration/reference_guidelines_for_using_the_snap_creator_command_line.html"
+      entries:
+      - title: Comandos de la CLI de Snap Creator para acciones del flujo de trabajo
+        url: "/administration/reference_snap_creator_cli_commands_for_workflow_actions.html"
+      - title: Comandos que se utilizan para gestionar el acceso de usuarios de Snap
+          Creator
+        url: "/administration/reference_cli_command_for_snap_creator_rbac_actions.html"
+  - title: Avisos legales
+    url: "/reference_legal_notices.html"

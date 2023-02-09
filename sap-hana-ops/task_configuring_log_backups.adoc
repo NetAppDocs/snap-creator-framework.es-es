@@ -1,0 +1,31 @@
+---
+permalink: sap-hana-ops/task_configuring_log_backups.html 
+sidebar: sidebar 
+keywords: configuring, log, backups 
+summary: Los backups de registros deben almacenarse en un sistema de almacenamiento diferente al del almacenamiento primario. El sistema de almacenamiento que se utiliza para el backup de datos también puede usarse para el backup de registros. 
+---
+= Configuración de backups de registros
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Los backups de registros deben almacenarse en un sistema de almacenamiento diferente al del almacenamiento primario. El sistema de almacenamiento que se utiliza para el backup de datos también puede usarse para el backup de registros.
+
+En el almacenamiento secundario, se debe configurar un volumen para contener los backups de registros. Asegúrese de que estén desactivadas las copias snapshot automáticas en este volumen.
+
+. Monte el volumen en cada nodo de la base de datos, ya sea ejecutando el comando de montaje o editando el archivo de tabla de sistema de archivos (fstab).
++
+[listing]
+----
+hana2b:/vol/backup_log_ANA /mnt/backup_log_ANA nfs
+rw,bg,vers=3,hard,timeo=600,rsize=65536,wsize=65536,actimeo=0,noatime   0  0
+----
++
+En SAP HANA Studio, el destino del backup de registros se configura como se muestra en la siguiente figura.
+
++
+image::../media/sap_hana_studio_log_backup_destination_gui.gif[Esta imagen se explica por el texto circundante.]
+
+

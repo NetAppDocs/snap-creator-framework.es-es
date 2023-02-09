@@ -1,0 +1,128 @@
+---
+permalink: administration/reference_oracle_plug_in.html 
+sidebar: sidebar 
+keywords: oracle, plug-in, sql, plus, database, quiesce, unquiesce, oracle, database 
+summary: El plugin de Oracle utiliza SQL*Plus para comunicarse con la base de datos y la base de datos de oracle QUIESCE y UNQUIESCE para el backup. 
+---
+= Plugin de Oracle
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+El plugin de Oracle utiliza SQL*Plus para comunicarse con la base de datos y la base de datos de oracle QUIESCE y UNQUIESCE para el backup.
+
+El plugin de Snap Creator Oracle es compatible con Oracle Automatic Storage Management (backups en línea o sin conexión) y backup en línea de una configuración de base de datos RAC. La matriz de interoperabilidad contiene la información más reciente sobre soporte y compatibilidad.
+
+Para utilizar C Shell (CSH) con el complemento Oracle en plataformas UNIX o Linux, se deben cumplir las siguientes condiciones:
+
+* SNAP Creator Agent debe iniciarse como usuario de Oracle, en lugar del usuario raíz.
+* El usuario de Oracle debe tener las variables de entorno adecuadas (ORACLE_HOME y ORACLE_SID) definidas para que funcionen los comandos SQL*Plus dirigidos por el plugin.
++
+Esto se puede lograr usando un archivo de inicio del shell, como ~/.cshrc.
+
+
+
+En la siguiente tabla se enumeran los parámetros del plugin de Oracle, se proporciona su configuración y se describen los siguientes:
+
+|===
+| Parámetro | Ajuste | Descripción 
+
+
+ a| 
+NOMBRE_APLICACIÓN
+ a| 
+Oracle
+ a| 
+Nombre de la aplicación
+
+
+
+ a| 
+BASES DE DATOS_ORACLE
+ a| 
+db_name:user_name
+ a| 
+Lista de bases de datos de Oracle y nombres de usuario varias bases de datos y nombres de usuario pueden especificarse como una lista separada por punto y coma, por ejemplo, `db1:user1;db2:user2`.
+
+
+
+ a| 
+SQLPLUS_CMD
+ a| 
+ a| 
+Ruta al comando sqlplus
+
+
+
+ a| 
+CNTL_FILE_BACKUP_DIR
+ a| 
+ a| 
+Ruta de acceso al directorio donde el usuario debe almacenar los archivos de control de copia de seguridad el usuario de Oracle debe tener los permisos adecuados para este directorio.
+
+
+
+ a| 
+ORA_TEMP
+ a| 
+ a| 
+Ruta de acceso al directorio para almacenar el archivo temporal, por ejemplo, /tmp.el usuario de Oracle debe tener los permisos adecuados para este directorio.
+
+
+
+ a| 
+ARCHIVE_LOG_ONLY
+ a| 
+(Y
+| N 
+
+
+| Política:<Y | N>)  a| 
+Informa al plugin de Oracle para que realice solo un registro de switches.esta opción es útil si gestiona backups de registros de archivos de forma independiente a los backups de datos.
+
+
+
+ a| 
+ORACLE_HOME
+ a| 
+ a| 
+Ruta al directorio inicial de Oracle
+
+
+
+ a| 
+ORACLE_HOME_SID
+ a| 
+ a| 
+Ruta al directorio inicial de Oracle para un identificador de sistema (SID) dado al realizar la copia de seguridad de varias bases de datos, puede ser importante especificar más de un directorio raíz de Oracle.
+
+
+
+ a| 
+ORACLE_EXPORT_PARAMETERS
+ a| 
+(Y
+| N ) 
+
+
+ a| 
+Los parámetros de entorno ORACLE_HOME y ORACLE_SID se exportan mediante el comando export. Esto sólo es aplicable en entornos basados en UNIX o Linux.
+ a| 
+ORACLE_BACKUPMODE
+ a| 
+
+
+
+ a| 
+Opción de configurar backups en línea o sin conexión mediante la normativa de Snap Creator. La opción predeterminada es online. ORACLE_BACKUPMODE=Hourly:online, Daily:offline
+ a| 
+ORACLE_SHUTDOWNABORT
+ a| 
+(Y
+
+|===
+*Información relacionada*
+
+http://mysupport.netapp.com/matrix["Herramienta de matriz de interoperabilidad: mysupport.netapp.com/matrix"]

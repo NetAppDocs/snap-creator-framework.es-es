@@ -1,0 +1,568 @@
+---
+permalink: administration/reference_repository_error_messages.html 
+sidebar: sidebar 
+keywords: table, repository, error, message, global, configuration, repo 
+summary: En la siguiente tabla se enumeran los mensajes de error del repositorio. 
+---
+= Mensajes de error del repositorio
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+En la siguiente tabla se enumeran los mensajes de error del repositorio.
+
+|===
+| Código de error | Mensaje de error | Descripción/resolución 
+
+
+ a| 
+REPO-01001
+ a| 
+La configuración global no existe
+ a| 
+Compruebe si el archivo global.conf existe en la carpeta de configuraciones.
+
+
+
+ a| 
+REPO-01002
+ a| 
+La configuración global ya existe
+ a| 
+El archivo global.conf ya existe en la carpeta de configuraciones. Elimine primero el archivo de configuración global o actualice el archivo existente.
+
+
+
+ a| 
+REPO-01103
+ a| 
+Error al crear la configuración global con el error [%s]
+ a| 
+No se pudo crear el archivo global.conf en la carpeta de configuraciones. Compruebe los permisos del usuario que ejecuta Snap Creator en el directorio.
+
+
+
+ a| 
+REPO-01203
+ a| 
+Error al actualizar la configuración global con el error [%s]
+ a| 
+No se pudo actualizar el archivo global.conf en la carpeta de configuraciones. Compruebe los permisos del usuario que ejecuta Snap Creator en el directorio.
+
+
+
+ a| 
+REPO-01303
+ a| 
+Error al eliminar la configuración global con el error [%s]
+ a| 
+No se pudo quitar el archivo global.conf en la carpeta de configuraciones. Compruebe si el archivo está presente en la carpeta de configuraciones o compruebe los permisos del usuario que ejecuta Snap Creator en el directorio
+
+
+
+ a| 
+REPO-01403
+ a| 
+Error al exportar la configuración global con el error [%s]
+ a| 
+No se pudo leer el archivo global.conf en la carpeta de configuraciones. Compruebe si el archivo de configuración global se ha eliminado.
+
+
+
+ a| 
+REPO-01503
+ a| 
+Error al importar la configuración global [%s] con el error [%s]
+ a| 
+No se pudo actualizar el archivo global.conf en la carpeta de configuraciones. Compruebe los permisos del usuario que ejecuta Snap Creator en el directorio.
+
+
+
+ a| 
+REPO-01603
+ a| 
+Error al recuperar la configuración global con el error [%s]
+ a| 
+No se pudo leer el archivo global.conf en la carpeta de configuraciones. Compruebe si el archivo de configuración global se ha eliminado.
+
+
+
+ a| 
+REPO-02002
+ a| 
+El perfil [%s] ya existe, utilice un nombre diferente.
+ a| 
+Ya existe un perfil con el mismo nombre. Si el perfil no está visible, el usuario no tiene permiso para este perfil.
+
+
+
+ a| 
+REPO-02003
+ a| 
+El perfil [%s] no existe
+ a| 
+Compruebe si el nombre de su perfil se ha cambiado o se ha eliminado. Además, es posible que el usuario no tenga permiso para este perfil.
+
+
+
+ a| 
+REPO-02103
+ a| 
+Error al crear la configuración de perfil global [%s] con el error [%s]
+ a| 
+No se pudo crear el archivo global.conf en el perfil. Compruebe los permisos del usuario que ejecuta Snap Creator en el directorio.
+
+
+
+ a| 
+REPO-02106
+ a| 
+Error al crear la configuración de perfil [%s] con el error [%s]
+ a| 
+No se puede crear el perfil en la carpeta de configuraciones. Compruebe los permisos del usuario que ejecuta Snap Creator en el directorio.
+
+
+
+ a| 
+REPO-02203
+ a| 
+Error al actualizar la configuración del perfil [%s] con el error [%s]
+ a| 
+No se pudo actualizar el perfil en la carpeta de configuraciones. Compruebe los permisos del usuario que ejecuta Snap Creator en el directorio.
+
+
+
+ a| 
+REPO-02213
+ a| 
+Error al cambiar el nombre del perfil [%s] a [%s] con el error [%s]
+ a| 
+No se puede cambiar el nombre del perfil en la carpeta de configuraciones. Compruebe los permisos del usuario que ejecuta Snap Creator en un directorio o compruebe si ya se ha cambiado el nombre o eliminado de su perfil.
+
+
+
+ a| 
+REPO-02303
+ a| 
+Error al eliminar la configuración de perfil [%s]
+ a| 
+
+
+
+ a| 
+REPO-02403
+ a| 
+Error al exportar la configuración de perfil [%s] con el error [%s]
+ a| 
+
+
+
+ a| 
+REPO-02503
+ a| 
+Error al importar la configuración de perfil [%s] con el error [%s]
+ a| 
+
+
+
+ a| 
+REPO-02603
+ a| 
+Error al recuperar el perfil global con el error [%s]
+ a| 
+
+
+
+ a| 
+REPO-02606
+ a| 
+Error al recuperar el perfil [%s] con el error [%s]
+ a| 
+
+
+
+ a| 
+REPO-02703
+ a| 
+Error al mostrar perfiles con el error [%s]
+ a| 
+Error al enumerar perfiles. Compruebe la ruta de la carpeta de configuraciones.
+
+
+
+ a| 
+REPO-03002
+ a| 
+La configuración [%s] ya existe para el perfil [%s]
+ a| 
+El archivo de configuración con el mismo nombre ya existe para el perfil dado. Seleccione un nombre diferente.
+
+
+
+ a| 
+REPO-03103
+ a| 
+Error al crear la configuración [%s] para el perfil [%s] con el error [%s]
+ a| 
+
+
+
+ a| 
+REPO-03203
+ a| 
+Error al actualizar la configuración [%s] para el perfil [%s] con el error [%s]
+ a| 
+
+
+
+ a| 
+REPO-03212
+ a| 
+Error al cambiar el nombre de la configuración [%s] para el perfil [%s] a [%s]
+ a| 
+No se ha podido cambiar el nombre de la configuración desde el perfil. Compruebe si su configuración ha cambiado de nombre o se ha eliminado y también compruebe los permisos del usuario que ejecuta Snap Creator en el directorio.
+
+
+
+ a| 
+REPO-03303
+ a| 
+Error al eliminar la configuración [%s] del perfil [%s]
+ a| 
+No se pudo eliminar la configuración del perfil en la carpeta de configuraciones. Compruebe los permisos del usuario que ejecuta Snap Creator en el directorio.
+
+
+
+ a| 
+REPO-03403
+ a| 
+Error al exportar la configuración [%s] para el perfil [%s] con el error [%s]
+ a| 
+
+
+
+ a| 
+REPO-03503
+ a| 
+Error al importar la configuración [%s] al perfil [%s] con el error [%s]
+ a| 
+
+
+
+ a| 
+REPO-03603
+ a| 
+Error al recuperar la configuración [%s] del perfil [%s] con el error [%s]
+ a| 
+
+
+
+ a| 
+REPO-03703
+ a| 
+Error al mostrar configuraciones del perfil [%s] con el error [%s]
+ a| 
+
+
+
+ a| 
+REPO-04003
+ a| 
+Error al leer el catálogo para el perfil [%s], la configuración [%s] y la Marca de tiempo [%s] con el error [%s]
+ a| 
+
+
+
+ a| 
+REPO-04103
+ a| 
+Error al escribir el catálogo para el perfil [%s], la configuración [%s] y la Marca de tiempo [%s] con el error [%s]
+ a| 
+
+
+
+ a| 
+REPO-04203
+ a| 
+Error al purgar el catálogo para el perfil [%s], la configuración [%s] y la Marca de tiempo [%s] con el error [%s]
+ a| 
+
+
+
+ a| 
+REPO-04303
+ a| 
+Error al registrar el catálogo para el perfil [%s] y la configuración [%s] con el error [%s]
+ a| 
+
+
+
+ a| 
+REPO-04304
+ a| 
+La configuración [%s] no existe
+ a| 
+
+
+
+ a| 
+REPO-04309
+ a| 
+Error al agregar el objeto de directiva [%s]
+ a| 
+Error de base de datos; compruebe el seguimiento de pila para obtener más información.
+
+
+
+ a| 
+REPO-04313
+ a| 
+Error al eliminar el objeto de directiva para el ID de directiva: %S.
+ a| 
+Error de base de datos; compruebe el seguimiento de pila para obtener más información.
+
+
+
+ a| 
+REPO-04315
+ a| 
+Error al actualizar el objeto de directiva: %S.
+ a| 
+Error de base de datos; compruebe el seguimiento de pila para obtener más información.
+
+
+
+ a| 
+REPO-04316
+ a| 
+No se pueden enumerar las directivas
+ a| 
+Error de base de datos; compruebe el seguimiento de pila para obtener más información.
+
+
+
+ a| 
+REPO-04321
+ a| 
+Error al agregar el objeto de tipo de copia de seguridad [%s]
+ a| 
+Error de base de datos; compruebe el seguimiento de pila para obtener más información.
+
+
+
+ a| 
+REPO-04323
+ a| 
+La entrada de tipo de copia de seguridad no existe para el ID de tipo de copia de seguridad: %S.
+ a| 
+Pase un tipo de copia de seguridad válido.
+
+
+
+ a| 
+REPO-04325
+ a| 
+Error al eliminar el objeto de tipo de copia de seguridad para el ID de tipo de copia de seguridad: %S.
+ a| 
+Error de base de datos; compruebe el seguimiento de pila para obtener más información.
+
+
+
+ a| 
+REPO-04327
+ a| 
+Error al actualizar el objeto de tipo de copia de seguridad: %S.
+ a| 
+Error de base de datos; compruebe el seguimiento de pila para obtener más información.
+
+
+
+ a| 
+REPO-04328
+ a| 
+No se pudieron enumerar los tipos de backup
+ a| 
+Error de base de datos; compruebe el seguimiento de pila para obtener más información.
+
+
+
+ a| 
+REPO-04333
+ a| 
+Error al agregar el objeto de trabajo del programador [%s]
+ a| 
+Error de base de datos; compruebe el seguimiento de pila para obtener más información.
+
+
+
+ a| 
+REPO-04335
+ a| 
+La entrada de trabajo del planificador no existe para el ID de trabajo: %S.
+ a| 
+Aprobar un trabajo de programador válido.
+
+
+
+ a| 
+REPO-04337
+ a| 
+Error al eliminar el objeto de trabajo del programador para el ID de trabajo: %S.
+ a| 
+Error de base de datos; compruebe el seguimiento de pila para obtener más información.
+
+
+
+ a| 
+REPO-04339
+ a| 
+Error al actualizar el objeto de trabajo del programador: %S.
+ a| 
+Error de base de datos; compruebe el seguimiento de pila para obtener más información.
+
+
+
+ a| 
+REPO-04340
+ a| 
+No se han podido enumerar los trabajos del programador
+ a| 
+Error de base de datos; compruebe el seguimiento de pila para obtener más información.
+
+
+
+ a| 
+REPO-04341
+ a| 
+Error al agregar el objeto de directiva, ya existe la directiva [%s] con el mismo nombre
+ a| 
+Ya existe una directiva con el mismo nombre; inténtelo con otro nombre.
+
+
+
+ a| 
+REPO-04342
+ a| 
+Error al agregar el objeto de tipo de copia de seguridad, ya existe el tipo de copia de seguridad [%s] con el mismo nombre
+ a| 
+Ya existe un tipo de copia de seguridad con el mismo nombre; pruebe con otro nombre.
+
+
+
+ a| 
+REPO-04343
+ a| 
+Error al agregar el objeto del programador, el programador [%s] con el mismo nombre de tarea ya existe
+ a| 
+
+
+
+ a| 
+REPO-04344
+ a| 
+No se pudo actualizar el perfil [%s]. El perfil está vacío.
+ a| 
+
+
+
+ a| 
+REPO-04345
+ a| 
+El tipo de directiva no puede ser nulo al agregar una nueva directiva
+ a| 
+
+
+
+ a| 
+REPO-04346
+ a| 
+El objeto de almacenamiento no puede ser nulo
+ a| 
+
+
+
+ a| 
+REPO-04347
+ a| 
+No se pudo agregar el objeto de almacenamiento, ya existe almacenamiento [%s] con el mismo nombre/IP
+ a| 
+
+
+
+ a| 
+REPO-04348
+ a| 
+No se pudieron recuperar los detalles del almacenamiento. Error de base de datos.
+ a| 
+
+
+
+ a| 
+REPO-04349
+ a| 
+Nombre de host no válido. El almacenamiento con el nombre de host/IP [%s] no existe
+ a| 
+
+
+
+ a| 
+REPO-04350
+ a| 
+El nombre de host no puede ser nulo
+ a| 
+Nombre de host no válido
+
+
+
+ a| 
+REPO-04351
+ a| 
+Error al eliminar el almacenamiento [%s] con el error [%s]
+ a| 
+No se pudo eliminar el almacenamiento. Error de base de datos.
+
+
+
+ a| 
+REPO-04355
+ a| 
+Error al actualizar el almacenamiento [%s] con el error [%s]
+ a| 
+No se pudo actualizar el almacenamiento. Error de base de datos.
+
+
+
+ a| 
+REPO-04356
+ a| 
+El objeto de clúster no puede ser nulo
+ a| 
+
+
+
+ a| 
+REPO-04358
+ a| 
+Error al agregar almacenamiento [%s] con el error [%s]
+ a| 
+
+
+
+ a| 
+REPO-04359
+ a| 
+Error al actualizar el clúster [%s] con el error [%s]
+ a| 
+
+
+
+ a| 
+REPO-04360
+ a| 
+Error al agregar el objeto de clúster, ya existe el clúster [%s] con el mismo nombre/IP
+ a| 
+Ya existe un clúster con el mismo nombre de host
+
+|===

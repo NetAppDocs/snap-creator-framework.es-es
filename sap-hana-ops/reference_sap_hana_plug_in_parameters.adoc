@@ -1,0 +1,143 @@
+---
+permalink: sap-hana-ops/reference_sap_hana_plug_in_parameters.html 
+sidebar: sidebar 
+keywords: sap, hana, plug-in, parameters 
+summary: Parámetros del plugin de SAP HANA 
+---
+= Parámetros del plugin de SAP HANA
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+En la siguiente tabla, se enumeran los parámetros del plugin de SAP HANA, se proporciona la configuración de los parámetros y se describen los parámetros.
+
+|===
+| Parámetro | Ajuste | Descripción 
+
+
+ a| 
+HANA_SID
+ a| 
+Ejemplo: ABC
+ a| 
+SID de base de datos DE HANA.
+
+
+
+ a| 
+HANA_NODES
+ a| 
+Ejemplo: 1, 2, nodo 3
+ a| 
+Lista separada por comas de nodos HANA en los que se pueden ejecutar las sentencias hdbsql.
+
+
+
+ a| 
+HANA_USER_NAME
+ a| 
+Ejemplo: BackupUser
+ a| 
+Nombre de usuario de la base de datos DE HANA. El privilegio mínimo requerido para este usuario es el privilegio DE ADMINISTRADOR de BACKUP.
+
+
+
+ a| 
+HANA_PASSWORD
+ a| 
+Ejemplo: Hfasfh87r83r
+ a| 
+Contraseña de la base de datos DE HANA.
+
+
+
+ a| 
+INSTANCIA_HANA
+ a| 
+Ejemplo: 42
+ a| 
+Número de instancia del nodo HANA.
+
+
+
+ a| 
+HANA_HDBSQL_CMD
+ a| 
+Ejemplo: /Usr/sa p/hdbclient/ hdbsql
+ a| 
+Ruta al comando hdbsql de HANA. Si no se establece este parámetro, se utiliza hdbsql en la ruta de búsqueda. El valor predeterminado es hdbsql.
+
+
+
+ a| 
+HANA_OSDB_USER
+ a| 
+Ejemplo: user1
+ a| 
+El usuario del sistema operativo para ejecutar hdbsql (normalmente sidadm) debe tener el binario hdbsql en la ruta de búsqueda y el permiso para ejecutarlo.
+
+
+
+ a| 
+HANA_USERSTORE_KEYS
+ a| 
+Ejemplo: 1:key1, nodo 2:key2, nodo 3:ke y3
+ a| 
+Lista separada por comas de claves de almacén de usuarios de HANA y pares de nodos mediante los cuales se pueden ejecutar las sentencias hdbsql.
+
+
+
+ a| 
+HANA_FILE_BACKUP_ENABLE
+ a| 
+«'y'» o «'N'»
+ a| 
+Determina si Snap Creator debe permitir un backup basado en archivos para el plugin de SAP HANA. Esta configuración resulta útil cuando desea realizar la operación de backup basado en archivos SAP HANA.
+
+
+
+ a| 
+HANA_FILE_BACKUP_PATH
+ a| 
+Ejemplo:/hana/data/SCN/mnt00001
+ a| 
+(Opcional) Ruta al directorio en el que se puede almacenar la copia de seguridad del archivo de base de datos. Si no está configurado este parámetro, utilice el valor predeterminado.
+
+
+
+ a| 
+HANA_FILE_BACKUP_PREFIX
+ a| 
+Ejemplo: SnapCreator_<HANA_FILE_BACKUP_PREFIX>__<CURRENT_TIMESTAMP>
+ a| 
+(Opcional) añade un prefijo al nombre del archivo de copia de seguridad. Predeterminado: SnapCreator__<CURRENT_TIMESTAMP>
+
+
+
+ a| 
+HANA_INTEGRITY_CHECK_ENABLE
+ a| 
+«'y'» o «'N'»
+ a| 
+Determina si Snap Creator debe habilitar Integrity Check para el complemento SAP HANA. Esta configuración es habitual cuando desea realizar la operación SAP HANA Integrity Check.
+
+
+
+ a| 
+HANA_TEMP_FILE_BACKUP_PATH
+ a| 
+Ejemplo:/temp
+ a| 
+(Opcional) Ruta de acceso donde se puede almacenar el archivo temporal de la base de datos de Integrity Check. Si no está seguro, utilice el valor predeterminado.
+
+
+
+ a| 
+HANA_LOG_CLEANUP_ENABLE
+ a| 
+«'y'» o «'N'»
+ a| 
+Activa la limpieza del catálogo de registros.
+
+|===

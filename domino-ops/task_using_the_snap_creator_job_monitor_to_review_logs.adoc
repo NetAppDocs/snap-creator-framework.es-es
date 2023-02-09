@@ -1,0 +1,37 @@
+---
+permalink: domino-ops/task_using_the_snap_creator_job_monitor_to_review_logs.html 
+sidebar: sidebar 
+keywords: domino, ibm, viewing, view, job, status, logs, monitor 
+summary: El Monitor de trabajos de Snap Creator es una interfaz similar a la de un panel para trabajos de Snap Creator. Es posible usar Job Monitor para ver el estado del trabajo y descargar registros. 
+---
+= Ver el estado de los trabajos y los registros en Job Monitor
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+El Monitor de trabajos de Snap Creator es una interfaz similar a la de un panel para trabajos de Snap Creator. Es posible usar Job Monitor para ver el estado del trabajo y descargar registros.
+
+El monitor de trabajos indica el estado del trabajo de la siguiente manera:
+
+* image:../media/scfw_domino_icon_job_in_progress.gif["Esta imagen se explica por el texto circundante."] indica un trabajo en curso.
+* image:../media/scfw_domino_icon_job_successful.gif["Esta imagen se explica por el texto circundante."] indica un trabajo que se ha completado correctamente.
+* image:../media/scfw_domino_icon_job_completed_with_errors.gif["Esta imagen se explica por el texto circundante."] indica un trabajo que se completó con errores.
+* image:../media/scfw_domino_icon_job_failed.gif["Esta imagen se explica por el texto circundante."] indica un trabajo con errores.
++
+.. En el panel Perfiles y configuraciones, seleccione el archivo de configuración y haga clic en *Administración* > *Monitor de trabajo* en la parte superior de la ventana de Snap Creator Framework.
++
+Se mostrará el panel Job Monitor, donde puede ver el estado del trabajo.
+
+.. Seleccione un trabajo y, a continuación, haga clic en *Download Logs* > *Log_Type*, donde Log_Type es uno de los siguientes:
++
+*** *Out Logs* proporciona información detallada para un trabajo.
+*** *Debug Logs* proporciona información detallada más información útil en la depuración.
+*** *Registros de GUI* proporciona información acerca de las acciones de GUI de Snap Creator.el registro de GUI no es específico del trabajo seleccionado.
+
+
+.. En el cuadro de diálogo de descarga, haga clic en *Abrir* o *Guardar* según sea necesario.
+
+
+

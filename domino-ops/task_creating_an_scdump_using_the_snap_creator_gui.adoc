@@ -1,0 +1,87 @@
+---
+permalink: domino-ops/task_creating_an_scdump_using_the_snap_creator_gui.html 
+sidebar: sidebar 
+keywords: domino, ibm, using scdump, gathering, logs, compressed, format 
+summary: Puede utilizar la acción Creatorscdump de Snap para reunir registros en un archivo de archivos comprimido. A continuación, puede enviar el archivo al soporte técnico o a un experto de Snap Creator para su revisión. 
+---
+= Uso de scdump para recopilar registros en un formato comprimido
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Puede utilizar la acción Creatorscdump de Snap para reunir registros en un archivo de archivos comprimido. A continuación, puede enviar el archivo al soporte técnico o a un experto de Snap Creator para su revisión.
+
+Debe haber creado un archivo de configuración de copia de seguridad y restauración.
+
+Un scrdump incluye los siguientes archivos:
+
+|===
+| Archivo | Descripción 
+
+
+ a| 
+scdump.txt
+ a| 
+Contiene la versión del agente de Snap Creator y el sistema operativo host, la versión de Data ONTAP y la versión de Domino.
+
+
+
+ a| 
+engine.log
+ a| 
+Contiene información sobre las operaciones del motor de flujo de trabajo de Snap Creator.
+
+
+
+ a| 
+gui.log
+ a| 
+Contiene información sobre las operaciones y mensajes de la interfaz gráfica de usuario de Snap Creator. Pueden incluirse varios registros.
+
+
+
+ a| 
+sc_server.log
+ a| 
+Contiene información detallada sobre las operaciones de Snap Creator Server. Pueden incluirse varios registros.
+
+
+
+ a| 
+cierre los registros
+ a| 
+Contiene información de nivel detallado para los trabajos. Se incluyen los registros de salida de todas las configuraciones del perfil seleccionado.
+
+
+
+ a| 
+depurar registros
+ a| 
+Contiene información de nivel detallado más información útil para la depuración. Se incluyen registros de depuración de todas las configuraciones del perfil seleccionado.
+
+
+
+ a| 
+registros de errores
+ a| 
+Contener información de error para registros. Se incluyen registros de errores de todas las configuraciones del perfil seleccionado.
+
+
+
+ a| 
+archivos de configuración
+ a| 
+Se incluyen todos los archivos de configuración del perfil seleccionado, incluidos los archivos de configuración global.
+
+|===
+
+NOTE: Aunque un archivo de configuración es la entrada de scdump, la utilidad recopila información de todas las configuraciones del perfil principal.
+
+. En el panel Perfiles y configuraciones, seleccione un archivo de configuración y haga clic en *acciones* > *scdump*.
++
+scrdump recopila registros y otros archivos en un archivo de archivos comprimido.
+
+. En el cuadro de diálogo de descarga, haga clic en *Abrir* o *Guardar* según sea necesario.
+

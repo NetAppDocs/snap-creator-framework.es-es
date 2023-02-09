@@ -1,0 +1,23 @@
+---
+permalink: administration/task_assigning_permissions_to_snap_creator_roles.html 
+sidebar: sidebar 
+keywords: assign, permission, snap, creator, gui, role, gui, permission 
+summary: Puede asignar permisos a roles de Snap Creator mediante la GUI de Snap Creator. 
+---
+= Asignar permisos a roles de Snap Creator
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Puede asignar permisos a roles de Snap Creator mediante la GUI de Snap Creator.
+
+. En el menú principal de la GUI de Snap Creator, seleccione *usuarios y roles* > *Administración de roles*.
+. En la ficha Gestión de funciones, seleccione el rol deseado y, a continuación, haga clic en *asignar permisos*.
+. Mueva los permisos deseados de la columna izquierda a la columna derecha y, a continuación, haga clic en *Guardar*.
++
+Puede seleccionar y arrastrar los permisos entre columnas o hacer clic en la flecha para mover los permisos entre columnas.
+
+. Compruebe que el permiso se ha asignado seleccionando la función y viendo el permiso asignado en el panel roles y permisos asignados.
+

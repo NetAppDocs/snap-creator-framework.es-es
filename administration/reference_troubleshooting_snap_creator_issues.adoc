@@ -1,0 +1,14 @@
+---
+permalink: administration/reference_troubleshooting_snap_creator_issues.html 
+sidebar: sidebar 
+keywords: troubleshoot, snap, creator, information, log, error 
+summary: Puede solucionar problemas de Snap Creator mediante la información de los registros y mensajes de error de Snap Creator. 
+---
+= Solucionar problemas de Snap Creator
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Puede solucionar problemas de Snap Creator mediante la información de los registros y mensajes de error de Snap Creator.

@@ -1,0 +1,37 @@
+---
+permalink: administration/task_monitoring_logs_by_using_the_snap_creator_gui.html 
+sidebar: sidebar 
+keywords: profile, configuration, snap, creator, gui, monitor, log, out, debug, error, stderr, log 
+summary: Puede ver los registros de cada perfil y configuración mediante la GUI de Snap Creator. 
+---
+= Supervisión de registros
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Puede ver los registros de cada perfil y configuración mediante la GUI de Snap Creator.
+
+Es posible ver los registros out, Debug, error y stderr para ayudar en las operaciones de solución de problemas. Consulte las referencias relacionadas para obtener más información acerca de estos registros de solución de problemas.
+
+. En el menú principal de la GUI de Snap Creator, seleccione *Informes* > *registros*:
++
+image::../media/reports_logs.gif[registros de informes]
+
+. Seleccione los registros por perfil, archivo de configuración, tipo de registro o registro específico, según sea necesario:
++
+image::../media/reports_logs_example.gif[ejemplo de reports logs]
+
++
+El registro seleccionado también se puede descargar haciendo clic en *Descargar registro seleccionado*. El archivo de registro descargado se almacena en el directorio (o carpeta) especificado por el explorador para las descargas.
+
++
+
+NOTE: Los registros OUT, DEBUG, stderr y Agent se conservan según lo definido por EL valor LOG_NUM del archivo de configuración, pero el registro de errores siempre se agrega.
+
+
+
+*Información relacionada*
+
+xref:reference_logs.adoc[Tipos de mensajes de error y registros de solución de problemas]

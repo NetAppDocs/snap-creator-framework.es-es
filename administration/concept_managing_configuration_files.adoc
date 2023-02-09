@@ -1,0 +1,16 @@
+---
+permalink: administration/concept_managing_configuration_files.html 
+sidebar: sidebar 
+keywords: create, copy, download, list, delete, configuration, managing, files 
+summary: Puede crear, copiar, descargar, enumerar y eliminar archivos de configuración. 
+---
+= Gestión de archivos de configuración
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Puede crear, copiar, descargar, enumerar y eliminar archivos de configuración.
+
+Un archivo de configuración es el centro de Snap Creator y está compuesto por parámetros que se establecen para afectar al comportamiento de Snap Creator, como permitir la ejecución de los plugins compatibles, especificar variables necesarias y definir los volúmenes que se capturan en las copias Snapshot.

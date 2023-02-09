@@ -1,0 +1,35 @@
+---
+permalink: sap-hana-ops/concept_requirements.html 
+sidebar: sidebar 
+keywords: requirements, sap, hana, plug-in, create, backups, point-in-time, recovery, databases 
+summary: El complemento SAP HANA permite crear backups y realizar una recuperación de bases de datos HANA en un momento específico. 
+---
+= Requisitos
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+El complemento SAP HANA permite crear backups y realizar una recuperación de bases de datos HANA en un momento específico.
+
+La compatibilidad con el complemento SAP HANA es la siguiente:
+
+* Sistema operativo host: SUSE Linux Enterprise Server (SLES), 32 y 64 bits
+* Clustered Data ONTAP o Data ONTAP en 7-Mode
+* Al menos un nodo de base de datos SAP HANA conectado a través de NFS
+* SAP HANA con la pila de Service Pack (SPS) 7 o posterior
+
+
+
+NOTE: Para obtener la información más reciente acerca de la compatibilidad o para ver matrices de compatibilidad, consulte http://mysupport.netapp.com/matrix["Herramienta de matriz de interoperabilidad de NetApp"].
+
+*Licencias requeridas*
+
+Las controladoras de almacenamiento primario deben tener instalada una licencia SnapRestore y SnapVault. El almacenamiento secundario debe tener instalada una licencia de SnapVault.
+
+No se requiere ninguna licencia para Snap Creator y el complemento SAP HANA para Snap Creator.
+
+*Requisitos de capacidad para copias de seguridad Snapshot*
+
+Hay que tener en cuenta una tasa de cambio de bloque más alta en la capa de almacenamiento en comparación con la tasa de cambio con las bases de datos tradicionales. Debido al proceso de combinación de tablas del almacén de columnas, se escriben en el disco muchos más datos que sólo los cambios de bloque. Hasta que haya más datos de clientes disponibles, la tasa de cambio actual se estima entre un 20 % y un 50 % al día.

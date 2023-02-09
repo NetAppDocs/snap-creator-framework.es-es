@@ -1,0 +1,20 @@
+---
+permalink: administration/task_viewing_snap_creator_profiles.html 
+sidebar: sidebar 
+keywords: snap, creator, profile, view 
+summary: Puede enumerar los perfiles existentes de Snap Creator. 
+---
+= Ver perfiles
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Puede enumerar los perfiles existentes de Snap Creator.
+
+. En el menú principal de la GUI de Snap Creator, seleccione *Gestión* > *configuraciones*.
++
+Los perfiles existentes de Snap Creator se enumeran en el panel Perfiles y configuraciones.
+
+

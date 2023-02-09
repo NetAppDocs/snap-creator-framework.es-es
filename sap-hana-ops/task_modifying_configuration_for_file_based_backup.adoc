@@ -1,0 +1,22 @@
+---
+permalink: sap-hana-ops/task_modifying_configuration_for_file_based_backup.html 
+sidebar: sidebar 
+keywords: sap, hana, modifying, modify, change, changing, configuration, file-based, backup 
+summary: Puede modificar los parámetros que están configurados para copia de seguridad basada en archivos. La siguiente operación de backup basado en archivos, programada o bajo demanda, refleja la información actualizada. 
+---
+= Modificación de la configuración de copia de seguridad basada en archivos
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Puede modificar los parámetros que están configurados para copia de seguridad basada en archivos. La siguiente operación de backup basado en archivos, programada o bajo demanda, refleja la información actualizada.
+
+. Haga clic en el perfil de SAP HANA.
+. Seleccione la configuración que desea modificar y haga clic en *Configuración de copia de seguridad basada en archivos HANA*.
++
+image::../media/modifying_file_based_backup_configuration.gif[Modificación de la configuración de copia de seguridad basada en archivos]
+
+. Edite la información y haga clic en *Guardar*.
+

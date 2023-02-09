@@ -1,0 +1,75 @@
+---
+permalink: installation/task_upgrading_the_snap_creator_server_3_6_x_on_unix.html 
+sidebar: sidebar 
+keywords: upgrading, upgrade, snap, creator, server, 3.6.x, unix, unix-based 
+summary: Puede realizar la actualización directamente desde Snap Creator Server 3.6.x en sistemas basados en UNIX. 
+---
+= Actualizar Snap Creator Server 3.6.x en sistemas basados en UNIX
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Puede realizar la actualización directamente desde Snap Creator Server 3.6.x en sistemas basados en UNIX.
+
+* Si tiene algún nombre de usuario que contenga caracteres especiales en Snap Creator, debe haber cambiado el nombre de esos usuarios utilizando solo caracteres alfabéticos (a-z, A-Z) antes de realizar la actualización.
+* Ha detenido los procesos de Snap Creator antes de realizar un backup de los directorios de Snap Creator para garantizar que se han completado los datos de los que se ha realizado un backup.
++
+Por ejemplo, introduzca los siguientes comandos:
+
++
+[listing]
+----
+/install_path/scServer3.6.x/bin/scServer stop
+/install_path/scAgent3.6.x/bin/scAgent stop
+----
+* Ha realizado una copia de seguridad de los siguientes directorios y todos los subdirectorios y archivos asociados, dentro del directorio servidor de Snap Creator 3.6.x (/install_path/scServer3.6.x):
++
+** Base de datos de Snap Creator (../gui/snapcreator)
+** Perfiles y archivos de configuración (../configuraciones)
+** Registros (../logs) *Nota:* no elimine las copias de seguridad de Snap Creator 3.6.x.
+
+
+
+
+Las rutas proporcionadas en los pasos siguientes hacen referencia a la ruta de instalación predeterminada. La ruta de los comandos siguientes puede diferir de la ruta de instalación.
+
+Una vez finalizado el proceso de actualización, tenga en cuenta los siguientes problemas:
+
+* Si la base de datos de Snap Creator actualizada contiene algunas tareas marcadas como «'en curso'», el estado permanece igual incluso después de completar el proceso de actualización.
+* El administrador predeterminado en la última versión de Snap Creator debe ser un administrador en Snap Creator 3.6.x. Si el usuario 3.6.x no es administrador, la actualización asigna una función de operador al usuario 3.6.x.
++
+.. Detenga los procesos de Snap Creator si aún no lo ha hecho.
++
+Para obtener información sobre cómo detener los procesos, consulte los detalles que se proporcionan anteriormente en este tema.
+
+.. Instale la versión más reciente de Snap Creator, pero no inicie el servicio de Snap Creator Server.
++
+Para obtener detalles, consulte la información sobre la instalación de Snap Creator Server en UNIX.
+
+.. Copie el directorio de la base de datos de Snap Creator 3.6.x con copia de seguridad en la última ubicación de la base de datos (/install_path/scServer4.1.x/engine/snapcreator).
+.. Copie los perfiles y la carpeta de configuración de Snap Creator 3.6.x con copia de seguridad en la ubicación más reciente (/install_path/scServer4.1.x/engine/Configurations).
+.. Copie la carpeta de registros de Snap Creator 3.6.x con copia de seguridad en la ubicación más reciente (/install_path/scServer4.1.x/engine/logs).
+.. Cambie los directorios al subdirectorio del motor en la ruta de instalación de Snap Creator (/install_path/scServer4.1.x/engine).
+.. Actualice Snap Creator introduciendo el siguiente comando: java -jar snapcreator.jar -upgrade
+
+
+
+
+Una vez completado el proceso de actualización, inicie el servicio Snap Creator Server introduciendo el comando siguiente:
+
+/Install_path/scServer4.1.x/bin/scServer start
+
+Además, elimine el directorio de instalación de Snap Creator 3.6.x.
+
+
+IMPORTANT: No elimine las copias de backup hasta que tenga la seguridad de que no necesita revertir a una versión anterior.
+
+También debe validar el inicio de la interfaz gráfica de usuario de Snap Creator Framework; para ello, debe navegar hasta el host local del puerto especificado (https://IP_address:gui_port)[].
+
+Debe conectarse mediante HTTPS; de lo contrario, la conexión no se redirige automáticamente a una conexión HTTPS y la GUI no funcionará.
+
+*Información relacionada*
+
+xref:task_installing_the_snap_creator_server_on_unix.adoc[Instalar Snap Creator Server en sistemas basados en UNIX]

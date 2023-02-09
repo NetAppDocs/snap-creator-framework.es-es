@@ -1,0 +1,105 @@
+---
+permalink: administration/task_creating_policies.html 
+sidebar: sidebar 
+keywords: create, retention, policy, snap, creator, gui, guideline, policy, management 
+summary: Puede crear una nueva política de retención usando la interfaz gráfica de usuario de Snap Creator para configurar varias políticas de Snapshot con diferentes recuentos de retención. 
+---
+= Crear políticas
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Puede crear una nueva política de retención usando la interfaz gráfica de usuario de Snap Creator para configurar varias políticas de Snapshot con diferentes recuentos de retención.
+
+Debe comprender las directrices para definir políticas de Snap Creator.
+
+. En el menú principal de la GUI de Snap Creator, seleccione *Política* > *Administración de directivas*.
+. En la ficha *Administrador de directivas*, haga clic en *Crear*.
+. Introduzca los detalles y, a continuación, haga clic en *Guardar*.
++
+image::../media/create_new_policy.gif[crear una nueva política]
+
++
+|===
+| Campo | Descripción 
+
+
+ a| 
+Nombre de la directiva
+ a| 
+Escriba el nombre de la política.
+
+
+
+ a| 
+Tipo de backup
+ a| 
+(Opcional) Seleccione el tipo de backup.
+
+
+
+ a| 
+Tipo de directiva
+ a| 
+Seleccione el tipo de política:
+
+** *LOCAL*
++
+Realiza una copia Snapshot en el almacenamiento primario. Seleccione este tipo si no hay relaciones de SnapMirror o SnapVault.
+
+** SnapVault
++
+Crea una copia Snapshot en el almacenamiento primario y realiza una actualización de SnapVault. La actualización de SnapVault debe estar habilitada para todos los volúmenes de la configuración.
+
+** SNAPMIRROR
++
+Crea una copia Snapshot en el almacenamiento primario y realiza una actualización de SnapMirror. La actualización de SnapMirror debe estar habilitada para todos los volúmenes de la configuración.
+
+
+
+
+
+ a| 
+Programación de políticas
+ a| 
+(Opcional) Seleccione la programación de políticas que desea utilizar. Si no se especifica ningún programa de política, estas acciones no se ejecutan automáticamente.
+
+
+
+ a| 
+Recuento de retención de snapshot
+ a| 
+Especifique la cantidad de backups que se retendrán.
+
+
+
+ a| 
+Antigüedad de retención de snapshot
+ a| 
+Introduzca la antigüedad mínima que deben conservarse los backups para poder eliminarlos.
+
+
+
+ a| 
+Recuento de retenciones de SnapVault
+ a| 
+Si seleccionó SnapVault como tipo de política, introduzca el número de retención de SnapVault.
+
+
+
+ a| 
+Edad de retención de SnapVault
+ a| 
+Si seleccionó SnapVault como tipo de política, introduzca la antigüedad de retención de SnapVault.
+
+
+
+ a| 
+Agregar/reemplazar parámetros
+ a| 
+Algunos parámetros pueden anularse para una política. Si lo desea, seleccione esta casilla de verificación y, a continuación, agregue los parámetros que se van a reemplazar.
+
+|===
+

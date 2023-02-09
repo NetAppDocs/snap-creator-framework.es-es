@@ -1,0 +1,26 @@
+---
+permalink: sap-hana-ops/concept_the_netapp_solution.html 
+sidebar: sidebar 
+keywords: netapp, solution, sap, hana 
+summary: Es posible crear un backup de la base de datos en cuestión de minutos con la tecnología Snapshot™ de NetApp. El tiempo necesario para crear una copia Snapshot es independiente del tamaño de la base de datos porque la copia Snapshot no mueve ningún bloque de datos. 
+---
+= La solución de NetApp
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Es posible crear un backup de la base de datos en cuestión de minutos con la tecnología Snapshot™ de NetApp. El tiempo necesario para crear una copia Snapshot es independiente del tamaño de la base de datos porque la copia Snapshot no mueve ningún bloque de datos.
+
+Además, el uso de la tecnología Snapshot no afecta al rendimiento del sistema SAP de producción. Por tanto, la creación de copias Snapshot puede programarse sin tener que considerar los períodos de máxima actividad. Los clientes de SAP y NetApp suelen programar varios backups en línea de Snapshot durante el día. Por ejemplo, el backup se puede realizar cada cuatro horas. Estos backups de Snapshot suelen conservarse de tres a cinco días en el sistema de almacenamiento principal.
+
+Las copias Snapshot también proporcionan ventajas importantes para la operación de recuperación y restauración. La funcionalidad SnapRestore® de NetApp permite restaurar toda la base de datos o partes de la base de datos hasta el momento en que se creó cualquier copia Snapshot disponible. Este proceso de restauración se realiza en unos minutos, independientemente del tamaño de la base de datos. El tiempo necesario para el proceso de recuperación también se reduce considerablemente, dado que se crean varias copias Snapshot durante el día y se deben aplicar menos registros.
+
+Los backups de las copias Snapshot se almacenan en el mismo sistema de disco que los datos activos en línea. Por ello, NetApp recomienda utilizar los backups Snapshot como un suplemento, no como sustituto para los backups en una ubicación secundaria como en disco o cinta. Aunque todavía son necesarios los backups en una ubicación secundaria, hay una ligera probabilidad de que dichos backups se necesiten para su restauración y recuperación. La mayoría de las acciones de restauración y recuperación se realizan mediante SnapRestore en el sistema de almacenamiento principal. Las restauraciones desde una ubicación secundaria sólo son necesarias si el sistema de almacenamiento primario que contiene las copias Snapshot está dañado o si es necesario restaurar un backup que ya no esté disponible desde una copia Snapshot. Por ejemplo, es posible que necesite restaurar un backup de hace dos semanas.
+
+Un backup en una ubicación secundaria siempre se basa en las copias Snapshot creadas en el almacenamiento principal. Por tanto, los datos se leen directamente desde el sistema de almacenamiento primario sin generar carga en el servidor de bases de datos SAP. El almacenamiento primario se comunica directamente con el almacenamiento secundario y envía los datos de copia de seguridad al destino mediante la copia de seguridad de disco a disco de SnapVault®. La funcionalidad SnapVault de NetApp ofrece ventajas significativas en comparación con los backups tradicionales. Después de una transferencia de datos inicial, en la que todos los datos se tienen que transferir del origen al destino, en las copias posteriores sólo se copian los bloques modificados al almacenamiento secundario. De este modo, se reduce significativamente la carga del sistema de almacenamiento primario y el tiempo necesario para un backup completo. Como SnapVault almacena solo los bloques modificados en destino, un backup completo de la base de datos requiere menos espacio en disco.
+
+Todavía puede ser necesario realizar backups de datos en cinta como backup a largo plazo. Esto podría ser, por ejemplo, un respaldo semanal que se mantiene durante un año. En este caso, la infraestructura de cinta puede conectarse directamente al almacenamiento secundario y los datos pueden escribirse en cinta mediante el protocolo de gestión de datos de red (NDMP).
+
+image::../media/scfw_sap_hana_backup_solution_overview.png[Describe la descripción general de la solución SAP HANA para Snap Creator]

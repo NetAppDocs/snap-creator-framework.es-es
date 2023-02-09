@@ -1,0 +1,38 @@
+---
+permalink: sap-hana-ops/concept_considerations_for_backing_up_sap_hana_systems.html 
+sidebar: sidebar 
+keywords: considerations, backup, backing, up, sap, hana 
+summary: Los administradores de SAP HANA deben proporcionar un nivel de servicio fiable que minimice los tiempos de inactividad o la degradación del rendimiento debido a un backup. 
+---
+= Consideraciones para realizar un backup de sistemas SAP HANA
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Los administradores de SAP HANA deben proporcionar un nivel de servicio fiable que minimice los tiempos de inactividad o la degradación del rendimiento debido a un backup.
+
+Para ofrecer este nivel de servicio, los administradores de SAP HANA enfrentan retos en las siguientes áreas:
+
+* Efecto en el rendimiento de los sistemas SAP de producción
++
+Los backups suelen tener un impacto significativo en el rendimiento del sistema SAP de producción, ya que durante los backups se produce una gran carga en el servidor de bases de datos, el sistema de almacenamiento y la red de almacenamiento.
+
+* Tiempos cada vez más reducidos para realizar backups
++
+Los backups solo se pueden crear cuando se producen operaciones de I/o por lotes en el sistema SAP. Resulta muy difícil definir un periodo de backup cuando el sistema SAP está activo siempre.
+
+* Rápido crecimiento de los datos
++
+El rápido crecimiento de los datos, junto con la reducción de los períodos para realizar backups, dan como resultado una inversión continua en la infraestructura de backup: Más unidades de cinta, nueva tecnología de unidades de cinta y redes de almacenamiento más rápidas. El crecimiento de las bases de datos también genera más soportes de cinta o espacio en disco para realizar backups. Los backups incrementales pueden solucionar estos problemas, pero dan como resultado un proceso de restauración muy lento, que suele no ser aceptable.
+
+* Aumento de los costes de los tiempos de inactividad
++
+El tiempo de inactividad no planificado de un sistema SAP siempre tiene un efecto económico en la empresa. Una parte significativa del tiempo de inactividad no planificado es el tiempo necesario para restaurar y recuperar el sistema SAP en caso de fallo. La arquitectura de backup y recuperación debe diseñarse en función de un objetivo de tiempo de recuperación (RTO) aceptable.
+
+* Los tiempos de backup y recuperación
++
+Los tiempos de backup y recuperación se incluyen en los proyectos de actualización de SAP. El plan del proyecto para una actualización de SAP siempre incluye, al menos, tres backups de la base de datos SAP. El tiempo necesario para realizar estos backups reduce el tiempo total disponible del proceso de actualización. La decisión de realizar el backup y la recuperación de datos se basa generalmente en la cantidad de tiempo necesaria para restaurar y recuperar la base de datos del backup creado previamente. La opción de restauración muy rápida ofrece más tiempo para resolver los problemas que pueden producirse durante la actualización en vez de simplemente restaurar el sistema a su estado anterior.
+
+

@@ -1,0 +1,14 @@
+---
+permalink: domino-ops/index.html 
+sidebar: sidebar 
+keywords: domino, ibm, plug-in, operations, guide, configure, use, backup, back up, restore, databases 
+summary: Describe cómo configurar y usar el plugin de IBM Domino para realizar backup y restaurar bases de datos de IBM Domino. 
+---
+= Guía de operaciones del complemento IBM® Domino®
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="Lead"]
+Describe cómo configurar y usar el plugin de IBM Domino para Snap Creator 4.3.3 para realizar backups y restauraciones de bases de datos de IBM Domino.

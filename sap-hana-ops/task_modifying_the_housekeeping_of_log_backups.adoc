@@ -1,0 +1,22 @@
+---
+permalink: sap-hana-ops/task_modifying_the_housekeeping_of_log_backups.html 
+sidebar: sidebar 
+keywords: sap, hana, modifying, modify, housekeeping, log, backups 
+summary: Es posible modificar los parámetros que se configuran para el mantenimiento de backups de registros si se desea deshabilitar la operación de limpieza de registros. 
+---
+= Modificar el mantenimiento de backups de registros
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Es posible modificar los parámetros que se configuran para el mantenimiento de backups de registros si se desea deshabilitar la operación de limpieza de registros.
+
+. Seleccione el perfil SAP HANA que desea modificar.
+. Seleccione la configuración que desea modificar y haga clic en *Configuración de SAP HANA*.
+. Edite el parámetro Enable LOG cleanup y haga clic en *Save*.
++
+image::../media/modifying_housekeeping_of_logs.gif[Modificación del mantenimiento del backup de registros]
+
+

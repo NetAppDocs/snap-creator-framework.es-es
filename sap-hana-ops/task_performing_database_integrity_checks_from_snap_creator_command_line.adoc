@@ -1,0 +1,22 @@
+---
+permalink: sap-hana-ops/task_performing_database_integrity_checks_from_snap_creator_command_line.html 
+sidebar: sidebar 
+keywords: sap, hana, performing, perform, database, integrity, checks, snap, creator, command, line 
+summary: Puede realizar comprobaciones de integridad de la base de datos mediante la línea de comandos de Snap Creator. 
+---
+= Realizar comprobaciones de integridad de la base de datos desde la línea de comandos de Snap Creator
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Puede realizar comprobaciones de integridad de la base de datos mediante la línea de comandos de Snap Creator.
+
+. Para realizar comprobaciones de integridad de la base de datos, ejecute el siguiente comando:
++
+[listing]
+----
+./snapcreator --server localhost --port 8443 --user sc --passwd sc --profile hana_testing --config HANA_Test --action integrityCheck --policy none --verbose
+----
+

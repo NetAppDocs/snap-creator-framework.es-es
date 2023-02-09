@@ -1,0 +1,81 @@
+---
+permalink: domino-ops/task_preparing_storage_systems_for_snapvault_replication.html 
+sidebar: sidebar 
+keywords: domino, ibm, preparing, storage, systems, snapvault, replication 
+summary: Antes de poder utilizar para realizar una replicación de backup de disco a disco, debe configurar una relación de protección de datos entre los volúmenes de origen y de destino; a continuación, inicialice la relación. Durante la inicialización, SnapVault realiza una copia Snapshot del volumen de origen, a continuación transfiere la copia y todos los bloques de datos que hace referencia al volumen de destino. 
+---
+= Preparar sistemas de almacenamiento para la replicación de SnapVault
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Antes de poder utilizar para realizar una replicación de backup de disco a disco, debe configurar una relación de protección de datos entre los volúmenes de origen y de destino; a continuación, inicialice la relación. Durante la inicialización, SnapVault realiza una copia Snapshot del volumen de origen, a continuación transfiere la copia y todos los bloques de datos que hace referencia al volumen de destino.
+
+* Debe ser un administrador de clústeres.
+
+
+Puede usar la interfaz de línea de comandos (CLI) de Data ONTAP o System Manager de OnCommand para crear relaciones de SnapVault. El siguiente procedimiento documenta el uso de la CLI.
+
+
+IMPORTANT: Si va a almacenar archivos de base de datos y registros de transacciones en diferentes volúmenes, debe crear relaciones entre los volúmenes de origen y de destino para los archivos de base de datos y entre los volúmenes de origen y de destino para los registros de transacciones.
+
+En la siguiente ilustración, se muestra el procedimiento para inicializar una relación de SnapVault:
+
+image::../media/snapvault_steps_clustered.gif[En esta ilustración, se muestra el procedimiento para inicializar una relación de SnapVault: Identificar el clúster de destino,creating a destination volume,creating a policy]
+
+. Identifique el clúster de destino.
+. En el clúster de destino, use el comando volume create con la opción -typeDP para crear un volumen de destino de SnapVault con el mismo tamaño que el volumen de origen o más.
++
+
+IMPORTANT: La configuración de idioma del volumen de destino debe coincidir con la configuración de idioma del volumen de origen.
+
++
+El siguiente comando crea un volumen de destino de 2 GB denominado dstvolB en SVM2 en el agregado node01_aggr:
+
++
+[listing]
+----
+cluster2::> volume create -vserver SVM2 -volume dstvolB -aggregate node01_aggr -type DP
+-size 2GB
+----
+. En la SVM de destino, utilice el comando snapmirror policy create para crear una política de SnapVault.
++
+El siguiente comando crea la política SVM1-vault para toda la SVM:
+
++
+[listing]
+----
+SVM2::> snapmirror policy create -vserver SVM2 -policy SVM1-vault
+----
++
+
+NOTE: No defina una programación de cron o una política de copia de Snapshot para la relación de SnapVault. lo hace cuando crea una programación de backup.
+
+. Utilice el comando snapmirror create con el parámetro -type XDP y el parámetro -policy para crear una relación de SnapVault y asignar una política de almacén.
++
+El tipo XDP define la relación como una relación de SnapVault.
+
++
+El siguiente comando crea una relación de SnapVault entre el volumen de origen srcvolA en SVM1 y el volumen de destino dstvolB en SVM2, y asigna la política SVM1-vault:
+
++
+[listing]
+----
+SVM2::> snapmirror create -source-path SVM1:srcvolA -destination-path SVM2:dstvolB
+-type XDP -policy SVM1-vault
+----
+. Utilice el comando snapmirror initialize para inicializar la relación.
++
+El proceso de inicialización realiza una transferencia básica al volumen de destino. SnapMirror realiza una copia Snapshot del volumen de origen y, a continuación, transfiere la copia y todos los bloques de datos que hace referencia al volumen de destino.
+
++
+El siguiente comando inicializa la relación entre el volumen de origen srcvolA en SVM1 y el volumen de destino dstvolB en SVM2:
+
++
+[listing]
+----
+SVM2::> snapmirror initialize -destination-path SVM2:dstvolB
+----
+

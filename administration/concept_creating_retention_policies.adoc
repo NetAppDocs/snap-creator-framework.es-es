@@ -1,0 +1,16 @@
+---
+permalink: administration/concept_creating_retention_policies.html 
+sidebar: sidebar 
+keywords: creating, retention, policies, local, configuration 
+summary: 'Si piensa utilizar objetos de directiva en lugar de una directiva de retención local (que se encuentra en el archivo de configuración), puede crear una directiva de retención.' 
+---
+= Creación de políticas de retención
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Si piensa utilizar objetos de directiva en lugar de una directiva de retención local (que se encuentra en el archivo de configuración), puede crear una directiva de retención.
+
+Como parte de la creación de una política de retención, puede crear un tipo de backup y una programación de políticas.

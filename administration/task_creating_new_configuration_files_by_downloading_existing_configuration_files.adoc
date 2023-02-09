@@ -1,0 +1,23 @@
+---
+permalink: administration/task_creating_new_configuration_files_by_downloading_existing_configuration_files.html 
+sidebar: sidebar 
+keywords: configuration, file, downloading, gui, snap, creator 
+summary: Puede crear nuevos archivos de configuración descargando archivos existentes e importarlos con nombres de archivo nuevos utilizando la GUI de Snap Creator. 
+---
+= Crear nuevos archivos de configuración descargando los archivos de configuración existentes
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Puede crear nuevos archivos de configuración descargando archivos existentes e importarlos con nombres de archivo nuevos utilizando la GUI de Snap Creator.
+
+. En el menú principal de la GUI de Snap Creator, seleccione *Gestión* > *configuraciones*.
+. En el panel Perfiles y configuraciones, haga clic con el botón derecho del ratón en el archivo de configuración y seleccione *Descargar*.
+. Guarde el archivo como ruta-acceso-requerido/nombre-archivo.ext.
++
+
+NOTE: Recuerde proporcionar un nombre exclusivo para este nuevo archivo; de lo contrario, asegúrese de cambiar el nombre del archivo antes de cargarla para evitar sobrescribir el archivo de configuración original.
+
+

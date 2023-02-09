@@ -1,0 +1,35 @@
+---
+permalink: installation/task_starting_the_server_from_a_command_prompt.html 
+sidebar: sidebar 
+keywords: starting, start, server, command, prompt 
+summary: 'Puede iniciar manualmente Snap Creator Server desde un símbolo del sistema ejecutando una secuencia de comandos por lotes (scServer.bat).' 
+---
+= Inicio del servidor desde el símbolo del sistema
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Puede iniciar manualmente Snap Creator Server desde un símbolo del sistema ejecutando una secuencia de comandos por lotes (scServer.bat).
+
+Normalmente, sólo debe seguir este procedimiento si no ha seleccionado la opción *Iniciar servidor como servicio* durante la instalación.
+
+También puede programar la secuencia de comandos por lotes (scServer.bat) para que se ejecute en el inicio a través del programador de tareas de Windows. Para obtener detalles sobre cómo utilizar el programador de tareas de Windows, consulte la documentación del sistema operativo Windows.
+
+Puesto que la secuencia de comandos por lotes (scServer.bat) ejecuta Snap Creator en primer plano, el servidor de Snap Creator continúa ejecutándose sólo mientras esté abierto el símbolo del sistema. Al cerrar el símbolo del sistema, se cierra Snap Creator Server. Para ejecutarse en segundo plano, debe utilizarse el servicio de Snap Creator Server.
+
+. Abra un símbolo del sistema e introduzca los siguientes comandos:
++
+[listing]
+----
+cd \install_path\scServerrelease-version\bin\
+scServer.bat start
+----
++
+[listing]
+----
+cd \Program Files\NetApp\Snap_Creator_Framework\scServer4.1.0\bin\
+scServer.bat start
+----
+

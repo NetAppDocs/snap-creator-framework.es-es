@@ -1,0 +1,43 @@
+---
+permalink: administration/concept_using_the_plug_in_framework_to_create_custom_plug_ins.html 
+sidebar: sidebar 
+keywords: plug-in, framework, snap, creator, reuse, quiesce, unquiesce, discover, scdump, restore, restore, clone, describe, restore 
+summary: El marco de complementos le permite crear sus propios complementos para Snap Creator o reutilizar los complementos existentes. El complemento proporciona a Snap Creator los pasos necesarios para gestionar el backup y la recuperación de una determinada aplicación. 
+---
+= Uso del marco de plugins para crear plugins personalizados
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+El marco de complementos le permite crear sus propios complementos para Snap Creator o reutilizar los complementos existentes. El complemento proporciona a Snap Creator los pasos necesarios para gestionar el backup y la recuperación de una determinada aplicación.
+
+El marco de plugins define los siguientes métodos:
+
+* Modo de inactividad: Método de manejo del modo de inactividad para un plug-in de aplicación determinado
+* UnQUIESCE: Método de manejo de la inactivación para un complemento de aplicación dado
+* Detectar: Método para controlar la detección de objetos de almacenamiento para un complemento de aplicación determinado
+* Scdump: Método de manejo de la recopilación de información de soporte, base de datos, sistema operativo y SnapDrive
+* Restore: Método para gestionar la restauración de un complemento de aplicación determinado
+* Restore_pre - método para gestionar operaciones prerestore para un determinado complemento de aplicaciones (puede utilizar la CLI de restauración incorporada de Snap Creator)
+* Restore_post: Método para gestionar operaciones post-restauración para un complemento de aplicaciones determinado (puede usar la CLI de restauración integrada de Snap Creator)
+* Clone_pre - método para gestionar las operaciones de clonado previo para un complemento de aplicación determinado
+* Clone_post: Método para gestionar operaciones posteriores a la clonado de un plugin de aplicación determinado
+* Describir - método para describir qué implementos de un plug-in. Esta opción es opcional para complementos Perl, pero es necesaria para complementos nativos bajo plugins/nativos.
+* Clone_all - método para gestionar la clonación de un determinado complemento de aplicaciones (no se puede utilizar una interfaz de clonado integrada)
+* Clone_cleanup: Método de gestión de la limpieza si falla una operación de clonado
+* Restore_cleanup: Método de gestión de la limpieza si falla una operación de restauración
+
+
+
+NOTE: El marco de complementos admite Perl, PowerShell, Java, UNIX Shell y Python para la programación. NOTA: El marco de complementos le permite implementar objetos y funciones existentes en Snap Creator.
+
++ por ejemplo, el manejo de errores está disponible, lo que significa que el complemento puede utilizar la implementación estándar de Snap Creator. Esto reduce el trabajo necesario para crear un complemento.
+
+* Los complementos Perl se instalan con /plug-ins/PLUG-IN-name/PLUG-IN.pm.
+* Los plugins nativos se instalan en /plug-ins/Native/plug-in.sh,plug-in.java.plug-in.bat, etc.
+* El plugin se debe instalar en el lugar donde se supone que se debe ejecutar. Este puede ser Snap Creator Server o Snap Creator Agent en función de la configuración de Snap Creator.
+
+
+Para obtener más información acerca del marco de complementos, los plugins y las guías de usuario de un plugin, consulte http://community.netapp.com/t5/Snap-Creator-Framework-Discussions/bd-p/snap-creator-framework-discussions["Foro de la comunidad de debates de Snap Creator Framework"].

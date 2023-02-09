@@ -1,0 +1,137 @@
+---
+permalink: administration/reference_maxdb_plug_in.html 
+sidebar: sidebar 
+keywords: maxdb, plug-in, automates, backup, restore, operations 
+summary: El plugin de MaxDB automatiza las operaciones de backup y restauración en bases de datos MaxDB. 
+---
+= Plug-in maxdb
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+El plugin de MaxDB automatiza las operaciones de backup y restauración en bases de datos MaxDB.
+
+
+NOTE: Para obtener la información más reciente acerca del soporte o para ver matrices de compatibilidad, consulte la matriz de interoperabilidad.
+
+El complemento MaxDB proporciona las siguientes características:
+
+* Un marco centralizado para realizar backups, restaurar y clonar bases de datos MaxDB
+* Integración con la base de datos y aprovisionamiento coherente de las aplicaciones
+* Utilización de la tecnología Snapshot para crear copias de un momento específico de la base de datos
+* Uso de SnapRestore para restaurar una copia Snapshot anterior y, por lo tanto, una base de datos coherente con las aplicaciones, en cuestión de segundos, independientemente de la capacidad o del número de archivos
+* Utilización de la tecnología FlexClone para crear clones de las bases de datos rápidos y con gestión eficiente del espacio basados en backups de copias Snapshot
+
+
+En la siguiente tabla se enumeran los parámetros del plug-in MaxDB, se proporcionan sus ajustes y se describen:
+
+|===
+| Parámetro | Ajuste | Descripción 
+
+
+ a| 
+NOMBRE_APLICACIÓN
+ a| 
+maxdb
+ a| 
+Especifica el nombre de la aplicación.
+
+
+
+ a| 
+XUSER_ENABLE
+ a| 
+(Y
+| N) 
+
+
+ a| 
+Activa o desactiva el uso de un xuser para MaxDB de forma que no se requiera una contraseña para el usuario de base de datos.
+ a| 
+HANDLE_LOGWRITER
+ a| 
+(Y
+
+
+
+| N)  a| 
+Ejecuta las operaciones Suspender el logwriter (N) o reanudar el logwriter (y).
+ a| 
+DBMCLICMD
+
+
+
+ a| 
+path_to_dbmcli_cmd
+ a| 
+Especifica la ruta de acceso al comando MaxDB dbmcli.Si no se establece, se utilizará dbmcli en la ruta de búsqueda.
+
+
+NOTE: Si se encuentra en un entorno Windows, la ruta de acceso debe estar incluida entre comillas dobles ("...").
+ a| 
+SQLCLICMD
+
+
+
+ a| 
+path_to_sqlcli_cmd
+ a| 
+Especifica la ruta de acceso para el comando sqlcli de MaxDB.Si no se establece, se utiliza sqlcli en la ruta de búsqueda.
+ a| 
+MAXDB_UPDATE_HIST_LOG
+
+
+
+ a| 
+(Y
+| N)  a| 
+Indica al programa de copia de seguridad de MaxDB si desea actualizar o no el registro de historial de MaxDB.
+
+
+
+ a| 
+BASES DE DATOS_MAXDB
+ a| 
+db_name:user_name/password
+ a| 
+Enumera las bases de datos de las que se va a realizar el backup con el nombre de usuario y la contraseña.pueden especificarse varias bases de datos y nombres de usuario con una lista separada por comas: Por ejemplo, `db1:user1/password,db2:user2/password`.
+
+
+
+ a| 
+MAXDB_CHECK_SNAPSHOT_DIR
+ a| 
+Ejemplo: `+SID1:directory[,directory...];[SID2:directory[,directory...]+`
+ a| 
+Comprueba que una operación de copia Snapshot de Snap Creator se haya realizado correctamente y garantiza que se cree la copia Snapshot. Esto se aplica únicamente a NFS. El directorio debe apuntar a la ubicación que contiene el directorio .snapshot.
+
+Se pueden incluir varios directorios en una lista separada por comas. Se pueden especificar varias bases de datos como una lista separada por punto y coma.
+
+En MaxDB 7.8 y versiones posteriores, la solicitud de backup de base de datos se Marca con errores en el historial de backup.
+
+
+
+ a| 
+MAXDB_BACKUP_TEMPLATES
+ a| 
+Nombre_plantilla ejemplo: `na_snap`
+ a| 
+Especifica una plantilla de copia de seguridad para cada base de datos.la plantilla debe existir y ser un tipo externo de plantilla de copia de seguridad.
+
+Para habilitar la integración de copias Snapshot para MaxDB 7.8 y versiones posteriores, debe contar con la funcionalidad de servidor en segundo plano MaxDB y una plantilla de backup MaxDB ya configurada.
+
+
+
+ a| 
+MAXDB_BG_SERVER_PREFIX
+ a| 
+Ejemplo de prefijo_servidor_bg: `na_bg`
+ a| 
+Especifica el prefijo del nombre del servidor en segundo plano. Si se establece el parámetro MAXDB_BACKUP_TEMPLATES, también debe establecer el parámetro MAXDB_BG_SERVER_PREFIX. Si no establece el prefijo, el valor predeterminado `na_bg_DATABASE` se utiliza.
+
+|===
+*Información relacionada*
+
+http://mysupport.netapp.com/matrix["Herramienta de matriz de interoperabilidad: mysupport.netapp.com/matrix"]

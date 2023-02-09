@@ -1,0 +1,64 @@
+---
+permalink: domino-ops/concept_accessing_snap_creator_log_files.html 
+sidebar: sidebar 
+keywords: domino, ibm, viewing, job, status, logs, accessing, snap, creator, log, files 
+summary: Puede ver el estado de un trabajo en Snap Creator Job Monitor. Puede ver un registro de acciones de trabajos en el panel Consola mientras el trabajo está en ejecución o en el registro de salida del trabajo. También hay una serie de registros especializados disponibles. 
+---
+= Ver el estado de los trabajos y los registros
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Puede ver el estado de un trabajo en Snap Creator Job Monitor. Puede ver un registro de acciones de trabajos en el panel Consola mientras el trabajo está en ejecución o en el registro de salida del trabajo. También hay una serie de registros especializados disponibles.
+
+Es posible ver los siguientes registros en la interfaz gráfica de usuario:
+
+|===
+| Registro | Descripción 
+
+
+ a| 
+Fuera
+ a| 
+Proporciona información de nivel detallado para un trabajo.
+
+
+
+ a| 
+Depurar
+ a| 
+Proporciona información a nivel detallado más información útil para la depuración.
+
+
+
+ a| 
+GUI
+ a| 
+Proporciona información acerca de las acciones de la GUI de Snap Creator.
+
+
+
+ a| 
+Stderr
+ a| 
+Proporciona información acerca de los errores escritos en errores estándar (solo panel Informes).
+
+
+
+ a| 
+Error
+ a| 
+Proporciona toda la información de errores (sólo el panel Informes).
+
+|===
+Puede ver todos los registros en un editor de texto si prefiere no utilizar el panel Monitor de trabajo o Informes. Los registros residen en el directorio de instalación del servidor de Snap Creator.
+
+*Información relacionada*
+
+xref:task_using_the_snap_creator_job_monitor_to_review_logs.adoc[Ver el estado de los trabajos y los registros en Job Monitor]
+
+xref:task_using_the_snap_creator_reports_option_to_view_logs.adoc[Ver registros en el panel Reports]
+
+xref:task_creating_an_scdump_using_the_snap_creator_gui.adoc[Uso de scdump para recopilar registros en un formato comprimido]

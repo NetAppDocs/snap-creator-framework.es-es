@@ -1,0 +1,68 @@
+---
+permalink: administration/reference_archive_log_plug_in.html 
+sidebar: sidebar 
+keywords: archive, log, plug-in, snap, creator, archive 
+summary: El plugin de registro de archivo funciona con registros de archivo de Snap Creator y, a no ser así, con los registros de ninguna aplicación o base de datos. 
+---
+= Plugin de registro de archivo
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+El plugin de registro de archivo funciona con registros de archivo de Snap Creator y, a no ser así, con los registros de ninguna aplicación o base de datos.
+
+En la siguiente tabla se enumeran los parámetros del plugin del registro de archivo, se proporciona su configuración y se describen:
+
+|===
+| Parámetro | Ajuste | Descripción 
+
+
+ a| 
+ARCHIVE_LOG_ENABLE
+ a| 
+(Y
+| N 
+
+
+| política:edad)  a| 
+Permite la gestión de los registros de archivos (eliminación de los registros de archivos antiguos).
+ a| 
+RETENCIÓN_LOG_ARCHIVO
+
+
+
+ a| 
+número_de_días
+ a| 
+Especifica la cantidad de días que se conservan los registros de archivo. Este valor debe ser igual o mayor que las RETENTIONS NTAP_SNAPSHOT_.
+ a| 
+ARCHIVE_LOG_DIR
+
+
+
+ a| 
+change_info_directory/logs
+ a| 
+Especifica la ruta de acceso al directorio que contiene los registros de archivo.
+ a| 
+ARCHIVO_LOG_EXT
+
+
+
+ a| 
+extensión_archivo
+ a| 
+Especifica la extensión de archivo de los registros de archivo. Por ejemplo, si los registros de archivos son 10192091019.log, especifique este parámetro en LOG.
+ a| 
+ARCHIVE_LOG_RECURSIVE_SEARCH
+
+
+
+ a| 
+(Y
+| N)  a| 
+Permite la gestión de registros de ficheros en subdirectorios. Si los registros de archivo se encuentran en subdirectorios, debe utilizar este parámetro.
+
+|===

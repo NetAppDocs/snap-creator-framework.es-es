@@ -1,0 +1,73 @@
+---
+permalink: domino-ops/reference_storage_layout_requirements.html 
+sidebar: sidebar 
+keywords: domino, ibm, storage, layout, requirements, 
+summary: Un entorno típico de IBM Domino tiene al menos tres volúmenes Domino, uno para datos de Domino, registros de transacciones de Domino y el directorio chcambiinfo de plug-in. Muchos sitios también tienen volúmenes para Domino DAOS y para las reconstrucciones de vista. 
+---
+= Requisitos de distribución de almacenamiento
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Un entorno típico de IBM Domino tiene al menos tres volúmenes Domino, uno para datos de Domino, registros de transacciones de Domino y el directorio chcambiinfo de plug-in. Muchos sitios también tienen volúmenes para Domino DAOS y para las reconstrucciones de vista.
+
+El complemento de IBM Domino utiliza el directorio chcambiinfo para los cambios registrados durante las operaciones de backup y para las copias de los registros de transacciones utilizadas en las operaciones de restauración de último minuto. Es una práctica recomendada almacenar el directorio chcambiinfo en un volumen independiente, para evitar sobrescribir la información sin darse cuenta y facilitar la copia de seguridad.
+
+También puede resultarle útil disponer de volúmenes independientes para Domino DAOS (si está activado) y para las reconstrucciones de vista. Cuando Domino reconstruye una vista (por ejemplo, cuando un usuario abre una vista cuyo índice se ha eliminado o cuando se ejecuta updall --R), puede generar archivos temporales para ordenar los datos para una reconstrucción rápida de la vista.
+
+De forma predeterminada, estos archivos temporales se encuentran en la carpeta temporal del sistema o en la carpeta de datos de Domino. IBM recomienda cambiar la ubicación de los archivos temporales a una unidad diferente para distribuir la E/S de disco y garantizar un espacio adecuado para reconstruir las vistas. Para cambiar la carpeta temporal utilizada para las reconstrucciones de vistas, agregue el valor View_Rebuild_Dir al archivo notes.iniI.
+
+En la siguiente tabla, se muestra la distribución de volúmenes preferida:
+
+|===
+| Volumen | Contenido | Notas 
+
+
+ a| 
+Volumen 1
+ a| 
+Datos de Domino
+ a| 
+Unidades FC, SAS o SSD preferidas.
+
+
+
+ a| 
+Volumen 2
+ a| 
+Registros de transacciones de Domino
+ a| 
+Unidades FC, SAS o SSD preferidas.
+
+
+
+ a| 
+Volumen 3
+ a| 
+información de sustitución
+ a| 
+Almacena los cambios registrados durante las operaciones de backup y las copias de los registros de transacciones para utilizar en operaciones de restauración de último minuto.
+
+
+
+ a| 
+Volumen 4
+ a| 
+Reconstrucción de vistas
+ a| 
+Opcional. Almacena los archivos temporales creados durante las actualizaciones de índices. Puede utilizar un disco RAM. Agregue el valor View_Rebuild_Dir al archivo notes.iniI.
+
+
+
+ a| 
+Volumen 5
+ a| 
+Repositorio DE DAOS
+ a| 
+Opcional. Contiene archivos .dlo de DAOS. Los requisitos bajos de I/o hacen que esto sea un buen candidato para unidades SATA.
+
+|===
+
+NOTE: En los entornos virtuales, se prefieren los discos montados en «guest».

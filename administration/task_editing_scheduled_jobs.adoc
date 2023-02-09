@@ -1,0 +1,22 @@
+---
+permalink: administration/task_editing_scheduled_jobs.html 
+sidebar: sidebar 
+keywords: edit, schedule, job, snap, creator, gui 
+summary: Puede editar un trabajo programado. 
+---
+= Edición de trabajos programados
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Puede editar un trabajo programado.
+
+. En el menú principal de la GUI de Snap Creator, seleccione *Administración* > *programaciones*.
+. En la ficha programaciones, seleccione un trabajo de la lista de trabajos programados y haga clic en *Editar*.
+. Modifique los campos deseados y haga clic en *Guardar*.
++
+El trabajo programado se guarda con las modificaciones.
+
+

@@ -1,0 +1,115 @@
+---
+permalink: administration/reference_parameters_to_set_up_snapvault.html 
+sidebar: sidebar 
+keywords: parameter, snapvault, update, volume, relationship 
+summary: Se necesitan varios parámetros para configurar SnapVault. 
+---
+= Parámetros para configurar SnapVault
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Se necesitan varios parámetros para configurar SnapVault.
+
+[cols="20,30,50"]
+|===
+| Parámetro | Ajuste | Descripción 
+
+
+| ACTUALIZACIÓN_NTAP_SNAPVAULT_ | (S/N) | Permite activar y desactivar la función de actualización de SnapVault. 
+
+
+ a| 
+NTAP_ALLOW_MIRRORVAULT_AS_MIRROR
+ a| 
+(S/N)
+ a| 
+Permite usar el tipo de política de protección mirror_vault como SnapVault o SnapMirror. (Predeterminado) N: Habilita el tipo de política de protección mirror_vault para SnapVault. Y: Habilita el tipo de política de protección mirror_vault para SnapMirror.
+
+
+
+ a| 
+VOLÚMENES SnapVault_
+ a| 
+ a| 
+Enumera los sistemas de almacenamiento de origen y los volúmenes en los que desea realizar una actualización de SnapVault (por ejemplo, controlador1:vol1,vol2,vol3;controlador2:vol1;controlador3:vol2,vol3).
+
+* Para que las actualizaciones de SnapVault y SnapMirror funcionen, deben existir las relaciones.
++
+SNAP Creator no crea las relaciones.
+
+* Los nombres de host de la relación de SnapMirror o SnapVault deben ser los mismos que los especificados en las opciones VOLUMES, SNAPMIRROR_VOLUMES y SNAPVAULT_VOLUMES. Además, el host en el que se ejecuta Snap Creator debe poder resolver los nombres de host.
+* Para vSphere o vCloud, el valor debe configurarse en auto:detect.
+* Los nombres de host deben ser el nombre de host corto (nombre que aparece en el símbolo del sistema de la controladora de almacenamiento), no el FQDN.
+
+
+
+
+ a| 
+SNAPVAULT_QTREE_INCLUDE
+ a| 
+ a| 
+Muestra los sistemas de almacenamiento de origen y las rutas de qtree que se deben incluir en la actualización de SnapVault. Sin esta opción, SnapVault realiza copias en bóveda de todos los qtrees de un volumen, si existe una relación. Los qtrees enumerados en el siguiente ejemplo están almacenados por SnapVault y el resto se ignoran por SnapVault: Controlador1:/vol/Qtree/qtre1,/vol/volume/qtre2;controle2:/vol/volume/qtre1.
+
+
+
+ a| 
+NTAP_SNAPVAULT_RETENTIONS
+ a| 
+ a| 
+Determina la cantidad de copias Snapshot en el sistema SnapVault secundario que desea retener para una determinada política (por ejemplo, diaria:21, semanal:12, mensual:3).
+
+
+
+ a| 
+NTAP_SNAPVAULT_RETENTION_AGE
+ a| 
+ a| 
+Permite definir una antigüedad de retención (en días) para las copias Snapshot de SnapVault. Si se han configurado, las copias Snapshot de SnapVault se eliminan solo si superan el número definido en NTAP_SNAPVAULT_RETENTIONS y si tienen más antigüedad (en días).
+
+
+
+ a| 
+SNAPSHOT_SNAPVAULT_NTAP
+ a| 
+(S/N)
+ a| 
+Permite utilizar copias Snapshot de SnapVault, es decir, copias Snapshot que son compatibles con el planificador de SnapVault de la controladora de almacenamiento. Si utiliza esta opción, la controladora de almacenamiento gestiona la eliminación de copias de Snapshot, y no Snap Creator. Además, las copias snapshot se denominan de la siguiente manera: sv_<POLICY>.<##>. El nombre de la política procede del parámetro NTAP_SNAPSHOT_RETENTIONS y el conjunto de retención también se aplica a la programación de SnapVault de la controladora de almacenamiento.
+
+
+
+ a| 
+NTAP_SNAPVAULT_ NODELETE
+ a| 
+(S/N)
+ a| 
+Reemplaza a NTAP_SNAPVAULT_RETENTIONS y evita que se eliminen las copias de Snapshot. Si deja esto en, su volumen se puede llenar.
+
+
+
+ a| 
+NTAP_SNAPVAULT_RESTORE_WAIT
+ a| 
+(S/N)
+ a| 
+En el caso de la restauración de SnapVault, obliga a Snap Creator a esperar a que finalice la operación. Esto se recomienda porque una vez finalizada la restauración de SnapVault, Snap Creator solicita al usuario eliminar las copias de Snapshot que se crean en el almacenamiento principal y ya no son necesarias.
+
+
+
+ a| 
+NTAP_SNAPVAULT_WAIT
+ a| 
+ a| 
+El tiempo de espera (en minutos) que debe completar el proceso de actualización de SnapVault antes de crear una copia Snapshot en el volumen secundario de SnapVault.
+
+
+
+ a| 
+NTAP_SNAPVAULT_MAX_TRANSFER
+ a| 
+ a| 
+El ancho de banda máximo SnapVault puede utilizarse, en kbps. Si no se configura, SnapVault utiliza el ancho de banda máximo disponible.
+
+|===

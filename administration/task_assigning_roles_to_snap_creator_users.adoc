@@ -1,0 +1,23 @@
+---
+permalink: administration/task_assigning_roles_to_snap_creator_users.html 
+sidebar: sidebar 
+keywords: snap, creator, user, gui, role, management 
+summary: Puede asignar roles a los usuarios de Snap Creator mediante la GUI de Snap Creator. 
+---
+= Asignar roles a usuarios de Snap Creator
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Puede asignar roles a los usuarios de Snap Creator mediante la GUI de Snap Creator.
+
+. En el menú principal de la GUI de Snap Creator, seleccione *usuarios y roles* > *Administración de usuarios*.
+. En la ficha Administración de usuarios, seleccione el nombre de usuario deseado y, a continuación, haga clic en *asignar perfiles*.
+. Mueva los roles deseados de la columna izquierda a la columna derecha y, a continuación, haga clic en *Guardar*.
++
+Puede seleccionar y arrastrar los roles entre columnas o hacer clic en la flecha para mover los roles entre columnas.
+
+. Compruebe que la función se ha asignado seleccionando el usuario y visualizando el rol asignado en el panel *Perfiles y roles asignados*.
+

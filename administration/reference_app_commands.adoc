@@ -1,0 +1,46 @@
+---
+permalink: administration/reference_app_commands.html 
+sidebar: sidebar 
+keywords: app, command 
+summary: 'En la siguiente tabla se enumeran los comandos de la aplicación (APP)' 
+---
+= Comandos de APLICACIÓN
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+En la siguiente tabla se enumeran los comandos de la aplicación (APP).
+
+|===
+| Comando | Descripción 
+
+
+ a| 
+APP_CLONE_FOLLOW_ UP_ CMD ##
+ a| 
+Son scripts o comandos que se deben ejecutar después de clonar la base de datos, donde ## es un número entre 01 y 99, inclusive. Esto se puede utilizar para realizar actividades de seguimiento específicas de la aplicación en sistemas SAP, como instalar una licencia de SAP, ajustar tablas de bases de datos, eliminar o actualizar contenido e iniciar la aplicación.
+
+
+
+ a| 
+APP_QUIESCE_CMD ##
+ a| 
+Estos son scripts o comandos que ponen su aplicación en modo de copia de seguridad, donde ## es un número entre 01 y 99, inclusive.*Nota:* esto se ignora si utiliza APP_NAME, porque en ese caso se trata internamente en Snap Creator.
+
+
+
+ a| 
+APP_UNQUIESCE_ CMD ##
+ a| 
+Son scripts o comandos que llevan la aplicación fuera del modo de copia de seguridad, donde ## es un número de 01 a 99, inclusive. *Nota:* esto se ignora si utiliza APP_NAME porque en ese caso se trata internamente en Snap Creator.
+
+
+
+ a| 
+ARCHIVO_CMD ##
+ a| 
+Este comando gestiona el archivado de bases de datos; también puede utilizarse como contenedor para ejecutar otros scripts, donde ## es un número de 01 a 99.
+
+|===

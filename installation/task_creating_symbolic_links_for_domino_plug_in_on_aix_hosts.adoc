@@ -1,0 +1,53 @@
+---
+permalink: installation/task_creating_symbolic_links_for_domino_plug_in_on_aix_hosts.html 
+sidebar: sidebar 
+keywords: creating, create, symbolic, links, domino, plug-in, aix, hosts 
+summary: Debe realizar este procedimiento para agregar enlaces simbólicos para el plugin Domino en hosts AIX. 
+---
+= Creación de enlaces simbólicos para el plugin de Domino en hosts AIX
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Debe realizar este procedimiento para agregar enlaces simbólicos para el plugin Domino en hosts AIX.
+
+No debe copiar ni pegar comandos directamente desde este documento; pueden producirse errores (como caracteres transferidos incorrectamente causados por saltos de línea y retornos duros). Copie y pegue los comandos en un editor de texto, compruebe los comandos y, a continuación, introdúzcalo en la consola de la CLI.
+
+
+NOTE: Las rutas proporcionadas en los pasos siguientes se refieren a los sistemas de 32 bits; los sistemas de 64 bits deben crear simlinks a /usr/lib64 en lugar de /usr/lib.
+
+. Agregue vínculos a /usr/lib para los siguientes archivos:
++
+** libxmlproc_r.a
+** libndgts_r.a
+** libnotes_r.a
+** Libgsk8iccs_r.a (sólo para Domino 9.0 o posterior) un método típico de crear un vínculo simbólico es utilizar el comando LN:
+
+
++
+ln -s /path/to/source_file /usr/lib/linked_file
+
++
++ dónde:
+
++
+** -s indica al sistema operativo que haga un enlace simbólico.
+** /Path/to/source_file es la ruta de acceso a uno de los archivos de biblioteca de Domino, incluido el nombre del archivo.
+** linked_file es el nombre del archivo que se está enlazando.
++
+[listing]
+----
+ln -s /opt/ibm/domino/notes/latest/ibmpow/libxmlproc_r.a /usr/lib/libxmlproc_r.a
+ln -s /opt/ibm/domino/notes/latest/ibmpow/libndgts_r.a /usr/lib/libndgts_r.a
+ln -s /opt/ibm/domino/notes/latest/ibmpow/libnotes_r.a /usr/lib/libnotes_r.a
+ln -s /opt/ibm/domino/notes/latest/linux/libgsk8iccs.so /usr/lib/libgsk8iccs_r.a
+----
+
+
+. Verifique la ruta de acceso a los archivos enumerados en el paso 1.
++
+Los comandos de este ejemplo utilizan la ruta de acceso predeterminada para AIX, pero las instalaciones pueden variar.
+
+

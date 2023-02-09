@@ -1,0 +1,25 @@
+---
+permalink: administration/task_creating_policy_schedules.html 
+sidebar: sidebar 
+keywords: policy, schedule, snap, creator, gui 
+summary: Si lo desea, puede crear programas de políticas mediante la GUI de Snap Creator. 
+---
+= Creación de programaciones de políticas
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Si lo desea, puede crear programas de políticas mediante la GUI de Snap Creator.
+
+. En el menú principal de la GUI de Snap Creator, seleccione *Política* > *programas de directivas*.
+. En la ficha *programas de directiva*, haga clic en *Crear*.
+. Introduzca el nombre del programa, seleccione la acción y la frecuencia y, a continuación, haga clic en *Guardar*.
++
+Según la frecuencia que seleccione, deberá seleccionar los campos de tiempo adecuados para ejecutar el trabajo programado.
+
++
+image::../media/add_policy_schedule.gif[agregar programación de directivas]
+
+

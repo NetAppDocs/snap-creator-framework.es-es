@@ -1,0 +1,56 @@
+---
+permalink: sap-hana-ops/task_restoring_databases_after_a_primary_storage_failure_with_data_ontap_operating_in_7_mode.html 
+sidebar: sidebar 
+keywords: restoring, restore, databases, primary, storage, failure, data, ontap, operating, 7-mode 
+summary: Puede restaurar una base de datos SAP HANA después de que se produzca un error en un sistema de almacenamiento primario que ejecuta Data ONTAP en 7-Mode. 
+---
+= Restauración de bases de datos después de un fallo de almacenamiento primario con Data ONTAP en 7-Mode
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Puede restaurar una base de datos SAP HANA después de que se produzca un error en un sistema de almacenamiento primario que ejecuta Data ONTAP en 7-Mode.
+
+. En este caso, la restauración debe ejecutarse directamente en el sistema de almacenamiento secundario mediante el siguiente comando: SnapVault restore --s snapshot_name -S backup_Controller:backup_volumessource_Controller:source_volume
++
+Realice este paso en todos los volúmenes que pertenecen a la base de datos SAP HANA.
+
++
+[listing]
+----
+hana1a>  snapvault restore -s Backup-ANA-SV_hourly_20140410103943 -S
+hana2b:/vol/backup_data_00001/mnt00001 hana1a:/vol/data_00001/mnt00001
+Restore will overwrite existing data in /vol/data_00001/mnt00001.
+Are you sure you want to continue? y
+Thu Apr 10 11:55:55 CEST [hana1a:vdisk.qtreePreserveComplete:info]: Qtree preserve is complete for /vol/data_00001/mnt00001.
+Transfer started.
+Monitor progress with 'snapvault status' or the snapmirror log.
+----
++
+[listing]
+----
+hana1a>  snapvault restore -s Backup-ANA-SV_hourly_20140410103943 -S
+hana2b:/vol/backup_data_00003/mnt00003 hana1a:/vol/data_00003/mnt00003
+Restore will overwrite existing data in /vol/data_00003/mnt00003.
+Are you sure you want to continue? y
+Thu Apr 10 11:58:18 CEST [hana1a:vdisk.qtreePreserveComplete:info]: Qtree preserve is complete for /vol/data_00003/mnt00003.
+Transfer started.
+Monitor progress with 'snapvault status' or the snapmirror log.
+----
++
+[listing]
+----
+hana1b>  snapvault restore -s Backup-ANA-SV_hourly_20140410103943 -S
+hana2b:/vol/backup_data_00002/mnt00002 hana1b:/vol/data_00002/mnt00002
+Restore will overwrite existing data in /vol/data_00002/mnt00002.
+Are you sure you want to continue? y
+Thu Apr 10 12:01:29 CEST [hana1b:vdisk.qtreePreserveComplete:info]: Qtree preserve is complete for /vol/data_00002/mnt00002.
+Transfer started.
+Monitor progress with 'snapvault status' or the snapmirror log.
+----
++
+Una vez finalizado el proceso de restauración, se usa SAP HANA para realizar la recuperación.
+
+

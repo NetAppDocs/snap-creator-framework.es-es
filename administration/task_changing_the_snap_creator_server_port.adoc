@@ -1,0 +1,42 @@
+---
+permalink: administration/task_changing_the_snap_creator_server_port.html 
+sidebar: sidebar 
+keywords: snap, creator, server, snapcreator, properties, file, restart, server, installation, unix 
+summary: Para cambiar el puerto que utiliza Snap Creator Server, puede editar el archivo snapcreator.properties y reiniciar el servidor. 
+---
+= Cambiar el puerto de Snap Creator Server tras la instalación
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Para cambiar el puerto que utiliza Snap Creator Server, puede editar el archivo snapcreator.properties y reiniciar el servidor.
+
+El procedimiento para cambiar el puerto de Snap Creator Server es el mismo para Windows y UNIX. El siguiente procedimiento utiliza ejemplos del entorno UNIX.
+
+. Inicie sesión en el sistema en el que se está ejecutando Snap Creator Server y cambie al subdirectorio etc dentro del directorio de instalación.
++
+[listing]
+----
+cd /install_path/scServer4.3.0/engine/etc
+----
+. Con un editor de texto, abra el archivo snapcreator.properties.
+. Cambie el valor del puerto (de forma predeterminada, 8443) en los siguientes parámetros al nuevo puerto:
++
+[listing]
+----
+...
+SNAPCREATOR_STARTUP_PORT=8443
+...
+SNAPCREATOR_STORAGE_URL=https\://localhost\:8443/services/v1/StorageService
+...
+----
+. Guarde y cierre el archivo snapcreator.properties.
+. Reinicie el servidor de Snap Creator.
++
+[listing]
+----
+/install_path/scServer4.3.0/bin/scServer restart
+----
+

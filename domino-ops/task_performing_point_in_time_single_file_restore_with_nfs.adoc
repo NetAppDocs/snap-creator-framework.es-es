@@ -1,0 +1,146 @@
+---
+permalink: domino-ops/task_performing_point_in_time_single_file_restore_with_nfs.html 
+sidebar: sidebar 
+keywords: snap creator, ibm, domino, plug-in, perfomring, single-file, single, file restore 
+summary: Puede utilizar el complemento IBM Domino para realizar restauraciones de archivos únicos de último minuto, de último minuto o seleccionables para bases de datos en entornos NFS. 
+---
+= Restauración de archivos individuales
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Puede utilizar el complemento IBM Domino para realizar restauraciones de archivos únicos de último minuto, de último minuto o seleccionables para bases de datos en entornos NFS.
+
+Debe establecer el parámetro Data Restore Directoryen el archivo de configuración en el subdirectorio correcto del volumen de datos de Domino.
+
+
+NOTE: No es necesario detener el servidor Domino para una restauración de un solo archivo.
+
+Las opciones de restauración de archivos individuales son las siguientes:
+
+|===
+| Tipo de restauración | Descripción 
+
+
+ a| 
+Restauración de archivo único (momento específico)
+ a| 
+Restaura un único archivo a su estado en el momento de la copia Snapshot (solo NFS).
+
+
+
+ a| 
+Restauración de archivo único (de último minuto)
+ a| 
+Restaura un único archivo a su estado en el momento de la copia Snapshot y, a continuación, reproduce los registros de transacciones de Domino en la copia más reciente (solo NFS).
+
+
+
+ a| 
+Restauración de archivo único (de último minuto seleccionable)
+ a| 
+Restaura un único archivo a su estado en el momento de la copia Snapshot y, a continuación, reproduce los registros de transacciones de Domino en un momento específico (solo NFS).
+
+|===
+
+NOTE: Para restauraciones puntuales de último minuto y seleccionables, se debe activar el registro de transacciones de Domino.
+
+Los registros de transacciones solo se pueden reproducir hacia adelante. Al seleccionar una hora antes de que se creó la copia Snapshot, se producirá un error de restauración.
+
+. En el panel Perfiles y configuraciones, seleccione el archivo de configuración y, a continuación, haga clic en *acciones* > *Restaurar*.
++
+Al seleccionar *Restaurar* se inicia automáticamente el Asistente para restaurar Snap Creator Framework. En el asistente Restaurar, haga clic en *Siguiente* para avanzar a la página siguiente y haga clic en *Atrás* para volver a la página anterior.
+
++
+
+NOTE: Si va a realizar una restauración desde una copia SnapVault, se le solicita que restaure desde el almacenamiento principal o secundario. Su selección depende de cómo se esté manejando la limitación descrita en link:concept_domino_database_restore_overview.md#GUID-4D864E27-DE54-43BF-9B9F-EF2F240F65D9["Concept_domino_database_restore_overview.md#GUID-4D864E27-DE54-43BF-9B9F-EF2F240F65D9"].
+
+. En la página Restore details, especifique los detalles de la restauración:
++
+|===
+| Para este campo... | Realice lo siguiente... 
+
+
+ a| 
+Nombre de la controladora/Vserver
+ a| 
+Seleccione la SVM en el sistema de almacenamiento desde el que desea restaurar.
+
+
+
+ a| 
+Restaurar nombre de volumen
+ a| 
+Seleccione el volumen desde el que desea restaurar.
+
+
+
+ a| 
+Política
+ a| 
+Seleccione la política para el backup desde la que desea restaurar.
+
+
+
+ a| 
+Copias Snapshot de Snap Creator/todas las copias Snapshot
+ a| 
+Deje el valor predeterminado.
+
+
+
+ a| 
+Restaurar el nombre de la copia Snapshot
+ a| 
+Seleccione la copia Snapshot desde la que desea restaurar.
+
+
+
+ a| 
+Tipo de restauración
+ a| 
+Seleccione *Single File Restore*.
+
+|===
+. En la página siguiente, seleccione el archivo que desea restaurar.
++
+El archivo se muestra con su nombre completo de la ruta en el campo *Ruta de origen*.
+
++
+
+TIP: Copie el nombre de la ruta en el portapapeles para utilizarlo más adelante.
+
+. En la siguiente página, seleccione el directorio al que desea restaurar el archivo.
++
+El nombre del subdirectorio principal del archivo debe ser idéntico al nombre del subdirectorio principal de la ruta de acceso de origen. Si, por ejemplo, la ruta de acceso de origen es /domino/data/mail/user1.nsf, la ruta de restauración es /domino/data/restore/mail/user1.nsf.
+
++
+El directorio se muestra con su nombre completo de la ruta en el campo *Ruta de destino*.
+
+. En la página siguiente, especifique el tipo de restauración de archivo único:
++
+|===
+| Para este campo... | Realice lo siguiente... 
+
+
+ a| 
+Tipo de restauración
+ a| 
+Haga clic en el tipo de restauración de archivo único. Si selecciona *seleccionable en el minuto*, se muestran campos nuevos en los que puede especificar la fecha y la hora a la que desea reproducir los registros de transacciones de Domino. Haga clic en *Ignorar validación* si la hora del servidor Snap Creator no coincide con la del controlador de almacenamiento.
+
+
+
+ a| 
+Deshabilite la replicación
+ a| 
+Seleccione esta casilla para establecer un nuevo ID de réplica de Domino para el archivo de base de datos restaurado.
+
+|===
+. Revise el resumen y, a continuación, haga clic en *Finalizar*.
+. En el cuadro de diálogo Single File Restore, haga clic en *OK*.
++
+SNAP Creator inicia el trabajo de restauración. La información del trabajo se muestra en el panel Consola.
+
+

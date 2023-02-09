@@ -1,0 +1,18 @@
+---
+permalink: administration/concept_managing_policies.html 
+sidebar: sidebar 
+keywords: managing, retention, policies, list, delete, policies, snapshot, snapvault 
+summary: Puede crear políticas de retención, así como enumerar y eliminar las políticas. 
+---
+= Gestión de políticas de retención
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Puede crear políticas de retención, así como enumerar y eliminar las políticas.
+
+Una política de retención suele definir la configuración de retención de Snapshot, como cuántas copias de Snapshot deben conservarse y durante cuánto tiempo. Por ejemplo, una política diaria puede retener 30 días de copias Snapshot que deben tener al menos 30 días de antigüedad. (La configuración de antigüedad de retención evita que varias copias Snapshot creadas el mismo día pasen a la vista de acuerdos de nivel de servicio (SLA) que puedan indicar que una copia Snapshot debe tener 30 días de antigüedad).
+
+Si se utiliza SnapVault, la política también define la configuración de retención para la copia de SnapVault.

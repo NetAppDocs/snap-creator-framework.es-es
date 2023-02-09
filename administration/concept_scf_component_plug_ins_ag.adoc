@@ -1,0 +1,54 @@
+---
+permalink: administration/concept_scf_component_plug_ins_ag.html 
+sidebar: sidebar 
+keywords: plug-in, applications, databases, snap, creator, plug-ins, binary, installation, integration, db2, ibm, domino, maxdb, mysql 
+summary: Los complementos se utilizan para poner aplicaciones o bases de datos en un estado consistente. SNAP Creator contiene varios complementos que forman parte del archivo binario y no requieren ninguna instalación adicional. 
+---
+= Complementos para la integración de aplicaciones
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Los complementos se utilizan para poner aplicaciones o bases de datos en un estado consistente. SNAP Creator contiene varios complementos que forman parte del archivo binario y no requieren ninguna instalación adicional.
+
+Los tipos de aplicaciones compatibles incluyen aplicaciones de base de datos, correo electrónico, hipervisor y personalizadas. Los siguientes complementos son compatibles para su uso con Snap Creator:
+
+* Complementos de aplicaciones y bases de datos:
++
+** DB2
+** IBM Domino (Domino)
+** Maxdb
+** MySQL
++
+
+NOTE: El plugin de MySQL no es compatible con las operaciones de backup y restauración de varias bases de datos.
+
+** Oracle
+** Dispositivo analítico de alto rendimiento de SAP (HANA)
+** Sybase Adaptive Server Enterprise (ASE)
+
+
+* Plugins de SnapManager:
++
+** SnapManager para Microsoft Exchange
+** SnapManager para Microsoft SQL Server
+
+
+* Complementos de hipervisor:
++
+** Citrix XenServer
+** Máquina virtual basada en kernel (KVM) de Red Hat
+** VMware (vSphere para backup de un equipo virtual individual y vCloud Director para backup de vApp)
+
+
+
+
+Para obtener más información, consulte la información sobre los plugins necesarios para configurar Snap Creator.los plugins personalizados (también llamados "complementos de comunidad") los crea la comunidad de desarrolladores y pueden habilitarse en Snap Creator; sin embargo, los plugins personalizados no son compatibles. Estos complementos aprovechan la interfaz que ofrece Snap Creator.
+
+Para obtener más información, consulte http://community.netapp.com/t5/Snap-Creator-Framework-Discussions/bd-p/snap-creator-framework-discussions["Foro de la comunidad de debates de Snap Creator Framework"].
+
+*Información relacionada*
+
+xref:reference_information_required_to_configure_snap_creator.adoc[Es necesario contar con información sobre el complemento para configurar Snap Creator]

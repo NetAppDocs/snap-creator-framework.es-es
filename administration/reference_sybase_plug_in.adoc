@@ -1,0 +1,173 @@
+---
+permalink: administration/reference_sybase_plug_in.html 
+sidebar: sidebar 
+keywords: sybase, ase, plug-in, isql, command, database, parameter, user, server 
+summary: El plugin de Sybase ASE utiliza el comando isql para interactuar con la base de datos de Sybase. 
+---
+= Complemento ASE de Sybase
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+El plugin de Sybase ASE utiliza el comando isql para interactuar con la base de datos de Sybase.
+
+
+NOTE: Para obtener la información más reciente acerca del soporte o para ver matrices de compatibilidad, consulte la matriz de interoperabilidad.
+
+En la siguiente tabla, se enumeran los parámetros del plugin de Sybase, se proporcionan sus ajustes y se describen en ellos:
+
+|===
+| Parámetro | Ajuste | Descripción 
+
+
+ a| 
+SYBASE_USUARIO
+ a| 
+nombre_usuario
+ a| 
+Especifica el usuario del sistema operativo que puede ejecutar el comando isql. Este parámetro es necesario para UNIX. Este parámetro es necesario si el usuario que ejecuta los comandos Agentstart y stop de Snap Creator (normalmente el usuario root) y el usuario que ejecuta el comando isql son diferentes.
+
+
+
+ a| 
+SERVIDOR_SYBASE
+ a| 
+nombre_servidor_datos
+ a| 
+Especifica el nombre del servidor de datos de Sybase (opción-S en el comando isql).por ejemplo: `p_test`
+
+
+
+ a| 
+SYBASE_BASES DE DATOS
+ a| 
+db_name:user_name/password
+ a| 
+Muestra las bases de datos de la instancia de la que se va a realizar el backup. Se agrega la base de datos maestra; por ejemplo: `DBAtest2:sa/53616c7404351e`.Si se utiliza una base de datos llamada +ALL, se utiliza el descubrimiento automático de la base de datos y se excluyen las bases de datos sybsyntainty, sybsystemdb, sybsystemprocs y tempdb.
+
+Por ejemplo: `+ALL:sa/53616c71a6351e`
+
+Las contraseñas cifradas son compatibles si se establece el parámetro NTAP_PWD_PROTECTION.
+
+
+
+ a| 
+SYBASE_DATABASE_EXCLUDE
+ a| 
+db_name
+ a| 
+Permite excluir las bases de datos si se utiliza la construcción +ALL. Puede especificar varias bases de datos mediante una lista separada por punto y coma. Por ejemplo, `pubs2;test_db1`
+
+
+
+ a| 
+SYBASE_TRAN_DUMP
+ a| 
+db_name:directory_path
+ a| 
+Permite realizar un volcado de transacciones de Sybase después de crear una copia Snapshot.por ejemplo: `pubs2:/sybasedumps/pubs2`
+
+Debe especificar cada base de datos que requiera un volcado de transacción.
+
+
+
+ a| 
+SYBASE_TRAN_DUMP_FORMAT
+ a| 
+%S_%D_%T.CMN
+ a| 
+Permite especificar la convención de nomenclatura de volcado. Se pueden especificar las siguientes claves:
+
+* %S = nombre de instancia DE SYBASE_SERVER
+* %D = base de datos DE SYBASE_BASES de DATOS
+* %T = Marca de hora única
+
+
+A continuación se muestra un ejemplo: `%S_%D_%T.log`
+
+
+
+ a| 
+SYBASE_TRAN_DUMP_COMPRESS
+ a| 
+(Y
+| N ) 
+
+
+ a| 
+Habilita o deshabilita la compresión de volcado de transacciones nativa de Sybase.
+ a| 
+SYBASE_ISQL_CMD
+ a| 
+Ejemplo: /Opt/sybase/OCS-15__0/bin/isql
+
+
+
+ a| 
+Define la ruta al comando isql.
+ a| 
+SYBASE
+ a| 
+Ejemplo: /Sybase
+
+
+
+ a| 
+Especifica la ubicación de la instalación de Sybase.
+ a| 
+SYBASE_LOGDIR
+ a| 
+Ejemplo: /Usr/local/ntap/scServer/logs
+
+
+
+ a| 
+Define el directorio en el que se colocan los registros de Snap Creator.
+ a| 
+SYBASE_MANIFEST
+ a| 
+Ejemplo: `DBAtest2:/t_inf_nzl_devs/`
+
+
+
+ a| 
+Especifica las bases de datos para las que se debe crear el archivo de manifiesto, junto con la ubicación en la que se debe colocar el archivo de manifiesto.
+ a| 
+SYBASE_MANIFEST_FORMAT
+ a| 
+%S_%D_%T.ejemplo de manifiesto: `%S_%D_%T.manifest`
+
+
+
+ a| 
+Permite especificar la convención de nomenclatura de archivos de manifiesto. Se pueden especificar las siguientes claves:
+
+* %S = nombre de instancia DE SYBASE_SERVER
+* %D = base de datos DE SYBASE_BASES de DATOS
+* %T = Marca de hora única, que es la misma que la utilizada para la nomenclatura de copias snapshot
+
+ a| 
+SYBASE_MANIFEST_DELETE
+ a| 
+(Y
+
+
+
+| N )  a| 
+Permite eliminar el manifiesto una vez que se creó la copia Snapshot. El archivo de manifiesto debe capturarse en la copia snapshot para que esté siempre disponible con la copia de seguridad.
+ a| 
+SYBASE_EXCLUDE_TEMPDB
+
+
+
+ a| 
+(Y
+| N )  a| 
+Habilita la exclusión automática de bases de datos temporales creadas por el usuario.
+
+|===
+*Información relacionada*
+
+http://mysupport.netapp.com/matrix["Herramienta de matriz de interoperabilidad: mysupport.netapp.com/matrix"]

@@ -1,0 +1,65 @@
+---
+permalink: sap-hana-ops/task_restoring_and_recovering_sap_hana_databases.html 
+sidebar: sidebar 
+keywords: sap, hana, restoring, restore, recovering, recover, databases 
+summary: SAP HANA Studio y Snap Creator se usan para restaurar y recuperar bases de datos SAP HANA. 
+---
+= Restaurar y recuperar bases de datos SAP HANA
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+SAP HANA Studio y Snap Creator se usan para restaurar y recuperar bases de datos SAP HANA.
+
+. Dentro de SAP HANA Studio:
++
+.. Seleccione Recover para el sistema SAP HANA.
+.. El sistema SAP HANA está apagado.
+.. Seleccione el tipo de recuperación.
+.. Proporcione ubicaciones de backup de registros.
+.. Se muestra la lista de backups de datos
+.. Seleccione copia de seguridad para ver el ID de copia de seguridad externa.
+
+
+. Para un sistema de almacenamiento que funcione únicamente con Clustered Data ONTAP:
++
+.. Solo es obligatorio si se ha utilizado para la restauración cualquier otra copia de seguridad que no sea la más reciente.
+.. Solo se requiere «'SnapRestore de volumen» del almacenamiento primario.
+.. Desactivar las relaciones de SnapVault
+
+
+. En Snap Creator:
++
+.. Seleccione «'Restore'» para el sistema SAP HANA.
+.. Seleccione restore from primary or secondary Storage, dependiendo de la disponibilidad del backup en el almacenamiento principal.
+.. Seleccione la controladora de almacenamiento, el nombre del volumen y el nombre de la copia de Snapshot. El nombre de la copia Snapshot se correlaciona con el ID de backup anteriormente.
+.. Para los sistemas SAP HANA de varios nodos, es necesario restaurar varios volúmenes:
++
+... Elija *Agregar más elementos de restauración*.
+... Seleccione la controladora de almacenamiento, el nombre del volumen y el nombre de la copia de Snapshot.
+... Repita este proceso para todos los volúmenes requeridos.
+
+
+.. Para los sistemas de bases de datos de un solo inquilino de contenedores de bases de datos multitenant (MDC), se restauran las bases de datos del SISTEMA y DE TENANT.
+.. Se inició el proceso de restauración
+.. La restauración finalizó para todos los volúmenes.
+
+
+. En los nodos de la base de datos, desmonte y monte todos los volúmenes de datos para limpiar los "identificadores de NFS obsoletos".
+. Dentro de SAP HANA Studio:
++
+.. Seleccione *Actualizar* en la lista de copias de seguridad.
+.. Seleccione Available backup for recovery (elemento verde).
+.. Inicie el proceso de recuperación.
+.. Para sistemas de bases de datos de un solo inquilino de contenedores de base de datos multitenant (MDC), inicie el proceso de recuperación primero para la base de datos DEL SISTEMA y luego para la base de datos DE TENANT.
+.. Se ha iniciado el sistema SAP HANA.
+
+
+. (Opcional) reanude relaciones de SnapVault para todos los volúmenes restaurados.
++
+
+NOTE: En los sistemas de almacenamiento, este paso solo es necesario si para la restauración se ha usado un backup diferente al más reciente.
+
+

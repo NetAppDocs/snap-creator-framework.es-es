@@ -1,0 +1,52 @@
+---
+permalink: administration/task_creating_backups_using_the_snap_creator_gui.html 
+sidebar: sidebar 
+keywords: create, backup, snap, creator, gui, configuration, backup, action, parameter 
+summary: Puede crear backups mediante la GUI de Snap Creator. 
+---
+= Crear backups
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Puede crear backups mediante la GUI de Snap Creator.
+
+Se debe cumplir una de las siguientes condiciones:
+
+* Debe definirse una política de copia de seguridad en el archivo de configuración; o,
+* Se debe configurar y asignar un objeto de directiva al perfil.
++
+
+NOTE: Si se define un objeto de política, se anularán todas las entradas que puedan estar en el archivo de configuración.
+
++
+.. En el menú principal de la GUI de Snap Creator, seleccione *Gestión* > *configuraciones*.
+.. En la ficha *configuraciones*, en el panel *Perfiles y Configuración*, seleccione el archivo de configuración.
+.. Seleccione *acciones* > *copia de seguridad*.
++
+image::../media/backup_select.gif[seleccione backup]
+
+.. En el cuadro de diálogo parámetros adicionales, seleccione la directiva y, a continuación, haga clic en *Aceptar* para iniciar la copia de seguridad.
++
+
+NOTE: Si no se asigna ninguna directiva creada por el usuario a la configuración, las selecciones disponibles en la lista desplegable *Política* son cada hora, día, semana y mes. Si se han asignado una o varias directivas creadas por el usuario a la configuración, se mostrarán en la lista desplegable *Política*.
+
++
+image::../media/additional_parameters.gif[parámetros adicionales]
+
+.. Compruebe que la información sobre el trabajo de copia de seguridad se muestra en el panel *Consola*.
++
+image::../media/console_area_backup.gif[backup de área de consola]
+
++
+En este ejemplo, el resultado indica que la operación de Snap Creator se ha completado correctamente.
+
++
+
+NOTE: El panel *Console* sólo muestra la información más pertinente; es el modo detallado. Para ver información detallada sobre el trabajo que acaba de ejecutar, seleccione *Informes* > *registros* en la parte superior de la página. En la vista registros, se puede seleccionar el perfil, el archivo de configuración, el tipo de registro y el registro específico.
+
+
+
+

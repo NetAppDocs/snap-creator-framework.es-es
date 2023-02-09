@@ -1,0 +1,36 @@
+---
+permalink: domino-ops/concept_adding_commands_to_the_backup_and_restore_configuration.html 
+sidebar: sidebar 
+keywords: domino, ibm, adding, commands, backup, restore, configuration, supplemental, 
+summary: Puede que prefiera utilizar comandos de SnapDrive para backups en lugar de comandos nativos de Snap Creator, para garantizar la coherencia del sistema de archivos en el nivel de SO. 
+---
+= Adición de comandos a la configuración de backup y restauración
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Ocasionalmente, es posible que una operación de backup o restauración deba ejecutar un comando que no está disponible en Snap Creator. Por ejemplo, en hosts Windows que utilizan FC o iSCSI, puede que prefiera utilizar comandos de SnapDrive para realizar backups en lugar de comandos nativos de Snap Creator, para garantizar la consistencia del sistema de archivos en el nivel de sistema operativo.
+
+
+
+== Dónde ejecutar comandos complementarios
+
+De forma predeterminada, los comandos complementarios se ejecutan en el agente de Snap Creator. Puede ejecutar un comando suplementario en el servidor prependiente el comando con el SERVIDOR de texto, seguido de dos puntos (:). POR ejemplo, SERVER:C:\myscript.bat.
+
+Si desea ejecutar un comando suplementario en el agente, debe permitir explícitamente que el comando se ejecute incluyéndolo en el archivo allowed_Commands.config del agente. No hay ningún requisito para permitir comandos complementarios en el servidor.
+
+
+
+== Dónde agregar comandos complementarios
+
+Puede usar la interfaz gráfica de usuario de Snap Creator o la CLI de Snap Creator para añadir comandos a su configuración de backup y restauración.
+
+
+NOTE: Esta guía muestra cómo utilizar la GUI para añadir comandos. Para obtener información acerca de cómo utilizar la CLI, consulte https://library.netapp.com/ecm/ecm_download_file/ECMP12395422["Guía de administración de Snap Creator Framework 4.1.2"].
+
+*Información relacionada*
+
+link:concept_allowing_additional_commands_through_the_snap_creator_agent.adoc["Permitir comandos complementarios en el agente de Snap Creator"]
+link:task_configuring_snap_creator_to_use_snapdrive_by_using_the_gui.adoc["Agregar comandos complementarios a la configuración"]

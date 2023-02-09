@@ -1,0 +1,19 @@
+---
+permalink: administration/task_viewing_a_list_of_snap_creator_users_by_using_the_gui.html 
+sidebar: sidebar 
+keywords: snap, creator, user, gui, assign, profile, role 
+summary: Puede ver una lista de usuarios de Snap Creator y sus roles asignados mediante la GUI de Snap Creator. 
+---
+= Ver una lista de usuarios de Snap Creator y roles asignados
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Puede ver una lista de usuarios de Snap Creator y sus roles asignados mediante la GUI de Snap Creator.
+
+. En el menú principal de la GUI de Snap Creator, seleccione *usuarios y roles* > *Administración de usuarios*.
+. Consulte la lista de usuarios en el panel Perfiles y funciones asignados.
+. Seleccione el usuario deseado y vea las funciones asignadas en el panel Perfiles y funciones asignados.
+

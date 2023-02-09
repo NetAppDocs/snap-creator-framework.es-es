@@ -1,0 +1,111 @@
+---
+permalink: administration/reference_red_hat_kvm_plug_in.html 
+sidebar: sidebar 
+keywords: kernel, kvm, virtualization, linux, snap, creator, virsh, command, plug-in, red, hat, guideline 
+summary: 'La máquina virtual basada en kernel (KVM) es una solución de virtualización para el kernel de Linux. SNAP Creator utiliza el complemento KVM para realizar backups y restaurar las máquinas virtuales invitadas.' 
+---
+= Directrices sobre el complemento Red Hat KVM
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+La máquina virtual basada en kernel (KVM) es una solución de virtualización para el kernel de Linux. SNAP Creator utiliza el complemento KVM para realizar backups y restaurar las máquinas virtuales invitadas.
+
+
+NOTE: Para obtener la información más reciente acerca del soporte o de las matrices de compatibilidad, consulte la matriz de interoperabilidad.
+
+El complemento KVM es compatible con sistemas operativos invitados como Linux, Windows y Solaris.
+
+El plugin utiliza internamente comandos virsh.
+
+Debe tener en cuenta lo siguiente al utilizar el complemento KVM:
+
+* No se admite el servidor Active IQ Unified Manager como proxy.
+* No se admiten las operaciones de montaje, desmontaje y backup con Open Systems SnapVault y la gestión de registros de archivos.
+* En un entorno DE red de área de almacenamiento (SAN), se requiere el kit de utilidades de host de Linux (LHU) para recopilar información sobre las LUN y los volúmenes de la controladora de almacenamiento.
++
+El kit LHU debe instalarse en un hipervisor KVM, que es la misma ubicación que el agente de Snap Creator.
+
++
+
+NOTE: Si el kit LHU no está instalado y la configuración es una mezcla de entornos de almacenamiento conectado a la red y de red de área de almacenamiento, las operaciones de copia de seguridad y restauración sólo funcionan en un sistema de archivos de red (NFS).
+
+* El plugin KVM solo admite la versión Linux del agente de Snap Creator 4.0 y 4.1.
+* No se admite la restauración de volúmenes; solo se admiten las operaciones de restauración definidas por la aplicación.
+* No se pueden restaurar las máquinas virtuales eliminadas (VM).
+* Las IP y el host de la controladora de almacenamiento deben estar en /etc/hosts en el host KVM o en un sistema de nombres de dominio (DNS).
+* Solo se admite un host KVM por configuración.
+* Si se crea una máquina virtual mediante un repositorio ISO, para realizar cualquier acción, debe desconectar este repositorio de la máquina virtual a través de la consola de la consola de la consola de la consola de CD-ROM.
+* El valor SC_AGENT_TIMEOUT debe ser superior al valor predeterminado: 600 o superior.
+* Los volúmenes se detectan automáticamente mediante detección automática.
++
+No puede ver los volúmenes de destino detectados si el destino no está en una relación de SnapMirror. Debe usar dpstatus para comprobar el estado de la relación de SnapMirror. Si no hay ninguna relación de SnapMirror, primero debe crear la relación de SnapMirror.
+
+* Si el valor de APP_DEFINED_RESTORE es y, no se admite la operación de restauración de SnapVault mediante la GUI.
+* Cuando se crea una configuración de SnapMirror y SnapVault mediante la interfaz gráfica de usuario, los detalles del volumen se deben introducir de forma manual, ya que la relación de SnapMirror y SnapVault no se detecta de forma automática.
+* Los discos de datos asignados a los equipos virtuales no se incluyen en los backups.
+* Las operaciones de suspensión y reanudación de la máquina virtual se realizan en serie.
++
+En caso de varias máquinas virtuales, la duración de la máquina virtual en estado de suspensión durante la operación de backup depende de la cantidad de máquinas virtuales.
+
+
+
+
+
+== Configuraciones de KVM compatibles
+
+* SAN: Admite máquinas virtuales invitadas instaladas en un dispositivo multivía bruto (LUN con varias rutas).
+* NAS: Admite máquinas virtuales invitadas instaladas en volúmenes NFS.
+
+
+
+NOTE: No se admiten las configuraciones con varias máquinas virtuales instaladas en un único dispositivo multivía.
+
+No se admiten las máquinas virtuales invitadas instaladas en LVM o en un archivo de imagen en el entorno SAN.
+
+En la siguiente tabla se describen los parámetros del plugin KVM:
+
+|===
+| Parámetro | Ajuste | Descripción 
+
+
+ a| 
+KVM_RESTORE_VM_LIST
+ a| 
+Ejemplo: `VM1,VM2`
+ a| 
+Especifica la lista de máquinas virtuales que se restaurarán. Este parámetro solo se requiere durante la restauración.
+
+
+
+ a| 
+ASIGNACIÓN_VM_KVM
+ a| 
+Ejemplo: `VM1:s_c1:/vol/vol1/lun1;VM2:s_c2:/vol/vol2/lun2;`
+ a| 
+(Obligatorio) especifica la asignación entre la máquina virtual y la controladora de almacenamiento, la LUN o la ruta de archivo asociadas. Este parámetro se actualiza dinámicamente durante el proceso de detección.
+
+
+
+ a| 
+KVM_VM_CONFIG_DIR
+ a| 
+Por defecto: /Etc/libvirt/qemu
+ a| 
+(Opcional) especifica la ruta de acceso al directorio en el que se almacenan todos los archivos de configuración XML del equipo virtual.
+
+
+
+ a| 
+KVM_CMD_RETRY_COUNT
+ a| 
+Valor predeterminado: `3`
+ a| 
+(Opcional) especifica el número de veces que se vuelve a ejecutar el comando cuando se produce un error en el plugin KVM.
+
+|===
+*Información relacionada*
+
+http://mysupport.netapp.com/matrix["Herramienta de matriz de interoperabilidad: mysupport.netapp.com/matrix"]

@@ -1,0 +1,16 @@
+---
+permalink: administration/concept_managing_scheduled_jobs.html 
+sidebar: sidebar 
+keywords: manage, scheduled, jobs, listing, running, deleting, managing 
+summary: 'Puede gestionar los trabajos programados creándolos \(para automatizar operaciones de copia de seguridad\), así como la lista editando, enumerando, ejecutando y eliminando dichos trabajos programados.' 
+---
+= Gestión de trabajos programados
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Puede gestionar los trabajos programados creándolos (para automatizar operaciones de copia de seguridad), así como en la lista editando, enumerando, ejecutando y eliminando dichos trabajos programados.
+
+El servidor de Snap Creator contiene un planificador centralizado que permite programar los trabajos de Snap Creator, ya sea a través de un programa de normativas (que forma parte de objetos de normativas) o mediante su creación directa a través del planificador. El programador puede ejecutar hasta 10 trabajos simultáneamente y puede poner en cola trabajos adicionales hasta que finalice un trabajo en ejecución.

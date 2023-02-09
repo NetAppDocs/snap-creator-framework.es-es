@@ -1,0 +1,134 @@
+---
+permalink: domino-ops/task_performing_point_in_time_volume_restore.html 
+sidebar: sidebar 
+keywords: domino, ibm, volume, restore 
+summary: Puede usar el complemento de IBM Domino para ejecutar restauraciones de volúmenes puntuales, de último minuto o seleccionables de último minuto para satisfacer todos los principales tipos de almacenamiento. 
+---
+= Restauración de un volumen
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Puede usar el complemento de IBM Domino para ejecutar restauraciones de volúmenes puntuales, de último minuto o seleccionables de último minuto para satisfacer todos los principales tipos de almacenamiento.
+
+Asegúrese de:
+
+* Establezca el Directorio de restauración de datos del archivo de configuración en el directorio de datos de Domino.
+* Detenga el servidor Domino.
+
+
+Las opciones de restauración de volúmenes son las siguientes:
+
+|===
+| Tipo de restauración | Descripción 
+
+
+ a| 
+Restauración de volúmenes (momento específico)
+ a| 
+Restaura el volumen completo a su estado en el momento de la copia Snapshot.
+
+
+
+ a| 
+Restauración de volúmenes (de último minuto)
+ a| 
+Restaura todo el volumen a su estado en el momento de la copia Snapshot y, a continuación, reproduce los registros de transacciones de Domino en la copia más reciente.
+
+
+
+ a| 
+Restauración de volumen (seleccionable de último minuto)
+ a| 
+Restaura todo el volumen a su estado en el momento de la copia Snapshot y, a continuación, reproduce los registros de transacciones de Domino en un momento específico.
+
+|===
+
+NOTE: Para restauraciones puntuales de último minuto y seleccionables, se debe activar el registro de transacciones de Domino.
+
+Los registros de transacciones solo se pueden reproducir hacia adelante. Al seleccionar una hora antes de que se creó la copia Snapshot, se producirá un error de restauración.
+
+. En el panel Perfiles y configuraciones, seleccione el archivo de configuración y haga clic en *acciones* > *Restaurar*.
++
+Al seleccionar *Restaurar* se inicia automáticamente el Asistente para restaurar Snap Creator Framework. En todo el asistente de restauración, haga clic en *Siguiente* para avanzar a la página siguiente. Haga clic en *Atrás* para volver a la página anterior.
+
++
+
+NOTE: Si va a realizar una restauración desde una copia SnapVault, se le solicita que restaure desde el almacenamiento principal o secundario. Su selección depende de cómo se esté manejando la limitación descrita en link:concept_domino_database_restore_overview.html["Restaurar bases de datos"].
+
+. En la página Restore details, especifique los detalles de la restauración:
++
+|===
+| Para este campo... | Realice lo siguiente... 
+
+
+ a| 
+Nombre de la controladora/Vserver
+ a| 
+Seleccione la SVM en el sistema de almacenamiento desde el que desea restaurar.
+
+
+
+ a| 
+Restaurar nombre de volumen
+ a| 
+Seleccione el volumen desde el que desea restaurar.
+
+
+
+ a| 
+Política
+ a| 
+Seleccione la política para el backup desde la que desea restaurar.
+
+
+
+ a| 
+Copias Snapshot de Snap Creator/todas las copias Snapshot
+ a| 
+Deje el valor predeterminado.
+
+
+
+ a| 
+Restaurar el nombre de la copia Snapshot
+ a| 
+Seleccione la copia Snapshot desde la que desea restaurar.
+
+
+
+ a| 
+Tipo de restauración
+ a| 
+Seleccione *Restaurar volumen*.
+
+|===
+. En la página siguiente, especifique el tipo de restauración de volumen:
++
+|===
+| Para este campo... | Realice lo siguiente... 
+
+
+ a| 
+Tipo de restauración
+ a| 
+Haga clic en el tipo de restauración de volúmenes. Si selecciona *seleccionable en el minuto*, se muestran campos nuevos en los que puede especificar la fecha y la hora a la que desea reproducir los registros de transacciones de Domino. Haga clic en *Ignorar validación* si la hora del servidor Snap Creator no coincide con la del controlador de almacenamiento.
+
+
+
+ a| 
+Deshabilite la replicación
+ a| 
+Seleccione esta casilla para establecer un nuevo ID de réplica de Domino para los archivos de base de datos restaurados.
+
+|===
+. Revise el resumen y haga clic en *Finalizar*.
+. En el cuadro de diálogo Restaurar volumen, haga clic en *Aceptar*.
++
+SNAP Creator inicia el trabajo de restauración. La información del trabajo se muestra en el panel Consola.
+
+
+
+Reinicie el servidor Domino cuando finalice la operación de restauración.

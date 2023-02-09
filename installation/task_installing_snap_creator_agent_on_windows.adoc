@@ -1,0 +1,85 @@
+---
+permalink: installation/task_installing_snap_creator_agent_on_windows.html 
+sidebar: sidebar 
+keywords: installing, install, snap, creator, agent, windows 
+summary: Puede instalar el agente de Snap Creator en hosts de Windows mediante el instalador de Windows. 
+---
+= Instalación del agente de Snap Creator en Windows
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Puede instalar el agente de Snap Creator en hosts de Windows mediante el instalador de Windows.
+
+* Se debe instalar la actualización 72 de JRE 1.8 o una versión posterior.
+* Debe tener privilegios de administrador.
+* El puerto predeterminado (9090) u otro puerto de red debe estar disponible.
+* SNAP Creator debe descargarse.
++
+.. Inicie el instalador de Snap Creator haciendo doble clic en el icono de archivo Snap_Creator_Frameworkrelease-Windowsversion.exe (por ejemplo, Snap_Creator_Framework4.1.0-Windows64.exe).
+.. En la página de bienvenida, haga clic en *Siguiente* para iniciar la instalación.
+.. Revise y acepte los términos del acuerdo de licencia.
+.. En la página elegir tipo de instalación, configure las siguientes opciones para que se adapten a varios tipos de instalación:
++
+*** *Seleccione el tipo de instalación*
++
+Seleccione *Agente*.
+
+*** *Iniciar agente como servicio*
++
+Seleccione esta opción para instalar e iniciar el *snapcreatoragentservice* inmediatamente después de completar el proceso de instalación.
+
++
+Si esta opción no está seleccionada, el campo Puerto del agente está desactivado.
+
++
+
+NOTE: Si no selecciona esta opción, el servicio no está instalado y debe iniciar manualmente el agente de Snap Creator ejecutando un script por lotes desde el símbolo del sistema.
+
+*** *Introduzca la dirección IP del sistema*
++
+Seleccione esta opción para proporcionar la dirección IP del sistema en el que está instalado Snap Creator Server o Snap Creator Agent. Esta opción se utiliza para generar el certificado SSL durante el proceso de instalación de Snap Creator.
+
+*** *Introduzca la ruta de salida DE Java bin*
++
+Seleccione esta opción para proporcionar la ruta de bandeja de Java para localizar la utilidad keytool. La utilidad keytool se utiliza para generar un certificado SSL durante el proceso de instalación de Snap Creator.
+
+*** *Puerto del agente*
++
+Acepte el puerto predeterminado (9090) o especifique un número de puerto.
+
+
+
+
+
++
+image::../media/choose_install_type_page.gif[seleccione la página de tipo de instalación]
+
++
+.. Haga clic en *Siguiente*.
+.. En la página Choose Install Location (Seleccionar ubicación de instalación), introduzca una ruta de instalación de Snap Creator o acepte la ruta predeterminada (C:\Program Files\NetApp\Snap_Creator_Framework) y, a continuación, haga clic en *Next*.
++
+
+NOTE: Si planea utilizar el complemento IBM Domino, debe seleccionar una ubicación distinta de la carpeta de datos Domino.
+
+.. En la página elegir carpeta del menú de inicio, personalice la carpeta en la que Snap Creator debe aparecer en el menú Inicio de Windows o acepte la opción de carpeta predeterminada y, a continuación, haga clic en *instalar*.
+.. Cuando finalice la instalación, haga clic en *Siguiente*.
++
+Durante la instalación del servicio Snap Creator Agent, se muestra un símbolo del sistema si se ha seleccionado un servicio como parte de las opciones de instalación. Este proceso intenta iniciar los servicios existentes; por lo tanto, es habitual ver los mensajes de error enumerados como parte de este paso, lo que debe ignorar.
+
+.. Haga clic en *Finalizar* para cerrar el instalador de Windows.
+
+
+
+
+Si no ha seleccionado la opción *Iniciar agente como servicio* durante el proceso de instalación, deberá iniciar manualmente Snap Creator Agent.
+
+*Información relacionada*
+
+xref:task_installing_java_on_snap_creator_hosts.adoc[Instalación de Java en hosts de Snap Creator]
+
+xref:task_downloading_the_snap_creator_software.adoc[Descarga del software Snap Creator]
+
+xref:task_starting_the_agent_from_a_command_prompt.adoc[Iniciar el agente desde un símbolo del sistema]

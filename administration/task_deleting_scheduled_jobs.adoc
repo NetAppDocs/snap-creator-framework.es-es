@@ -1,0 +1,22 @@
+---
+permalink: administration/task_deleting_scheduled_jobs.html 
+sidebar: sidebar 
+keywords: delete, schedule, job, management 
+summary: Puede eliminar un trabajo programado. 
+---
+= Eliminación de trabajos programados
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Puede eliminar un trabajo programado.
+
+. En el menú principal de la GUI de Snap Creator, seleccione *Administración* > *programaciones*.
+. En la ficha programaciones, seleccione un trabajo de la lista de trabajos programados y haga clic en *Eliminar*.
+. Haga clic en *Sí* en la ventana de confirmación.
++
+El trabajo programado se elimina de la lista.
+
+

@@ -1,0 +1,103 @@
+---
+permalink: administration/task_configuring_snap_creator_for_multilevel_application_quiesce_operations.html 
+sidebar: sidebar 
+keywords: hypervisoer, virtualization, plug-in, vmware, vcloud, multilevel, application, quiesce 
+summary: 'Cuando utiliza los complementos del hipervisor (también conocidos como virtualización) (VMware (VMware vCloud Director y VMware vSphere), KVM y Citrix XenServer) y desea realizar una operación de backup y inactividad de aplicaciones de varios niveles, debe configurar Snap Creator para este tipo de configuración.' 
+---
+= Configurar Snap Creator para operaciones de inactividad de aplicaciones multinivel cuando se utilizan complementos del hipervisor
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Cuando utiliza el hipervisor (también conocido como «virtualización»), los complementos (VMware (VMware vCloud Director y VMware vSphere), KVM y Citrix XenServer) y desea realizar una operación de backup y modo de inactividad de aplicaciones de varios niveles, debe configurar Snap Creator para este tipo de configuración.
+
+Esta configuración le permite desactivar una aplicación que reside en un equipo virtual, desactivar el modo de inactividad de la máquina virtual y hacer una copia de Snapshot.
+
+Durante este proceso, creará una configuración de hipervisor y de aplicaciones especificando un archivo de configuración principal con uno o más archivos de configuración secundarios. Este archivo de configuración principal contiene información sobre el archivo de configuración típica, como la política de retención, detalles de la SVM e información sobre el plugin del hipervisor. Cada archivo de configuración secundaria contiene los detalles necesarios para realizar las acciones de "Quiesce" y "UnQUIESCE" de Snap Creator mediante el complemento específico de la aplicación.
+
+. Cree un nuevo perfil.
+. Cree una nueva configuración.
++
+.. En la página Configuration, escriba un nombre para el archivo de configuración.
++
+
+NOTE: De forma predeterminada, el cifrado de contraseña está activado para evitar que las contraseñas se muestren en texto sin cifrar en el archivo de configuración.
+
+.. En la página Plug-in Type, seleccione *Virtualization Plug-in*.
+.. En la página Virtualization Plug-in, seleccione el plugin que desea configurar.
+.. En la página Plug-in Parameters, proporcione los detalles de configuración asociados con la opción de plugin seleccionada.
++
+En el ejemplo siguiente, VMware vSphere es el plugin de virtualización seleccionado. Las pantallas del asistente que se muestran dependen de su selección.
+
++
+... Proporcione la información adecuada y haga clic en *Agregar*.
++
+image::../media/scf_config_multilvl_setup_1.gif[scf config multilvl setup 1]
+
+... En la página New vCenter, proporcione la IP y el nombre de host de vCenter y haga clic en *Add*.
+... Seleccione los almacenes de datos y las máquinas virtuales correspondientes para el backup.
++
+image::../media/scf_config_multilvl_setup_2.gif[scf config multilvl setup 2]
+
+... Compruebe que los datos introducidos son correctos.
+... En la página Configuración del agente, proporcione los detalles del agente de VMware, que son los detalles del sistema en el que ha instalado el agente.
++
+
+NOTE: El puerto es el puerto en el que el agente está escuchando.
+
++
+Haga clic en *probar conexión de agente* para asegurarse de que el agente se está ejecutando.
+
+... En la página Hypervisor + App Backup, seleccione *Yes* porque se necesitan tanto el hipervisor como los backups coherentes con la aplicación.
+... En la página de configuración del hipervisor + aplicación, proporcione el nombre de configuración principal para el hipervisor y la configuración de la aplicación.
+... En la página Plug-in Type, seleccione *Application Plug-in*.
+... En la página Application Plug-ins, seleccione la aplicación que se usará para el backup y la restauración.
+... Proporcione los detalles de la aplicación seleccionada.
+... En la página Configuración del agente, proporcione los detalles de la aplicación Snap Creator Agent, que son los detalles del host de la aplicación o base de datos en el que ha instalado el agente.
++
+
+NOTE: Normalmente, el host es una máquina virtual de la que se está realizando un backup que tiene una aplicación en la cual se está ejecutando.
+
++
+Haga clic en *probar conexión de agente* para asegurarse de que el agente se está ejecutando.
+
+... En la página Resumen, compruebe la información y haga clic en *Finalizar*.
+... En la página Hypervisor + aplicaciones, hay las siguientes opciones:
++
+**** Para agregar aplicaciones adicionales a esta configuración, haga clic en *Agregar* y repita los pasos vii a xii en este ejemplo.
+**** Para eliminar aplicaciones de esta configuración, seleccione el elemento y haga clic en *Eliminar*.
+**** Para continuar con el asistente de configuración principal, haga clic en *Siguiente*.
++
+
+NOTE: Si tiene varias aplicaciones en la lista, tiene la opción de reordenar esta lista moviendo una aplicación hacia arriba o hacia abajo en la lista. Se realiza una copia de seguridad de las aplicaciones en serie, por lo que si una aplicación debe estar en modo inactivo antes de otra de la lista, deberá colocar las aplicaciones en la secuencia correcta.
+
+
+
+
+
+.. En la página Storage Connection Settings, proporcione la siguiente información:
++
+*** Para la opción *Transporte*, seleccione *HTTPS*.
+*** Para la opción *Puerto controladora/Vserver*, deje el ajuste predeterminado (443).
+*** Para la opción *Clustered ONTAP*, seleccione *Sí*.image:../media/scf_config_multilvl_setup_3.gif[""]
+
+
+.. En la página New Controller/Vserver, proporcione la dirección IP de la controladora, el nombre de usuario y la contraseña.
+.. Proporcione los detalles de la copia Snapshot.
++
+image::../media/scf_config_multilvl_setup_4.gif[scf config multilvl setup 4]
+
+.. En la página continuación de Detalles de instantánea, no seleccione la opción *Grupo de consistencia*.
+.. En la página Data Protection, no seleccione ninguna de las opciones *Data Transfer*.
+.. Compruebe la información en la página Resumen y haga clic en *Finalizar*.
+
+
+
+
+*Información relacionada*
+
+xref:task_creating_profiles.adoc[Creación de perfiles]
+
+xref:task_creating_configuration_files_using_sc_gui.adoc[Creando archivos de configuración]

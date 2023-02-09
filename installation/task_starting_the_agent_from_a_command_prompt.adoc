@@ -1,0 +1,35 @@
+---
+permalink: installation/task_starting_the_agent_from_a_command_prompt.html 
+sidebar: sidebar 
+keywords: starting, start, agent, command, prompt 
+summary: 'Puede iniciar manualmente el agente de Snap Creator desde un símbolo del sistema ejecutando una secuencia de comandos por lotes (scAgent.bat).' 
+---
+= Iniciar el agente desde un símbolo del sistema
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Puede iniciar manualmente el agente de Snap Creator desde un símbolo del sistema ejecutando una secuencia de comandos por lotes (scAgent.bat).
+
+Normalmente, sólo debe seguir este procedimiento si no ha seleccionado la opción *Iniciar agente como servicio* durante el proceso de instalación.
+
+También puede programar la secuencia de comandos por lotes (scAgent.bat) para que se ejecute en el inicio a través del programador de tareas de Windows. Para obtener detalles sobre cómo utilizar el programador de tareas de Windows, consulte la documentación del sistema operativo Windows.
+
+. Abra un símbolo del sistema e introduzca los siguientes comandos:
++
+[listing]
+----
+cd \install_path\scAgentrelease-version\bin\
+scAgent.bat start
+----
++
+[listing]
+----
+cd \Program Files\NetApp\Snap_Creator_Framework\scAgent4.1.0\bin\
+scAgent.bat start
+----
+
+
+Puesto que la secuencia de comandos por lotes (scAgent.bat) ejecuta Snap Creator en primer plano, el agente de Snap Creator continúa ejecutándose sólo mientras el símbolo del sistema esté abierto. Si cierra el símbolo del sistema, se cerrará Snap Creator Agent. Para ejecutar Snap Creator en segundo plano, se debe utilizar el servicio Snap Creator Agent.

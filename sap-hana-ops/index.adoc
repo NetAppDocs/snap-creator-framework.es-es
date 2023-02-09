@@ -1,0 +1,14 @@
+---
+permalink: sap-hana-ops/index.html 
+sidebar: sidebar 
+keywords: sap, hana, plug-in, operations, guide, configure, use, backup, back, up, restore, databases 
+summary: Describe cómo configurar y usar el plugin de SAP HANA para realizar backup y restaurar bases de datos SAP HANA. 
+---
+= Guía de operaciones del plugin de SAP HANA®
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="Lead"]
+En esta guía se describe cómo configurar y utilizar el plugin de SAP HANA para Snap Creator 4.3.3 para realizar backup y restaurar bases de datos SAP HANA.

@@ -1,0 +1,31 @@
+---
+permalink: domino-ops/concept_backup_operations_using_domino_plug_in.html 
+sidebar: sidebar 
+keywords: domino, ibm, backup, operations, ibm, understanding 
+summary: A diferencia de otras tecnologías de backup, el plugin de IBM Domino permite que los datos se escriban en la base de datos durante las operaciones de backup. Garantiza que la copia de seguridad sea coherente con los datos de la aplicación registrando cualquier cambio en la base de datos durante las operaciones de copia de seguridad en un directorio temporal denominado chcambiinfo. En el momento de la restauración, aplica estos cambios a la base de datos después de restaurar los datos desde la copia Snapshot. 
+---
+= Comprender las operaciones de backup del plugin de IBM Domino
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+A diferencia de otras tecnologías de backup, el plugin de IBM Domino permite que los datos se escriban en la base de datos durante las operaciones de backup. Garantiza que la copia de seguridad sea coherente con los datos de la aplicación registrando cualquier cambio en la base de datos durante las operaciones de copia de seguridad en un directorio temporal denominado chcambiinfo. En el momento de la restauración, aplica estos cambios a la base de datos después de restaurar los datos desde la copia Snapshot.
+
+Durante las operaciones de backup, se dice que los archivos de la base de datos están en modo de backup. Aunque Snap Creator Framework se refiere a estos archivos como "'en modo inactivo,'" que no es el caso. Los datos siguen escritos en los archivos mientras se realiza la copia snapshot.
+
+Los pasos de alto nivel son los siguientes:
+
+. Enumere bases de datos, plantillas y buzones de correo en los volúmenes que se incluirán en los backups.
+. Ponga los archivos en modo de copia de seguridad, una base de datos a la vez.
+. Compruebe si hay bases de datos incoherentes o dañadas.
++
+
+NOTE: Es posible forzar el plugin para que continúe con las operaciones de backup a pesar de los errores, como se describe en el paso link:task_using_the_gui_to_create_a_configuration_file.md#STEP_AA41331683A24598B7845367CB967F99["Task_Using_the_gui_to_create_a_Configuration_file.md#STEP_AA4133168A24598B7845367CB967F99"].
+
+. Haga una copia Snapshot de cada volumen.
+. Si se está utilizando el registro de transacciones de Domino, se utilizarán copias de archivos de registros de transacciones de Domino para operaciones de restauración de último minuto.
+. Sacar los archivos del modo de copia de seguridad, una base de datos a la vez.
+. Registre los cambios en la base de datos, ya que los archivos se pusieron en modo de copia de seguridad en el directorio chcambiinfo.
+

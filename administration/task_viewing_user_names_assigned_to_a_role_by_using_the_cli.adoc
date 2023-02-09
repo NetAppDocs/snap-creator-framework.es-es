@@ -1,0 +1,30 @@
+---
+permalink: administration/task_viewing_user_names_assigned_to_a_role_by_using_the_cli.html 
+sidebar: sidebar 
+keywords: snap, creator, command-line, interface, cli 
+summary: 'Puede ver una lista de todos los usuarios de Snap Creator asignados a cada rol utilizando únicamente la interfaz de línea de comandos (CLI).' 
+---
+= Ver los usuarios de Snap Creator asignados a un rol mediante la CLI
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Puede ver una lista de todos los usuarios de Snap Creator asignados a cada rol utilizando únicamente la interfaz de línea de comandos (CLI).
+
+. Introduzca el siguiente comando:
++
+`snapcreator --server host_name --port port_number --user sc_user_name --passwd sc_passwd --action userListAssigned --roleName role_name --verbose`
+
++
+A continuación se muestra un ejemplo:
+
++
+[listing]
+----
+snapcreator --server localhost --port 8080 --user SCadmin
+--passwd passwd123 –-action userListAssigned
+–rolename ADMINISTRATOR –verbose
+----
+

@@ -1,0 +1,30 @@
+---
+permalink: administration/reference_error_starting_the_gui.html 
+sidebar: sidebar 
+keywords: unix, environment, snap, creator, gui, linux 
+summary: En un entorno UNIX, es posible que se encuentre un error al iniciar la interfaz gráfica de usuario de Snap Creator. 
+---
+= Error al iniciar la GUI de Snap Creator
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+En un entorno UNIX, es posible que se encuentre un error al iniciar la interfaz gráfica de usuario de Snap Creator.
+
+* *Edición*
++
+En un entorno UNIX, obtiene UN ERROR HTTP 503 al iniciar la GUI de Snap Creator; por ejemplo: ERROR HTTP 503Problem accediendo a /. Motivo: SERVICE_UNAVAILABLE
+
+* *Causa*
++
+Es posible que reciba este mensaje de error cuando no haya espacio suficiente para el archivo temporal.
+
+* *Acción Correctiva*
++
+Compruebe que dispone de suficiente espacio en la carpeta TEMP en las respectivas carpetas del sistema operativo.
+
+
+
+Ejemplo: En un entorno Linux, compruebe /tmp.

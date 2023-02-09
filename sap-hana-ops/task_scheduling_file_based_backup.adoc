@@ -1,0 +1,24 @@
+---
+permalink: sap-hana-ops/task_scheduling_file_based_backup.html 
+sidebar: sidebar 
+keywords: sap, hana, scheduling, file-based, backup 
+summary: En el caso de las configuraciones de SAP HANA, puede programar operaciones adicionales, como el backup basado en archivos y las comprobaciones de integridad de base de datos. Es posible programar una operación de backup basado en archivos para que se produzca en intervalos específicos. 
+---
+= Programación de backups basados en archivos
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+En el caso de las configuraciones de SAP HANA, puede programar operaciones adicionales, como el backup basado en archivos y las comprobaciones de integridad de base de datos. Es posible programar una operación de backup basado en archivos para que se produzca en intervalos específicos.
+
+. En el menú principal de la GUI de Snap Creator, seleccione *Administración* > *programaciones* y haga clic en *Crear*.
+. En la ventana Nuevo trabajo, introduzca los detalles del trabajo.
++
+De forma predeterminada, la política de backup basada en archivos se establece en «'none».
+
++
+image::../media/creating_file_based_backup_schedules.gif[Creación de programas de copia de seguridad basada en archivos]
+
+

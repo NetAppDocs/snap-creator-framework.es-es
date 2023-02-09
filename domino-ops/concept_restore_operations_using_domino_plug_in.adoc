@@ -1,0 +1,78 @@
+---
+permalink: domino-ops/concept_restore_operations_using_domino_plug_in.html 
+sidebar: sidebar 
+keywords: domino, ibm, understanding, plug-in, restore 
+summary: El complemento IBM Domino restaura archivos de base de datos desde la copia Snapshot del volumen en el que se almacena la base de datos. Una vez finalizada la operación de restauración de instantánea, el complemento aplica los cambios registrados en el directorio chcambiinfo. 
+---
+= Comprender las operaciones de restauración del plugin de IBM Domino
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+El complemento IBM Domino restaura archivos de base de datos desde la copia Snapshot del volumen en el que se almacena la base de datos. Una vez finalizada la operación de restauración de instantánea, el complemento aplica los cambios registrados en el directorio chcambiinfo.
+
+Los pasos de alto nivel son los siguientes:
+
+. Restaurar archivos de base de datos desde copias de Snapshot.
+. Aplicar cambios registrados en el directorio chcambiinfo.
+. Aplique la información del registro de transacciones, si está disponible.
+
+
+
+
+== Opciones de restauración
+
+El complemento ofrece una amplia variedad de opciones de restauración:
+
+|===
+
+
+| Tipo de restauración | Descripción 
+
+
+ a| 
+Restauración de volúmenes (momento específico)
+ a| 
+Restaura el volumen completo a su estado en el momento de la copia Snapshot.
+
+
+
+ a| 
+Restauración de volúmenes (de último minuto)
+ a| 
+Restaura todo el volumen a su estado en el momento de la copia Snapshot y, a continuación, reproduce los registros de transacciones de Domino en la copia más reciente.
+
+
+
+ a| 
+Restauración de volumen (seleccionable de último minuto)
+ a| 
+Restaura todo el volumen a su estado en el momento de la copia Snapshot y, a continuación, reproduce los registros de transacciones de Domino en un momento específico.
+
+
+
+ a| 
+Restauración de archivo único (momento específico)
+ a| 
+Restaura un único archivo a su estado en el momento de la copia Snapshot (solo NFS).
+
+
+
+ a| 
+Restauración de archivo único (de último minuto)
+ a| 
+Restaura un único archivo a su estado en el momento de la copia Snapshot y, a continuación, reproduce los registros de transacciones de Domino en la copia más reciente (solo NFS).
+
+
+
+ a| 
+Restauración de archivo único (de último minuto seleccionable)
+ a| 
+Restaura un único archivo a su estado en el momento de la copia Snapshot y, a continuación, reproduce los registros de transacciones de Domino en un momento específico (solo NFS).
+
+|===
+*Nota:* para restauraciones de último minuto y seleccionables de último minuto, el registro de transacciones de Domino debe estar activado.
+
+Los registros de transacciones solo se pueden reproducir hacia adelante. Al seleccionar una hora antes de que se creó la copia Snapshot, se producirá un error de restauración.

@@ -1,0 +1,20 @@
+---
+permalink: domino-ops/concept_preparing_for_ibm_domino_backup_and_restore_operations.html 
+sidebar: sidebar 
+keywords: domino, ibm, preparing, prepare, ibm, domino, backup, restore 
+summary: Antes de implementar el plugin de IBM Domino, asegúrese de que el sistema de almacenamiento y los hosts cumplan con los requisitos mínimos de recursos. También debe configurar las disposiciones del sistema de almacenamiento para bases de datos y, opcionalmente, configurar las relaciones de SnapMirror y SnapVault. 
+---
+= Preparación para copia de seguridad y restauración de IBM Domino
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Antes de implementar el plugin de IBM Domino, asegúrese de que el sistema de almacenamiento y los hosts cumplan con los requisitos mínimos de recursos. También debe configurar las disposiciones del sistema de almacenamiento para bases de datos y, opcionalmente, configurar las relaciones de SnapMirror y SnapVault.
+
+Para ver los requisitos de instalación de Snap Creator Server y Agent, consulte https://library.netapp.com/ecm/ecm_download_file/ECMP12395424["Guía de instalación de Snap Creator Framework 4.1.2"]. Preste especial atención a los requisitos de preinstalación de IBM Domino para el host del agente:
+
+* En los hosts UNIX, debe crear vínculos simbólicos a los archivos de objetos compartidos de IBM Domino.
+* En hosts Windows, debe agregar la ruta de instalación de IBM Domino a la variable de entorno PATH.
+

@@ -1,0 +1,72 @@
+---
+permalink: domino-ops/reference_references.html 
+sidebar: sidebar 
+keywords: domino, ibm, more, information, snap creator 
+summary: Puede encontrar más información sobre Snap Creator, incluida información específica de la versión, en el sitio de soporte de NetApp. 
+---
+= A continuación, ¿dónde ir
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Puede encontrar más información sobre Snap Creator, incluida información específica de la versión, en el sitio de soporte de NetApp.
+
+* https://docs.netapp.com/us-en/snap-creator-framework/installation/index.html["Guía de instalación de Snap Creator Framework 4.3.3"]
++
+Describe cómo instalar el agente de Snap Creator y Snap Creator Server. La instalación del agente de Snap Creator incluye el complemento IBM Domino.
+
+* https://docs.netapp.com/us-en/snap-creator-framework/administration/index.html["Guía de administración de Snap Creator Framework 4.3.3"]
++
+Describe cómo administrar Snap Creator Framework una vez completada la instalación.
+
+* https://docs.netapp.com/us-en/snap-creator-framework/releasenotes.html["Notas de la versión de Snap Creator Framework 4.3"]
++
+Describe las nuevas funciones, precauciones importantes para, problemas conocidos con y limitaciones de Snap Creator Framework 4.1.1.
+
+* https://library.netapp.com/ecm/ecm_download_file/ECMP1506026["Guía de instalación de SnapDrive 7.1 para Windows"]
++
+Describe cómo instalar SnapDrive para Windows.
+
+* http://docs.netapp.com/ontap-9/topic/com.netapp.doc.exp-clus-peer/home.html["Guía exprés de relación de clústeres entre iguales de ONTAP 9"]
++
+Describe cómo configurar rápidamente relaciones entre iguales entre clústeres y máquinas virtuales de almacenamiento (SVM).
+
+* http://docs.netapp.com/ontap-9/topic/com.netapp.doc.exp-sm-ic-cg/home.html["Guía exprés de preparación para la recuperación de desastres de volúmenes de ONTAP 9"]
++
+Describe cómo preparar un sistema de almacenamiento para la replicación de SnapMirror.
+
+* http://docs.netapp.com/ontap-9/topic/com.netapp.doc.exp-sm-ic-fr/home.html["Guía exprés de recuperación de desastres de volúmenes de ONTAP 9"]
++
+Describe cómo preparar un sistema de almacenamiento para la recuperación de SnapMirror.
+
+* http://docs.netapp.com/ontap-9/topic/com.netapp.doc.exp-buvault/home.html["Guía exprés de backup de volúmenes mediante SnapVault de ONTAP 9"]
++
+Describe cómo preparar un sistema de almacenamiento para la replicación de SnapVault.
+
+* http://www.netapp.com/in/media/tr-3917.pdf["Informe técnico de NetApp 3917: Mejores prácticas para Domino en NetApp"]
++
+Describe las prácticas recomendadas para el plugin de IBM Domino.
+
+* http://www.netapp.com/us/media/tr-3588.pdf["Informe técnico 3588: Integración de Domino 8.5 para Windows 2008 con un sistema de almacenamiento de NetApp"]
++
+Describe cómo integrar IBM Domino 8.5 para Windows 2008 con un sistema de almacenamiento de NetApp.
+
+* http://www.netapp.com/us/media/tr-3691.pdf["Informe técnico 3691: Integración de IBM Domino 8.5 para Linux con los sistemas de almacenamiento de NetApp"]
++
+Describe cómo integrar IBM Domino 8.0.2 para Linux con un sistema de almacenamiento de NetApp.
+
+* http://www.netapp.com/us/media/tr-3723.pdf["Informe técnico 3723: Implementación de Domino 8.0.2 en un entorno AIX y NetApp mediante NFS"]
++
+Describe cómo integrar IBM Domino 8.0.2 para AIX con un sistema de almacenamiento de NetApp.
+
+* http://community.netapp.com/t5/Snap-Creator-Framework-Discussions/bd-p/snap-creator-framework-discussions["Debates sobre Snap Creator Framework"]
++
+Le permite conectarse con colegas, realizar preguntas, intercambiar ideas, encontrar recursos y compartir prácticas recomendadas de Snap Creator.
+
+* http://www.youtube.com/SnapCreatorTV["Vídeo de NetApp: SnapCreatorTV"]
++
+Le permite ver vídeos que demuestran las tecnologías clave de Snap Creator.
+
+

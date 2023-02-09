@@ -1,0 +1,66 @@
+---
+permalink: administration/task_starting_verifying_and_stopping_the_snap_creator_server_on_windows.html 
+sidebar: sidebar 
+keywords: snap, creator, server, service, start, verify, stop, windows 
+summary: Puede iniciar y detener el servicio Snap Creator Server y comprobar si el servicio Snap Creator Server se está ejecutando en el sistema Windows. 
+---
+= Inicio, verificación y detención de Snap Creator Server en Windows
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Puede iniciar y detener el servicio Snap Creator Server y comprobar si el servicio Snap Creator Server se está ejecutando en el sistema Windows.
+
+. Si la interfaz gráfica de usuario (GUI) de Snap Creator no está abierta, ábrala:
++
+.. Introduzca la URL del servidor de Snap Creator en un navegador web: "https://IP_address:gui_port"[]
++
+De manera predeterminada, el puerto es 8443.
+
+.. Inicie sesión con las credenciales de la interfaz gráfica de usuario de Snap Creator.
+
+
++
+Si se abre la GUI de Snap Creator, el servicio de Snap Creator Server se está ejecutando.
+
+. En el símbolo del sistema, inicie o detenga el servicio Snap Creator Server, o bien compruebe si el servicio Snap Creator Server se está ejecutando, según corresponda:
++
+|===
+| Si desea... | Introduzca lo siguiente... 
+
+
+ a| 
+Inicie el servicio Snap Creator Server
+ a| 
+sc inicia el servicio snapcreatorserverservice
+
+
+
+ a| 
+Comprobar si el servicio Snap Creator Server se está ejecutando
+ a| 
+consulta sc snapcreatorserverservice
+
+
+
+ a| 
+Detenga el servicio Snap Creator Server
+ a| 
+sc stop snapcreatorserverservice
+
+|===
++
+Si desea ejecutar Snap Creator en primer plano, en lugar de utilizar el comando sc start, realice los siguientes pasos:
+
++
+.. Abra un símbolo del sistema en el host en el que está instalado Snap Creator Server y, a continuación, desplácese hasta el directorio ServerSnap Creator: `cd \install_path\scServer4.3.0\bin\`
+.. Para iniciar Snap Creator Server, ejecute la secuencia de comandos por lotes:
+`scServer.bat start`
++
+Al cerrar el símbolo del sistema se detiene el servicio Snap Creator Server. Puesto que la secuencia de comandos por lotes (scServer.bat) ejecuta Snap Creator en primer plano, el servidor de Snap Creator sólo se ejecutará mientras esté abierto el símbolo del sistema. Para ejecutar Snap Creator en segundo plano, debe utilizar el comando de servicio Snap Creator Server.
+
+
+
+

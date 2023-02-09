@@ -1,0 +1,38 @@
+---
+permalink: administration/task_performing_single_file_restore_using_the_gui.html 
+sidebar: sidebar 
+keywords: snap, creator, gui, file, restore, wizard 
+summary: Puede realizar operaciones de restauración de archivos individuales mediante la GUI de Snap Creator. 
+---
+= Ejecución de operaciones de restauración de archivos individuales
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Puede realizar operaciones de restauración de archivos individuales mediante la GUI de Snap Creator.
+
+. En el menú principal de la GUI de Snap Creator, seleccione *Administración* > *configuraciones*.
+. En la ficha configuraciones del panel Perfiles y configuración, seleccione el archivo de configuración.
+. Seleccione *Acción* > *Restaurar*.
++
+El asistente Restore se abre en el panel derecho.
+
+. Complete el asistente Restore:
++
+.. En la sección «'Restaurar detalles'», seleccione un nombre de controladora o Vserver, un nombre de volumen de restauración, una directiva y un nombre de copia Snapshot de restauración y, a continuación, seleccione *Single File Restore* en la lista Tipo de restauración.
++
+image::../media/restore_wizard_restore_details.gif[asistente restore detalles restore]
+
+.. Seleccione los archivos que se van a restaurar.
+.. Seleccione la ubicación en la que se deben restaurar los archivos.
+.. Revise el resumen y haga clic en *Finalizar*.
+
+
++
+Aparece un mensaje de advertencia en el que se pregunta si hay más elementos que restaurar.
+
+. Haga clic en *no* si no hay más elementos que restaurar y, a continuación, haga clic en *Aceptar* en la página de confirmación Restaurar.
+. En el panel Consola, compruebe que los archivos que ha seleccionado se han restaurado correctamente revisando los mensajes que se muestran.
+

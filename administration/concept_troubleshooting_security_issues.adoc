@@ -1,0 +1,14 @@
+---
+permalink: administration/concept_troubleshooting_security_issues.html 
+sidebar: sidebar 
+keywords: security, issues, snap, creator, troubleshoot, troubleshooting 
+summary: Debe conocer ciertos problemas de seguridad de Snap Creator y saber cómo solucionarlos. 
+---
+= Resolución de problemas de seguridad
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Debe conocer ciertos problemas de seguridad de Snap Creator y saber cómo solucionarlos.

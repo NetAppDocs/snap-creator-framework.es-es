@@ -1,0 +1,33 @@
+---
+permalink: administration/reference_self_signed_ssl_certificate.html 
+sidebar: sidebar 
+keywords: self-signed, ssl, certificate, url, issue, cause, corrective, action, system, ip, parameter 
+summary: El certificado SSL autofirmado no coincide con la URL 
+---
+= El certificado SSL autofirmado no coincide con la URL
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+* *Edición*
++
+El certificado SSL autofirmado proporcionado con Snap Creator Framework no coincide con la URL.
+
+* *Causa*
++
+El nombre común (CN) del certificado SSL presentado en el servicio Snap Creator es para un equipo diferente, por lo que no coincide con el nombre del host.
+
+* *Acción Correctiva*
++
+Se ha introducido el parámetro IP del sistema durante la instalación de Snap Creator Server y Snap Creator Agent para resolver el nombre del host.
+
++
+.. Introduzca la dirección IP del sistema en la que se está instalando Snap Creator Framework en la opción IP del sistema.
++
+*** El nombre común del certificado SSL se puede crear con la misma dirección IP.
+
+
+
+
+

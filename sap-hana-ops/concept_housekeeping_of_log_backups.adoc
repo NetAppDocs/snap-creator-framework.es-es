@@ -1,0 +1,27 @@
+---
+permalink: sap-hana-ops/concept_housekeeping_of_log_backups.html 
+sidebar: sidebar 
+keywords: housekeeping, log, backups 
+summary: El mantenimiento de backups de registros en SAP HANA se basa en una función de HANA Studio o en una declaración SQL que permite eliminar todos los backups anteriores a un backup seleccionado. 
+---
+= Mantenimiento de backups de registros
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+El mantenimiento de backups de registros en SAP HANA se basa en una función de HANA Studio o en una declaración SQL que permite eliminar todos los backups anteriores a un backup seleccionado.
+
+SNAP Creator gestiona el mantenimiento de los backups de datos (copias Snapshot) eliminando las copias Snapshot en el almacenamiento principal o secundario y eliminando las entradas correspondientes en el catálogo HANA, según una política de retención definida.
+
+Los backups de registros más antiguos del backup de datos más reciente se eliminan porque no son necesarios.
+
+SNAP Creator gestiona el mantenimiento de los backups de archivos de registro a nivel de sistema de archivos y dentro del catálogo de backup SAP HANA. Como parte de cada backup de Snapshot con Snap Creator, se ejecutan los siguientes pasos:
+
+* Lea el catálogo de backup y obtenga el ID de backup de los datos más antiguos realizados correctamente o el backup de Snapshot.
+* Elimine todos los backups que sean más antiguos que el backup más antiguo.
+
+
+
+NOTE: SNAP Creator solo gestiona el mantenimiento de los backups basados en copias de Snapshot. Si se crean otros backups basados en archivos, debe asegurarse de que los backups basados en archivos se hayan eliminado del catálogo de backup y del sistema de archivos. Si un backup de datos de este tipo no se elimina manualmente del catálogo de backups, es posible convertirse en el backup de datos más antiguo y se producirá un error en la operación de mantenimiento del backup de registros.

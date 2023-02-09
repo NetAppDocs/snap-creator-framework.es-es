@@ -1,0 +1,21 @@
+---
+permalink: administration/task_viewing_a_list_of_scheduled_jobs.html 
+sidebar: sidebar 
+keywords: schedule, job, view, list, snap, creator, gui 
+summary: Puede ver la lista de trabajos programados. 
+---
+= Visualización de una lista de trabajos programados
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Puede ver la lista de trabajos programados.
+
+. En el menú principal de la GUI de Snap Creator, seleccione *Administración* > *programaciones*.
+. En la pestaña programaciones, revise la lista de trabajos programados.
++
+El campo Resultado de última ejecución muestra el estado del último trabajo programado. Una Marca de verificación verde en el campo indica que el trabajo se ha ejecutado correctamente y una "X" roja indica que se ha producido un error.
+
+

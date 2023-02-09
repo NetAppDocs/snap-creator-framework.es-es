@@ -1,0 +1,22 @@
+---
+permalink: administration/task_creating_snap_creator_roles.html 
+sidebar: sidebar 
+keywords: snap, creator, gui, creating, role 
+summary: Puede crear roles de Snap Creator mediante la GUI de Snap Creator. 
+---
+= Creando roles de Snap Creator
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Puede crear roles de Snap Creator mediante la GUI de Snap Creator.
+
+. En el menú principal de la GUI de Snap Creator, seleccione *usuarios y roles* > *Administración de roles*.
+. En la ficha Administración de funciones, haga clic en *Agregar*.
+. En el cuadro de diálogo Agregar rol, introduzca el nombre y la descripción de la función; a continuación, haga clic en *Guardar*.
++
+La nueva función se muestra en el panel *roles*.
+
+

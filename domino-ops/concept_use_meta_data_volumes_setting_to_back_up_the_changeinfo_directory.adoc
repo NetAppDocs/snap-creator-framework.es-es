@@ -1,0 +1,38 @@
+---
+permalink: domino-ops/concept_use_meta_data_volumes_setting_to_back_up_the_changeinfo_directory.html 
+sidebar: sidebar 
+keywords: domino, ibm, backing up, backup, changeinfo, directory 
+summary: Si tiene previsto realizar una copia de seguridad del directorio chcambiinfo, debe configurar el volumen que contiene el directorio como volumen de metadatos. De esta forma, se le indica al complemento IBM Domino que cree una copia snapshot del volumen de intercambio después de crear la copia snapshot para los archivos de la base de datos. 
+---
+= Hacer una copia de seguridad del directorio chcambiinfo
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Si tiene previsto realizar una copia de seguridad del directorio chcambiinfo, debe configurar el volumen que contiene el directorio como volumen de metadatos. Si lo hace, se le indica al complemento IBM Domino que cree una copia snapshot del volumen chcambiinfo _after_ creando la copia snapshot para los archivos de la base de datos.
+
+Ya debería haber identificado el volumen de intercambio como un volumen de copia de seguridad cuando creó el archivo de configuración. Para obtener más información, consulte el paso link:task_using_the_gui_to_create_a_configuration_file.md#STEP_2036E43A6921415985798979F2226786["tarea que utiliza la gui para crear una configuración"].
+
+El parámetro META_DATA_VOLUME se utiliza en el archivo de configuración para identificar el volumen de intercambio como un volumen de metadatos. El parámetro no está disponible en la interfaz gráfica de usuario.
+
+. Abra el archivo de configuración en un editor de texto.
++
+Los archivos de configuración residen en el directorio de instalación de Snap Creator, en un subdirectorio llamado para el perfil. En un host de Windows, por ejemplo, C:\Program Files\NetApp\Snap_Creator_Framework\scServer4.1.x\engine\Configurations\Domino\Fuji15.conf, donde Domino es el nombre del perfil y Fuji15.conf es el nombre del archivo de configuración.
+
+. Introduzca el nombre del volumen de intercambio en el parámetro META_DATA_VOLUME.
++
+El volumen de intercambio ya debe aparecer en el parámetro VOLUMES.
+
++
+El ejemplo siguiente muestra cómo configurar Fuji15_DomChangeInfo como un volumen de metadatos:
+
++
+[listing]
+----
+VOLUMES=domino_vserver:Fuji15_DomDAOS,Fuji15_DomChangeInfo,
+Fuji15_DomTxn,Fuji15_DomData
+META_DATA_VOLUME=domino_vserver:Fuji15_DomChangeInfo
+----
+

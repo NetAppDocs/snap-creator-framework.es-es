@@ -1,0 +1,27 @@
+---
+permalink: sap-hana-ops/concept_setup_assumptions_in_this_guide.html 
+sidebar: sidebar 
+keywords: setup, assumptions 
+summary: Aunque una instalación típica de Snap Creator supone que el servidor está instalado en un host y que el agente está instalado en un host diferente, la configuración utilizada en esta guía se basa en un dispositivo multinodo de SAP HANA. 
+---
+= Supuestos de configuración en esta guía
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Aunque una instalación típica de Snap Creator supone que el servidor está instalado en un host y que el agente está instalado en un host diferente, la configuración utilizada en esta guía se basa en un dispositivo multinodo de SAP HANA.
+
+En esta configuración, la base de datos SAP HANA se ejecuta en una configuración de nodos de base de datos de 3+1 y todos los componentes de software Snap Creator (servidor, agente y plugin) se instalan en el mismo host.
+
+Los sistemas de almacenamiento de NetApp que se utilizan en esta configuración ejecutan Data ONTAP en 7-Mode. En la capa de almacenamiento se utiliza un par de controladoras de alta disponibilidad. Los volúmenes de datos y de registro de los tres nodos de base de datos SAP HANA se distribuyen a las dos controladoras de almacenamiento. Con la configuración de ejemplo, se usa una controladora de almacenamiento de otro par de controladoras de alta disponibilidad como almacenamiento secundario. Cada volumen de datos se replica en un volumen de backup dedicado en el almacenamiento secundario. El tamaño de los volúmenes de backup depende de la cantidad de backups que se conservarán en el almacenamiento secundario.
+
+Todas las operaciones de Snap Creator y SAP HANA Studio descritas aquí son las mismas con los sistemas de almacenamiento que ejecutan Clustered Data ONTAP. Sin embargo, la configuración inicial de SnapVault en los sistemas de almacenamiento y todos los comandos de SnapVault que se deben ejecutar directamente en el almacenamiento son diferentes con Clustered Data ONTAP. Las diferencias se resaltan y se describen en esta guía.
+
+La figura siguiente muestra los volúmenes de datos en el almacenamiento principal y la ruta de replicación hacia el almacenamiento secundario:
+
+image::../media/sap_hana_multimode_setup.gif[Muestra los volúmenes de datos del almacenamiento primario y la ruta de replicación hacia el almacenamiento secundario.]
+
+
+NOTE: Todos los volúmenes que deben realizarse backups deben crearse en la controladora de almacenamiento secundario. En este ejemplo, los volúmenes backup_data_00001, backup_data_00002 y backup_data_00003 se crean en la controladora de almacenamiento secundaria.

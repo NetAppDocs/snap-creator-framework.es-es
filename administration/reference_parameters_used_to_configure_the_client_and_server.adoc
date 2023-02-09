@@ -1,0 +1,105 @@
+---
+permalink: administration/reference_parameters_used_to_configure_the_client_and_server.html 
+sidebar: sidebar 
+keywords: parameter, snap, creator, agent, host, client, port 
+summary: Debe tener en cuenta los parámetros para configurar el cliente host de Snap Creator Agent y el servidor de Snap Creator. 
+---
+= Parámetros para configurar el cliente host de Snap Creator Agent y el servidor de Snap Creator
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Debe tener en cuenta los parámetros para configurar el cliente host de Snap Creator Agent y el servidor de Snap Creator.
+
+|===
+| Parámetro | Ajuste | Descripción 
+
+
+ a| 
+SC_AGENT_#
+ a| 
+Nombre de host o dirección_IP:puerto
+ a| 
+Ejecuta comandos o tareas en varios hosts remotos de forma simultánea utilizando una sola configuración. Una tarea es un plug-in definido (parámetro APP_NAME) o un comando especificado con el comando _CMD (por ejemplo, NTAP_SNAPSHOT_CREATE_CMD01).
+
+Para especificar un host remoto, debe introducir su nombre o dirección IP seguida de dos puntos y el puerto en el que el agente de Snap Creator escucha.
+
+Por ejemplo: SC_AGENT_ Number = IP address:Port
+
+SC_AGENT_01=IP del agente:Puerto del agente
+
+SC_AGENT_02=IP del agente:Puerto del agente
+
+En el host remoto, puede iniciar el agente de Snap Creator ejecutando el comando start <path to scAgent_v<#>>/bin/scAgent.
+
+
+
+ a| 
+SC_CLONE_TARGET
+ a| 
+El nombre de host o IP_address del clon destino:Port
+ a| 
+Habilita las operaciones de clonado. Con el parámetro *clonVol* con el parámetro {PRE/POST}_CLONE_CREATE_CMDxx, puede gestionar los objetos de almacenamiento remoto en el lado remoto (por ejemplo, montar o desmontar sistemas de archivos).
+
+Para especificar un destino de clon, debe introducir su nombre o dirección IP seguida de dos puntos y el puerto en el que el agente de Snap Creator escucha.
+
+
+
+ a| 
+TIEMPO_ESPERA_AGENTE_SC
+ a| 
+Tiempo (en segundos)
+ a| 
+Especifica el tiempo de espera en segundos del servicio Agente. La arquitectura cliente/servidor implementada utiliza un mecanismo de tiempo de espera. Esto significa que si el cliente no responde en el intervalo especificado, el servidor falla con un mensaje de tiempo de espera. Sin embargo, la tarea en el cliente no se cancela y requiere más investigación.
+
+De forma predeterminada, el tiempo de espera se establece en 300 segundos. En un servidor con una carga alta o tareas de ejecución prolongada conocidas (como scripts creados por el usuario o operaciones de SnapDrive complejas), debe ampliar el tiempo de espera y modificar este valor de acuerdo con sus requisitos.
+
+Debe configurar este parámetro con la hora máxima que puede llevar una operación (por ejemplo, si la inactividad tarda 1,800 minutos, este parámetro debe configurarse en 1800).
+
+
+NOTE: Algunos plugins tienen requisitos específicos de valor SC_AGENT_TIMEOUT.
+
+
+
+ a| 
+SC_AGENT_WATCHDOG_ENABLE
+ a| 
+«'y'» o «'N'»
+ a| 
+El parámetro SC_AGENT_WATCHDOG_ENABLE solo se aplica cuando la versión de Snap Creator Agent es anterior a 4.1. Este parámetro habilita o deshabilita el proceso Watchdog. Para Snap Creator Agent 4.1 o posterior, este parámetro se omite porque el proceso Watchdog está siempre habilitado. Si el parámetro está habilitado (es decir, se establece en y) y la versión del agente de Snap Creator es 4.1 o posterior, el proceso de supervisión se inicia cuando el Agentador de Snap Creator recibe una solicitud de inactividad.
+
+El proceso Watchdog utiliza el parámetro SC_AGENT_UNQUIESCE_TIMEOUT como timeout para desactivar la aplicación. Si el parámetro está deshabilitado (es decir, establecido en N) y la versión de Snap Creator es anterior a 4.1, el proceso Watchdog desconecta la aplicación, pero utiliza el parámetro OPERATION_TIMEOUT_IN_MSEC (valor predeterminado: 1 hora) de la ruta scAgent/etc/agent.properties.
+
+
+NOTE: El parámetro SC_AGENT_WATCHDOG_ENABLE está obsoleto para Snap Creator Agent 4.1 y solo es aplicable para su uso con Snap Creator Agent 4.0. A partir de Snap Creator Agent 4.1, el proceso Watchdog está habilitado (ya que está codificado de forma rígida), independientemente del valor establecido para este parámetro.
+
+
+
+ a| 
+SC_AGENT_UNQUIESCE_TIMEOUT
+ a| 
+Tiempo (en segundos)
+ a| 
+Especifica el tiempo de espera de reanudación en segundos. Con las versiones de Snap Creator Agent anteriores a 4.1, este parámetro sólo se utiliza cuando SC_AGENT_WATCHDOG_ENABLE se establece en Y. Con Snap Creator Agent 4.1 o posterior, el parámetro siempre es aplicable, ya que el proceso Watchdog del agente de Snap Creator está siempre activo.Si la comunicación con el agente de Snap Creator no es posible y una aplicación está en estado de inactividad, El agente de Snap Creator devuelve automáticamente la aplicación a su modo de funcionamiento normal sin comunicación del servidor. De forma predeterminada, el tiempo de espera de desconexión se establece en cualquiera que sea el valor del parámetro SC_AGENT_TIMEOUT, más cinco segundos.
+
+
+
+ a| 
+SC_TMP_DIR
+ a| 
+«'y'» o «'N'»
+ a| 
+Permite utilizar un directorio temporal alternativo definido por el usuario para almacenar archivos relacionados con Snap Creator. El usuario crea el directorio y gestiona el acceso de los usuarios. Los complementos utilizan archivos temporales para interactuar con la base de datos. Los archivos temporales se crean en el directorio temporal predeterminado del host, que tiene acceso de escritura para todos los usuarios. Si el directorio temporal está lleno, Snap Creator muestra un error al crear los archivos temporales.
+
+
+
+ a| 
+SC_AGENT_LOG_ENABLE
+ a| 
+«'y'» o «'N'»
+ a| 
+Permite la creación de registros de todas las operaciones ejecutadas por Snap Creator Server en el agente de Snap Creator. Si se produce un error, es posible comprobar estos registros. El servidor de Snap Creator envía operaciones al agente de Snap Creator. Si se produce un error antes de que el agente de Snap Creator envíe una devolución de llamada al servidor de Snap Creator, podrían perderse los mensajes del agente de Snap Creator. Este parámetro ayuda a que los mensajes del agente de Snap Creator se registren en el agente de Snap Creator para que no se pierdan estos mensajes.
+
+|===

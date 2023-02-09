@@ -1,0 +1,27 @@
+---
+permalink: administration/task_creating_profiles.html 
+sidebar: sidebar 
+keywords: profile, snap, creator, gui, configuration 
+summary: Puede crear perfiles para organizar archivos de configuración mediante la GUI de Snap Creator. 
+---
+= Creación de perfiles
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Puede crear perfiles para organizar archivos de configuración mediante la GUI de Snap Creator.
+
+La primera vez que abra la GUI de Snap Creator, se mostrará automáticamente el cuadro de diálogo Nuevo perfil, que le pedirá que cree un perfil nuevo.
+
+. En el menú principal de la GUI de Snap Creator, seleccione *Gestión* > *configuraciones*.
+. En el panel *Perfiles y configuraciones*, haga clic en *Agregar perfil*.
++
+Aparecerá el cuadro de diálogo Nuevo perfil.
+
+. Introduzca el nombre del nuevo perfil y, a continuación, haga clic en *Aceptar*.
++
+El nuevo perfil se muestra en el panel **Perfiles y Configuración**y el asistente de configuración se muestra en el panel derecho.
+
+

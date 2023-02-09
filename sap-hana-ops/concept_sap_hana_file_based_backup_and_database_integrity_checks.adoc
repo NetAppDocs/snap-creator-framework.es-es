@@ -1,0 +1,18 @@
+---
+permalink: sap-hana-ops/concept_sap_hana_file_based_backup_and_database_integrity_checks.html 
+sidebar: sidebar 
+keywords: sap, hana, file-based, backup, database, integrity, checks 
+summary: 'SAP recomienda combinar backups de SnapVault basados en almacenamiento con un backup basado en archivos semanal para ejecutar una comprobación de la integridad de los bloques. La comprobación de integridad de los bloques se puede ejecutar desde la interfaz gráfica de usuario (GUI) de Snap Creator o desde la interfaz de línea de comandos (CLI).' 
+---
+= Comprobaciones de backup e integridad de bases de datos basadas en archivos de SAP HANA
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+SAP recomienda combinar backups de SnapVault basados en almacenamiento con un backup basado en archivos semanal para ejecutar una comprobación de la integridad de los bloques. La comprobación de integridad de los bloques se puede ejecutar desde la interfaz gráfica de usuario (GUI) de Snap Creator o desde la interfaz de línea de comandos (CLI).
+
+La operación Backup de datos basada en archivos se utiliza cuando se conservan las copias de backup de los archivos. La operación Database Integrity checks se utiliza cuando es necesario descartar copias de seguridad.
+
+Puede configurar una o ambas operaciones. Durante el backup bajo demanda, es posible seleccionar una de las operaciones.

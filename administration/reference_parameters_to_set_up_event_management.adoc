@@ -1,0 +1,63 @@
+---
+permalink: administration/reference_parameters_to_set_up_event_management.html 
+sidebar: sidebar 
+keywords: parameter, management, snap, creator, server, event, ntap, asup, error, failure, msg, sendtrap 
+summary: Se necesitan varios parámetros para configurar la gestión de eventos para Snap Creator Server. 
+---
+= Parámetros para configurar la gestión de eventos
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Se necesitan varios parámetros para configurar la gestión de eventos para Snap Creator Server.
+
+|===
+| Parámetro | Ajuste | Descripción 
+
+
+ a| 
+NTAP_ASUP_ERROR_ ENABLE
+ a| 
+«'y'» o «'N'»
+ a| 
+Activa los mensajes de error de Snap Creator para registrar también un mensaje de AutoSupport en la controladora de almacenamiento. SNAP Creator siempre crea un mensaje de AutoSupport con información cuando se ha iniciado el backup y cuando se ha completado el backup.
+
+
+
+ a| 
+ERROR_MSG
+ a| 
+ a| 
+Registra el mensaje de error definido en caso de un fallo de Snap Creator. Este mensaje de fallo también se puede enviar a SENDTRAP si se ha definido SENDTRAP.
+
+
+
+ a| 
+SENDTRAP
+ a| 
+ a| 
+Interactúa con su software de supervisión o correo electrónico, por lo que le permite pasar las alertas generadas desde Snap Creator a su propia infraestructura de supervisión. La variable %MSG es el mensaje enviado desde Snap Creator. A continuación se muestra un ejemplo de cómo enviar un correo electrónico en un sistema UNIX: SENDTRAP=/usr/bin/mailx -s %MSG myaddress@mydomain.com </dev/null
+
+Para enviar un correo electrónico en un sistema Windows, debe agregar `cmd.exe /c` antes de cualquier comando. Por ejemplo: SENDTRAP= cmd.exe /c eco %how
+
+
+
+ a| 
+CAPTURA_CORRECTA
+ a| 
+ a| 
+Interactúa con su software de supervisión o correo electrónico, por lo que le permite pasar el mensaje de éxito generado desde Snap Creator a su propia infraestructura de supervisión. La variable %SUCCESS_MSG es el mensaje Success para Snap Creator. A continuación se muestra un ejemplo de cómo enviar un correo electrónico en un sistema UNIX: SUCCESS_TRAP=/usr/bin/mailx -s %SUCCESS_MSG myaddress@mydomain.com </dev/null
+
+Para enviar un correo electrónico en un sistema Windows, debe agregar `cmd.exe /c` antes de cualquier comando. Por ejemplo: SUCCESS_TRAP= cmd.exe /c echo %Hello
+
+
+
+ a| 
+CORRECTO_MSG
+ a| 
+ a| 
+Después de realizar un backup de Snap Creator correctamente, esta configuración registra el mensaje que está definido. El mensaje también se envía A SUCCESS_TRAP, si SE define SUCCESS_TRAP o a SENDTRAP, si se define SENDTRAP.
+
+|===

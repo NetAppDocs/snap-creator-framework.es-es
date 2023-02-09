@@ -1,0 +1,121 @@
+---
+permalink: administration/reference_citrix_xen_plug_in.html 
+sidebar: sidebar 
+keywords: snap, creator, support, backup, restore, citrix, xenserver, virtual, machine, vm, citrix, xenserver, plug-in 
+summary: 'SNAP Creator admite el backup y la restauración de máquinas virtuales (VM) de Citrix XenServer mediante el complemento Citrix XenServer.' 
+---
+= Complemento Citrix XenServer
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+SNAP Creator admite el backup y la restauración de máquinas virtuales (VM) de Citrix XenServer mediante el complemento Citrix XenServer.
+
+
+NOTE: Para obtener la información más reciente acerca de las matrices de compatibilidad o compatibilidad, consulte la matriz de interoperabilidad.
+
+El complemento Citrix XenServer es compatible con Windows y XenServer.
+
+Tenga en cuenta lo siguiente al utilizar el complemento Citrix XenServer:
+
+* No se admite el servidor Active IQ Unified Manager como proxy.
+* No se admiten las operaciones de montaje, desmontaje y backup con Open Systems SnapVault y la gestión de registros de archivos.
+* No se admiten las operaciones de restauración de volúmenes; solo se admiten las operaciones de restauración definidas para la aplicación.
+* Pueden restaurarse las máquinas virtuales eliminadas.
+* El agente de Snap Creator se debe instalar en el host en el que está instalado XenCenter y el servidor de Snap Creator no se debe instalar en XenServer.
+* El valor SC_AGENT_TIMEOUT debe ser mayor que el valor predeterminado: 600 o superior.
+* Si el valor de APP_DEFINED_RESTORE es y, no se admite la operación de restauración de SnapVault mediante la GUI.
+* Si el maestro de pool cae en un pool de servidores, el archivo de configuración de Snap Creator se debe modificar manualmente con el nuevo servidor maestro para realizar más actividades.
+* Las herramientas de XenServer deben estar instaladas en todas las máquinas virtuales.
+* Para Fibre Channel en un entorno DE red de área de almacenamiento (SAN), se debe instalar la herramienta plink.exe en un host en el que esté instalado Snap Creator Agent y se debe añadir la ruta plink.exe a la variable de entorno del sistema.
++
+Para obtener información detallada acerca de cómo agregar la ruta plink.exe a la variable de entorno del sistema, consulte la _Snap Creator Framework Installation Guide_.
+
+* Las operaciones de pausa y pausa de la máquina virtual se realizan en serie.
++
+En el caso de varias máquinas virtuales, la duración de la VM en estado de pausa durante la operación de backup depende del número de máquinas virtuales.
+
+* Se admite la detección automática de volúmenes.
+
+
+
+
+== Configuraciones de Citrix XenServer compatibles
+
+Se admiten las siguientes configuraciones de Citrix XenServer:
+
+* SAN
++
+** Admite máquinas virtuales invitadas con una imagen de disco virtual (VDI) por repositorio de almacenamiento.
+** Admite discos de datos con una VDI por repositorio de almacenamiento
+
+
+* NAS
++
+** Admite máquinas virtuales invitadas instaladas en montajes NFS.
+** Admite discos de datos en montajes NFS.
+
+
+
+
+
+
+== Parámetros
+
+En la siguiente tabla, se enumeran y describen los parámetros de los plugins de Citrix XenServer:
+
+|===
+
+
+| Parámetro | Ajuste | Descripción 
+
+
+ a| 
+XEN_VMS
+ a| 
+Host IP:VM#
+ a| 
+Enumera las máquinas virtuales de un host determinado, separadas por una barra (/). Por ejemplo: 10.10.10.192:VM1/VM2/VM3
+
+
+
+ a| 
+XEN_HOST_USERS
+ a| 
+Host IP:nombre de usuario/contraseña
+ a| 
+Enumera los hosts Xen y el nombre de usuario y la contraseña correspondientes.
+
+
+
+ a| 
+RUTA_XEN_BIN
+ a| 
+Por ejemplo: c:\Archivos de programa\Citrix\XenCenter\xe.exe
+ a| 
+Especifica la ruta de acceso del ejecutable XenServer (xe). La consola de XenCenter es necesaria para importar y exportar los metadatos de la máquina virtual.
+
+
+
+ a| 
+RUTA_DE_METADATOS XEN
+ a| 
+Por ejemplo: c:\scmetadata
+ a| 
+Especifica la ruta de acceso del servidor en el que puede descargar los metadatos de la máquina virtual.
+
+
+
+ a| 
+XEN_RESTORE_VMS
+ a| 
+Por ejemplo: Xenserver1:vm1,vm2;xenserver2:vm1,vm2
+ a| 
+Contiene las máquinas virtuales que se deben restaurar. Este parámetro solo se requiere durante una operación de restauración.
+
+|===
+*Información relacionada*
+
+http://mysupport.netapp.com/matrix["Herramienta de matriz de interoperabilidad: mysupport.netapp.com/matrix"]

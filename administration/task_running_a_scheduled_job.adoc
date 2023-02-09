@@ -1,0 +1,18 @@
+---
+permalink: administration/task_running_a_scheduled_job.html 
+sidebar: sidebar 
+keywords: schedule, job, run, snap, creator, gui 
+summary: Puede ejecutar un trabajo programado. 
+---
+= Ejecución de trabajos programados
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Puede ejecutar un trabajo programado.
+
+. En el menú principal de la GUI de Snap Creator, seleccione *Administración* > *programaciones*.
+. En la ficha programaciones, seleccione un trabajo de la lista de trabajos programados y haga clic en *Ejecutar*.
+

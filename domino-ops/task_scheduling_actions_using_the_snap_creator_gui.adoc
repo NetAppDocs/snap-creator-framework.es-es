@@ -1,0 +1,91 @@
+---
+permalink: domino-ops/task_scheduling_actions_using_the_snap_creator_gui.html 
+sidebar: sidebar 
+keywords: domino, ibm, scheduling, schedule, backups 
+summary: Se pueden programar tareas de backup recurrentes después de realizar el backup inicial. 
+---
+= Programación de backups
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Se pueden programar tareas de backup recurrentes después de realizar el backup inicial.
+
+Debe haber creado el archivo de configuración para la copia de seguridad, como se describe en xref:task_using_the_gui_to_create_a_configuration_file.adoc[Crear un archivo de configuración].
+
+. En el panel Perfiles y configuraciones, seleccione el archivo de configuración y haga clic en *Administración* > *programas* en la parte superior de la ventana de Snap Creator Framework.
+. En el panel trabajos, haga clic en *Crear*
+. En el cuadro de diálogo Nuevo trabajo, especifique la información del trabajo:
++
+|===
+| Para este campo... | Realice lo siguiente... 
+
+
+ a| 
+Nombre del trabajo
+ a| 
+Introduzca el nombre del trabajo.
+
+
+
+ a| 
+Fecha de inicio
+ a| 
+Utilice el control de calendario para seleccionar la fecha en la que debe iniciarse la programación.
+
+
+
+ a| 
+Activo
+ a| 
+Seleccione esta casilla para activar la programación. Anule la selección de la casilla para desactivar la programación.
+
+
+
+ a| 
+Perfil
+ a| 
+Seleccione el perfil del archivo de configuración.
+
+
+
+ a| 
+Configuración
+ a| 
+Seleccione el archivo de configuración.
+
+
+
+ a| 
+Acción
+ a| 
+Seleccione backup.
+
+
+
+ a| 
+Política
+ a| 
+Seleccione la política para el trabajo de backup. *Nota:* debe haber configurado la directiva en el archivo de configuración.
+
+
+
+ a| 
+Frecuencia
+ a| 
+Seleccione la frecuencia con la que debe ejecutarse el trabajo. En función de su elección, se mostrarán nuevos campos en los que puede especificar los minutos, la hora y el día para ejecutar el trabajo. Si desea utilizar un trabajo cron, seleccione cron e introduzca el comando cron .
+
+|===
++
+El ejemplo siguiente muestra cómo programar la ejecución de una tarea de backup todos los días a la medianoche:
+
++
+image::../media/scfw_domino_new_job.gif[Esta imagen se explica por el texto circundante.]
+
+. Haga clic en *Guardar*.
++
+El trabajo programado aparece en la ficha programaciones del panel trabajos. Seleccione el trabajo para ejecutarlo, editarlo o eliminarlo.
+
+

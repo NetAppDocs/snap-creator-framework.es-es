@@ -1,0 +1,28 @@
+---
+permalink: installation/concept_upgrading_snap_creator.html 
+sidebar: sidebar 
+keywords: upgrading, upgrade, snap, creator 
+summary: Puede actualizar a la última versión de Snap Creator desde varias versiones compatibles. 
+---
+= Actualizar Snap Creator
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Puede actualizar a la última versión de Snap Creator desde varias versiones compatibles.
+
+
+NOTE: En caso de duda alguna sobre si puede actualizar desde los lanzamientos publicados en la página de las comunidades, puede enviar preguntas generales al Foro de las comunidades de NetApp. El Foro de comunidades de NetApp está online en: https://communities.netapp.com/community/products_and_solutions/databases_and_enterprise_apps/snapcreator[]
+
+Antes de actualizar a la última versión de Snap Creator, compruebe el tamaño del monitor de trabajo para la versión de Snap Creator instalada actualmente. Al actualizar Snap Creator, debe establecer el tamaño del monitor de trabajo igual o mayor que el valor anterior para evitar la pérdida de datos en la base de datos del monitor de trabajos.
+
+Además, al actualizar Snap Creator, debe asegurarse de que la actualización se lleve a cabo en un host que utilice el mismo entorno de sistema operativo. Por ejemplo, si va a realizar una actualización en un entorno Windows, debe asegurarse de que al copiar los datos de los que se ha realizado un backup también se copien los datos de nuevo en un entorno Windows y no en un sistema basado en UNIX.
+
+
+IMPORTANT: SNAP Creator no tiene una opción de degradación (reversión). Durante un proceso de actualización, puede realizar una copia de seguridad de varios archivos. Es importante mantener los archivos de copia de seguridad hasta que esté seguro de que no necesita volver a una versión anterior de Snap Creator.
+
+*Información relacionada*
+
+xref:task_checking_job_monitor_size.adoc[Comprobando el tamaño del monitor de trabajo]

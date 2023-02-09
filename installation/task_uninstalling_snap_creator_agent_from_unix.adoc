@@ -1,0 +1,43 @@
+---
+permalink: installation/task_uninstalling_snap_creator_agent_from_unix.html 
+sidebar: sidebar 
+keywords: uninstalling, uninstall, snap, creator, agent, unix 
+summary: Puede desinstalar Snap Creator Agent de UNIX eliminando la carpeta de instalación de Snap Creator Agent. 
+---
+= Desinstalación de Snap Creator Agent en UNIX
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Puede desinstalar Snap Creator Agent de UNIX eliminando la carpeta de instalación de Snap Creator Agent.
+
+Haga una copia de seguridad de los siguientes directorios y de todos los subdirectorios y archivos asociados dentro del directorio de Snap Creator Agent (/install_path/scent4.1.0):
+
+* Registros (./logs)
+* Plugins (../plugins)
+* Propiedades de Snap Creator Agent (../etc), que contiene los archivos allowed_Commands.config y agent.properties
+
+
+Para desinstalar Snap Creator Agent, realice los siguientes pasos.
+
+
+NOTE: Las rutas de acceso proporcionadas en los pasos siguientes hacen referencia a la ruta de instalación genérica. Puede modificar la ruta de acceso de estos comandos para reflejar la ruta de instalación personalizada del agente de Snap Creator.
+
+. Detenga el agente de Snap Creator mediante el siguiente script:
++
+[listing]
+----
+/install_path/scAgent4.1.0/bin/scAgent stop
+----
+. Elimine la carpeta de instalación de Snap Creator Agent.
++
+Por ejemplo, en un sistema Linux, ejecute el siguiente comando:
+
++
+[listing]
+----
+rm -Rf /install_path/scAgent4.1.0
+----
+

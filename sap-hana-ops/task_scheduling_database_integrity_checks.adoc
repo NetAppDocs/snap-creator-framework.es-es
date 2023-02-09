@@ -1,0 +1,24 @@
+---
+permalink: sap-hana-ops/task_scheduling_database_integrity_checks.html 
+sidebar: sidebar 
+keywords: sap, hana, scheduling, schedule, database, integrity, checks 
+summary: En el caso de las configuraciones de SAP HANA, puede programar operaciones adicionales, como el backup basado en archivos y las comprobaciones de integridad de base de datos. Es posible programar la operación de comprobación de integridad de la base de datos para que se produzca en intervalos específicos. 
+---
+= Programar comprobaciones de integridad de la base de datos
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+En el caso de las configuraciones de SAP HANA, puede programar operaciones adicionales, como el backup basado en archivos y las comprobaciones de integridad de base de datos. Es posible programar la operación de comprobación de integridad de la base de datos para que se produzca en intervalos específicos.
+
+. En el menú principal de la GUI de Snap Creator, seleccione *Administración* > *programaciones* y haga clic en *Crear*.
+. En la ventana Nuevo trabajo, introduzca los detalles del trabajo.
++
+La política de comprobación de integridad se establece en «'none» de forma predeterminada.
+
++
+image::../media/creating_database_integrity_checks_schedules.gif[La creación de integridad de la base de datos comprueba los programas]
+
+

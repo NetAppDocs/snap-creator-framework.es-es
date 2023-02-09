@@ -1,0 +1,14 @@
+---
+permalink: sap-hana-ops/concept_restoring_databases_after_primary_storage_failure.html 
+sidebar: sidebar 
+keywords: restoring, restore, database, primary, storage, failure 
+summary: Tras un fallo en el almacenamiento primario o cuando todas las copias snapshot se eliminan de los volúmenes en el almacenamiento principal, Snap Creator no podrá encargarse de la restauración, ya que ya no habrá una relación de SnapVault en los sistemas de almacenamiento primarios. 
+---
+= Restauración de bases de datos después de un fallo en el almacenamiento primario
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Tras un fallo en el almacenamiento primario o cuando todas las copias snapshot se eliminan de los volúmenes en el almacenamiento principal, Snap Creator no podrá encargarse de la restauración, ya que ya no habrá una relación de SnapVault en los sistemas de almacenamiento primarios.

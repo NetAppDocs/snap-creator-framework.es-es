@@ -1,0 +1,94 @@
+---
+permalink: administration/reference_parameters_to_set_up_snapmirror.html 
+sidebar: sidebar 
+keywords: parameter, snapmirror, snap, creator, server, update, cascading, volume 
+summary: Se necesitan varios parámetros para configurar SnapMirror para Snap Creator Server. 
+---
+= Parámetros para configurar SnapMirror
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Se necesitan varios parámetros para configurar SnapMirror para Snap Creator Server.
+
+|===
+| Parámetro | Ajuste | Descripción 
+
+
+ a| 
+ACTUALIZACIÓN_SNAPMIRROR_NTAP
+ a| 
+«'y'» o «'N'»
+ a| 
+Permite activar y desactivar la función de actualización de SnapMirror.
+
+
+
+ a| 
+NTAP_SNAPMIRROR_SCASCADA_UPDATE
+ a| 
+«'y'» o «'N'»
+ a| 
+Permite activar y desactivar la función de actualización de SnapMirror en cascada. Se trata de una actualización de SnapMirror con un volumen de destino de SnapVault.
+
+
+NOTE: Clustered Data ONTAP no es compatible con esta operación.
+
+
+
+ a| 
+VOLÚMENES_SNAPMIRROR
+ a| 
+ a| 
+Especifica la lista de volúmenes y sistemas de almacenamiento de origen en los que desea realizar una actualización de SnapMirror (por ejemplo, controlador1:vol1,vol2,vol3;controlador2:vol1;controlador3:vol2,vol3). *Nota:* para los complementos de VMware (vSphere y vCloud), el valor debe configurarse en auto:detect.
+
+
+
+ a| 
+SNAPMIRROR_EN CASCADA_VOLÚMENES
+ a| 
+ a| 
+Especifica la lista de sistemas y volúmenes de almacenamiento de destino de SnapVault en los que, tras una actualización de SnapVault, desea realizar una actualización de SnapMirror (por ejemplo, sec-controlador1:vol1-sec,vol2-seg).no se admite replicación en cascada si un volumen de origen tiene varios destinos.
+
+
+NOTE: Clustered Data ONTAP no es compatible con esta operación.
+
+
+
+ a| 
+NTAP_SNAPMIRROR_WAIT
+ a| 
+ a| 
+Especifica el tiempo de espera (en minutos) que finalizará el proceso de actualización de SnapMirror antes de crear un clon en el destino de SnapMirror.Si NTAP_CLONE_SECONDARY está establecido en y, Snap Creator espera a que finalice la actualización de SnapMirror antes de continuar.
+
+
+NOTE: Esto solo puede usarse con NTAP_CLONE_SECONDARY y clonVol. (Actualmente, solo se admiten clones de volúmenes).
+
+
+
+ a| 
+SNAPSHOT_USO_NTAP_SNAPMIRROR
+ a| 
+«'y'» o «'N'»
+ a| 
+Si este parámetro está habilitado, la actualización de SnapMirror utiliza la copia Snapshot recién creada, por lo que se crea una copia Snapshot en el destino de SnapMirror. *Nota:* esto es necesario para NTAP_CLONE_SECONDARY porque se requiere una copia snapshot para crear un clon en el destino de SnapMirror.
+
+
+
+ a| 
+NTAP_SNAPMIRROR_MAX_TRANSFER
+ a| 
+ a| 
+Especifica el ancho de banda máximo (en kbps) que se permite usar SnapMirror.Si este parámetro no está definido, SnapMirror utiliza el ancho de banda máximo disponible.
+
+
+
+ a| 
+SNAPMIRROR_QTREE_INCLUDE
+ a| 
+ a| 
+Especifica la lista de controladoras de almacenamiento principal y rutas de qtree que se incluirán en la actualización de SnapMirror (por ejemplo, controlador1:/vol/Qtree/qtre1,/vol/volumen/qtre2;controlador2:/vol/volumen/qtre1).Si no se utiliza esta opción, se realizará un backup de todos los qtrees de un volumen. Al especificar una lista con esta opción, sólo se realizará un backup de los qtrees enumerados; se ignorarán los qtrees restantes.
+
+|===

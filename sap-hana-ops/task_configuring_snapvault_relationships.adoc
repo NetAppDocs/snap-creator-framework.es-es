@@ -1,0 +1,54 @@
+---
+permalink: sap-hana-ops/task_configuring_snapvault_relationships.html 
+sidebar: sidebar 
+keywords: configuring, configure snapvault, relationships, snaprestore 
+summary: Una vez instaladas las relaciones de SnapVault, las controladoras de almacenamiento primario deben tener una licencia válida de SnapRestore y SnapVault. El almacenamiento secundario debe tener instalada una licencia de SnapVault válida. 
+---
+= Configurar las relaciones de SnapVault
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Una vez instaladas las relaciones de SnapVault, las controladoras de almacenamiento primario deben tener una licencia válida de SnapRestore y SnapVault. El almacenamiento secundario debe tener instalada una licencia de SnapVault válida.
+
+. Habilite SnapVault y NDMP en las controladoras de almacenamiento principal y secundario.
++
+[listing]
+----
+hana1a> options snapvault.enable on
+hana1a> ndmp on
+hana1a>
+hana1b> options snapvault.enable on
+hana1b> ndmpd on
+hana1b
+hana2b> options snapvault.enable on
+hana2b> ndmpd on
+hana2b>
+----
+. En todas las controladoras de almacenamiento principal, configure el acceso a la controladora de almacenamiento secundario.
++
+[listing]
+----
+hana1a> options snapvault.access host=hana2b
+hana1a>
+hana1b> options snapvault.access host=hana2b
+hana1b>
+----
++
+
+NOTE: Se recomienda utilizar una red dedicada para el tráfico de replicación. En estos casos, es necesario configurar el nombre de host de esta interfaz en la controladora de almacenamiento secundario. En lugar de hana2b, el nombre de host podría ser hana2b-rep.
+
+. En la controladora de almacenamiento secundario, configure el acceso para todas las controladoras de almacenamiento primario.
++
+[listing]
+----
+hana2b> options snapvault.access host=hana1a,hana1b
+hana2b>
+----
++
+
+NOTE: Se recomienda utilizar una red dedicada para el tráfico de replicación. En estos casos, es necesario configurar el nombre de host de esta interfaz en las controladoras de almacenamiento primarias. En lugar de hana1b y hana1a, el nombre de host podría ser hana1a-rep y hana1b-rep.
+
+

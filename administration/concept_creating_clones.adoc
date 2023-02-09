@@ -1,0 +1,18 @@
+---
+permalink: administration/concept_creating_clones.html 
+sidebar: sidebar 
+keywords: creating, clones, lunes, volumes, cloning, snapshot 
+summary: 'Hay dos métodos para clonar volúmenes o LUN: A partir de un backup nuevo y desde un backup existente.' 
+---
+= Crear clones
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Hay dos métodos para clonar volúmenes o LUN: A partir de un backup nuevo y desde un backup existente.
+
+* Crear un clon a partir de un nuevo backup consiste en tomar una Snapshot, clonar la nueva copia de Snapshot y luego montar la copia clonada.
+* Crear un clon a partir de un backup existente consiste en clonar una copia Snapshot existente y luego montar la copia clonada.
+

@@ -1,0 +1,62 @@
+---
+permalink: sap-hana-ops/concept_backup_solution_components.html 
+sidebar: sidebar 
+keywords: backup, solution, components, sap, hana 
+summary: La solución de backup de Snap Creator para SAP HANA consta de backup de archivos de datos SAP HANA mediante copias de Snapshot basadas en almacenamiento, replicación de backups de archivos de datos a una ubicación de backup secundaria externa, backup de archivos de registro de SAP HANA mediante la funcionalidad de backup de registros de bases de datos HANA, comprobación de integridad de bloques de base de datos mediante un backup basado en archivos, Y el mantenimiento de archivos de datos, backups de archivos de registro y el catálogo de backup SAP HANA. 
+---
+= Componentes de la solución de backup
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+La solución de backup de Snap Creator para SAP HANA consta de backup de archivos de datos SAP HANA mediante copias de Snapshot basadas en almacenamiento, replicación de backups de archivos de datos a una ubicación de backup secundaria externa, backup de archivos de registro de SAP HANA mediante la funcionalidad de backup de registros de bases de datos HANA, comprobación de integridad de bloques de base de datos mediante un backup basado en archivos, Y el mantenimiento de archivos de datos, backups de archivos de registro y el catálogo de backup SAP HANA.
+
+SNAP Creator ejecuta los backups de bases de datos en combinación con un complemento para SAP HANA. El complemento garantiza la consistencia de la base de datos de modo que las copias Snapshot que se crean en el sistema de almacenamiento principal se basen en una imagen consistente de la base de datos SAP HANA.
+
+SNAP Creator le permite replicar las imágenes de bases de datos consistentes en un almacenamiento secundario mediante SnapVault. Normalmente, habrá distintas políticas de retención definidas para los backups en el almacenamiento principal y los backups en el almacenamiento secundario. SNAP Creator gestiona la retención en el almacenamiento principal, así como el almacenamiento secundario.
+
+El backup de registro se ejecuta automáticamente mediante las herramientas de bases de datos SAP HANA. El destino del backup de registros no debe estar en el mismo sistema de almacenamiento donde se encuentra el volumen de registro de la base de datos. Se recomienda configurar el destino de backup de registros en el mismo almacenamiento secundario en el que se replican los backups de base de datos con SnapVault. Con esta configuración, el almacenamiento secundario tiene requisitos de disponibilidad similares a los del almacenamiento primario, lo que permite tener la seguridad de que los backups de registros siempre pueden escribirse en el almacenamiento secundario.
+
+image::../media/sap_hana_database_log_backup.gif[Backup de registro y base de datos SAP HANA]
+
+Los programas de backup y las políticas de retención se deben definir de acuerdo con los requisitos del cliente. La siguiente tabla muestra un ejemplo de configuración de las diferentes programaciones y políticas de retención.
+
+|===
+|  | Ejecutado por Snap Creator | Almacenamiento primario | Almacenamiento secundario 
+
+
+ a| 
+Backups de bases de datos
+ a| 
+Horario 1: Cada 4 horas
+ a| 
+Retención: 6 (\=> 6 copias snapshot cada hora)
+ a| 
+Retención: 6 (\=> 6 copias snapshot cada hora)
+
+
+
+ a| 
+Programa 2: Una vez al día
+ a| 
+Retención: 3 (\=> 3 copias Snapshot diarias)
+ a| 
+Retención: 28 (4 semanas) (\=> 28 copias snapshot diarias)
+ a| 
+Backups de registros
+
+
+
+ a| 
+Programa de herramientas de bases de datos SAP HANA: Cada 15 minutos
+ a| 
+NA
+ a| 
+Retención: 28 días (4 semanas)
+ a| 
+Comprobación de integridad de bloques
+
+|===
+Con este ejemplo, se mantienen seis backups cada hora y tres backups diarios en el almacenamiento primario. En el almacenamiento secundario, los backups de la base de datos se conservan durante cuatro semanas. Para poder recuperar cualquiera de los backups de datos, debe configurar la misma retención para los backups de registros.

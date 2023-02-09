@@ -1,0 +1,660 @@
+---
+permalink: administration/reference_storage_error_messages.html 
+sidebar: sidebar 
+keywords: storage troubleshoot, error, message 
+summary: Los mensajes de error relacionados con el almacenamiento pueden ayudar a resolver cualquier problema que se produzca. 
+---
+= Mensajes de error de almacenamiento
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Los mensajes de error relacionados con el almacenamiento pueden ayudar a resolver cualquier problema que se produzca.
+
+En la siguiente tabla se enumeran los códigos de error y los mensajes, junto con una breve descripción del error y la resolución sugerida.
+
+[cols="15,35,50"]
+|===
+| Código de error | Mensaje de error | Descripción/resolución 
+
+
+ a| 
+ALMACENAMIENTO-00001
+ a| 
+El formato de fecha [%s] no es válido: [%s]
+ a| 
+SNAP Creator no creó el clon del volumen, o bien la Marca de tiempo que se anexa al nombre del clon no es válida.
+
+
+
+ a| 
+ALMACENAMIENTO-00002
+ a| 
+No se puede recuperar el ejecutor
+ a| 
+No se creó un ejecutor para su almacenamiento. Compruebe los registros de errores de capacidad de gestión de NetApp y que puedan mostrar la causa del problema.
+
+
+
+ a| 
+ALMACENAMIENTO-00003
+ a| 
+No se puede conectar con el host
+ a| 
+No se puede acceder al host. Asegúrese de que la configuración del firewall local sea correcta y que el host pueda hacer ping desde el sistema donde está instalado Snap Creator Server.
+
+
+
+ a| 
+ALMACENAMIENTO-01003
+ a| 
+Error al crear un mensaje AutoSupport con Id. De evento [%s], categoría [%s], descripción [%s], nivel [%s], nombre de host [%s] con error [%s].
+ a| 
+Compruebe los registros en busca de errores. Es probable que tenga un error de capacidad de gestión de NetApp. Los registros pueden mostrar la causa del problema.
+
+
+
+ a| 
+ALMACENAMIENTO-01004
+ a| 
+Para la restauración de archivos, los volúmenes de origen y destino deben ser el mismo volumen.
+ a| 
+Los volúmenes de origen y destino son diferentes.proporcione el mismo volumen que el volumen de origen y el de destino.
+
+
+
+ a| 
+ALMACENAMIENTO-02003
+ a| 
+Error al crear una copia Snapshot de grupo de consistencia [%s] en los volúmenes [%s] con el error [%s];
+ a| 
+Compruebe los registros en busca de errores. Es probable que tenga un error de capacidad de gestión de NetApp. Los registros pueden mostrar la causa del problema.
+
+
+
+ a| 
+ALMACENAMIENTO-02006
+ a| 
+Se ha producido un error al confirmar la copia Snapshot del grupo de consistencia en [%s] con el ID de CG [%s].
+ a| 
+Compruebe los registros en busca de errores. Es probable que tenga un error de capacidad de gestión de NetApp. Los registros pueden mostrar la causa del problema.
+
+
+
+ a| 
+ALMACENAMIENTO-02009
+ a| 
+Error al crear la copia snapshot [%s] en el volumen [%s] con el error [%s]
+ a| 
+Compruebe los registros en busca de errores. Es probable que tenga un error de capacidad de gestión de NetApp. Los registros pueden mostrar la causa del problema.
+
+
+
+ a| 
+ALMACENAMIENTO-02015
+ a| 
+Error al eliminar la copia snapshot [%s] en el volumen [%s] con el error [%s]
+ a| 
+Compruebe los registros en busca de errores. Es probable que tenga un error de capacidad de gestión de NetApp. Los registros pueden mostrar la causa del problema.
+
+
+
+ a| 
+ALMACENAMIENTO-02021
+ a| 
+Error al restaurar la copia snapshot [%s] del volumen [%s] con el error [%s]
+ a| 
+Compruebe los registros en busca de errores. Es probable que tenga un error de capacidad de gestión de NetApp. Los registros pueden mostrar la causa del problema.
+
+
+
+ a| 
+ALMACENAMIENTO-02025
+ a| 
+Error al restaurar el archivo [%s] de la copia Snapshot [%s] a [%s] con el error [%s]
+ a| 
+Compruebe los registros en busca de errores. Es probable que tenga un error de capacidad de gestión de NetApp. Los registros pueden mostrar la causa del problema.
+
+
+
+ a| 
+ALMACENAMIENTO-02028
+ a| 
+Error al crear la programación principal de copias snapshot de SnapVault [%s] en el volumen [%s] con el error [%s]
+ a| 
+Compruebe los registros en busca de errores. Es probable que tenga un error de capacidad de gestión de NetApp. Los registros pueden mostrar la causa del problema.
+
+
+
+ a| 
+ALMACENAMIENTO-02034
+ a| 
+Error al eliminar las programaciones de copias snapshot principales de SnapVault del volumen [%s] con el error [%s]
+ a| 
+Compruebe los registros en busca de errores. Es probable que tenga un error de capacidad de gestión de NetApp. Los registros pueden mostrar la causa del problema.
+
+
+
+ a| 
+ALMACENAMIENTO-02038
+ a| 
+Error al crear el clon [%s] del volumen [%s] basado en la copia Snapshot [%s] con el error [%s]
+ a| 
+Compruebe los registros en busca de errores. Es probable que tenga un error de capacidad de gestión de NetApp. Los registros pueden mostrar la causa del problema.
+
+
+
+ a| 
+ALMACENAMIENTO-02041
+ a| 
+Error al clonar el archivo [%s] en el volumen [%s] a [%s] basado en la copia snapshot [%s] con el error [%s]
+ a| 
+Compruebe los registros en busca de errores. Es probable que tenga un error de capacidad de gestión de NetApp. Los registros pueden mostrar la causa del problema.
+
+
+
+ a| 
+ALMACENAMIENTO-02043
+ a| 
+Error al mostrar los archivos en la ruta [%s] con el error [%s]
+ a| 
+Compruebe los registros en busca de errores. Es probable que tenga un error de capacidad de gestión de NetApp. Los registros pueden mostrar la causa del problema.
+
+
+
+ a| 
+ALMACENAMIENTO-02046
+ a| 
+Error de clonado de LUN [%s] a [%s] basado en una copia Snapshot [%s] con reserva de espacio [%s] con error [%s]
+ a| 
+Compruebe los registros en busca de errores. Es probable que tenga un error de capacidad de gestión de NetApp. Los registros pueden mostrar la causa del problema.
+
+
+
+ a| 
+ALMACENAMIENTO-02049
+ a| 
+Error al eliminar LUN [%s] del volumen [%s] con el error [%s]
+ a| 
+Compruebe los registros en busca de errores. Es probable que tenga un error de capacidad de gestión de NetApp. Los registros pueden mostrar la causa del problema.
+
+
+
+ a| 
+ALMACENAMIENTO-02052
+ a| 
+Se ha producido un error en la lista de LUN al [%s]
+ a| 
+Compruebe los registros en busca de errores. Es probable que tenga un error de capacidad de gestión de NetApp. Los registros pueden mostrar la causa del problema.
+
+
+
+ a| 
+ALMACENAMIENTO-02062
+ a| 
+Error al agregar la exportación NFS [%s] para el nombre de host [%s] con acceso [%s] con el error [%s]
+ a| 
+Compruebe los registros en busca de errores. Es probable que tenga un error de capacidad de gestión de NetApp. Los registros pueden mostrar la causa del problema.
+
+
+
+ a| 
+ALMACENAMIENTO-02072
+ a| 
+Error al recuperar el estado de SnapMirror en la controladora [%s] con el error [%s]
+ a| 
+Compruebe los registros en busca de errores. Es probable que tenga un error de capacidad de gestión de NetApp. Los registros pueden mostrar la causa del problema.
+
+
+
+ a| 
+ALMACENAMIENTO-02075
+ a| 
+Error al recuperar las relaciones de SnapMirror en la controladora [%s] con el error [%s]
+ a| 
+Compruebe los registros en busca de errores. Es probable que tenga un error de capacidad de gestión de NetApp. Los registros pueden mostrar la causa del problema.
+
+
+
+ a| 
+ALMACENAMIENTO-02082
+ a| 
+Error al actualizar la relación de SnapMirror [%s] basada en una copia snapshot [%s] con el error [%s]
+ a| 
+Compruebe los registros en busca de errores. Es probable que tenga un error de capacidad de gestión de NetApp. Los registros pueden mostrar la causa del problema.
+
+
+
+ a| 
+ALMACENAMIENTO-02092
+ a| 
+Error al enumerar copias Snapshot en el volumen [%s] con el error [%s]
+ a| 
+Compruebe los registros en busca de errores. Es probable que tenga un error de capacidad de gestión de NetApp. Los registros pueden mostrar la causa del problema.
+
+
+
+ a| 
+ALMACENAMIENTO-02102
+ a| 
+Error al cambiar el nombre de la copia Snapshot [%s] en el volumen [%s] a [%s] con el error [%s]
+ a| 
+Compruebe los registros en busca de errores. Es probable que tenga un error de capacidad de gestión de NetApp. Los registros pueden mostrar la causa del problema.
+
+
+
+ a| 
+ALMACENAMIENTO-02112
+ a| 
+Error al recuperar el estado de SnapVault en la controladora [%s] con el error [%s]
+ a| 
+Compruebe los registros en busca de errores. Es probable que tenga un error de capacidad de gestión de NetApp. Los registros pueden mostrar la causa del problema.
+
+
+
+ a| 
+ALMACENAMIENTO-02115
+ a| 
+Error al recuperar las relaciones de SnapVault en la controladora [%s] con el error [%s]
+ a| 
+Compruebe los registros en busca de errores. Es probable que tenga un error de capacidad de gestión de NetApp. Los registros pueden mostrar la causa del problema.
+
+
+
+ a| 
+ALMACENAMIENTO-02122
+ a| 
+Error al actualizar la relación de SnapVault [%s] basada en una copia snapshot [%s] con el error [%s]
+ a| 
+Compruebe los registros en busca de errores. Es probable que tenga un error de capacidad de gestión de NetApp. Los registros pueden mostrar la causa del problema.
+
+
+
+ a| 
+ALMACENAMIENTO-02132
+ a| 
+Se produjo un error en la lista de volúmenes clonados basados en el volumen [%s] con el error [%s]
+ a| 
+Compruebe los registros en busca de errores. Es probable que tenga un error de capacidad de gestión de NetApp. Los registros pueden mostrar la causa del problema.
+
+
+
+ a| 
+ALMACENAMIENTO-02142
+ a| 
+Error al eliminar el volumen [%s] con el error [%s]
+ a| 
+Compruebe los registros en busca de errores. Es probable que tenga un error de capacidad de gestión de NetApp. Los registros pueden mostrar la causa del problema.
+
+
+
+ a| 
+ALMACENAMIENTO-02152
+ a| 
+Se ha producido un error en la lista de volúmenes [%s]
+ a| 
+Compruebe los registros en busca de errores. Es probable que tenga un error de capacidad de gestión de NetApp. Los registros pueden mostrar la causa del problema.
+
+
+
+ a| 
+ALMACENAMIENTO-02155
+ a| 
+Error al mostrar el volumen [%s] con el mensaje de error [%s]
+ a| 
+Compruebe los registros en busca de errores. Es probable que tenga un error de capacidad de gestión de NetApp. Los registros pueden mostrar la causa del problema.
+
+
+
+ a| 
+ALMACENAMIENTO-02162
+ a| 
+Error al restaurar la copia snapshot [%s] del volumen [%s] con el error [%s]
+ a| 
+Compruebe los registros en busca de errores. Es probable que tenga un error de capacidad de gestión de NetApp. Los registros pueden mostrar la causa del problema.
+
+
+
+ a| 
+ALMACENAMIENTO-03001
+ a| 
+Recuperando vServers del nodo Clustered ONTAP [%s]
+ a| 
+Compruebe los registros en busca de errores. Es probable que tenga un error de capacidad de gestión de NetApp. Los registros pueden mostrar la causa del problema.
+
+
+
+ a| 
+ALMACENAMIENTO-05003
+ a| 
+Error al crear el conjunto de datos de la consola de gestión de NetApp [%s]
+ a| 
+Compruebe los registros en busca de errores. Es probable que tenga un error de capacidad de gestión de NetApp. Los registros pueden mostrar la causa del problema.
+
+
+
+ a| 
+ALMACENAMIENTO-05006
+ a| 
+Error al crear el backup controlado por la consola de gestión de NetApp del conjunto de datos [%s] en la controladora de almacenamiento [%s]
+ a| 
+Compruebe los registros en busca de errores. Es probable que tenga un error de capacidad de gestión de NetApp. Los registros pueden mostrar la causa del problema.
+
+
+
+ a| 
+ALMACENAMIENTO-05009
+ a| 
+Error al recuperar el estado del conjunto de datos de la consola de gestión de NetApp para el conjunto de datos [%s]
+ a| 
+Compruebe los registros en busca de errores. Es probable que tenga un error de capacidad de gestión de NetApp. Los registros pueden mostrar la causa del problema.
+
+
+
+ a| 
+ALMACENAMIENTO-05012
+ a| 
+Error [%s] al validar el conjunto de datos de la consola de gestión de NetApp.
+ a| 
+Compruebe los registros en busca de errores. Es probable que tenga un error de capacidad de gestión de NetApp. Los registros pueden mostrar la causa del problema.
+
+
+
+ a| 
+ALMACENAMIENTO-05018
+ a| 
+Creando evento OM [%s] en [%s]
+ a| 
+Compruebe los registros en busca de errores. Es probable que tenga un error de capacidad de gestión de NetApp. Los registros pueden mostrar la causa del problema.
+
+
+
+ a| 
+ALMACENAMIENTO-03002
+ a| 
+Error al asignar el igroup [%s] en la LUN [%s] con el error [%s]
+ a| 
+Compruebe los registros en busca de errores. Es probable que tenga un error de capacidad de gestión de NetApp. Los registros pueden mostrar la causa del problema.
+
+
+
+ a| 
+ALMACENAMIENTO-03005
+ a| 
+Error al crear la LUN [%s] en el volumen [%s] con el error [%s]
+ a| 
+Compruebe los registros en busca de errores. Es probable que tenga un error de capacidad de gestión de NetApp. Los registros pueden mostrar la causa del problema.
+
+
+
+ a| 
+ALMACENAMIENTO-03008
+ a| 
+Error al crear la copia snapshot principal de SnapVault [%s] en el volumen [%s] con el error [%s]
+ a| 
+Compruebe los registros en busca de errores. Es probable que tenga un error de capacidad de gestión de NetApp. Los registros pueden mostrar la causa del problema.
+
+
+
+ a| 
+ALMACENAMIENTO-03011
+ a| 
+Error al enumerar las copias de backup de la consola de gestión de NetApp para el conjunto de datos [%s]
+ a| 
+Compruebe los registros en busca de errores. Es probable que tenga un error de capacidad de gestión de NetApp. Los registros pueden mostrar la causa del problema.
+
+
+
+ a| 
+ALMACENAMIENTO-03014
+ a| 
+Error al eliminar el ID de versión de backup de la consola de gestión de NetApp [%s]
+ a| 
+Compruebe los registros en busca de errores. Es probable que tenga un error de capacidad de gestión de NetApp. Los registros pueden mostrar la causa del problema.
+
+
+
+ a| 
+ALMACENAMIENTO-03019
+ a| 
+Error al iniciar el backup de la NetApp Management Console para [%s] ([%s]), ¡saliendo!
+ a| 
+Compruebe los registros en busca de errores.es más probable que tenga un error de capacidad de gestión de NetApp. Los registros pueden mostrar la causa del problema.
+
+
+
+ a| 
+ALMACENAMIENTO-03022
+ a| 
+Error al iniciar el progreso de la copia de seguridad de la consola de gestión de NetApp para el ID de trabajo [%s], ¡saliendo!
+ a| 
+Compruebe los registros en busca de errores. Es probable que tenga un error de capacidad de gestión de NetApp. Los registros pueden mostrar la causa del problema.
+
+
+
+ a| 
+ALMACENAMIENTO-03025
+ a| 
+Error al eliminar el archivo en la ruta [%s] con el error [%s]
+ a| 
+Compruebe los registros en busca de errores. Es probable que tenga un error de capacidad de gestión de NetApp. Los registros pueden mostrar la causa del problema.
+
+
+
+ a| 
+ALMACENAMIENTO-03030
+ a| 
+Error al detectar nodos de Clustered Data ONTAP en [%s]
+ a| 
+Compruebe los registros en busca de errores. Es probable que tenga un error de capacidad de gestión de NetApp. Los registros pueden mostrar la causa del problema.
+
+
+
+ a| 
+ALMACENAMIENTO-03033
+ a| 
+Error al obtener los detalles de la versión del sistema de [%s] con el error [%s]
+ a| 
+Compruebe los registros en busca de errores. Es probable que tenga un error de capacidad de gestión de NetApp. Los registros pueden mostrar la causa del problema.
+
+
+
+ a| 
+ALMACENAMIENTO-03036
+ a| 
+Error al crear el directorio en la ruta [%s] con el error [%s]
+ a| 
+Compruebe los registros en busca de errores. Es probable que tenga un error de capacidad de gestión de NetApp. Los registros pueden mostrar la causa del problema.
+
+
+
+ a| 
+ALMACENAMIENTO-03039
+ a| 
+Error al eliminar el directorio de la ruta [%s] con el error [%s]
+ a| 
+Compruebe los registros en busca de errores. Es probable que tenga un error de capacidad de gestión de NetApp. Los registros pueden mostrar la causa del problema.
+
+
+
+ a| 
+ALMACENAMIENTO-03043
+ a| 
+Error al crear el archivo en la ruta [%s] con el error [%s]
+ a| 
+Compruebe los registros en busca de errores. Es probable que tenga un error de capacidad de gestión de NetApp. Los registros pueden mostrar la causa del problema.
+
+
+
+ a| 
+ALMACENAMIENTO-03046
+ a| 
+Error al modificar el conjunto de datos de la consola de gestión de NetApp para el conjunto de datos [%s]
+ a| 
+Compruebe los registros en busca de errores. Es probable que tenga un error de capacidad de gestión de NetApp. Los registros pueden mostrar la causa del problema.
+
+
+
+ a| 
+ALMACENAMIENTO-03049
+ a| 
+No se pudo leer el contenido del archivo [%s]
+ a| 
+Compruebe los registros en busca de errores. Es probable que tenga un error de capacidad de gestión de NetApp. Los registros pueden mostrar la causa del problema.
+
+
+
+ a| 
+ALMACENAMIENTO-03052
+ a| 
+Error al obtener opciones para la opción [%s]
+ a| 
+Compruebe los registros en busca de errores. Es probable que tenga un error de capacidad de gestión de NetApp. Los registros pueden mostrar la causa del problema.
+
+
+
+ a| 
+ALMACENAMIENTO-03055
+ a| 
+Error al obtener los contadores de rendimiento para el objeto [%s]
+ a| 
+Compruebe los registros en busca de errores. Es probable que tenga un error de capacidad de gestión de NetApp. Los registros pueden mostrar la causa del problema.
+
+
+
+ a| 
+ALMACENAMIENTO-03058
+ a| 
+Error al obtener las instancias de rendimiento para el objeto [%s]
+ a| 
+Compruebe los registros en busca de errores. Es probable que tenga un error de capacidad de gestión de NetApp. Los registros pueden mostrar la causa del problema.
+
+
+
+ a| 
+ALMACENAMIENTO-03061
+ a| 
+Error en la información del conjunto de datos de la consola de gestión de NetApp para [%s]
+ a| 
+Compruebe los registros en busca de errores. Es probable que tenga un error de capacidad de gestión de NetApp. Los registros pueden mostrar la causa del problema.
+
+
+
+ a| 
+ALMACENAMIENTO-03064
+ a| 
+Error del comando CLI del sistema [%s]
+ a| 
+Compruebe los registros en busca de errores. Es probable que tenga un error de capacidad de gestión de NetApp. Los registros pueden mostrar la causa del problema.
+
+
+
+ a| 
+ALMACENAMIENTO-03067
+ a| 
+Error al eliminar el conjunto de datos de la consola de gestión de NetApp [%s]
+ a| 
+Compruebe los registros en busca de errores. Es probable que tenga un error de capacidad de gestión de NetApp. Los registros pueden mostrar la causa del problema.
+
+
+
+ a| 
+ALMACENAMIENTO-03070
+ a| 
+Error al restaurar la relación de SnapVault [%s] basada en una copia snapshot [%s] con el error [%s]
+ a| 
+Compruebe los registros en busca de errores. Es probable que tenga un error de capacidad de gestión de NetApp. Los registros pueden mostrar la causa del problema.
+
+
+
+ a| 
+ALMACENAMIENTO-03073
+ a| 
+Error en la exportación CIFS para [%s]:[%s]
+ a| 
+Compruebe los registros en busca de errores. Es probable que tenga un error de capacidad de gestión de NetApp. Los registros pueden mostrar la causa del problema.
+
+
+
+ a| 
+ALMACENAMIENTO-03076
+ a| 
+Error al obtener el volumen raíz en la controladora [%s] con el error [%s]
+ a| 
+Compruebe los registros en busca de errores. Es probable que tenga un error de capacidad de gestión de NetApp. Los registros pueden mostrar la causa del problema.
+
+
+
+ a| 
+ALMACENAMIENTO-03079
+ a| 
+Error al obtener la ruta de unión para el volumen [%s]
+ a| 
+Compruebe los registros en busca de errores. Es probable que tenga un error de capacidad de gestión de NetApp. Los registros pueden mostrar la causa del problema.
+
+
+
+ a| 
+ALMACENAMIENTO-03082
+ a| 
+Error al obtener el nombre del sistema
+ a| 
+Compruebe los registros en busca de errores. Es probable que tenga un error de capacidad de gestión de NetApp. Los registros pueden mostrar la causa del problema.
+
+
+
+ a| 
+ALMACENAMIENTO-03085
+ a| 
+Error al obtener el servicio NFS en la controladora [%s]
+ a| 
+Compruebe los registros en busca de errores. Es probable que tenga un error de capacidad de gestión de NetApp. Los registros pueden mostrar la causa del problema.
+
+
+
+ a| 
+ALMACENAMIENTO-03088
+ a| 
+Error al comprobar el permiso NFS para el permiso [%s] de nombre de ruta [%s] de host [%s]
+ a| 
+Compruebe los registros en busca de errores. Es probable que tenga un error de capacidad de gestión de NetApp. Los registros pueden mostrar la causa del problema.
+
+
+
+ a| 
+ALMACENAMIENTO-03091
+ a| 
+Error al obtener la interfaz de red en el controlador [%s]
+ a| 
+Compruebe los registros en busca de errores. Es probable que tenga un error de capacidad de gestión de NetApp. Los registros pueden mostrar la causa del problema.
+
+
+
+ a| 
+ALMACENAMIENTO-03094
+ a| 
+Error en la lista Qtree del volumen [%s]
+ a| 
+Compruebe los registros en busca de errores. Es probable que tenga un error de capacidad de gestión de NetApp. Los registros pueden mostrar la causa del problema.
+
+
+
+ a| 
+ALMACENAMIENTO-04119
+ a| 
+Se produjo un error en el listado de vServers
+ a| 
+Compruebe los registros en busca de errores. Lo más probable es que tenga un error de solución de gestión de ONTAP que pueda revelar la causa del problema.
+
+
+
+ a| 
+VSERVER_TUNNEL_ENABLED
+ a| 
+(S/N)
+ a| 
+Ajuste el túnel de Vsim. Si se establece en y, se activa la función de túnel de Vsim.
+
+|===

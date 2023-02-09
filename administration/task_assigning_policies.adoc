@@ -1,0 +1,23 @@
+---
+permalink: administration/task_assigning_policies.html 
+sidebar: sidebar 
+keywords: assign, retention, policy, configuration, snap, creator, gui, assignment 
+summary: Puede asignar políticas de retención a los archivos de configuración mediante la GUI de Snap Creator. 
+---
+= Asignación de políticas
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Puede asignar políticas de retención a los archivos de configuración mediante la GUI de Snap Creator.
+
+. En el menú principal de la GUI de Snap Creator, seleccione *Directiva* > *asignaciones de directiva*.
+. Seleccione un perfil en el panel Perfil.
+. Seleccione una directiva o directivas para asignar al perfil seleccionando la casilla de verificación correspondiente en el panel derecho y, a continuación, haga clic en *Guardar*.
++
+Si los archivos de configuración ya existen en el perfil, aparece un mensaje que le informa de que la directiva asignada va a anular la configuración en el archivo de configuración.
+
+. Haga clic en *Sí* para asignar la directiva.
+

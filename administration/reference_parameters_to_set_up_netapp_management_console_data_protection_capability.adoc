@@ -1,0 +1,49 @@
+---
+permalink: administration/reference_parameters_to_set_up_netapp_management_console_data_protection_capability.html 
+sidebar: sidebar 
+keywords: parameter, netapp, management, console, protection, capability, ntap, update, set, backup, format 
+summary: Se necesitan varios parámetros para configurar la funcionalidad de protección de datos de la consola de gestión de NetApp. 
+---
+= Parámetros para configurar la funcionalidad de protección de datos de la Consola de gestión de NetApp
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Se necesitan varios parámetros para configurar la funcionalidad de protección de datos de la consola de gestión de NetApp.
+
+|===
+| Parámetro | Ajuste | Descripción 
+
+
+ a| 
+NTAP_PM_UPDATE
+ a| 
+(Y
+| N) 
+
+
+ a| 
+Permite activar y desactivar la actualización de la funcionalidad de protección de datos de la consola de gestión de NetApp que registra copias Snapshot de Snap Creator en la funcionalidad de protección de datos de la consola de gestión de NetApp. *Nota:* Si NTAP_PM_UPDATE está activado, debe configurar NTAP_DFM_DATA_SET.
+ a| 
+NTAP_DFM_DATA_SET
+ a| 
+
+
+
+ a| 
+Enumera los conjuntos de datos de la funcionalidad de protección de datos de la Consola de gestión de NetApp en correlaciones de volumen; es decir, controlador1:datos1/vol1,vol2;controlador1:datos2/vol3.
+ a| 
+NTAP_PM_RUN_BACKUP
+ a| 
+(Y
+
+
+
+| N)  a| 
+Inicia el backup de la funcionalidad de protección de datos de la Consola de gestión de NetApp, comprueba el progreso y el estado y espera a que finalice.
+ a| 
+NTAP_DFM_SNAPSHOT_FORMAT
+
+|===

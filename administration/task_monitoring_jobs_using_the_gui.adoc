@@ -1,0 +1,21 @@
+---
+permalink: administration/task_monitoring_jobs_using_the_gui.html 
+sidebar: sidebar 
+keywords: monitor, job, snap, creator, gui 
+summary: Puede supervisar el estado de los trabajos que realiza Snap Creator mediante la GUI de Snap Creator. 
+---
+= Supervisar trabajos de
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Puede supervisar el estado de los trabajos que realiza Snap Creator mediante la GUI de Snap Creator.
+
+. En el menú principal de la GUI de Snap Creator, seleccione *Administración* > *Monitor de trabajo*.
++
+Se muestra una lista de los trabajos en ejecución.
+
+. Para detener un trabajo en ejecución, seleccione el trabajo y haga clic en *Cancelar*.
+

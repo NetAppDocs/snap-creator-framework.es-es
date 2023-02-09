@@ -1,0 +1,31 @@
+---
+permalink: domino-ops/task_using_the_snap_creator_reports_option_to_view_logs.html 
+sidebar: sidebar 
+keywords: domino, ibm, viewing, view, logs, report pane 
+summary: Puede ver los registros en el panel Informes de la CreatorSnap, en el mismo formato que se utiliza para mostrarlos en el panel Consola. Puede ver registros de errores así como registros estándar en el panel Informes. 
+---
+= Ver registros en el panel Reports
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Puede ver los registros en el panel Informes de la CreatorSnap, en el mismo formato que se utiliza para mostrarlos en el panel Consola. Puede ver registros de errores así como registros estándar en el panel Informes.
+
+. En la parte superior de la ventana de Snap Creator Framework, haga clic en *Informes* > *registros*.
+. En el panel Informes, seleccione el perfil, el archivo de configuración, el tipo de registro y el archivo de registro. donde los tipos de registro son los siguientes:
++
+** *Out Logs* proporciona información detallada para un trabajo.
+** *Debug Logs* proporciona información detallada más información útil en la depuración.
+** *Stderr Logs* proporciona información sobre los errores escritos en errores estándar.
+** *Registros de errores* proporciona toda la información de errores. *Nota:* dependiendo del tamaño del trabajo, elegir *Registro de depuración* puede hacer que el navegador se vuelva lento o no responda.
+
+
+. Clic:
++
+** *Descargar el registro seleccionado* para descargar el registro seleccionado.
+** *Descargar los registros de GUI* para descargar los registros de GUI. En el cuadro de diálogo de descarga, haga clic en *Abrir* o *Guardar* según sea necesario.
+
+
+

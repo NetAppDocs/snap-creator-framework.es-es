@@ -1,0 +1,121 @@
+---
+permalink: installation/task_upgrading_the_snap_creator_agent_4_0_x_on_windows.html 
+sidebar: sidebar 
+keywords: upgrading, upgrade, snap, creator, agent, 4.0.x, windows 
+summary: Puede realizar la actualización directamente desde el agente de Snap Creator 4.0.x en Windows. 
+---
+= Actualizar Snap Creator Agent 4.0.x en Windows
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Puede realizar la actualización directamente desde el agente de Snap Creator 4.0.x en Windows.
+
+* Ha detenido el servicio Snap Creator Agent (`snapcreatoragentservice`) Antes de realizar una copia de seguridad de los directorios del agente de Snap Creator para asegurarse de que los datos de la copia de seguridad se han completado.
++
+Por ejemplo, puede utilizar el complemento Servicios para detener el servicio:
+
++
+.. Seleccione *Inicio* > *Ejecutar* e introduzca `services.msc`.
+.. Busque y seleccione el servicio Agente de Snap Creator; a continuación, detenga el servicio. Como alternativa, puede abrir un símbolo del sistema e introducir el comando siguiente:
+
+
++
+[listing]
+----
+sc stop snapcreatoragentservice
+----
+* Ha realizado el backup de los siguientes directorios, y de todos los subdirectorios y archivos asociados, en el directorio del agente de Snap Creator (C:\Program Files\NetApp\NetApp_Snap_Creator_Framework\scent4.0.x):
++
+** archivo agent.conf (..\config\agent.conf)
++
+
+NOTE: Si tiene Snap Creator Server instalado en el mismo sistema, es posible que ya haya realizado un backup de este archivo cuando actualizó Snap Creator Server 4.0.x.
+
+** Directorio de registros, si está activado (..\logs)
+** Directorio de plugins (..\plugins)
+
+
+
+
+SNAP Creator Agent en versiones anteriores a 4.1 utilizaba un archivo llamado agent.conf para enumerar los comandos fuera de Snap Creator que pueden ejecutarse en el agente de Snap Creator. En 4.1, se utiliza el archivo allowed_Commands.config.
+
+Del mismo modo, el archivo agent.conf muestra los hosts con los que se permitió que Snap Creator Agent se comunicara. De forma predeterminada, el agente de Snap Creator permitía las comunicaciones con todos los servidores de Snap Creator. Sin embargo, si decide utilizar esta función en versiones anteriores de Snap Creator, el parámetro AUTHORIZED_HOSTS del archivo agent.properties ahora sustituye a esta función.
+
+
+NOTE: Si no ha utilizado estos parámetros, lo único que se necesita es una instalación sencilla del nuevo agente.
+
+Las rutas de acceso proporcionadas en los pasos siguientes hacen referencia a la ruta de instalación predeterminada para Windows. La información de la ruta puede diferir de la ruta de instalación si no se han utilizado los valores predeterminados.
+
+. Detenga el servicio del agente de Snap Creator si aún no lo ha hecho.
++
+Para obtener información sobre cómo detener el servicio, consulte los detalles que se proporcionan anteriormente en este tema.
+
+. Desinstale Snap Creator (para Windows) seleccionando *Inicio* > *programas* > *Snap Creator* > *Desinstalar Snap Creator Framework* de NetApp.
++
+Para obtener más detalles, consulte la información sobre cómo desinstalar Snap Creator en Windows.
+
+. Instale el agente de Snap Creator más reciente.
++
+Para obtener detalles, consulte la información sobre la instalación del agente de Snap Creator en Windows.
+
+. Abra la copia de seguridad del archivo agent.conf en un editor de texto.
++
+A continuación se muestra un ejemplo de agent.conf:
+
++
+[listing]
+----
+host: scServer@Tampico
+command: sdcli.exe
+----
+. Abra el nuevo archivo allowed_Commands.config (C:\Program Files\NetApp\Snap_Creator_Framework\scent4.1.x\etc\allowed_Commands.config) en un editor de texto y copie la línea de comandos desde agent.conf en el archivo allowed_Commands.config; sin embargo, debido a la seguridad mejorada del último Snap Creator, asegúrese de que el comando es totalmente cualificado.
++
+Desde el ejemplo anterior, el archivo allowed_Commands.config debería contener lo siguiente:
+
++
+[listing]
+----
+command: "C:\Program Files\NetApp\SnapDrive\sdcli.exe"
+----
++
+
+NOTE: Debido al espacio entre "[.code]``Program Files``", se deben incluir comillas para encapsular el comando. Si el comando no contiene espacios, no son necesarias comillas.
+
++
+Puede agregar comandos según sea necesario, con cada comando en una línea independiente.
+
+. Guarde y cierre el archivo.
+. Abra el archivo agent.properties (C:\Program Files\NetApp\Snap_Creator_Framework\scAgent4.1.x\etc\agent.properties) en un editor de texto y cambie la entrada predeterminada DE AUTHORIZED_HOSTS=* para reflejar la configuración de host en el archivo agent.conf.
++
+Desde el ejemplo anterior, el parámetro AUTHORIZED_HOSTS debe contener lo siguiente:
+
++
+[listing]
+----
+AUTHORIZED_HOSTS=Tampico
+----
++
+Los hosts se pueden añadir según sea necesario, mediante comas para separar los nombres de hosts. Se admiten tanto los nombres de host como las direcciones IP:
+
++
+[listing]
+----
+AUTHORIZED_HOSTS=Tampico, 10.10.10.192, Fuji01
+----
+. Guarde y cierre el archivo.
+. Inicie el servicio del agente de Snap Creator realizando uno de los siguientes pasos:
++
+** Utilice el complemento Servicios e inicie el servicio.
+** En un símbolo del sistema, introduzca el siguiente comando: `sc start snapcreatoragentservice`*Nota:* cualquier cambio en los archivos allowed_Commands.config o agent.properties requiere reiniciar el agente de Snap Creator si se está ejecutando cuando se realizan los cambios.
+
+
+
+
+*Información relacionada*
+
+xref:task_installing_snap_creator_agent_on_windows.adoc[Instalación del agente de Snap Creator en Windows]
+
+xref:task_uninstalling_snap_creator_on_windows.adoc[Desinstalar Snap Creator en Windows]

@@ -1,0 +1,45 @@
+---
+permalink: administration/concept_vm_backup_and_restore_using_vmware_plug_in.html 
+sidebar: sidebar 
+keywords: snap, creator, support, backup, vmware, virtual, machines, vsphere, api, vmware, vcenter, credentials 
+summary: SNAP Creator admite el backup de máquinas virtuales de VMware a través del complemento de VMware. Los backups de máquinas virtuales se realizan a través de la API de vSphere en VMware vCenter Server. 
+---
+= Backup y restauración de máquinas virtuales mediante el complemento VMware
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+SNAP Creator admite el backup de máquinas virtuales de VMware a través del complemento de VMware. Los backups de máquinas virtuales se realizan a través de la API de vSphere en VMware vCenter Server.
+
+Para el backup de la máquina virtual, debe proporcionar los siguientes detalles en el archivo de configuración:
+
+* Nombre de host o IP de vCenter y credenciales
+* Nombres de almacenes de datos y máquinas virtuales de vSphere
+
+
+
+NOTE: SNAP Creator detecta vCenter solo si vCenter está configurado en el puerto predeterminado (443).
+
+Para la operación de restauración, se deben proporcionar los parámetros de backup y el nombre de la copia de Snapshot.
+
+Tenga en cuenta lo siguiente al ejecutar los procesos de backup y restauración de VMware:
+
+* Si una máquina virtual aparece en la lista y no está disponible, el plugin muestra un mensaje de error. No podrá restaurar una máquina virtual perdida aunque se realice un backup.
+* Si aparece un almacén de datos, se realiza un backup de todas las máquinas virtuales del almacén de datos.
+* Solo se realiza un backup de las máquinas virtuales o máquinas virtuales enumeradas ubicadas en los almacenes de datos especificados.
+* Si un equipo virtual seleccionado para backup está contenido en un almacén de datos que también se selecciona para backup, se realizará un backup solo una vez.
+* El plugin de VMware es compatible con almacenes de datos Network File System (NFS) y Virtual Machine File System (VMFS) de VMware.
++
+** Las restauraciones de máquinas virtuales en un almacén de datos NFS utilizan Single File SnapRestore (SFSR) en el sistema de almacenamiento, a fin de evitar las copias de host.
+** Para restaurar una máquina virtual en un almacén de datos VMFS, realice los siguientes pasos:
++
+... Utilice FlexClone o el clon de la LUN de una copia Snapshot de la restauración específica.
+... Asígnela al clúster.
+... Use las llamadas de API de vCenter para copiar el contenido de la copia Snapshot del almacén de datos VMFS en el almacén de datos VMFS original.
+
+
+
+
+

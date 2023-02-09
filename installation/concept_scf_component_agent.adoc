@@ -1,0 +1,18 @@
+---
+permalink: installation/concept_scf_component_agent.html 
+sidebar: sidebar 
+keywords: snap, creator, agent 
+summary: El agente de Snap Creator se suele instalar en el mismo host en el que se ha instalado una aplicación o base de datos. El agente es donde se encuentran los plugins. A veces, el agente se reduce a scAgent dentro de Snap Creator. 
+---
+= Agente de Snap Creator
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+El agente de Snap Creator se suele instalar en el mismo host en el que se ha instalado una aplicación o base de datos. El agente es donde se encuentran los plugins. A veces, el agente se reduce a scAgent dentro de Snap Creator.
+
+El agente acepta comandos de inactividad y reanudación de la aplicación, así como otros comandos PREVIOS y POSTERIORES, desde el servidor de Snap Creator. Es necesario el agente de Snap Creator cuando se utilizan complementos.
+
+https://library.netapp.com/ecm/ecm_download_file/ECMLP2854418["Guía de administración de Snap Creator Framework 4.3.3"]

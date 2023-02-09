@@ -1,0 +1,35 @@
+---
+permalink: administration/concept_requirements_for_vcloud_vapp_backup_and_restore_operations_using_the_vmware_plug_in.html 
+sidebar: sidebar 
+keywords: snap, creator, backup, vcloud, vapp, vmware, director, api, vsphere, director, vcenter, vdc 
+summary: SNAP Creator admite el backup de vCloud vApp a través del complemento de VMware. El complemento VMware realiza las copias de backup de vApp y de equipos virtuales a través de la API de vCloud Director y la API de vSphere, que se invocan en los servidores VMware vCloud Director y VMware vCenter, respectivamente. 
+---
+= Requisitos para las operaciones de backup y restauración de vCloud vApp mediante el complemento de VMware
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+SNAP Creator admite el backup de vCloud vApp a través del complemento de VMware. El complemento VMware realiza las copias de backup de vApp y de equipos virtuales a través de la API de vCloud Director y la API de vSphere, que se invocan en los servidores VMware vCloud Director y VMware vCenter, respectivamente.
+
+Para que las operaciones de backup y restauración de vApp se realicen correctamente, debe proporcionar los siguientes detalles en el archivo de configuración:
+
+* VCloud IP y credenciales
+* Organizaciones vCloud, centros de datos virtuales (Vdc) y nombres vApp
+
+
+
+NOTE: Si más de un vCenter está conectado a vCloud, la contraseña de todos los servidores de vCenter debería ser la misma.
+
+Deberá tener en cuenta lo siguiente al realizar las operaciones de backup y restauración de vCloud:
+
+* Los procesos de backup y restauración para VMware y vCloud son muy similares, excepto en el proceso de detección, en el que los backups de vCloud requieren una detección adicional de los metadatos de vCloud Director mediante API DE transferencia de estado representacional (REST).
+* Debe proporcionar información detallada de vCloud a las organizaciones, Vdc y vApps de las que se va a realizar el backup.
+* Si se muestra un VDC, se realiza una copia de seguridad de todas las vApps del VDC.
+* El módulo vCloud descubre los equipos virtuales asociados con cualquier vApp del que deberá realizarse el backup y los coloca en una lista de backups.
+* Si un vApp seleccionado para la copia de seguridad está contenido en una organización o en un VDC que también se selecciona para la copia de seguridad, el backup de vApp se realiza una sola vez.
+
+
+
+NOTE: Para las operaciones de restauración de Virtual Machine File System (VMFS) con el plugin de VMware, debe haber espacio suficiente en el volumen para crear un clon de LUN igual al tamaño de la LUN.

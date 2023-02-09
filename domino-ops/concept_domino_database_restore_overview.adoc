@@ -1,0 +1,49 @@
+---
+permalink: domino-ops/concept_domino_database_restore_overview.html 
+sidebar: sidebar 
+keywords: domino, ibm, restore, restoring, databases, understanding, snapmirror, snapvault, destination, directories 
+summary: El complemento IBM Domino restaura archivos de base de datos desde la copia Snapshot del volumen en el que se almacena la base de datos. Una vez finalizada la restauración de instantánea, el complemento aplica los cambios registrados en el directorio chcambiinfo. 
+---
+= Restaurar bases de datos
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+El complemento IBM Domino restaura archivos de base de datos desde la copia Snapshot del volumen en el que se almacena la base de datos. Una vez finalizada la restauración de instantánea, el complemento aplica los cambios registrados en el directorio chcambiinfo.
+
+
+
+== Comprender las operaciones de restauración de SnapMirror y SnapVault
+
+No puede utilizar Snap Creator para restaurar una copia de SnapMirror de los datos. Si desea restaurar una copia de mirroring, primero debe interrumpir el reflejo, luego restaurar manualmente los datos. Para obtener más información, consulte link:http://docs.netapp.com/ontap-9/topic/com.netapp.doc.exp-sm-ic-fr/home.html["Guía exprés de recuperación de desastres de volúmenes de ONTAP 9"].
+
+Cuando se restaura una copia SnapVault desde el almacenamiento secundario, solo están disponibles las restauraciones de volúmenes puntuales. No es posible ejecutar una restauración de volúmenes de último minuto ni una restauración de archivo único. Puede solucionar esta limitación restaurando primero el almacenamiento secundario en el almacenamiento primario. Desde el almacenamiento primario, puede ejecutar una restauración de volúmenes de último minuto o una restauración de archivos individuales según sea necesario.
+
+
+
+== Descripción de los directorios de destino
+
+Las restauraciones de volúmenes y de un solo archivo suelen tener distintos directorios de destino. Especifique el directorio de destino en el parámetro Directorio de restauración de datos en el archivo de configuración copia de seguridad y restauración (consulte el paso link:task_using_the_gui_to_create_a_configuration_file.md#STEP_E6C507729B3647FD8B2E8D0818F22D3B["Task_Using_the_gui_to_create_a_Configuration_File.md#STEP_E6C507729B3647FD2E8D0818F22D3B"]):
+
+* Para restaurar un volumen, debe establecer el directorio de restauración de datos en el directorio de datos de Domino.
+* Para restaurar un único archivo, es necesario establecer el directorio de restauración de datos en un subdirectorio del volumen de datos de Domino.
+
+
+Esto significa que si alternativo tipos de restauración, deberá modificar el directorio de restauración de datos para señalar la configuración correcta para cada tipo de restauración. De lo contrario, la información de cambio no se aplicará correctamente y los datos no serán consistentes con el estado de la base de datos al que desea restaurar. Por supuesto, si lo prefiere, puede crear diferentes configuraciones para el volumen y las restauraciones de un solo archivo.
+
+
+
+== Dónde se ejecuta una restauración
+
+Con una excepción, puede utilizar la interfaz gráfica de usuario de Snap Creator o la interfaz de línea de comandos de Snap Creator para restaurar bases de datos. Para las restauraciones de archivos individuales en un entorno SAN, debe usar la CLI, como se describe en xref:concept_single_file_restore_in_fc_iscsi_environments.adoc[Restaurar archivos individuales en un entorno SAN].
+
+
+NOTE: Esta guía muestra cómo utilizar la CLI solo para restauraciones de archivos individuales en un entorno SAN. De lo contrario, muestra cómo utilizar la GUI para restaurar bases de datos. Para obtener información acerca de cómo utilizar la CLI, consulte https://library.netapp.com/ecm/ecm_download_file/ECMP12395422["Guía de administración de Snap Creator Framework 4.1.2"].
+
+*Información relacionada*
+
+link:task_performing_point_in_time_volume_restore.adoc["Restauración de un volumen"]
+link:task_performing_point_in_time_single_file_restore_with_nfs.adoc["Restauración de archivos individuales"]
+link:concept_single_file_restore_in_fc_iscsi_environments.adoc["Restaurar archivos individuales en un entorno SAN"]

@@ -1,0 +1,95 @@
+---
+permalink: administration/reference_snap_creator_agent_error_messages.html 
+sidebar: sidebar 
+keywords: snap, creator, agent, error, message, aft, sc_agentconfiguration, parameter, remote, port 
+summary: En la siguiente tabla se enumeran los mensajes de error de Snap Creator Agent. 
+---
+= Mensajes de error del agente de Snap Creator
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+En la siguiente tabla se enumeran los mensajes de error de Snap Creator Agent.
+
+|===
+| Código de error | Descripción/resolución 
+
+
+ a| 
+agt-00001
+ a| 
+El agente de Snap Creator o algún otro proceso se está ejecutando en el puerto especificado. Pruebe con otro puerto.
+
+
+
+ a| 
+agt-00003
+ a| 
+Los parámetros proporcionados no eran correctos para iniciar el agente de Snap Creator. Compruebe los parámetros necesarios.
+
+
+
+ a| 
+agt-00004
+ a| 
+El parámetro SC_AGENTABLE debe definirse cuando se utiliza un agente remoto.
+
+
+
+ a| 
+agt-00005
+ a| 
+No puede volver a realizar operaciones de inactividad y ya hay una operación en ejecución. Espere o ejecute la reanudación de la inactividad.
+
+
+
+ a| 
+agt-00006
+ a| 
+El proceso de vigilancia no puede desovar. Es muy probable que el sistema haya alcanzado el número máximo de procesos. Desactive el guardián en la configuración o compruebe la configuración del sistema operativo.
+
+
+
+ a| 
+agt-00008
+ a| 
+La operación de inactividad y reanudación no completó y el backup solo tiene los fallos. Compruebe los registros. Esto puede suceder si la operación de inactividad tarda demasiado y está utilizando un guardián. El proceso de vigilancia realiza una inactivación forzada después de x segundos tal como se define en la configuración.
+
+
+
+ a| 
+agt-00009
+ a| 
+Los comandos pre y post deben estar permitidos en el agente.conf en el lado del agente. Actualice agent.conf y permita los comandos necesarios.
+
+
+
+ a| 
+agt-00010
+ a| 
+El agente no pudo leer su archivo de configuración. Compruebe los permisos en el archivo agent.conf.
+
+
+
+ a| 
+agt-00011
+ a| 
+Se ha enviado un comando al agente pero no está permitido. Actualice agent.conf para permitir el comando.
+
+
+
+ a| 
+agt-00012
+ a| 
+Este error se produce al cargar un plugin. Compruebe los ajustes Plug-in y APP_NAME.
+
+
+
+ a| 
+agt-00013
+ a| 
+Este error se produce mientras se ejecuta el método setenv dentro del plug-in. Compruebe el plugin y compruebe que la sintaxis sea correcta.
+
+|===

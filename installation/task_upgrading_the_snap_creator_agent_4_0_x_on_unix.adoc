@@ -1,0 +1,114 @@
+---
+permalink: installation/task_upgrading_the_snap_creator_agent_4_0_x_on_unix.html 
+sidebar: sidebar 
+keywords: upgrading, upgrade, snap, creator, agent, 4.0.x, unix 
+summary: Puede realizar la actualización directamente desde Snap Creator Agent 4.0.x en UNIX. 
+---
+= Actualización de Snap Creator Agent 4.0.x en UNIX
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Puede realizar la actualización directamente desde Snap Creator Agent 4.0.x en UNIX.
+
+* Ha detenido el agente de Snap Creator antes de realizar una copia de seguridad de los directorios de Snap Creator Agent para garantizar que se han completado los datos de los que se ha realizado una copia de seguridad.
++
+Por ejemplo, introduzca el comando siguiente:
+
++
+[listing]
+----
+/install_path/scAgent4.0.x/bin/scAgent stop
+----
+* Ha realizado una copia de seguridad de los siguientes directorios y de todos los subdirectorios y archivos asociados, dentro del directorio del agente de Snap Creator (/install_path/scent4.0.x):
++
+** archivo agent.conf (../config/agent.conf)
+** Directorio de registros, si está activado (./logs)
+** Directorio de plugins (./plugins)
+
+
+
+
+SNAP Creator Agent en versiones anteriores a 4.1 utilizaba un archivo llamado agent.conf para enumerar los comandos fuera de Snap Creator que pueden ejecutarse en el agente de Snap Creator. En 4.1, se utiliza el archivo allowed_Commands.config.
+
+Del mismo modo, el archivo agent.conf muestra los hosts con los que se permitió que Snap Creator Agent se comunicara. De forma predeterminada, el agente de Snap Creator permitía las comunicaciones con todos los servidores de Snap Creator. Sin embargo, si decide utilizar esta función en versiones anteriores de Snap Creator, el parámetro AUTHORIZED_HOSTS del archivo agent.properties reemplaza esta característica.
+
+
+NOTE: Si no ha utilizado estos parámetros, lo único que se necesita es una instalación sencilla del nuevo agente.
+
+Las rutas proporcionadas en los pasos siguientes hacen referencia a la ruta de instalación predeterminada. Las rutas de los comandos siguientes pueden diferir de la ruta de instalación.
+
+. Detenga el agente de Snap Creator si aún no lo ha hecho.
++
+Para obtener más información, consulte los detalles proporcionados anteriormente en este tema.
+
+. Instale el agente de Snap Creator más reciente, pero no inicie el agente de Snap Creator.
++
+Para obtener detalles, consulte la información sobre la instalación de Snap Creator Agent en UNIX.
+
+. Abra la copia de seguridad del archivo agent.conf en un editor de texto.
++
+A continuación se muestra un ejemplo del archivo agent.conf:
+
++
+[listing]
+----
+host: scServer@Lyon
+command: rc_domino
+----
+. Abra el nuevo archivo allowed_Commands.config (/install_path/scAgent4.1.x/etc/allowed_Commands.config) en un editor de texto y copie la línea de comandos de agent.conf en el archivo allowed_Commands.config; sin embargo, debido a la seguridad mejorada en el último Snap Creator, asegúrese de que el comando esté completamente cualificado.
++
+Desde el ejemplo anterior, el archivo allowed_Commands.config debería contener lo siguiente:
+
++
+[listing]
+----
+command: /etc/init.d/rc_domino
+----
++
+
+NOTE: Si el comando contiene espacios, debe encapsular el comando entre comillas.
+
++
+Puede agregar comandos según sea necesario, con cada comando en una línea independiente.
+
++
+Guarde y cierre el archivo después de realizar los cambios.
+
+. Abra el archivo agent.properties (/install_path/scAgent4.1.x/etc/agent.properties) en un editor de texto y cambie la entrada predeterminada DE AUTHORIZED_HOSTS=* para reflejar la configuración de host en el archivo agent.conf.
++
+Desde el ejemplo anterior, el parámetro AUTHORIZED_HOSTS debe contener lo siguiente:
+
++
+[listing]
+----
+AUTHORIZED_HOSTS=Lyon
+----
++
+Los hosts se pueden añadir según sea necesario, mediante comas para separar los nombres de hosts. Se admiten tanto los nombres de host como las direcciones IP:
+
++
+[listing]
+----
+AUTHORIZED_HOSTS=Lyon, 10.10.10.192, Fuji01
+----
++
+Guarde y cierre el archivo después de realizar los cambios.
+
+. Inicie Snap Creator Agent introduciendo el siguiente comando:
++
+[listing]
+----
+/install_path/scAgent4.1.x/bin/scAgent start
+----
++
+
+NOTE: Cualquier cambio en los archivos allowed_Commands.config o agent.properties requiere reiniciar el agente de Snap Creator si se está ejecutando cuando se realizan los cambios.
+
+
+
+*Información relacionada*
+
+xref:task_installing_the_snap_creator_agent_on_unix.adoc[Instalación del agente de Snap Creator en sistemas basados en UNIX]

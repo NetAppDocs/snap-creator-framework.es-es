@@ -1,0 +1,186 @@
+---
+permalink: administration/reference_vmware_vibe_plug_in.html 
+sidebar: sidebar 
+keywords: snap, creator, support, backup, virtual, machine, vmware, windows, linux, vcenter, ha 
+summary: SNAP Creator admite la copia de seguridad de máquinas virtuales y vApps de VMware mediante el complemento VIBE de VMware. El complemento de VMware es un complemento integrado para equipos virtuales con vSphere y vApps con vCloud Director. 
+---
+= Complemento de VMware VIBE
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+SNAP Creator admite la copia de seguridad de máquinas virtuales y vApps de VMware mediante el complemento VIBE de VMware. El complemento de VMware es un complemento integrado para equipos virtuales con vSphere y vApps con vCloud Director.
+
+Debe tener en cuenta lo siguiente al utilizar el complemento VMware VIBE:
+
+* El plugin de VMware solo es compatible con Windows y Linux.
++
+Si utiliza un servidor Snap Creator Server que no es Windows o no es Linux, necesita un agente de Snap Creator Windows o Linux para ejecutar el plugin de VMware.
+
+* No se admite el servidor de Unified Manager como proxy.
+* No se admiten las operaciones de montaje, desmontaje y backup con la gestión de Open Systems SnapVault y los registros de archivo.
+* Alta disponibilidad de VMware con el complemento VMware no se ha probado y no es compatible.
+* VMware vCenter Linked Mode con el plugin de VMware no se ha probado y no es compatible.
+* El plugin de VMware no admite la asignación de dispositivos sin formato (RDM).
+* Los volúmenes se detectan mediante detección automática.
++
+No se puede ver un volumen de destino detectado si no está en una relación de SnapMirror. Puede utilizar el comando dpstatus para comprobar la relación de SnapMirror. Si no hay ninguna relación de SnapMirror, primero debe crear la relación de SnapMirror.
+
+* Antes de ejecutar operaciones de restauración, es necesario eliminar todas las copias Snapshot de VMware.
+* Una vez completadas las operaciones de restauración, debe ejecutar un backup de Snap Creator de las máquinas virtuales y vApps restaurados, de modo que se limpie el nuevo entorno y se eliminen todas las copias snapshot de VMware.
++
+Si el plugin de VMware no puede limpiar las copias Snapshot de VMware y muestra un error, debe eliminar las copias Snapshot de VMware manualmente. El complemento VMware no garantiza la eliminación del 100% de las copias de Snapshot de VMware. Se trata de un problema conocido de VMware.
+
+* El complemento de VMware solo admite Snap Creator de 32 bits con un sistema Linux de 32 bits y Snap Creator de 64 bits con un sistema Linux de 64 bits.
+* No es posible restaurar las máquinas virtuales eliminadas.
+* No se admite la operación de restauración de volúmenes, solo se admiten las operaciones de restauración definidas para aplicaciones.
+* El valor del parámetro SC_AGENT_TIMEOUT debe establecerse en 1800 o superior.
+* El valor predeterminado del parámetro VIBE_VMWARE_snapshot (opción de instantánea de VMware) es N.
+* Si el valor de APP_DEFINED_RESTORE es y, no se admite la operación de restauración de SnapVault mediante la interfaz gráfica de usuario (GUI).
+* Al crear una configuración de SnapMirror y SnapVault con la interfaz gráfica de usuario, debe introducir manualmente los parámetros de SnapMirror y SnapVault, ya que la relación de SnapMirror y SnapVault no se detecta de forma automática.
+* El plugin de VMware detecta la ruta de montaje ISO como almacén de datos.
+
+
+En la siguiente tabla se enumeran los parámetros del plugin de VMware VIBE, se proporciona la configuración de los parámetros y se describen los parámetros.
+
+|===
+| Parámetro | Ajuste | Descripción 
+
+
+ a| 
+VIBE_DYNAMIC_VOLUMES_UPDATE
+ a| 
+Y o nDefault: No configurado
+ a| 
+Si este parámetro se configura en N, no se ejecuta la actualización del volumen dinámico, lo que significa que debe configurar manualmente los volúmenes, SNAPVAULT_VOLUMES, SNAPMIRROR_VOLUMES y NTAP_DFM_DATA_SET.
+
+
+
+ a| 
+VIBE_NOPING
+ a| 
+Valor predeterminado: N
+ a| 
+Especifica que el protocolo de mensajes de control de Internet (ICMP) no se usa para hacer ping al plugin de VMware o a las controladoras de almacenamiento.
+
+
+
+ a| 
+VIBE_VCLOUD_IPADDR
+ a| 
+N.A.
+ a| 
+Especifica la dirección IP o el nombre de host de vCloud Director que se utiliza para iniciar sesión en (sólo vCloud).
+
+
+
+ a| 
+VIBE_VCLOUD_USER
+ a| 
+N.A.
+ a| 
+Especifica el nombre de usuario que se va a utilizar para iniciar sesión en vCloud Director (sólo vCloud). Debe establecer @org o @system (base de datos vCloud de nivel superior).
+
+
+NOTE: El nombre de usuario del administrador del sistema vCloud Director debe utilizarse para realizar las operaciones de copia de seguridad y restauración. Se produce un error en estas operaciones si se utilizan las credenciales de administrador de la organización o cualquier otra credencial de usuario.
+
+Ejemplo: `administrator@system`
+
+
+
+ a| 
+VIBE_VCLOUD_PASSWD
+ a| 
+N.A.
+ a| 
+Especifica la contraseña asociada al VIBE_VCLOUD_USER especificado (sólo vCloud).
+
+
+
+ a| 
+VIBE_VCENTER_USER
+ a| 
+N.A.
+ a| 
+Especifica el nombre de usuario que se usará para iniciar sesión en vCenter.
+
+
+
+ a| 
+VIBE_VCENTER_PASSWD
+ a| 
+N.A.
+ a| 
+Especifica la contraseña asociada al VIBE_VCENTER_USER especificado.
+
+
+
+ a| 
+VIBE_VCLOUD_NAMES
+ a| 
+N.A.
+ a| 
+Enumera los nombres de objetos de organización, centro de datos virtual y vApp de los que se debe realizar una copia de seguridad (solo vCloud).ejemplo: `ORG:VDC1,VDC2:VAPP1,VAPP2;ORG2:VDC3:;ORG3::VAPP6`
+
+
+
+ a| 
+VIBE_VSPHERE_NAMES
+ a| 
+N.A.
+ a| 
+Muestra los almacenes de datos y las máquinas virtuales de los que se debe realizar un backup por vCenter (solo vSphere).ejemplo: `VCENTER1:DS1:VM1;VCENTER2;DS2,DS3:;VCENTER3::VM4`
+
+
+
+ a| 
+VIBE_TRIM_VSPHERE_NAMES
+ a| 
+N.A.
+ a| 
+Enumera las máquinas virtuales que se deben quitar del backup por vCenter (solo vSphere).ejemplo: `VCENTER1:VM99;VCENTER2:VM5,VM12`
+
+
+
+ a| 
+VIBE_RESTORE_INTERVAL
+ a| 
+Valor predeterminado: `30 seconds`
+ a| 
+Especifica el tiempo que transcurre entre cada comprobación de restauración.
+
+
+
+ a| 
+VIBE_RESTORE_TIME
+ a| 
+Valor predeterminado: `3600 seconds`
+ a| 
+Especifica el tiempo total que se esperará antes de finalizar una operación de restauración completa.
+
+
+
+ a| 
+VIBE_VMWARE_SNAPSHOT
+ a| 
+Valor predeterminado: N
+ a| 
+Crea copias de snapshot de VMware durante el backup.
+
+
+
+ a| 
+VIBE_IGNORE_EXPORTFS=Y O N.
+ a| 
+Valor predeterminado: N
+ a| 
+Debe agregar manualmente este parámetro al archivo DE configuración DE Snap Creator VIBE.
+
+Cuando el valor se establece en y, Data ONTAP que funciona en configuraciones de 7-Mode ignora los valores de exportfs de la controladora. En su lugar, Data ONTAP asigna la ruta de exportación de volumen como /vol/datastore_name, donde se especifica un nombre de almacén de datos para el backup. Los entornos más antiguos que utilizan unidades vFiler pueden utilizar esta metodología porque la información que exportfs de los almacenes de datos individuales no está disponible en una unidad vFiler. En su lugar, una configuración necesita asignar la ruta basada en consultas a vfiler0.
+
+|===
+*Información relacionada*
+
+http://mysupport.netapp.com/matrix["Herramienta de matriz de interoperabilidad: mysupport.netapp.com/matrix"]

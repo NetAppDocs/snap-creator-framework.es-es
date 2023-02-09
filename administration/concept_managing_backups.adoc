@@ -1,0 +1,20 @@
+---
+permalink: administration/concept_managing_backups.html 
+sidebar: sidebar 
+keywords: managing, backups, backup, copies, 
+summary: Es posible crear copias de backup, ver una lista de copias de backup y eliminar copias de backup cuando ya no se necesiten. 
+---
+= Gestionar backups
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Es posible crear copias de backup, ver una lista de copias de backup y eliminar copias de backup cuando ya no se necesiten.
+
+Además, es posible automatizar las operaciones de backup. Para obtener más detalles, consulte tareas relacionadas para obtener información sobre la creación de trabajos programados.
+
+*Información relacionada*
+
+xref:task_creating_scheduled_jobs_using_sc_gui.adoc[Creación de trabajos programados]

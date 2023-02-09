@@ -1,0 +1,179 @@
+---
+permalink: sap-hana-ops/reference_troubleshooting.html 
+sidebar: sidebar 
+keywords: troubleshooting 
+summary: La sección de solución de problemas proporciona información sobre los códigos de error, los mensajes de error e incluye la descripción o resolución para resolver el problema. 
+---
+= Resolución de problemas
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+La sección de solución de problemas proporciona información sobre los códigos de error, los mensajes de error e incluye la descripción o resolución para resolver el problema.
+
+En la siguiente tabla aparecen los mensajes de error del plugin de SAP HANA.
+
+|===
+| Código de error | Mensaje de error | Descripción/resolución 
+
+
+ a| 
+hdb-00001
+ a| 
+No se puede encontrar un nodo HANA accesible para ejecutar comandos hdbsql con los parámetros de configuración proporcionados. Verifique y actualice la configuración de HANA en la configuración y vuelva a intentarlo.
+ a| 
+Compruebe que los nodos HANA se estén ejecutando y sea posible acceder a ellos, y que el número de instancia proporcionado sea correcto.
+
+
+
+ a| 
+hdb-00002
+ a| 
+Error al crear la instantánea de la base de datos para [$sid].
+ a| 
+Compruebe si ya se ha creado una snapshot de base de datos HANA en la base de datos. Si ya se ha creado, elimine la snapshot de la base de datos de HANA o ejecute la operación de reanudación. Si no lo ha creado todavía, compruebe los registros para ver otros mensajes de error y detalles.
+
+
+
+ a| 
+hdb-00003
+ a| 
+Error al eliminar la instantánea de la base de datos para [$sid].
+ a| 
+Compruebe si ya se ha eliminado una snapshot de base de datos de HANA. Si la respuesta es sí, se puede ignorar este error. Si la respuesta es no, compruebe los parámetros del plugin de SAP HANA y compruebe que los nodos sean accesibles y el número de instancia proporcionado sea correcto.
+
+
+
+ a| 
+hdb-00004
+ a| 
+Error en la conexión al nodo [$hana_node] con la instancia [$Instance] porque se rechazó la conexión.
+ a| 
+No es posible acceder al nodo HANA con la instancia que se muestra en el mensaje. Esto puede ser sólo una advertencia, ya que el plugin intentará ejecutar comandos hdbsql en otros nodos. Compruebe los registros para ver si la operación se ha realizado correctamente.
+
+
+
+ a| 
+hdb-00005
+ a| 
+La base de datos [$sid] ya tiene una instantánea.
+ a| 
+La snapshot DE la base de datos DE HANA ya existe en la base de datos. Elimine la snapshot de la base de datos HANA o ejecute una operación de reanudación para resolver este problema.
+
+
+
+ a| 
+hdb-00006
+ a| 
+No se puede resolver el nombre de host [$hana_node].
+ a| 
+No se puede resolver el nombre de host del nodo HANA. Compruebe las entradas del servidor DNS o host etc.
+
+
+
+ a| 
+hdb-00007
+ a| 
+Nombre de usuario o contraseña no válidos. Compruebe las credenciales e inténtelo de nuevo.
+ a| 
+El nombre de usuario y la contraseña proporcionados para la base de datos HANA son incorrectos. Corrija las entradas del archivo de configuración e inténtelo de nuevo.
+
+
+
+ a| 
+hdb-00008
+ a| 
+Error al ejecutar el comando [$hdbsql_cmd] en [$hana_node].
+ a| 
+El plugin no pudo ejecutar el comando hdbsql en todos los nodos HANA que se proporcionan con la configuración. Verifique los nodos HANA y los parámetros de instancia, y asegúrese de que al menos un nodo HANA esté en funcionamiento y sea posible acceder a él.
+
+
+
+ a| 
+hdb-00009
+ a| 
+No se puede encontrar HANA [$info].
+ a| 
+La operación SCDUMP del plugin de SAP HANA no pudo recuperar una información concreta de las bases de datos de HANA. Verifique los nodos HANA y los parámetros de instancia, y asegúrese de que al menos un nodo HANA esté en funcionamiento y sea posible acceder a él.
+
+
+
+ a| 
+hdb-00010
+ a| 
+Error al recopilar información del sistema operativo.
+ a| 
+Se produjo un error al recopilar la información del sistema operativo en el entorno Windows; el plugin de SAP HANA no se admite en Windows. En su lugar, utilice un sistema operativo SLES.
+
+
+
+ a| 
+hdb-00011
+ a| 
+Error al recopilar información del sistema operativo.
+ a| 
+SNAP Creator no pudo recopilar información del SO para la operación SCDUMP. Compruebe el archivo de configuración del agente y corrija los ajustes.
+
+
+
+ a| 
+hdb-00012
+ a| 
+Error al recopilar información de SnapDrive.
+ a| 
+El complemento SAP HANA solo es compatible con entornos NFS. Su configuración de la base de datos HANA tiene SnapDrive habilitado; establezca SNAPDRIVE=Nen el archivo de configuración.
+
+
+
+ a| 
+hdb-00013
+ a| 
+El parámetro HANA_NODES no está configurado. Compruebe los ajustes de HANA en el archivo de configuración.
+ a| 
+El parámetro HANA Nodes (HANA_NODES) es necesario para el plugin SAP HANA. Configure el parámetro y vuelva a intentarlo.
+
+
+
+ a| 
+hdb-00014
+ a| 
+No se puede encontrar un nodo HANA accesible para ejecutar los comandos hdbsqlcon los parámetros de configuración proporcionados. Verifique y actualice la configuración de HANA en la configuración y vuelva a intentarlo.
+ a| 
+Compruebe que los nodos HANA se estén ejecutando y sea posible acceder a ellos, y que el número de instancia proporcionado sea correcto.
+
+
+
+ a| 
+hdb-00015
+ a| 
+El parámetro HANA_INSTANCE no está configurado. Compruebe los ajustes de HANA en el archivo de configuración.
+ a| 
+Se requiere el parámetro INSTANCE (HANA_INSTANCE) para el plugin de SAP HANA. Configure el parámetro y vuelva a intentarlo.
+
+
+
+ a| 
+hdb-00016
+ a| 
+No está configurado el parámetro HANA_PASSWORD. Compruebe los ajustes de HANA en el archivo de configuración.
+ a| 
+Se requiere el parámetro HANA password (HANA_PASSWORD) para el plugin de SAP HANA. Configure el parámetro y vuelva a intentarlo.
+
+
+
+ a| 
+hdb-00017
+ a| 
+La ruta a hdbsql, el valor del parámetro HANA_HDBSQL_CMD no es válido.
+ a| 
+Ha ocurrido una de las siguientes situaciones:
+
+* No ha proporcionado la ruta hdbsql
+* La ruta hdbsql proporcionada es incorrecta.
+
+
+Asegúrese de tener instalado el cliente hdbsql de HANA en el host de administración en el que está instalado Snap Creator Agent, y proporcione la ruta correcta del binario hdbsql en los parámetros HANA; a continuación, vuelva a intentarlo.
+
+|===

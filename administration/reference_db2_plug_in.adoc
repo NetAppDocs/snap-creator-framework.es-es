@@ -1,0 +1,66 @@
+---
+permalink: administration/reference_db2_plug_in.html 
+sidebar: sidebar 
+keywords: db2, plug-in, communicate, database 
+summary: El complemento DB2 utiliza el comando db2 para comunicarse con la base de datos. 
+---
+= Complemento DB2
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+El complemento DB2 utiliza el comando db2 para comunicarse con la base de datos.
+
+En la siguiente tabla, se enumeran los parámetros del plugin de DB2, se proporciona la configuración de los parámetros y se describen los parámetros.
+
+|===
+| Parámetro | Ajuste | Descripción 
+
+
+ a| 
+NOMBRE_APLICACIÓN
+ a| 
+db2
+ a| 
+Proporciona el nombre de la aplicación.
+
+
+
+ a| 
+BASES DE DATOS_DB2
+ a| 
+db_name:user_name
+ a| 
+Enumera las bases de datos DB2 y el nombre de usuario.se pueden especificar varias bases de datos y nombres de usuario como una lista separada por punto y coma: Por ejemplo, `db1:user1;db2:user2`.
+
+
+
+ a| 
+DB2_CMD
+ a| 
+path_to_db2cli_cmd
+ a| 
+Especifica la ruta de acceso que se utiliza para inicializar la conexión a la base de datos de modo que se puedan ejecutar otros comandos en la base de datos.
+
+* Entorno basado en UNIX:``db2_install_directory/sqllib/bin/db2``
++
+Por ejemplo: `/home/db2inst1/sqllib/bin/db2`
+
+* Windows. `db2_install_directory\SQLLIB\BIN\db2cmd.exe`
++
+Por ejemplo: `C:\"Program Files"\IBM\SQLLIB\BIN\db2cmd.exe`
+
+
+
+Si no se especifica una ruta, se usa sqllib/db2 como ruta de acceso.
+
+|===
+*Nota:* el plug-in DB2 controla las operaciones de Write Anywhere File Layout (WAFL) de forma predeterminada. Para realizar un backup del grupo de coherencia con el plugin DB2, debe establecer el parámetro en NTAP_CONSISTENCY_GROUP_WAFL_SYNC en N. Si este parámetro se configura en y, se ejecutan operaciones de sincronización adicionales y redundantes.
+
+Para obtener la información más reciente acerca del soporte o para ver matrices de compatibilidad, consulte la matriz de interoperabilidad.
+
+*Información relacionada*
+
+http://mysupport.netapp.com/matrix["Herramienta de matriz de interoperabilidad: mysupport.netapp.com/matrix"]

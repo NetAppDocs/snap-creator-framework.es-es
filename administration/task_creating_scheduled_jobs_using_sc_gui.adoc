@@ -1,0 +1,105 @@
+---
+permalink: administration/task_creating_scheduled_jobs_using_sc_gui.html 
+sidebar: sidebar 
+keywords: local, retention, policy, configuration, snap, creator, gui, copy, lun, volume, clone, snapvault, ossv, job 
+summary: 'Si utiliza una política de retención local (ubicada en el archivo de configuración), puede utilizar el programador de la interfaz gráfica de usuario (GUI) de Snap Creator para crear programaciones y ejecutar tareas. El programador, que está contenido en Snap Creator Server, puede programar backups (copias Snapshot), clones de LUN, clones de volúmenes, clones definidos por aplicaciones, transferencias de Open Systems SnapVault (OSSV), trabajos de archivado y acciones personalizadas.' 
+---
+= Creación de trabajos programados
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Si utiliza una política de retención local (ubicada en el archivo de configuración), puede utilizar el programador de la interfaz gráfica de usuario (GUI) de Snap Creator para crear programaciones y ejecutar tareas. El programador, que está contenido en Snap Creator Server, puede programar backups (copias Snapshot), clones de LUN, clones de volúmenes, clones definidos por aplicaciones, transferencias de Open Systems SnapVault (OSSV), trabajos de archivado y acciones personalizadas.
+
+Si piensa utilizar objetos de política en lugar de una política de retención local, debe omitir este procedimiento y crear una programación de política en su lugar.
+
+. En el menú principal de la GUI de Snap Creator, seleccione *Administración* > *programaciones* y haga clic en *Crear*.
+. En la ventana Nuevo trabajo, introduzca los detalles del trabajo.
++
+image::../media/schedule_new_job_window.gif[programar nueva ventana de trabajo]
+
++
+|===
+| Campo | Descripción 
+
+
+ a| 
+Nombre del trabajo
+ a| 
+Especifique el nombre del trabajo programado.
+
+
+
+ a| 
+Fecha de inicio
+ a| 
+Seleccione la fecha de hoy o una fecha futura.
+
+
+
+ a| 
+Activo
+ a| 
+Establezca como activo para indicar que el trabajo se ejecutará como programado. Activo es el valor predeterminado.
+
+
+
+ a| 
+Perfil
+ a| 
+Seleccione el perfil que desea asociar a este trabajo.
+
+
+
+ a| 
+Configuración
+ a| 
+Seleccione la configuración que se asociará a este trabajo.
+
+
+
+ a| 
+Acción
+ a| 
+Seleccione una de las siguientes opciones:
+
+** *Backup*: Crea un backup con la tecnología de almacenamiento de NetApp.
+** *CloneLun*: Crea una copia de seguridad y clona una o más LUN mediante el comando lun clone.
+** *CloneVol*: Crea una copia de seguridad y clona un volumen.
+** *Clone*: Realiza una operación de clonación basada en plug-in.
+** *OSSV*: Utiliza Open Systems SnapVault para realizar la copia de seguridad.
++
+No se crea ningún backup primario.
+
+** *Arch*: Sólo realiza la gestión de archivos de registro.
++
+No se crea ningún backup.
+
+** *Personalizado*: Ejecuta una acción de clonación definida por el plug-in.
+
+
+
+
+ a| 
+Política
+ a| 
+Seleccione la política que desea asociar a este trabajo.
+
+
+
+ a| 
+Frecuencia
+ a| 
+Seleccione la frecuencia de este trabajo. Según la selección, debe seleccionar los campos de tiempo adecuados para ejecutar el trabajo programado.
+
++
+
+|===
+. Haga clic en *Guardar*.
+
+
+*Información relacionada*
+
+xref:task_creating_policy_schedules.adoc[Creación de programaciones de políticas]
