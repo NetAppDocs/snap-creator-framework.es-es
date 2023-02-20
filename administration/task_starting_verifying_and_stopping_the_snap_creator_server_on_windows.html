@@ -1,0 +1,4839 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head class="at-element-marker">
+  <title>Inicio, verificación y detención de Snap Creator Server en Windows</title>
+  <meta charset="utf-8">
+  <meta http-equiv="x-ua-compatible" content="ie=edge,chrome=1">
+  <meta http-equiv="language" content="en">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta property="og:title" content="Inicio, verificación y detención de Snap Creator Server en Windows" />
+	<meta property="og:type" content="website" />
+	<meta property="og:url" content="https://docs.netapp.com/es-es/snap-creator-framework/administration/task_starting_verifying_and_stopping_the_snap_creator_server_on_windows.html" />
+	<meta property="og:description" content="Puede iniciar y detener el servicio Snap Creator Server y comprobar si el servicio Snap Creator Server se está ejecutando en el sistema Windows." />
+  <meta property="og:image" content="https://docs.netapp.com/es-es/snap-creator-framework/images/logo-tophat-social.png" />
+  <meta property="og:image:alt" content="NetApp Logo" />
+  <meta name="format-detection" content="telephone=no">
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  <meta http-equiv="encoding" content="utf-8">
+  <meta http-equiv="nss-type" content="Product Documentation"/>
+  <meta http-equiv="nss-subtype" content="User Guide"/><meta name="description" content="Puede iniciar y detener el servicio Snap Creator Server y comprobar si el servicio Snap Creator Server se está ejecutando en el sistema Windows.">
+  <meta name="keywords" content=" snap, creator, server, service, start, verify, stop, windows"><!-- Icons -->
+  <link rel="icon" href="/es-es/snap-creator-framework/images/favicon.ico" type="image/x-icon">
+
+  <!-- RSS Feed --><!-- CSS Definitions: NetApp CSS should be defined after generic css -->
+
+  <!-- Elastic Search -->
+  <link rel="stylesheet" href="//cdn.jsdelivr.net/searchkit/0.10.0/theme.css">
+
+  <!-- Combined CSS -->
+  <link rel="stylesheet" type="text/css" href="/es-es/snap-creator-framework/css/netappdocs.css">
+
+  
+  <link rel="stylesheet" href="/es-es/snap-creator-framework/css/landing-page.css" type="text/css">
+  <link rel="stylesheet" href="/es-es/snap-creator-framework/css/tabbed-blocks.css" type="text/css">
+  <!-- Canonical url -->
+  <link rel='stylesheet' href='/es-es/snap-creator-framework/css/na-feature.css' type='text/css'><!-- Top level site integrations --><script>
+    function addAdobeLaunch(adobeId) {
+      var head = document.getElementsByTagName('head')[0];
+      var adobe = document.createElement("script");
+      adobe.type = "text/plain";
+      adobe.className = "optanon-category-C0002";
+      adobe.src = "//assets.adobedtm.com/60287eadf1ee/c284da483c83/"+adobeId+".min.js";
+      head.appendChild(adobe);
+    }
+
+    function addGoogleAnalytics(gtagId) {
+      var google = document.createElement("script");
+      google.type = "text/plain";
+      google.className = "optanon-category-C0002";
+      google.src = "https://www.googletagmanager.com/gtag/js?id="+gtagId;
+      var head = document.getElementsByTagName('head')[0];
+      head.appendChild(google);
+
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', gtagId);
+    }
+
+    function addConsent(consentId) {
+      var head = document.getElementsByTagName('head')[0];
+      var onetrustConsent = document.createElement("script");
+      onetrustConsent.type = "text/javascript";
+      onetrustConsent.src = "https://cdn.cookielaw.org/consent/"+consentId+"/OtAutoBlock.js";
+      head.appendChild(onetrustConsent);
+
+      var onetrustScript = document.createElement("script");
+      onetrustScript.type = "text/javascript";
+      onetrustScript.src = "https://cdn.cookielaw.org/scripttemplates/otSDKStub.js";
+      onetrustScript.charset = "UTF-8";
+      onetrustScript.dataset.documentLanguage = "true";
+      onetrustScript.dataset.domainScript = consentId;
+      head.appendChild(onetrustScript);
+    }addConsent("72570c5c-fe30-465f-b0e0-b77f7fb4ae34");
+    addAdobeLaunch("launch-e9ff3acac59f");
+    addGoogleAnalytics("UA-81697994-3");function OptanonWrapper() { }
+  </script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-cookie/1.4.1/jquery.cookie.min.js"></script>
+
+  <!-- Used for Product Family Page Sidebar Visibility --><!-- Used to import Promise for IE. Required for SearchKit -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/bluebird/3.3.5/bluebird.min.js"></script><script src='/es-es/snap-creator-framework/js/na-search.js'></script><script src='/es-es/snap-creator-framework/js/na-pagenav.js'></script><script src='/es-es/snap-creator-framework/js/na-utility.js'></script>
+  <script src='/es-es/snap-creator-framework/js/clouddocs.js'></script>
+  <script src='/es-es/snap-creator-framework/js/jquery.navgoco.min.js'></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+  <script src='/es-es/snap-creator-framework/js/toc.js'></script>
+  <script src='/es-es/snap-creator-framework/js/customscripts.js'></script><script>
+      $(document).ready(function() {
+          
+          var collapseOnInit = true;
+          
+
+          var navSettings = {
+              "caretHtml": '',
+              "accordion": collapseOnInit,
+              "openClass": 'active', // open
+              "save": false, // leave false or nav highlighting doesn't work right
+              "cookie": {
+                  "name": 'navgoco',
+                  "expires": false,
+                  "path": '/'
+              },
+              "slide": {
+                  "duration": 400,
+                  "easing": 'swing'
+              }
+          };
+
+          // Initialize navgoco with default options
+          $("#mysidebar").navgoco(navSettings);
+          
+
+          $("#collapseAll").click(function(e) {
+              e.preventDefault();
+              $("#mysidebar").navgoco('toggle', false);
+          });
+
+          $("#expandAll").click(function(e) {
+              e.preventDefault();
+              $("#mysidebar").navgoco('toggle', true);
+          });
+
+          $(".sidebar-nav-container").on("scroll", function() {
+            $.cookie("sidebarScroll", $(".sidebar-nav-container").scrollTop(), {
+              path    : "/es-es/snap-creator-framework"  
+            });
+          });
+          $(function() {
+            if ($.cookie("sidebarScroll")) {
+              $(".sidebar-nav-container").scrollTop($.cookie("sidebarScroll"));
+            }
+          });
+
+      });
+
+  </script>
+  <script>
+      $(document).ready(function() {
+          $("#tg-sb-link").click(function() {
+              $("#tg-sb-sidebar").toggle();
+              $("#tg-sb-content").toggleClass('col-md-9');
+              $("#tg-sb-content").toggleClass('col-md-12');
+              $("#tg-sb-icon").toggleClass('fa-toggle-on');
+              $("#tg-sb-icon").toggleClass('fa-toggle-off');
+          });
+      });
+  </script>
+  <script src='/es-es/snap-creator-framework/js/custom-dropdown.js'></script>
+  <script src='/es-es/snap-creator-framework/js/FileSaver.min.js'></script>
+  <script src='/es-es/snap-creator-framework/js/jszip-utils.min.js'></script>
+  <script src='/es-es/snap-creator-framework/js/jszip.min.js'></script>
+  <script src='/es-es/snap-creator-framework/js/pdf-ux.js'></script>
+</head>
+
+
+  <body class role="document" data-flavor="">
+    <div id="page" class="n-off-canvas-menu">
+      <div class="n-off-canvas-menu__menu"><!--TODO: Add offcanvas code --></div>
+      <div class="n-off-canvas-menu__content-wrap">
+        <header class="site-header" id="banner">
+  
+  <!-- Start Page Toolbar -->
+  
+  <div class="page-nav-toolbar"><div class="page-nav-contribute"><a target="_blank" href="https://github.com/NetAppDocs/snap-creator-framework/issues/new?body=Page%3A%20[Inicio, verificación y detención de Snap Creator Server en Windows](https://docs.netapp.com/es-es/snap-creator-framework/administration/task_starting_verifying_and_stopping_the_snap_creator_server_on_windows.html)&template=public-issue-template.md" class="page-nav-contribute-link" role="button"><img src="/es-es/snap-creator-framework/images/discuss-sm.svg" alt="" class="github-icon" />Solicitar cambios en el documento</a><a target="_blank" href="https://github.com/NetAppDocs/snap-creator-framework/blob/main/administration/task_starting_verifying_and_stopping_the_snap_creator_server_on_windows.adoc" class="page-nav-contribute-link" role="button"><img src="/es-es/snap-creator-framework/images/edit-sm.svg" alt="" class="github-icon" />Editar en GitHub</a><a target="_blank" href="https://docs.netapp.com/us-en/contribute/" class="page-nav-contribute-link"  ><img src="/es-es/snap-creator-framework/images/article-sm.svg" alt="" class="github-icon" />Guía del colaborador</a></div>
+    <div class="page-nav-container">
+      <nav class="page-nav-fixed">
+        <div class="page-nav-title">EN ESTA PÁGINA</div>
+        <div class="page-nav-links">
+          <ul class="page-nav-inner" id="page-menu"></ul>
+        </div>
+      </nav>
+    </div>
+  </div>
+  
+  
+  <!-- Start top_hat -->
+  <div class="n-top-hat">
+    <div class="n-container">
+      <div class="n-top-hat__cross-property-nav">
+        <ul class="n-top-hat__list">
+          <li class="n-top-hat__list-item">
+            <a href="https://www.netapp.com/products-a-z/" class="n-top-hat__link">Producto y soluciones</a>
+          </li>
+          <li class="n-top-hat__list-item">
+            <a href="https://www.netapp.com/support-and-training/netapp-university/" class="n-top-hat__link">Asistencia y capacitación</a>
+          </li>
+          <li class="n-top-hat__list-item">
+            <a href="https://cloud.netapp.com" class="n-top-hat__link">Cloud Central</a>
+          </li>
+          <li class="n-top-hat__list-item">
+            <a href="https://community.netapp.com/" class="n-top-hat__link">Comunidad</a>
+          </li>
+          <li class="n-top-hat__list-item">
+            <a href="https://blog.netapp.com/" class="n-top-hat__link">Blog</a>
+          </li>
+          <li class="n-top-hat__list-item">
+            <a href="https://customers.netapp.com/en/" class="n-top-hat__link">Historias de clientes</a>
+          </li>
+        </ul>
+      </div>
+      <div class="n-top-hat__utils">
+        <ul class="n-top-hat__list">
+          <li class="n-top-hat__list-item">
+            <a href="https://www.netapp.com/company/contact-us/" target="_self" class="n-top-hat__link" data-ntap-ui="contact-us">Contacto</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  <!-- End top_hat -->
+
+  <!-- Start property bar -->
+  <style>
+    .n-property-navigation-bar__menus--desktop-experience .n-menu--mega__default-content__heading span {
+    color: #34B0FF;
+    }
+  </style>
+  <div class="n-property-bar " data-ntap-ui="sticky-nav">
+    <div class="n-property-bar__inner-wrap">
+      <div class="n-property-bar__menu-toggle">
+        <a href="#" class="n-property-bar__menu-toggle-link">
+          <span class="n-property-bar__menu-toggle-text">Menu</span>
+          <svg class="n-icon-bars n-property-bar__menu-toggle-icon" aria-labelledby="title">
+            <title>bars</title>
+            <use xlink:href="/es-es/snap-creator-framework/common/svg/sprite.svg#bars"></use>
+          </svg>
+        </a>
+      </div>
+      <div class="n-property-bar__property-mark ">
+        <a href="https://www.netapp.com" class="n-property-bar__property-link">
+          <div class="n-property-bar__logo">
+            <svg class="n-icon-netapp-mark n-icon-netapp-mark n-property-bar__netapp-mark-icon" aria-labelledby="title">
+              <title>netapp-mark</title>
+              <use xlink:href="/es-es/snap-creator-framework/common/svg/sprite.svg#netapp-mark"></use>
+            </svg>
+            <svg class="n-icon-netapp-logo n-property-bar__logo-svg" aria-labelledby="title">
+              <title>netapp-logo</title>
+              <use xlink:href="/es-es/snap-creator-framework/common/svg/sprite.svg#netapp-logo"></use>
+            </svg>
+          </div>
+        </a>
+      </div>
+
+      
+      
+      
+      <div class="search-property-bar">
+        <div id="search-demo-container" class="searchbox n-property-bar__search">
+          <div id="react-search" 
+          data-search-html="/es-es/snap-creator-framework/search.html"
+          data-type="widget" 
+          data-placeholder="Buscar documentación"
+          data-no-results-found="No se encontraron resultados para {query}"
+          data-did-you-mean="Buscar {suggestion}."
+          data-no-results-found-did-you-mean="No se encontraron resultados para {query}. ¿Quiso decir {suggestion}?"
+          data-results-found="{hitCount} resultados encontrados"
+          data-error-message="We're sorry, an issue occurred when fetching your results. Please try again."
+          data-error-reset="Reset Search"
+          data-sk-es-pf-indexes=""
+          data-flavor=""></div>
+          <button class="n-property-bar__search-toggle-button" type="button">
+            <svg class="n-icon-search n-property-bar__search-toggle-button-icon" aria-labelledby="title">
+              <title>search</title>
+              <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="/es-es/snap-creator-framework/common/svg/sprite.svg#search"></use>
+            </svg>
+          </button>
+        </div>
+      </div>
+      
+    </div>
+  </div>
+  <div class="n-property-bar__toolbar">
+    <!-- Start Language Selector --><div id="language-dropdown" class="custom-dropdown custom-dropdown-lang">
+      <div class="custom-dropdown-select custom-dropdown-select-lang">
+      <span class="lang-name">Español</span>
+          <svg class="n-globe__icon" aria-labelledby="title">
+            <title>globe</title>
+            <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="/es-es/snap-creator-framework/common/svg/sprite.svg#globe"></use>
+          </svg>
+        </button>
+      </div>
+
+      <ul class="custom-dropdown-menu"><li>
+          <a href="https://docs.netapp.com/es-es/snap-creator-framework/administration/task_starting_verifying_and_stopping_the_snap_creator_server_on_windows.html" target="_self"><span translate="no" class="notranslate">Español</span></a>
+        </li><li>
+          <a href="https://docs.netapp.com/us-en/snap-creator-framework/administration/task_starting_verifying_and_stopping_the_snap_creator_server_on_windows.html" target="_self"><span translate="no" class="notranslate">English</span></a>
+        </li><li>
+          <a href="https://docs.netapp.com/ja-jp/snap-creator-framework/administration/task_starting_verifying_and_stopping_the_snap_creator_server_on_windows.html" target="_self"><span translate="no" class="notranslate">日本語</span></a>
+        </li><li>
+          <a href="https://docs.netapp.com/ko-kr/snap-creator-framework/administration/task_starting_verifying_and_stopping_the_snap_creator_server_on_windows.html" target="_self"><span translate="no" class="notranslate">한국어</span></a>
+        </li><li>
+          <a href="https://docs.netapp.com/zh-cn/snap-creator-framework/administration/task_starting_verifying_and_stopping_the_snap_creator_server_on_windows.html" target="_self"><span translate="no" class="notranslate">简体中文</span></a>
+        </li><li>
+          <a href="https://docs.netapp.com/zh-tw/snap-creator-framework/administration/task_starting_verifying_and_stopping_the_snap_creator_server_on_windows.html" target="_self"><span translate="no" class="notranslate">繁體中文</span></a>
+        </li><li>
+          <a href="https://docs.netapp.com/de-de/snap-creator-framework/administration/task_starting_verifying_and_stopping_the_snap_creator_server_on_windows.html" target="_self"><span translate="no" class="notranslate">Deutsch</span></a>
+        </li><li>
+          <a href="https://docs.netapp.com/fr-fr/snap-creator-framework/administration/task_starting_verifying_and_stopping_the_snap_creator_server_on_windows.html" target="_self"><span translate="no" class="notranslate">Français</span></a>
+        </li></ul>
+    </div><!-- End Language Selector -->
+
+    <div class="n-property-bar__cta"></div>
+  </div>
+  <!-- End property bar -->
+</header>
+
+
+        <main id="n-main-content" class="n-main-content">
+          <!-- Start Documentation Content -->
+<div class="ie-main">
+  <!-- Sidebar Column -->
+  
+  <div class="col-md-3" id="sidebar-height">
+      <button id="btn-sidebar-collapse" onclick="hideSidebar()"><img src="/es-es/snap-creator-framework/images/collapse.png" alt="Contraer panel de navegación"></button>
+      <div class="n-pdf-header">
+  <a id="toggleButtonPdf" class="n-pdf-button" type="button">
+    <img src="/es-es/snap-creator-framework/images/pdf.png" alt="" width="16" height="16"/>PDFs disponibles<span>
+    </span>
+  </a>
+</div>
+<div class="n-pdf-body-container">
+  <ul id="toggleContainerPdf" class="n-pdf-body" style="display:none;"><li class="pdf-ux-container">
+        
+        
+        
+        <a target="_blank" href="/es-es/snap-creator-framework/pdfs/fullsite-sidebar/SNAP_Creator_Framework_4_3_3.pdf" >
+          <img src="/es-es/snap-creator-framework/images/pdf.png" alt="" width="16" height="16"/>PDF de este sitio de documentos</a>
+
+
+
+
+
+    
+      <ul class="subfolders" style="display:none;">
+        <li class="pdf-ux-container">
+          
+          
+          
+          <a target="_blank" 
+            
+              href="/es-es/snap-creator-framework/pdfs/sidebar/Instalación.pdf" 
+            
+          >
+            <img src="/es-es/snap-creator-framework/images/pdf.png" alt="" width="16" height="16"/>
+            Instalación
+          </a>
+          
+
+    
+      <ul class="subfolders" style="display:none;">
+        <li class="pdf-ux-container">
+          
+          
+          
+          <a target="_blank" 
+            
+              href="/es-es/snap-creator-framework/pdfs/sidebar/Lo_que_hace_Snap_Creator_Framework.pdf" 
+            
+          >
+            <img src="/es-es/snap-creator-framework/images/pdf.png" alt="" width="16" height="16"/>
+            Lo que hace Snap Creator Framework
+          </a>
+          
+
+    
+      <ul class="subfolders" style="display:none;">
+        <li class="pdf-ux-container">
+          
+          
+          
+          <a target="_blank" 
+            
+              href="/es-es/snap-creator-framework/pdfs/sidebar/Arquitectura_de_Snap_Creator.pdf" 
+            
+          >
+            <img src="/es-es/snap-creator-framework/images/pdf.png" alt="" width="16" height="16"/>
+            Arquitectura de Snap Creator
+          </a>
+          
+
+
+
+
+
+
+        </li>
+      </ul>
+    
+
+  
+
+
+        </li>
+      </ul>
+    
+
+  
+
+
+
+    
+      <ul class="subfolders" style="display:none;">
+        <li class="pdf-ux-container">
+          
+          
+          
+          <a target="_blank" 
+            
+              href="/es-es/snap-creator-framework/pdfs/sidebar/Requisitos_previos_a_la_instalación_de_Snap_Creator.pdf" 
+            
+          >
+            <img src="/es-es/snap-creator-framework/images/pdf.png" alt="" width="16" height="16"/>
+            Requisitos previos a la instalación de Snap Creator
+          </a>
+          
+
+
+
+
+
+    
+      <ul class="subfolders" style="display:none;">
+        <li class="pdf-ux-container">
+          
+          
+          
+          <a target="_blank" 
+            
+              href="/es-es/snap-creator-framework/pdfs/sidebar/Crear_un_usuario_de_Snap_Creator_para_Data_ONTAP.pdf" 
+            
+          >
+            <img src="/es-es/snap-creator-framework/images/pdf.png" alt="" width="16" height="16"/>
+            Crear un usuario de Snap Creator para Data ONTAP
+          </a>
+          
+
+
+
+
+        </li>
+      </ul>
+    
+
+  
+
+
+
+
+
+
+
+    
+      <ul class="subfolders" style="display:none;">
+        <li class="pdf-ux-container">
+          
+          
+          
+          <a target="_blank" 
+            
+              href="/es-es/snap-creator-framework/pdfs/sidebar/Configuración_de_los_ajustes_del_complemento_Domino.pdf" 
+            
+          >
+            <img src="/es-es/snap-creator-framework/images/pdf.png" alt="" width="16" height="16"/>
+            Configuración de los ajustes del complemento Domino
+          </a>
+          
+
+
+
+    
+      <ul class="subfolders" style="display:none;">
+        <li class="pdf-ux-container">
+          
+          
+          
+          <a target="_blank" 
+            
+              href="/es-es/snap-creator-framework/pdfs/sidebar/Configuración_de_la_configuración_específica_de_UNIX__Creación_de_enlaces_simbólicos.pdf" 
+            
+          >
+            <img src="/es-es/snap-creator-framework/images/pdf.png" alt="" width="16" height="16"/>
+            Configuración de la configuración específica de UNIX: Creación de enlaces simbólicos
+          </a>
+          
+
+
+
+
+        </li>
+      </ul>
+    
+
+  
+
+
+        </li>
+      </ul>
+    
+
+  
+
+
+        </li>
+      </ul>
+    
+
+  
+
+
+
+    
+      <ul class="subfolders" style="display:none;">
+        <li class="pdf-ux-container">
+          
+          
+          
+          <a target="_blank" 
+            
+              href="/es-es/snap-creator-framework/pdfs/sidebar/Instalar_el_servidor_de_Snap_Creator.pdf" 
+            
+          >
+            <img src="/es-es/snap-creator-framework/images/pdf.png" alt="" width="16" height="16"/>
+            Instalar el servidor de Snap Creator
+          </a>
+          
+
+    
+      <ul class="subfolders" style="display:none;">
+        <li class="pdf-ux-container">
+          
+          
+          
+          <a target="_blank" 
+            
+              href="/es-es/snap-creator-framework/pdfs/sidebar/Instalar_Snap_Creator_Server_en_un_host_de_Windows.pdf" 
+            
+          >
+            <img src="/es-es/snap-creator-framework/images/pdf.png" alt="" width="16" height="16"/>
+            Instalar Snap Creator Server en un host de Windows
+          </a>
+          
+
+
+        </li>
+      </ul>
+    
+
+  
+
+
+
+
+        </li>
+      </ul>
+    
+
+  
+
+
+
+    
+      <ul class="subfolders" style="display:none;">
+        <li class="pdf-ux-container">
+          
+          
+          
+          <a target="_blank" 
+            
+              href="/es-es/snap-creator-framework/pdfs/sidebar/Instalación_del_agente_de_Snap_Creator.pdf" 
+            
+          >
+            <img src="/es-es/snap-creator-framework/images/pdf.png" alt="" width="16" height="16"/>
+            Instalación del agente de Snap Creator
+          </a>
+          
+
+    
+      <ul class="subfolders" style="display:none;">
+        <li class="pdf-ux-container">
+          
+          
+          
+          <a target="_blank" 
+            
+              href="/es-es/snap-creator-framework/pdfs/sidebar/Instalación_del_agente_de_Snap_Creator_en_Windows.pdf" 
+            
+          >
+            <img src="/es-es/snap-creator-framework/images/pdf.png" alt="" width="16" height="16"/>
+            Instalación del agente de Snap Creator en Windows
+          </a>
+          
+
+
+        </li>
+      </ul>
+    
+
+  
+
+
+
+
+
+
+        </li>
+      </ul>
+    
+
+  
+
+
+
+    
+      <ul class="subfolders" style="display:none;">
+        <li class="pdf-ux-container">
+          
+          
+          
+          <a target="_blank" 
+            
+              href="/es-es/snap-creator-framework/pdfs/sidebar/Actualizar_Snap_Creator.pdf" 
+            
+          >
+            <img src="/es-es/snap-creator-framework/images/pdf.png" alt="" width="16" height="16"/>
+            Actualizar Snap Creator
+          </a>
+          
+
+
+
+
+
+    
+      <ul class="subfolders" style="display:none;">
+        <li class="pdf-ux-container">
+          
+          
+          
+          <a target="_blank" 
+            
+              href="/es-es/snap-creator-framework/pdfs/sidebar/Actualizar_desde_Snap_Creator_3_6_x.pdf" 
+            
+          >
+            <img src="/es-es/snap-creator-framework/images/pdf.png" alt="" width="16" height="16"/>
+            Actualizar desde Snap Creator 3.6.x
+          </a>
+          
+
+
+
+
+
+
+
+
+        </li>
+      </ul>
+    
+
+  
+
+
+
+    
+      <ul class="subfolders" style="display:none;">
+        <li class="pdf-ux-container">
+          
+          
+          
+          <a target="_blank" 
+            
+              href="/es-es/snap-creator-framework/pdfs/sidebar/Actualizar_desde_Snap_Creator_4_0_x.pdf" 
+            
+          >
+            <img src="/es-es/snap-creator-framework/images/pdf.png" alt="" width="16" height="16"/>
+            Actualizar desde Snap Creator 4.0.x
+          </a>
+          
+
+
+
+
+
+
+
+
+        </li>
+      </ul>
+    
+
+  
+
+
+
+    
+      <ul class="subfolders" style="display:none;">
+        <li class="pdf-ux-container">
+          
+          
+          
+          <a target="_blank" 
+            
+              href="/es-es/snap-creator-framework/pdfs/sidebar/Actualizar_desde_Snap_Creator_4_1_x.pdf" 
+            
+          >
+            <img src="/es-es/snap-creator-framework/images/pdf.png" alt="" width="16" height="16"/>
+            Actualizar desde Snap Creator 4.1.x
+          </a>
+          
+
+
+
+
+
+
+
+
+        </li>
+      </ul>
+    
+
+  
+
+
+
+
+        </li>
+      </ul>
+    
+
+  
+
+
+
+    
+      <ul class="subfolders" style="display:none;">
+        <li class="pdf-ux-container">
+          
+          
+          
+          <a target="_blank" 
+            
+              href="/es-es/snap-creator-framework/pdfs/sidebar/Desinstalando_Snap_Creator.pdf" 
+            
+          >
+            <img src="/es-es/snap-creator-framework/images/pdf.png" alt="" width="16" height="16"/>
+            Desinstalando Snap Creator
+          </a>
+          
+
+
+
+    
+      <ul class="subfolders" style="display:none;">
+        <li class="pdf-ux-container">
+          
+          
+          
+          <a target="_blank" 
+            
+              href="/es-es/snap-creator-framework/pdfs/sidebar/Desinstalar_Snap_Creator_en_UNIX.pdf" 
+            
+          >
+            <img src="/es-es/snap-creator-framework/images/pdf.png" alt="" width="16" height="16"/>
+            Desinstalar Snap Creator en UNIX
+          </a>
+          
+
+
+
+
+        </li>
+      </ul>
+    
+
+  
+
+
+        </li>
+      </ul>
+    
+
+  
+
+
+
+    
+      <ul class="subfolders" style="display:none;">
+        <li class="pdf-ux-container">
+          
+          
+          
+          <a target="_blank" 
+            
+              href="/es-es/snap-creator-framework/pdfs/sidebar/Referencia_de_CLI.pdf" 
+            
+          >
+            <img src="/es-es/snap-creator-framework/images/pdf.png" alt="" width="16" height="16"/>
+            Referencia de CLI
+          </a>
+          
+
+    
+      <ul class="subfolders" style="display:none;">
+        <li class="pdf-ux-container">
+          
+          
+          
+          <a target="_blank" 
+            
+              href="/es-es/snap-creator-framework/pdfs/sidebar/Comandos_de_la_CLI_para_crear_un_rol_para_un_usuario_de_Snap_Creator_en_Clustered_Data_ONTAP.pdf" 
+            
+          >
+            <img src="/es-es/snap-creator-framework/images/pdf.png" alt="" width="16" height="16"/>
+            Comandos de la CLI para crear un rol para un usuario de Snap Creator en Clustered Data ONTAP
+          </a>
+          
+
+
+
+
+        </li>
+      </ul>
+    
+
+  
+
+
+        </li>
+      </ul>
+    
+
+  
+
+
+        </li>
+      </ul>
+    
+
+  
+
+
+
+    
+      <ul class="subfolders" style="display:none;">
+        <li class="pdf-ux-container">
+          
+          
+          
+          <a target="_blank" 
+            
+              href="/es-es/snap-creator-framework/pdfs/sidebar/Operaciones_del_complemento_IBM__Domino_.pdf" 
+            
+          >
+            <img src="/es-es/snap-creator-framework/images/pdf.png" alt="" width="16" height="16"/>
+            Operaciones del complemento IBM® Domino®
+          </a>
+          
+
+    
+      <ul class="subfolders" style="display:none;">
+        <li class="pdf-ux-container">
+          
+          
+          
+          <a target="_blank" 
+            
+              href="/es-es/snap-creator-framework/pdfs/sidebar/Información_general_sobre_el_complemento_IBM_Domino.pdf" 
+            
+          >
+            <img src="/es-es/snap-creator-framework/images/pdf.png" alt="" width="16" height="16"/>
+            Información general sobre el complemento IBM Domino
+          </a>
+          
+
+
+
+
+        </li>
+      </ul>
+    
+
+  
+
+
+
+
+
+    
+      <ul class="subfolders" style="display:none;">
+        <li class="pdf-ux-container">
+          
+          
+          
+          <a target="_blank" 
+            
+              href="/es-es/snap-creator-framework/pdfs/sidebar/Preparación_para_copia_de_seguridad_y_restauración_de_IBM_Domino.pdf" 
+            
+          >
+            <img src="/es-es/snap-creator-framework/images/pdf.png" alt="" width="16" height="16"/>
+            Preparación para copia de seguridad y restauración de IBM Domino
+          </a>
+          
+
+
+
+    
+      <ul class="subfolders" style="display:none;">
+        <li class="pdf-ux-container">
+          
+          
+          
+          <a target="_blank" 
+            
+              href="/es-es/snap-creator-framework/pdfs/sidebar/Configuración_de_SnapMirror_y_SnapVault.pdf" 
+            
+          >
+            <img src="/es-es/snap-creator-framework/images/pdf.png" alt="" width="16" height="16"/>
+            Configuración de SnapMirror y SnapVault
+          </a>
+          
+
+
+
+
+        </li>
+      </ul>
+    
+
+  
+
+
+        </li>
+      </ul>
+    
+
+  
+
+
+
+    
+      <ul class="subfolders" style="display:none;">
+        <li class="pdf-ux-container">
+          
+          
+          
+          <a target="_blank" 
+            
+              href="/es-es/snap-creator-framework/pdfs/sidebar/Crear_una_configuración_de_backup_y_restauración.pdf" 
+            
+          >
+            <img src="/es-es/snap-creator-framework/images/pdf.png" alt="" width="16" height="16"/>
+            Crear una configuración de backup y restauración
+          </a>
+          
+
+
+
+
+
+    
+      <ul class="subfolders" style="display:none;">
+        <li class="pdf-ux-container">
+          
+          
+          
+          <a target="_blank" 
+            
+              href="/es-es/snap-creator-framework/pdfs/sidebar/Adición_de_comandos_a_la_configuración_de_backup_y_restauración.pdf" 
+            
+          >
+            <img src="/es-es/snap-creator-framework/images/pdf.png" alt="" width="16" height="16"/>
+            Adición de comandos a la configuración de backup y restauración
+          </a>
+          
+
+
+
+
+        </li>
+      </ul>
+    
+
+  
+
+
+
+
+
+
+        </li>
+      </ul>
+    
+
+  
+
+
+
+    
+      <ul class="subfolders" style="display:none;">
+        <li class="pdf-ux-container">
+          
+          
+          
+          <a target="_blank" 
+            
+              href="/es-es/snap-creator-framework/pdfs/sidebar/Realizar_backups_de_bases_de_datos.pdf" 
+            
+          >
+            <img src="/es-es/snap-creator-framework/images/pdf.png" alt="" width="16" height="16"/>
+            Realizar backups de bases de datos
+          </a>
+          
+
+
+
+
+        </li>
+      </ul>
+    
+
+  
+
+
+
+    
+      <ul class="subfolders" style="display:none;">
+        <li class="pdf-ux-container">
+          
+          
+          
+          <a target="_blank" 
+            
+              href="/es-es/snap-creator-framework/pdfs/sidebar/Restaurar_bases_de_datos.pdf" 
+            
+          >
+            <img src="/es-es/snap-creator-framework/images/pdf.png" alt="" width="16" height="16"/>
+            Restaurar bases de datos
+          </a>
+          
+
+
+
+
+
+    
+      <ul class="subfolders" style="display:none;">
+        <li class="pdf-ux-container">
+          
+          
+          
+          <a target="_blank" 
+            
+              href="/es-es/snap-creator-framework/pdfs/sidebar/Restaurar_archivos_individuales_en_un_entorno_SAN.pdf" 
+            
+          >
+            <img src="/es-es/snap-creator-framework/images/pdf.png" alt="" width="16" height="16"/>
+            Restaurar archivos individuales en un entorno SAN
+          </a>
+          
+
+
+
+
+
+
+
+
+        </li>
+      </ul>
+    
+
+  
+
+
+        </li>
+      </ul>
+    
+
+  
+
+
+
+    
+      <ul class="subfolders" style="display:none;">
+        <li class="pdf-ux-container">
+          
+          
+          
+          <a target="_blank" 
+            
+              href="/es-es/snap-creator-framework/pdfs/sidebar/Ver_el_estado_de_los_trabajos_y_los_registros.pdf" 
+            
+          >
+            <img src="/es-es/snap-creator-framework/images/pdf.png" alt="" width="16" height="16"/>
+            Ver el estado de los trabajos y los registros
+          </a>
+          
+
+
+
+
+
+
+        </li>
+      </ul>
+    
+
+  
+
+
+
+
+
+
+        </li>
+      </ul>
+    
+
+  
+
+
+
+    
+      <ul class="subfolders" style="display:none;">
+        <li class="pdf-ux-container">
+          
+          
+          
+          <a target="_blank" 
+            
+              href="/es-es/snap-creator-framework/pdfs/sidebar/Operaciones_del_complemento_SAP_HANA_.pdf" 
+            
+          >
+            <img src="/es-es/snap-creator-framework/images/pdf.png" alt="" width="16" height="16"/>
+            Operaciones del complemento SAP HANA®
+          </a>
+          
+
+    
+      <ul class="subfolders" style="display:none;">
+        <li class="pdf-ux-container">
+          
+          
+          
+          <a target="_blank" 
+            
+              href="/es-es/snap-creator-framework/pdfs/sidebar/Información_general_de_la_solución_de_backup_y_restauración_de_SAP_HANA.pdf" 
+            
+          >
+            <img src="/es-es/snap-creator-framework/images/pdf.png" alt="" width="16" height="16"/>
+            Información general de la solución de backup y restauración de SAP HANA
+          </a>
+          
+
+
+
+
+
+
+
+
+
+
+        </li>
+      </ul>
+    
+
+  
+
+
+
+    
+      <ul class="subfolders" style="display:none;">
+        <li class="pdf-ux-container">
+          
+          
+          
+          <a target="_blank" 
+            
+              href="/es-es/snap-creator-framework/pdfs/sidebar/Instalar_y_configurar_los_componentes_de_software_necesarios.pdf" 
+            
+          >
+            <img src="/es-es/snap-creator-framework/images/pdf.png" alt="" width="16" height="16"/>
+            Instalar y configurar los componentes de software necesarios
+          </a>
+          
+
+
+
+
+        </li>
+      </ul>
+    
+
+  
+
+
+
+    
+      <ul class="subfolders" style="display:none;">
+        <li class="pdf-ux-container">
+          
+          
+          
+          <a target="_blank" 
+            
+              href="/es-es/snap-creator-framework/pdfs/sidebar/Configuración_de_backups_de_datos.pdf" 
+            
+          >
+            <img src="/es-es/snap-creator-framework/images/pdf.png" alt="" width="16" height="16"/>
+            Configuración de backups de datos
+          </a>
+          
+
+
+
+
+
+    
+      <ul class="subfolders" style="display:none;">
+        <li class="pdf-ux-container">
+          
+          
+          
+          <a target="_blank" 
+            
+              href="/es-es/snap-creator-framework/pdfs/sidebar/Iniciar_las_relaciones_de_SnapVault.pdf" 
+            
+          >
+            <img src="/es-es/snap-creator-framework/images/pdf.png" alt="" width="16" height="16"/>
+            Iniciar las relaciones de SnapVault
+          </a>
+          
+
+
+
+
+        </li>
+      </ul>
+    
+
+  
+
+
+
+
+        </li>
+      </ul>
+    
+
+  
+
+
+
+
+
+    
+      <ul class="subfolders" style="display:none;">
+        <li class="pdf-ux-container">
+          
+          
+          
+          <a target="_blank" 
+            
+              href="/es-es/snap-creator-framework/pdfs/sidebar/Configuración_de_backups_de_registros.pdf" 
+            
+          >
+            <img src="/es-es/snap-creator-framework/images/pdf.png" alt="" width="16" height="16"/>
+            Configuración de backups de registros
+          </a>
+          
+
+
+
+
+        </li>
+      </ul>
+    
+
+  
+
+
+
+    
+      <ul class="subfolders" style="display:none;">
+        <li class="pdf-ux-container">
+          
+          
+          
+          <a target="_blank" 
+            
+              href="/es-es/snap-creator-framework/pdfs/sidebar/Ejecución_de_backups_de_base_de_datos.pdf" 
+            
+          >
+            <img src="/es-es/snap-creator-framework/images/pdf.png" alt="" width="16" height="16"/>
+            Ejecución de backups de base de datos
+          </a>
+          
+
+
+
+
+
+
+
+
+        </li>
+      </ul>
+    
+
+  
+
+
+
+    
+      <ul class="subfolders" style="display:none;">
+        <li class="pdf-ux-container">
+          
+          
+          
+          <a target="_blank" 
+            
+              href="/es-es/snap-creator-framework/pdfs/sidebar/Comprobaciones_de_backup_e_integridad_de_bases_de_datos_basadas_en_archivos_de_SAP_HANA.pdf" 
+            
+          >
+            <img src="/es-es/snap-creator-framework/images/pdf.png" alt="" width="16" height="16"/>
+            Comprobaciones de backup e integridad de bases de datos basadas en archivos de SAP HANA
+          </a>
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        </li>
+      </ul>
+    
+
+  
+
+
+
+    
+      <ul class="subfolders" style="display:none;">
+        <li class="pdf-ux-container">
+          
+          
+          
+          <a target="_blank" 
+            
+              href="/es-es/snap-creator-framework/pdfs/sidebar/Restaurar_y_recuperar_bases_de_datos_SAP_HANA.pdf" 
+            
+          >
+            <img src="/es-es/snap-creator-framework/images/pdf.png" alt="" width="16" height="16"/>
+            Restaurar y recuperar bases de datos SAP HANA
+          </a>
+          
+
+
+
+
+
+    
+      <ul class="subfolders" style="display:none;">
+        <li class="pdf-ux-container">
+          
+          
+          
+          <a target="_blank" 
+            
+              href="/es-es/snap-creator-framework/pdfs/sidebar/Reanudar_una_relación_de_SnapVault_después_de_una_restauración.pdf" 
+            
+          >
+            <img src="/es-es/snap-creator-framework/images/pdf.png" alt="" width="16" height="16"/>
+            Reanudar una relación de SnapVault después de una restauración
+          </a>
+          
+
+
+
+
+        </li>
+      </ul>
+    
+
+  
+
+
+
+    
+      <ul class="subfolders" style="display:none;">
+        <li class="pdf-ux-container">
+          
+          
+          
+          <a target="_blank" 
+            
+              href="/es-es/snap-creator-framework/pdfs/sidebar/Restauración_de_bases_de_datos_después_de_un_fallo_en_el_almacenamiento_primario.pdf" 
+            
+          >
+            <img src="/es-es/snap-creator-framework/images/pdf.png" alt="" width="16" height="16"/>
+            Restauración de bases de datos después de un fallo en el almacenamiento primario
+          </a>
+          
+
+
+
+
+        </li>
+      </ul>
+    
+
+  
+
+
+        </li>
+      </ul>
+    
+
+  
+
+
+
+
+
+
+
+
+        </li>
+      </ul>
+    
+
+  
+
+
+
+    
+      <ul class="subfolders" style="display:none;">
+        <li class="pdf-ux-container">
+          
+          
+          
+          <a target="_blank" 
+            
+              href="/es-es/snap-creator-framework/pdfs/sidebar/Administración.pdf" 
+            
+          >
+            <img src="/es-es/snap-creator-framework/images/pdf.png" alt="" width="16" height="16"/>
+            Administración
+          </a>
+          
+
+    
+      <ul class="subfolders" style="display:none;">
+        <li class="pdf-ux-container">
+          
+          
+          
+          <a target="_blank" 
+            
+              href="/es-es/snap-creator-framework/pdfs/sidebar/Lo_que_hace_Snap_Creator_Framework.pdf" 
+            
+          >
+            <img src="/es-es/snap-creator-framework/images/pdf.png" alt="" width="16" height="16"/>
+            Lo que hace Snap Creator Framework
+          </a>
+          
+
+
+        </li>
+      </ul>
+    
+
+  
+
+
+
+    
+      <ul class="subfolders" style="display:none;">
+        <li class="pdf-ux-container">
+          
+          
+          
+          <a target="_blank" 
+            
+              href="/es-es/snap-creator-framework/pdfs/sidebar/Arquitectura_de_Snap_Creator.pdf" 
+            
+          >
+            <img src="/es-es/snap-creator-framework/images/pdf.png" alt="" width="16" height="16"/>
+            Arquitectura de Snap Creator
+          </a>
+          
+
+
+
+
+
+
+        </li>
+      </ul>
+    
+
+  
+
+
+
+    
+      <ul class="subfolders" style="display:none;">
+        <li class="pdf-ux-container">
+          
+          
+          
+          <a target="_blank" 
+            
+              href="/es-es/snap-creator-framework/pdfs/sidebar/Gestión_de_Snap_Creator_Server.pdf" 
+            
+          >
+            <img src="/es-es/snap-creator-framework/images/pdf.png" alt="" width="16" height="16"/>
+            Gestión de Snap Creator Server
+          </a>
+          
+    <ul class="subfolders" id="pdf-remove" style="display:none;"><li class="active"></li></ul>
+  
+
+
+
+
+
+
+
+
+        </li>
+      </ul>
+    
+
+  
+
+
+
+    
+      <ul class="subfolders" style="display:none;">
+        <li class="pdf-ux-container">
+          
+          
+          
+          <a target="_blank" 
+            
+              href="/es-es/snap-creator-framework/pdfs/sidebar/Administrar_el_agente_de_Snap_Creator.pdf" 
+            
+          >
+            <img src="/es-es/snap-creator-framework/images/pdf.png" alt="" width="16" height="16"/>
+            Administrar el agente de Snap Creator
+          </a>
+          
+
+
+
+
+
+
+
+    
+      <ul class="subfolders" style="display:none;">
+        <li class="pdf-ux-container">
+          
+          
+          
+          <a target="_blank" 
+            
+              href="/es-es/snap-creator-framework/pdfs/sidebar/Seguridad_del_agente_de_Snap_Creator.pdf" 
+            
+          >
+            <img src="/es-es/snap-creator-framework/images/pdf.png" alt="" width="16" height="16"/>
+            Seguridad del agente de Snap Creator
+          </a>
+          
+
+
+
+
+        </li>
+      </ul>
+    
+
+  
+
+
+        </li>
+      </ul>
+    
+
+  
+
+
+
+    
+      <ul class="subfolders" style="display:none;">
+        <li class="pdf-ux-container">
+          
+          
+          
+          <a target="_blank" 
+            
+              href="/es-es/snap-creator-framework/pdfs/sidebar/Flujo_de_trabajo_de_backup_y_recuperación.pdf" 
+            
+          >
+            <img src="/es-es/snap-creator-framework/images/pdf.png" alt="" width="16" height="16"/>
+            Flujo de trabajo de backup y recuperación
+          </a>
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    
+      <ul class="subfolders" style="display:none;">
+        <li class="pdf-ux-container">
+          
+          
+          
+          <a target="_blank" 
+            
+              href="/es-es/snap-creator-framework/pdfs/sidebar/Creación_de_políticas_de_retención.pdf" 
+            
+          >
+            <img src="/es-es/snap-creator-framework/images/pdf.png" alt="" width="16" height="16"/>
+            Creación de políticas de retención
+          </a>
+          
+
+
+
+
+
+
+
+
+
+
+        </li>
+      </ul>
+    
+
+  
+
+
+
+    
+      <ul class="subfolders" style="display:none;">
+        <li class="pdf-ux-container">
+          
+          
+          
+          <a target="_blank" 
+            
+              href="/es-es/snap-creator-framework/pdfs/sidebar/Crear_clones.pdf" 
+            
+          >
+            <img src="/es-es/snap-creator-framework/images/pdf.png" alt="" width="16" height="16"/>
+            Crear clones
+          </a>
+          
+
+
+
+
+        </li>
+      </ul>
+    
+
+  
+
+
+
+    
+      <ul class="subfolders" style="display:none;">
+        <li class="pdf-ux-container">
+          
+          
+          
+          <a target="_blank" 
+            
+              href="/es-es/snap-creator-framework/pdfs/sidebar/Realizando_operaciones_de_restauración.pdf" 
+            
+          >
+            <img src="/es-es/snap-creator-framework/images/pdf.png" alt="" width="16" height="16"/>
+            Realizando operaciones de restauración
+          </a>
+          
+
+
+
+
+
+
+        </li>
+      </ul>
+    
+
+  
+
+
+        </li>
+      </ul>
+    
+
+  
+
+
+
+    
+      <ul class="subfolders" style="display:none;">
+        <li class="pdf-ux-container">
+          
+          
+          
+          <a target="_blank" 
+            
+              href="/es-es/snap-creator-framework/pdfs/sidebar/Gestión_del_acceso_de_usuarios.pdf" 
+            
+          >
+            <img src="/es-es/snap-creator-framework/images/pdf.png" alt="" width="16" height="16"/>
+            Gestión del acceso de usuarios
+          </a>
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        </li>
+      </ul>
+    
+
+  
+
+
+
+    
+      <ul class="subfolders" style="display:none;">
+        <li class="pdf-ux-container">
+          
+          
+          
+          <a target="_blank" 
+            
+              href="/es-es/snap-creator-framework/pdfs/sidebar/Gestión_de_perfiles.pdf" 
+            
+          >
+            <img src="/es-es/snap-creator-framework/images/pdf.png" alt="" width="16" height="16"/>
+            Gestión de perfiles
+          </a>
+          
+
+
+
+
+
+
+        </li>
+      </ul>
+    
+
+  
+
+
+
+    
+      <ul class="subfolders" style="display:none;">
+        <li class="pdf-ux-container">
+          
+          
+          
+          <a target="_blank" 
+            
+              href="/es-es/snap-creator-framework/pdfs/sidebar/Gestión_de_archivos_de_configuración.pdf" 
+            
+          >
+            <img src="/es-es/snap-creator-framework/images/pdf.png" alt="" width="16" height="16"/>
+            Gestión de archivos de configuración
+          </a>
+          
+
+
+
+
+
+
+
+
+
+
+        </li>
+      </ul>
+    
+
+  
+
+
+
+    
+      <ul class="subfolders" style="display:none;">
+        <li class="pdf-ux-container">
+          
+          
+          
+          <a target="_blank" 
+            
+              href="/es-es/snap-creator-framework/pdfs/sidebar/Gestión_de_políticas_de_retención.pdf" 
+            
+          >
+            <img src="/es-es/snap-creator-framework/images/pdf.png" alt="" width="16" height="16"/>
+            Gestión de políticas de retención
+          </a>
+          
+
+
+
+
+
+
+
+
+
+
+
+
+        </li>
+      </ul>
+    
+
+  
+
+
+
+    
+      <ul class="subfolders" style="display:none;">
+        <li class="pdf-ux-container">
+          
+          
+          
+          <a target="_blank" 
+            
+              href="/es-es/snap-creator-framework/pdfs/sidebar/Gestionar_backups.pdf" 
+            
+          >
+            <img src="/es-es/snap-creator-framework/images/pdf.png" alt="" width="16" height="16"/>
+            Gestionar backups
+          </a>
+          
+
+
+
+
+
+
+
+
+        </li>
+      </ul>
+    
+
+  
+
+
+
+    
+      <ul class="subfolders" style="display:none;">
+        <li class="pdf-ux-container">
+          
+          
+          
+          <a target="_blank" 
+            
+              href="/es-es/snap-creator-framework/pdfs/sidebar/Gestión_de_trabajos_programados.pdf" 
+            
+          >
+            <img src="/es-es/snap-creator-framework/images/pdf.png" alt="" width="16" height="16"/>
+            Gestión de trabajos programados
+          </a>
+          
+
+
+
+
+
+
+
+
+
+
+        </li>
+      </ul>
+    
+
+  
+
+
+
+    
+      <ul class="subfolders" style="display:none;">
+        <li class="pdf-ux-container">
+          
+          
+          
+          <a target="_blank" 
+            
+              href="/es-es/snap-creator-framework/pdfs/sidebar/Gestionar_clones.pdf" 
+            
+          >
+            <img src="/es-es/snap-creator-framework/images/pdf.png" alt="" width="16" height="16"/>
+            Gestionar clones
+          </a>
+          
+
+
+
+
+
+
+        </li>
+      </ul>
+    
+
+  
+
+
+
+    
+      <ul class="subfolders" style="display:none;">
+        <li class="pdf-ux-container">
+          
+          
+          
+          <a target="_blank" 
+            
+              href="/es-es/snap-creator-framework/pdfs/sidebar/Es_necesario_contar_con_información_sobre_el_complemento_para_configurar_Snap_Creator.pdf" 
+            
+          >
+            <img src="/es-es/snap-creator-framework/images/pdf.png" alt="" width="16" height="16"/>
+            Es necesario contar con información sobre el complemento para configurar Snap Creator
+          </a>
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    
+      <ul class="subfolders" style="display:none;">
+        <li class="pdf-ux-container">
+          
+          
+          
+          <a target="_blank" 
+            
+              href="/es-es/snap-creator-framework/pdfs/sidebar/Complemento_de_VMware_VIBE.pdf" 
+            
+          >
+            <img src="/es-es/snap-creator-framework/images/pdf.png" alt="" width="16" height="16"/>
+            Complemento de VMware VIBE
+          </a>
+          
+
+
+
+
+        </li>
+      </ul>
+    
+
+  
+
+
+
+
+
+
+        </li>
+      </ul>
+    
+
+  
+
+
+
+    
+      <ul class="subfolders" style="display:none;">
+        <li class="pdf-ux-container">
+          
+          
+          
+          <a target="_blank" 
+            
+              href="/es-es/snap-creator-framework/pdfs/sidebar/Solucionar_problemas_de_Snap_Creator.pdf" 
+            
+          >
+            <img src="/es-es/snap-creator-framework/images/pdf.png" alt="" width="16" height="16"/>
+            Solucionar problemas de Snap Creator
+          </a>
+          
+
+    
+      <ul class="subfolders" style="display:none;">
+        <li class="pdf-ux-container">
+          
+          
+          
+          <a target="_blank" 
+            
+              href="/es-es/snap-creator-framework/pdfs/sidebar/Tipos_de_mensajes_de_error_y_registros_de_solución_de_problemas.pdf" 
+            
+          >
+            <img src="/es-es/snap-creator-framework/images/pdf.png" alt="" width="16" height="16"/>
+            Tipos de mensajes de error y registros de solución de problemas
+          </a>
+          
+
+
+        </li>
+      </ul>
+    
+
+  
+
+
+
+    
+      <ul class="subfolders" style="display:none;">
+        <li class="pdf-ux-container">
+          
+          
+          
+          <a target="_blank" 
+            
+              href="/es-es/snap-creator-framework/pdfs/sidebar/Solucionar_los_errores_de_la_interfaz_gráfica_de_usuario_de_Snap_Creator.pdf" 
+            
+          >
+            <img src="/es-es/snap-creator-framework/images/pdf.png" alt="" width="16" height="16"/>
+            Solucionar los errores de la interfaz gráfica de usuario de Snap Creator
+          </a>
+          
+
+
+
+
+        </li>
+      </ul>
+    
+
+  
+
+
+
+
+
+    
+      <ul class="subfolders" style="display:none;">
+        <li class="pdf-ux-container">
+          
+          
+          
+          <a target="_blank" 
+            
+              href="/es-es/snap-creator-framework/pdfs/sidebar/Resolución_de_problemas_de_seguridad.pdf" 
+            
+          >
+            <img src="/es-es/snap-creator-framework/images/pdf.png" alt="" width="16" height="16"/>
+            Resolución de problemas de seguridad
+          </a>
+          
+
+
+
+
+
+
+        </li>
+      </ul>
+    
+
+  
+
+
+
+    
+      <ul class="subfolders" style="display:none;">
+        <li class="pdf-ux-container">
+          
+          
+          
+          <a target="_blank" 
+            
+              href="/es-es/snap-creator-framework/pdfs/sidebar/Solucionar_problemas_de_Snap_Creator_Server_o_Snap_Creator_Agent.pdf" 
+            
+          >
+            <img src="/es-es/snap-creator-framework/images/pdf.png" alt="" width="16" height="16"/>
+            Solucionar problemas de Snap Creator Server o Snap Creator Agent
+          </a>
+          
+
+
+
+
+
+
+        </li>
+      </ul>
+    
+
+  
+
+
+
+    
+      <ul class="subfolders" style="display:none;">
+        <li class="pdf-ux-container">
+          
+          
+          
+          <a target="_blank" 
+            
+              href="/es-es/snap-creator-framework/pdfs/sidebar/Solucionar_problemas_de_errores_de_comandos_de_la_CLI.pdf" 
+            
+          >
+            <img src="/es-es/snap-creator-framework/images/pdf.png" alt="" width="16" height="16"/>
+            Solucionar problemas de errores de comandos de la CLI
+          </a>
+          
+
+
+
+
+
+
+
+
+        </li>
+      </ul>
+    
+
+  
+
+
+
+
+
+    
+      <ul class="subfolders" style="display:none;">
+        <li class="pdf-ux-container">
+          
+          
+          
+          <a target="_blank" 
+            
+              href="/es-es/snap-creator-framework/pdfs/sidebar/Mensajes_de_error.pdf" 
+            
+          >
+            <img src="/es-es/snap-creator-framework/images/pdf.png" alt="" width="16" height="16"/>
+            Mensajes de error
+          </a>
+          
+
+
+
+
+
+
+
+
+
+
+        </li>
+      </ul>
+    
+
+  
+
+
+        </li>
+      </ul>
+    
+
+  
+
+
+
+    
+      <ul class="subfolders" style="display:none;">
+        <li class="pdf-ux-container">
+          
+          
+          
+          <a target="_blank" 
+            
+              href="/es-es/snap-creator-framework/pdfs/sidebar/Variables__parámetros_y_comandos_del_archivo_de_configuración_de_Snap_Creator.pdf" 
+            
+          >
+            <img src="/es-es/snap-creator-framework/images/pdf.png" alt="" width="16" height="16"/>
+            Variables, parámetros y comandos del archivo de configuración de Snap Creator
+          </a>
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        </li>
+      </ul>
+    
+
+  
+
+
+
+
+
+    
+      <ul class="subfolders" style="display:none;">
+        <li class="pdf-ux-container">
+          
+          
+          
+          <a target="_blank" 
+            
+              href="/es-es/snap-creator-framework/pdfs/sidebar/Directrices_para_usar_la_interfaz_de_línea_de_comandos_de_Snap_Creator.pdf" 
+            
+          >
+            <img src="/es-es/snap-creator-framework/images/pdf.png" alt="" width="16" height="16"/>
+            Directrices para usar la interfaz de línea de comandos de Snap Creator
+          </a>
+          
+
+
+
+
+        </li>
+      </ul>
+    
+
+  
+
+
+        </li>
+      </ul>
+    
+
+  
+
+
+
+</li></ul>
+  <div class="zip-pdf-link-container" style="display: none;">   
+    <a href="#" id="zipPdf">
+      <img src="/es-es/snap-creator-framework/images/pdf-zip.png" alt="" width="16" height="16"/>
+      <pre>Colección de documentos PDF separados<span class="zip-size"></span></pre>
+    </a><div id="zip-link-popup" class="hide">
+    <div class="inner-modal">
+        <div class="downloading-progress">
+            <div class="spinner"></div>
+            <h1>Creating your file...</h1>
+            <div>This may take a few minutes. Thanks for your patience.</div>
+            <button class="cancel-download-btn" type="button">Cancel</button>
+        </div>
+        <div class="download-complete hide">
+            <div class="done-icon">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M20.285 2l-11.285 11.567-5.286-5.011-3.714 3.716 9 8.728 15-15.285z"/></svg>
+            </div>
+            <div>Your file is ready</div>
+            <button class="cancel-download-btn" type="button">OK</button>
+        </div>
+    </div>
+</div>
+<script>
+    $(".cancel-download-btn").click(function(){
+        $("#zip-link-popup").addClass("hide");
+        $("#zip-link-popup .downloading-progress").removeClass("hide");
+        $("#zip-link-popup .download-complete").addClass("hide");
+    });
+</script></div>
+</div>
+<script>
+  $("#toggleContainerPdf li.active:last-child").parents('ul.subfolders').toggle('display');
+  $("#toggleButtonPdf").click(function () {
+    $("#toggleContainerPdf").toggle('display');
+    $(".n-pdf-body-container .zip-pdf-link-container").toggle('display');
+  });
+</script><div class="sidebar-nav-container" id="mysidebardiv">
+  <ul id="mysidebar" class="nav"><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Inicio"
+      data-li-level="1#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/es-es/snap-creator-framework/index.html">
+        Inicio
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Notas de la versión"
+      data-li-level="1#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/es-es/snap-creator-framework/releasenotes.html">
+        Notas de la versión
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Instalación"
+      data-li-level="1" 
+      class="subfolders "
+    ><a href="/es-es/snap-creator-framework/installation/index.html">
+        <div class="na-navbar-padding"> Instalación</div>
+      </a>
+      <ul style="display: none;">
+        <li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Lo que hace Snap Creator Framework"
+      data-li-level="2" 
+      class="subfolders "
+    ><a href="/es-es/snap-creator-framework/installation/concept_what_snap_creator_does.html">
+        <div class="na-navbar-padding"> Lo que hace Snap Creator Framework</div>
+      </a>
+      <ul style="display: none;">
+        <li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Arquitectura de Snap Creator"
+      data-li-level="3" 
+      class="subfolders "
+    ><a href="/es-es/snap-creator-framework/installation/concept_snap_creator_architecture.html">
+        <div class="na-navbar-padding"> Arquitectura de Snap Creator</div>
+      </a>
+      <ul style="display: none;">
+        <li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Servidor de Snap Creator"
+      data-li-level="4#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/es-es/snap-creator-framework/installation/concept_scf_component_server.html">
+        Servidor de Snap Creator
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Agente de Snap Creator"
+      data-li-level="4#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/es-es/snap-creator-framework/installation/concept_scf_component_agent.html">
+        Agente de Snap Creator
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Complementos para la integración de aplicaciones"
+      data-li-level="4#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/es-es/snap-creator-framework/installation/concept_plug_ins_for_application_integration.html">
+        Complementos para la integración de aplicaciones
+      </a></li></ul></li></ul></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Requisitos previos a la instalación de Snap Creator"
+      data-li-level="2" 
+      class="subfolders "
+    ><a href="/es-es/snap-creator-framework/installation/concept_preinstallation_requirements_for_snap_creator.html">
+        <div class="na-navbar-padding"> Requisitos previos a la instalación de Snap Creator</div>
+      </a>
+      <ul style="display: none;">
+        <li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Requisitos de instalación y configuración de Snap Creator"
+      data-li-level="3#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/es-es/snap-creator-framework/installation/concept_snap_creator_installation_and_configuration_requirements.html">
+        Requisitos de instalación y configuración de Snap Creator
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Descarga del software Snap Creator"
+      data-li-level="3#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/es-es/snap-creator-framework/installation/task_downloading_the_snap_creator_software.html">
+        Descarga del software Snap Creator
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Crear un usuario de Snap Creator para Data ONTAP"
+      data-li-level="3" 
+      class="subfolders "
+    ><a href="/es-es/snap-creator-framework/installation/concept_creating_a_snap_creator_user_for_data_ontap.html">
+        <div class="na-navbar-padding"> Crear un usuario de Snap Creator para Data ONTAP</div>
+      </a>
+      <ul style="display: none;">
+        <li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Creación de un usuario de Snap Creator para Data ONTAP funcionando en 7-Mode"
+      data-li-level="4#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/es-es/snap-creator-framework/installation/task_creating_a_snap_creator_user_for_data_ontap_operating_in_7_mode.html">
+        Creación de un usuario de Snap Creator para Data ONTAP funcionando en 7-Mode
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Creación de un usuario de Snap Creator para Clustered Data ONTAP"
+      data-li-level="4#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/es-es/snap-creator-framework/installation/task_creating_a_snap_creator_user_for_clustered_ontap.html">
+        Creación de un usuario de Snap Creator para Clustered Data ONTAP
+      </a></li></ul></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Instalación de Java en hosts de Snap Creator"
+      data-li-level="3#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/es-es/snap-creator-framework/installation/task_installing_java_on_snap_creator_hosts.html">
+        Instalación de Java en hosts de Snap Creator
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Sincronización del tiempo en los hosts de Snap Creator Server y Agent"
+      data-li-level="3#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/es-es/snap-creator-framework/installation/concept_set_up_the_hosts_to_be_in_sync_with_the_same_ntp_server.html">
+        Sincronización del tiempo en los hosts de Snap Creator Server y Agent
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Configuración de los ajustes del complemento Domino"
+      data-li-level="3" 
+      class="subfolders "
+    ><a href="/es-es/snap-creator-framework/installation/concept_configuring_settings_for_the_domino_plug_in.html">
+        <div class="na-navbar-padding"> Configuración de los ajustes del complemento Domino</div>
+      </a>
+      <ul style="display: none;">
+        <li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Configuración de los ajustes específicos de Windows: Adición de la ruta a las variables de entorno"
+      data-li-level="4#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/es-es/snap-creator-framework/installation/task_configure_windows_specific_settings_adding_path_to_the_environment_variables.html">
+        Configuración de los ajustes específicos de Windows: Adición de la ruta a las variables de entorno
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Configuración de la configuración específica de UNIX: Creación de enlaces simbólicos"
+      data-li-level="4" 
+      class="subfolders "
+    ><a href="/es-es/snap-creator-framework/installation/concept_configuring_unix_specific_settings_creating_symbolic_links.html">
+        <div class="na-navbar-padding"> Configuración de la configuración específica de UNIX: Creación de enlaces simbólicos</div>
+      </a>
+      <ul style="display: none;">
+        <li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Creación de enlaces simbólicos para el plugin Domino en hosts Linux y Solaris"
+      data-li-level="5#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/es-es/snap-creator-framework/installation/task_creating_symbolic_links_for_domino_plug_in_on_linux_and_solaris_hosts.html">
+        Creación de enlaces simbólicos para el plugin Domino en hosts Linux y Solaris
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Creación de enlaces simbólicos para el plugin de Domino en hosts AIX"
+      data-li-level="5#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/es-es/snap-creator-framework/installation/task_creating_symbolic_links_for_domino_plug_in_on_aix_hosts.html">
+        Creación de enlaces simbólicos para el plugin de Domino en hosts AIX
+      </a></li></ul></li></ul></li></ul></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Instalar el servidor de Snap Creator"
+      data-li-level="2" 
+      class="subfolders "
+    ><a href="/es-es/snap-creator-framework/installation/concept_installing_the_snap_creator_server.html">
+        <div class="na-navbar-padding"> Instalar el servidor de Snap Creator</div>
+      </a>
+      <ul style="display: none;">
+        <li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Instalar Snap Creator Server en un host de Windows"
+      data-li-level="3" 
+      class="subfolders "
+    ><a href="/es-es/snap-creator-framework/installation/task_installing_the_snap_creator_server_on_a_windows_host.html">
+        <div class="na-navbar-padding"> Instalar Snap Creator Server en un host de Windows</div>
+      </a>
+      <ul style="display: none;">
+        <li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Inicio del servidor desde el símbolo del sistema"
+      data-li-level="4#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/es-es/snap-creator-framework/installation/task_starting_the_server_from_a_command_prompt.html">
+        Inicio del servidor desde el símbolo del sistema
+      </a></li></ul></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Instalar Snap Creator Server en sistemas basados en UNIX"
+      data-li-level="3#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/es-es/snap-creator-framework/installation/task_installing_the_snap_creator_server_on_unix.html">
+        Instalar Snap Creator Server en sistemas basados en UNIX
+      </a></li></ul></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Instalación del agente de Snap Creator"
+      data-li-level="2" 
+      class="subfolders "
+    ><a href="/es-es/snap-creator-framework/installation/concept_install_snap_creator_agent.html">
+        <div class="na-navbar-padding"> Instalación del agente de Snap Creator</div>
+      </a>
+      <ul style="display: none;">
+        <li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Instalación del agente de Snap Creator en Windows"
+      data-li-level="3" 
+      class="subfolders "
+    ><a href="/es-es/snap-creator-framework/installation/task_installing_snap_creator_agent_on_windows.html">
+        <div class="na-navbar-padding"> Instalación del agente de Snap Creator en Windows</div>
+      </a>
+      <ul style="display: none;">
+        <li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Iniciar el agente desde un símbolo del sistema"
+      data-li-level="4#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/es-es/snap-creator-framework/installation/task_starting_the_agent_from_a_command_prompt.html">
+        Iniciar el agente desde un símbolo del sistema
+      </a></li></ul></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Instalación del agente de Snap Creator en sistemas basados en UNIX"
+      data-li-level="3#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/es-es/snap-creator-framework/installation/task_installing_the_snap_creator_agent_on_unix.html">
+        Instalación del agente de Snap Creator en sistemas basados en UNIX
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Cambiar el puerto del agente de Snap Creator tras la instalación"
+      data-li-level="3#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/es-es/snap-creator-framework/installation/task_changing_the_snap_creator_agent_port_after_installation.html">
+        Cambiar el puerto del agente de Snap Creator tras la instalación
+      </a></li></ul></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Actualizar Snap Creator"
+      data-li-level="2" 
+      class="subfolders "
+    ><a href="/es-es/snap-creator-framework/installation/concept_upgrading_snap_creator.html">
+        <div class="na-navbar-padding"> Actualizar Snap Creator</div>
+      </a>
+      <ul style="display: none;">
+        <li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Comprobando el tamaño del monitor de trabajo"
+      data-li-level="3#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/es-es/snap-creator-framework/installation/task_checking_job_monitor_size.html">
+        Comprobando el tamaño del monitor de trabajo
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Actualizar desde versiones anteriores a Snap Creator 3.6"
+      data-li-level="3#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/es-es/snap-creator-framework/installation/concept_upgrading_from_releases_earlier_than_snap_creator_3_6.html">
+        Actualizar desde versiones anteriores a Snap Creator 3.6
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Actualizar desde Snap Creator 3.6.x"
+      data-li-level="3" 
+      class="subfolders "
+    ><a href="/es-es/snap-creator-framework/installation/concept_upgrading_from_snap_creator_3_6_x.html">
+        <div class="na-navbar-padding"> Actualizar desde Snap Creator 3.6.x</div>
+      </a>
+      <ul style="display: none;">
+        <li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Actualizar Snap Creator Server 3.6.x en Windows"
+      data-li-level="4#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/es-es/snap-creator-framework/installation/task_upgrading_the_snap_creator_server_3_6_x_on_windows.html">
+        Actualizar Snap Creator Server 3.6.x en Windows
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Actualizar Snap Creator Server 3.6.x en sistemas basados en UNIX"
+      data-li-level="4#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/es-es/snap-creator-framework/installation/task_upgrading_the_snap_creator_server_3_6_x_on_unix.html">
+        Actualizar Snap Creator Server 3.6.x en sistemas basados en UNIX
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Actualizar Snap Creator Agent 3.6.x en Windows"
+      data-li-level="4#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/es-es/snap-creator-framework/installation/task_upgrading_the_snap_creator_agent_3_6_x_on_windows.html">
+        Actualizar Snap Creator Agent 3.6.x en Windows
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Actualización de Snap Creator Agent 3.6.x en UNIX"
+      data-li-level="4#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/es-es/snap-creator-framework/installation/task_upgrading_the_snap_creator_agent_3_6_x_on_unix.html">
+        Actualización de Snap Creator Agent 3.6.x en UNIX
+      </a></li></ul></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Actualizar desde Snap Creator 4.0.x"
+      data-li-level="3" 
+      class="subfolders "
+    ><a href="/es-es/snap-creator-framework/installation/concept_upgrading_from_snap_creator_4_0_x.html">
+        <div class="na-navbar-padding"> Actualizar desde Snap Creator 4.0.x</div>
+      </a>
+      <ul style="display: none;">
+        <li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Actualizar Snap Creator Server 4.0.x en Windows"
+      data-li-level="4#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/es-es/snap-creator-framework/installation/task_upgrading_the_snap_creator_server_4_0_x_on_windows.html">
+        Actualizar Snap Creator Server 4.0.x en Windows
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Actualizar Snap Creator Server 4.0.x en sistemas basados en UNIX"
+      data-li-level="4#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/es-es/snap-creator-framework/installation/task_upgrading_the_snap_creator_server_4_0_x_on_unix.html">
+        Actualizar Snap Creator Server 4.0.x en sistemas basados en UNIX
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Actualizar Snap Creator Agent 4.0.x en Windows"
+      data-li-level="4#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/es-es/snap-creator-framework/installation/task_upgrading_the_snap_creator_agent_4_0_x_on_windows.html">
+        Actualizar Snap Creator Agent 4.0.x en Windows
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Actualización de Snap Creator Agent 4.0.x en UNIX"
+      data-li-level="4#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/es-es/snap-creator-framework/installation/task_upgrading_the_snap_creator_agent_4_0_x_on_unix.html">
+        Actualización de Snap Creator Agent 4.0.x en UNIX
+      </a></li></ul></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Actualizar desde Snap Creator 4.1.x"
+      data-li-level="3" 
+      class="subfolders "
+    ><a href="/es-es/snap-creator-framework/installation/concept_upgrading_from_snap_creator_4_1.html">
+        <div class="na-navbar-padding"> Actualizar desde Snap Creator 4.1.x</div>
+      </a>
+      <ul style="display: none;">
+        <li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Actualizar Snap Creator Server 4.1.x en Windows"
+      data-li-level="4#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/es-es/snap-creator-framework/installation/task_upgrading_snap_creator_server_4_1_x_on_windows.html">
+        Actualizar Snap Creator Server 4.1.x en Windows
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Actualizar Snap Creator Server 4.1.x en sistemas basados en UNIX"
+      data-li-level="4#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/es-es/snap-creator-framework/installation/task_upgrading_snap_creator_server_4_1_x_on_unix_based_systems.html">
+        Actualizar Snap Creator Server 4.1.x en sistemas basados en UNIX
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Actualizar Snap Creator Agent 4.1.x en Windows"
+      data-li-level="4#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/es-es/snap-creator-framework/installation/task_upgrading_snap_creator_agent_4_1_x_on_windows.html">
+        Actualizar Snap Creator Agent 4.1.x en Windows
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Actualizar Snap Creator Agent 4.1.x en sistemas basados en UNIX"
+      data-li-level="4#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/es-es/snap-creator-framework/installation/task_upgrading_snap_creator_agent_4_1_x_on_unix.html">
+        Actualizar Snap Creator Agent 4.1.x en sistemas basados en UNIX
+      </a></li></ul></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Actualizar desde Snap Creator 4.3.x"
+      data-li-level="3#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/es-es/snap-creator-framework/installation/concept_upgrading_from_snap_creator_4_3_x.html">
+        Actualizar desde Snap Creator 4.3.x
+      </a></li></ul></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Desinstalando Snap Creator"
+      data-li-level="2" 
+      class="subfolders "
+    ><a href="/es-es/snap-creator-framework/installation/concept_uninstalling_snap_creator.html">
+        <div class="na-navbar-padding"> Desinstalando Snap Creator</div>
+      </a>
+      <ul style="display: none;">
+        <li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Desinstalar Snap Creator en Windows"
+      data-li-level="3#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/es-es/snap-creator-framework/installation/task_uninstalling_snap_creator_on_windows.html">
+        Desinstalar Snap Creator en Windows
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Desinstalar Snap Creator en UNIX"
+      data-li-level="3" 
+      class="subfolders "
+    ><a href="/es-es/snap-creator-framework/installation/concept_uninstalling_snap_creator_on_unix.html">
+        <div class="na-navbar-padding"> Desinstalar Snap Creator en UNIX</div>
+      </a>
+      <ul style="display: none;">
+        <li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Desinstalación de Snap Creator Agent en UNIX"
+      data-li-level="4#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/es-es/snap-creator-framework/installation/task_uninstalling_snap_creator_agent_from_unix.html">
+        Desinstalación de Snap Creator Agent en UNIX
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Desinstalar Snap Creator Server en UNIX"
+      data-li-level="4#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/es-es/snap-creator-framework/installation/task_uninstalling_snap_creator_server_on_unix.html">
+        Desinstalar Snap Creator Server en UNIX
+      </a></li></ul></li></ul></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Referencia de CLI"
+      data-li-level="2" 
+      class="subfolders "
+    ><a href="/es-es/snap-creator-framework/installation/concept_cli_reference.html">
+        <div class="na-navbar-padding"> Referencia de CLI</div>
+      </a>
+      <ul style="display: none;">
+        <li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Comandos de la CLI para crear un rol para un usuario de Snap Creator en Clustered Data ONTAP"
+      data-li-level="3" 
+      class="subfolders "
+    ><a href="/es-es/snap-creator-framework/installation/reference_cli_commands_for_creating_a_role_for_a_snap_creator_user_in_clustered_data_ontap.html">
+        <div class="na-navbar-padding"> Comandos de la CLI para crear un rol para un usuario de Snap Creator en Clustered Data ONTAP</div>
+      </a>
+      <ul style="display: none;">
+        <li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Comandos de la CLI para crear roles de clúster"
+      data-li-level="4#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/es-es/snap-creator-framework/installation/reference_cli_command_for_creating_cluster_roles.html">
+        Comandos de la CLI para crear roles de clúster
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Comandos de la CLI para crear roles de SVM"
+      data-li-level="4#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/es-es/snap-creator-framework/installation/reference_cli_commands_for_creating_svm_roles.html">
+        Comandos de la CLI para crear roles de SVM
+      </a></li></ul></li></ul></li></ul></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Operaciones del complemento IBM® Domino®"
+      data-li-level="1" 
+      class="subfolders "
+    ><a href="/es-es/snap-creator-framework/domino-ops/index.html">
+        <div class="na-navbar-padding"> Operaciones del complemento IBM® Domino®</div>
+      </a>
+      <ul style="display: none;">
+        <li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Información general sobre el complemento IBM Domino"
+      data-li-level="2" 
+      class="subfolders "
+    ><a href="/es-es/snap-creator-framework/domino-ops/concept_ibm_domino_plug_in_overview.html">
+        <div class="na-navbar-padding"> Información general sobre el complemento IBM Domino</div>
+      </a>
+      <ul style="display: none;">
+        <li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Comprender las operaciones de backup del plugin de IBM Domino"
+      data-li-level="3#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/es-es/snap-creator-framework/domino-ops/concept_backup_operations_using_domino_plug_in.html">
+        Comprender las operaciones de backup del plugin de IBM Domino
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Comprender las operaciones de restauración del plugin de IBM Domino"
+      data-li-level="3#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/es-es/snap-creator-framework/domino-ops/concept_restore_operations_using_domino_plug_in.html">
+        Comprender las operaciones de restauración del plugin de IBM Domino
+      </a></li></ul></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Flujo de trabajo de backup y recuperación de IBM Domino"
+      data-li-level="2#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/es-es/snap-creator-framework/domino-ops/concept_ibm_domino_backup_and_recovery_workflow.html">
+        Flujo de trabajo de backup y recuperación de IBM Domino
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Preparación para copia de seguridad y restauración de IBM Domino"
+      data-li-level="2" 
+      class="subfolders "
+    ><a href="/es-es/snap-creator-framework/domino-ops/concept_preparing_for_ibm_domino_backup_and_restore_operations.html">
+        <div class="na-navbar-padding"> Preparación para copia de seguridad y restauración de IBM Domino</div>
+      </a>
+      <ul style="display: none;">
+        <li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Requisitos de distribución de almacenamiento"
+      data-li-level="3#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/es-es/snap-creator-framework/domino-ops/reference_storage_layout_requirements.html">
+        Requisitos de distribución de almacenamiento
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Configuración de SnapMirror y SnapVault"
+      data-li-level="3" 
+      class="subfolders "
+    ><a href="/es-es/snap-creator-framework/domino-ops/concept_snapmirror_and_snapvault_setup.html">
+        <div class="na-navbar-padding"> Configuración de SnapMirror y SnapVault</div>
+      </a>
+      <ul style="display: none;">
+        <li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Preparar los sistemas de almacenamiento para la replicación de SnapMirror"
+      data-li-level="4#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/es-es/snap-creator-framework/domino-ops/task_preparing_storage_systems_for_snapmirror_replication.html">
+        Preparar los sistemas de almacenamiento para la replicación de SnapMirror
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Preparar sistemas de almacenamiento para la replicación de SnapVault"
+      data-li-level="4#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/es-es/snap-creator-framework/domino-ops/task_preparing_storage_systems_for_snapvault_replication.html">
+        Preparar sistemas de almacenamiento para la replicación de SnapVault
+      </a></li></ul></li></ul></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Crear una configuración de backup y restauración"
+      data-li-level="2" 
+      class="subfolders "
+    ><a href="/es-es/snap-creator-framework/domino-ops/concept_creating_a_configuration_for_domino_using_the_gui.html">
+        <div class="na-navbar-padding"> Crear una configuración de backup y restauración</div>
+      </a>
+      <ul style="display: none;">
+        <li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Inicio de sesión en la interfaz gráfica de usuario de Snap Creator"
+      data-li-level="3#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/es-es/snap-creator-framework/domino-ops/concept_general_configuration_file_information.html">
+        Inicio de sesión en la interfaz gráfica de usuario de Snap Creator
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Crear un archivo de configuración"
+      data-li-level="3#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/es-es/snap-creator-framework/domino-ops/task_using_the_gui_to_create_a_configuration_file.html">
+        Crear un archivo de configuración
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Adición de comandos a la configuración de backup y restauración"
+      data-li-level="3" 
+      class="subfolders "
+    ><a href="/es-es/snap-creator-framework/domino-ops/concept_adding_commands_to_the_backup_and_restore_configuration.html">
+        <div class="na-navbar-padding"> Adición de comandos a la configuración de backup y restauración</div>
+      </a>
+      <ul style="display: none;">
+        <li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Permitir comandos complementarios en el agente de Snap Creator"
+      data-li-level="4#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/es-es/snap-creator-framework/domino-ops/concept_allowing_additional_commands_through_the_snap_creator_agent.html">
+        Permitir comandos complementarios en el agente de Snap Creator
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Agregar comandos complementarios a la configuración"
+      data-li-level="4#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/es-es/snap-creator-framework/domino-ops/task_configuring_snap_creator_to_use_snapdrive_by_using_the_gui.html">
+        Agregar comandos complementarios a la configuración
+      </a></li></ul></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Limpieza de copias archivadas de registros de transacciones de Domino"
+      data-li-level="3#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/es-es/snap-creator-framework/domino-ops/task_setting_the_snap_creator_archive_log_management_settings.html">
+        Limpieza de copias archivadas de registros de transacciones de Domino
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Hacer una copia de seguridad del directorio chcambiinfo"
+      data-li-level="3#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/es-es/snap-creator-framework/domino-ops/concept_use_meta_data_volumes_setting_to_back_up_the_changeinfo_directory.html">
+        Hacer una copia de seguridad del directorio chcambiinfo
+      </a></li></ul></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Realizar backups de bases de datos"
+      data-li-level="2" 
+      class="subfolders "
+    ><a href="/es-es/snap-creator-framework/domino-ops/concept_create_a_domino_backup_using_snap_creator.html">
+        <div class="na-navbar-padding"> Realizar backups de bases de datos</div>
+      </a>
+      <ul style="display: none;">
+        <li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Realizar backups de bases de datos bajo demanda"
+      data-li-level="3#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/es-es/snap-creator-framework/domino-ops/task_creating_a_domino_backup_using_the_snap_creator_gui.html">
+        Realizar backups de bases de datos bajo demanda
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Programación de backups"
+      data-li-level="3#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/es-es/snap-creator-framework/domino-ops/task_scheduling_actions_using_the_snap_creator_gui.html">
+        Programación de backups
+      </a></li></ul></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Restaurar bases de datos"
+      data-li-level="2" 
+      class="subfolders "
+    ><a href="/es-es/snap-creator-framework/domino-ops/concept_domino_database_restore_overview.html">
+        <div class="na-navbar-padding"> Restaurar bases de datos</div>
+      </a>
+      <ul style="display: none;">
+        <li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Restauración de un volumen"
+      data-li-level="3#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/es-es/snap-creator-framework/domino-ops/task_performing_point_in_time_volume_restore.html">
+        Restauración de un volumen
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Restauración de archivos individuales"
+      data-li-level="3#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/es-es/snap-creator-framework/domino-ops/task_performing_point_in_time_single_file_restore_with_nfs.html">
+        Restauración de archivos individuales
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Restaurar archivos individuales en un entorno SAN"
+      data-li-level="3" 
+      class="subfolders "
+    ><a href="/es-es/snap-creator-framework/domino-ops/concept_single_file_restore_in_fc_iscsi_environments.html">
+        <div class="na-navbar-padding"> Restaurar archivos individuales en un entorno SAN</div>
+      </a>
+      <ul style="display: none;">
+        <li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Uso de SnapDrive para montar una copia Snapshot"
+      data-li-level="4#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/es-es/snap-creator-framework/domino-ops/task_using_snapdrive_for_windows_to_mount_snapshot_copy.html">
+        Uso de SnapDrive para montar una copia Snapshot
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Copia del archivo en el directorio de restauración de datos"
+      data-li-level="4#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/es-es/snap-creator-framework/domino-ops/task_copying_files_to_restore_location.html">
+        Copia del archivo en el directorio de restauración de datos
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Usar una acción personalizada de Snap Creator para completar el procesamiento de la restauración"
+      data-li-level="4#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/es-es/snap-creator-framework/domino-ops/task_running_snap_creator_by_using_the_custom_action.html">
+        Usar una acción personalizada de Snap Creator para completar el procesamiento de la restauración
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Desconectando la copia snapshot"
+      data-li-level="4#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/es-es/snap-creator-framework/domino-ops/task_disconnecting_snapshot_copy.html">
+        Desconectando la copia snapshot
+      </a></li></ul></li></ul></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Ver el estado de los trabajos y los registros"
+      data-li-level="2" 
+      class="subfolders "
+    ><a href="/es-es/snap-creator-framework/domino-ops/concept_accessing_snap_creator_log_files.html">
+        <div class="na-navbar-padding"> Ver el estado de los trabajos y los registros</div>
+      </a>
+      <ul style="display: none;">
+        <li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Ver el estado de los trabajos y los registros en Job Monitor"
+      data-li-level="3#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/es-es/snap-creator-framework/domino-ops/task_using_the_snap_creator_job_monitor_to_review_logs.html">
+        Ver el estado de los trabajos y los registros en Job Monitor
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Ver registros en el panel Reports"
+      data-li-level="3#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/es-es/snap-creator-framework/domino-ops/task_using_the_snap_creator_reports_option_to_view_logs.html">
+        Ver registros en el panel Reports
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Uso de scdump para recopilar registros en un formato comprimido"
+      data-li-level="3#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/es-es/snap-creator-framework/domino-ops/task_creating_an_scdump_using_the_snap_creator_gui.html">
+        Uso de scdump para recopilar registros en un formato comprimido
+      </a></li></ul></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Solución de problemas de errores específicos del plug-in Domino"
+      data-li-level="2#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/es-es/snap-creator-framework/domino-ops/reference_domino_plug_in_specific_errors.html">
+        Solución de problemas de errores específicos del plug-in Domino
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="A continuación, ¿dónde ir"
+      data-li-level="2#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/es-es/snap-creator-framework/domino-ops/reference_references.html">
+        A continuación, ¿dónde ir
+      </a></li></ul></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Operaciones del complemento SAP HANA®"
+      data-li-level="1" 
+      class="subfolders "
+    ><a href="/es-es/snap-creator-framework/sap-hana-ops/index.html">
+        <div class="na-navbar-padding"> Operaciones del complemento SAP HANA®</div>
+      </a>
+      <ul style="display: none;">
+        <li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Información general de la solución de backup y restauración de SAP HANA"
+      data-li-level="2" 
+      class="subfolders "
+    ><a href="/es-es/snap-creator-framework/sap-hana-ops/concept_sap_hana_backup_and_restore_solution_overview.html">
+        <div class="na-navbar-padding"> Información general de la solución de backup y restauración de SAP HANA</div>
+      </a>
+      <ul style="display: none;">
+        <li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Consideraciones para realizar un backup de sistemas SAP HANA"
+      data-li-level="3#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/es-es/snap-creator-framework/sap-hana-ops/concept_considerations_for_backing_up_sap_hana_systems.html">
+        Consideraciones para realizar un backup de sistemas SAP HANA
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="La solución de NetApp"
+      data-li-level="3#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/es-es/snap-creator-framework/sap-hana-ops/concept_the_netapp_solution.html">
+        La solución de NetApp
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Componentes de la solución de backup"
+      data-li-level="3#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/es-es/snap-creator-framework/sap-hana-ops/concept_backup_solution_components.html">
+        Componentes de la solución de backup
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Información general sobre el plugin de SAP HANA"
+      data-li-level="3#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/es-es/snap-creator-framework/sap-hana-ops/concept_sap_hana_plug_in_overview.html">
+        Información general sobre el plugin de SAP HANA
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Requisitos"
+      data-li-level="3#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/es-es/snap-creator-framework/sap-hana-ops/concept_requirements.html">
+        Requisitos
+      </a></li></ul></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Instalar y configurar los componentes de software necesarios"
+      data-li-level="2" 
+      class="subfolders "
+    ><a href="/es-es/snap-creator-framework/sap-hana-ops/task_installing_and_configuring_required_software_components.html">
+        <div class="na-navbar-padding"> Instalar y configurar los componentes de software necesarios</div>
+      </a>
+      <ul style="display: none;">
+        <li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Supuestos de configuración en esta guía"
+      data-li-level="3#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/es-es/snap-creator-framework/sap-hana-ops/concept_setup_assumptions_in_this_guide.html">
+        Supuestos de configuración en esta guía
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Configuración utilizada con Clustered Data ONTAP"
+      data-li-level="3#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/es-es/snap-creator-framework/sap-hana-ops/concept_setup_used_with_clustered_data_ontap.html">
+        Configuración utilizada con Clustered Data ONTAP
+      </a></li></ul></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Configuración de backups de datos"
+      data-li-level="2" 
+      class="subfolders "
+    ><a href="/es-es/snap-creator-framework/sap-hana-ops/concept_configuring_data_backups.html">
+        <div class="na-navbar-padding"> Configuración de backups de datos</div>
+      </a>
+      <ul style="display: none;">
+        <li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Configuración del usuario de copia de seguridad y hdbuserstore"
+      data-li-level="3#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/es-es/snap-creator-framework/sap-hana-ops/task_configuring_the_backup_user_and_hdbuserstore.html">
+        Configuración del usuario de copia de seguridad y hdbuserstore
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Configurar las relaciones de SnapVault"
+      data-li-level="3#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/es-es/snap-creator-framework/sap-hana-ops/task_configuring_snapvault_relationships.html">
+        Configurar las relaciones de SnapVault
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Iniciar las relaciones de SnapVault"
+      data-li-level="3" 
+      class="subfolders "
+    ><a href="/es-es/snap-creator-framework/sap-hana-ops/concept_starting_the_snapvault_relationships.html">
+        <div class="na-navbar-padding"> Iniciar las relaciones de SnapVault</div>
+      </a>
+      <ul style="display: none;">
+        <li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Iniciar las relaciones de SnapVault con Data ONTAP funcionando en 7-Mode"
+      data-li-level="4#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/es-es/snap-creator-framework/sap-hana-ops/task_starting_the_snapvault_relationships_with_data_ontap_operating_in_7_mode.html">
+        Iniciar las relaciones de SnapVault con Data ONTAP funcionando en 7-Mode
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Inicio de las relaciones de SnapVault con Clustered Data ONTAP"
+      data-li-level="4#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/es-es/snap-creator-framework/sap-hana-ops/task_starting_the_snapvault_relationships_with_clustered_data_ontap.html">
+        Inicio de las relaciones de SnapVault con Clustered Data ONTAP
+      </a></li></ul></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Configurar el backup de la base de datos SAP HANA y Snap Creator Framework"
+      data-li-level="3#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/es-es/snap-creator-framework/sap-hana-ops/task_configuring_the_snap_creator_framework_and_sap_hana_database_backup.html">
+        Configurar el backup de la base de datos SAP HANA y Snap Creator Framework
+      </a></li></ul></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Configurar SAP HANA para entornos SAN"
+      data-li-level="2#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/es-es/snap-creator-framework/sap-hana-ops/task_configuring_sap_hana_for_san_environments.html">
+        Configurar SAP HANA para entornos SAN
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Configuración de backups de registros"
+      data-li-level="2" 
+      class="subfolders "
+    ><a href="/es-es/snap-creator-framework/sap-hana-ops/task_configuring_log_backups.html">
+        <div class="na-navbar-padding"> Configuración de backups de registros</div>
+      </a>
+      <ul style="display: none;">
+        <li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Mantenimiento de backups de registros"
+      data-li-level="3#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/es-es/snap-creator-framework/sap-hana-ops/concept_housekeeping_of_log_backups.html">
+        Mantenimiento de backups de registros
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Modificar el mantenimiento de backups de registros"
+      data-li-level="3#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/es-es/snap-creator-framework/sap-hana-ops/task_modifying_the_housekeeping_of_log_backups.html">
+        Modificar el mantenimiento de backups de registros
+      </a></li></ul></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Ejecución de backups de base de datos"
+      data-li-level="2" 
+      class="subfolders "
+    ><a href="/es-es/snap-creator-framework/sap-hana-ops/concept_executing_database_backups.html">
+        <div class="na-navbar-padding"> Ejecución de backups de base de datos</div>
+      </a>
+      <ul style="display: none;">
+        <li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Información general sobre backups de bases de datos"
+      data-li-level="3#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/es-es/snap-creator-framework/sap-hana-ops/task_overview_of_database_backups.html">
+        Información general sobre backups de bases de datos
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Realizar backups de la base de datos con la interfaz gráfica de usuario de Snap Creator"
+      data-li-level="3#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/es-es/snap-creator-framework/sap-hana-ops/task_backing_up_the_database_with_the_snap_creator_gui.html">
+        Realizar backups de la base de datos con la interfaz gráfica de usuario de Snap Creator
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Realizar backups de la base de datos con la línea de comandos de Snap Creator"
+      data-li-level="3#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/es-es/snap-creator-framework/sap-hana-ops/task_backing_up_the_database_with_snap_creator_command_line.html">
+        Realizar backups de la base de datos con la línea de comandos de Snap Creator
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Revisión de backups disponibles en SAP HANA Studio"
+      data-li-level="3#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/es-es/snap-creator-framework/sap-hana-ops/concept_reviewing_available_backups_in_sap_hana_studio.html">
+        Revisión de backups disponibles en SAP HANA Studio
+      </a></li></ul></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Comprobaciones de backup e integridad de bases de datos basadas en archivos de SAP HANA"
+      data-li-level="2" 
+      class="subfolders "
+    ><a href="/es-es/snap-creator-framework/sap-hana-ops/concept_sap_hana_file_based_backup_and_database_integrity_checks.html">
+        <div class="na-navbar-padding"> Comprobaciones de backup e integridad de bases de datos basadas en archivos de SAP HANA</div>
+      </a>
+      <ul style="display: none;">
+        <li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Modificación de la configuración de copia de seguridad basada en archivos"
+      data-li-level="3#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/es-es/snap-creator-framework/sap-hana-ops/task_modifying_configuration_for_file_based_backup.html">
+        Modificación de la configuración de copia de seguridad basada en archivos
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Modificación de la configuración de comprobaciones de integridad de base de datos"
+      data-li-level="3#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/es-es/snap-creator-framework/sap-hana-ops/task_modifying_configuration_for_database_integrity_checks.html">
+        Modificación de la configuración de comprobaciones de integridad de base de datos
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Programación de backups basados en archivos"
+      data-li-level="3#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/es-es/snap-creator-framework/sap-hana-ops/task_scheduling_file_based_backup.html">
+        Programación de backups basados en archivos
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Programar comprobaciones de integridad de la base de datos"
+      data-li-level="3#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/es-es/snap-creator-framework/sap-hana-ops/task_scheduling_database_integrity_checks.html">
+        Programar comprobaciones de integridad de la base de datos
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Realizar backups basados en archivos desde la interfaz gráfica de usuario de Snap Creator"
+      data-li-level="3#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/es-es/snap-creator-framework/sap-hana-ops/task_performing_file_based_backup_from_the_snap_creator_gui.html">
+        Realizar backups basados en archivos desde la interfaz gráfica de usuario de Snap Creator
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Realización de backups basados en archivos desde la línea de comandos de Snap Creator"
+      data-li-level="3#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/es-es/snap-creator-framework/sap-hana-ops/task_performing_file_based_backup_from_snap_creator_command_line.html">
+        Realización de backups basados en archivos desde la línea de comandos de Snap Creator
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Realizar comprobaciones de integridad de la base de datos desde la interfaz gráfica de usuario de Snap Creator"
+      data-li-level="3#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/es-es/snap-creator-framework/sap-hana-ops/task_performing_database_integrity_checks_with_snap_creator_gui.html">
+        Realizar comprobaciones de integridad de la base de datos desde la interfaz gráfica de usuario de Snap Creator
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Realizar comprobaciones de integridad de la base de datos desde la línea de comandos de Snap Creator"
+      data-li-level="3#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/es-es/snap-creator-framework/sap-hana-ops/task_performing_database_integrity_checks_from_snap_creator_command_line.html">
+        Realizar comprobaciones de integridad de la base de datos desde la línea de comandos de Snap Creator
+      </a></li></ul></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Restaurar y recuperar bases de datos SAP HANA"
+      data-li-level="2" 
+      class="subfolders "
+    ><a href="/es-es/snap-creator-framework/sap-hana-ops/task_restoring_and_recovering_sap_hana_databases.html">
+        <div class="na-navbar-padding"> Restaurar y recuperar bases de datos SAP HANA</div>
+      </a>
+      <ul style="display: none;">
+        <li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Restaurar y recuperar bases de datos a partir del almacenamiento primario"
+      data-li-level="3#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/es-es/snap-creator-framework/sap-hana-ops/task_restoring_and_recovering_databases_from_primary_storage.html">
+        Restaurar y recuperar bases de datos a partir del almacenamiento primario
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Restaurar y recuperar bases de datos a partir de almacenamiento secundario"
+      data-li-level="3#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/es-es/snap-creator-framework/sap-hana-ops/task_restoring_and_recovering_database_from_secondary_storage.html">
+        Restaurar y recuperar bases de datos a partir de almacenamiento secundario
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Reanudar una relación de SnapVault después de una restauración"
+      data-li-level="3" 
+      class="subfolders "
+    ><a href="/es-es/snap-creator-framework/sap-hana-ops/concept_resuming_a_snapvault_relationship_after_a_restore.html">
+        <div class="na-navbar-padding"> Reanudar una relación de SnapVault después de una restauración</div>
+      </a>
+      <ul style="display: none;">
+        <li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Reanudación de una relación de SnapVault con Data ONTAP en 7-Mode"
+      data-li-level="4#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/es-es/snap-creator-framework/sap-hana-ops/task_resuming_a_snapvault_relationship_with_data_ontap_operating_in_7_mode.html">
+        Reanudación de una relación de SnapVault con Data ONTAP en 7-Mode
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Reanudar una relación de SnapVault con Clustered Data ONTAP"
+      data-li-level="4#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/es-es/snap-creator-framework/sap-hana-ops/task_resuming_a_snapvault_relationship_with_clustered_data_ontap.html">
+        Reanudar una relación de SnapVault con Clustered Data ONTAP
+      </a></li></ul></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Restauración de bases de datos después de un fallo en el almacenamiento primario"
+      data-li-level="3" 
+      class="subfolders "
+    ><a href="/es-es/snap-creator-framework/sap-hana-ops/concept_restoring_databases_after_primary_storage_failure.html">
+        <div class="na-navbar-padding"> Restauración de bases de datos después de un fallo en el almacenamiento primario</div>
+      </a>
+      <ul style="display: none;">
+        <li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Restauración de bases de datos después de un fallo de almacenamiento primario con Data ONTAP en 7-Mode"
+      data-li-level="4#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/es-es/snap-creator-framework/sap-hana-ops/task_restoring_databases_after_a_primary_storage_failure_with_data_ontap_operating_in_7_mode.html">
+        Restauración de bases de datos después de un fallo de almacenamiento primario con Data ONTAP en 7-Mode
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Restauración de bases de datos después de un fallo de almacenamiento principal con Clustered Data ONTAP"
+      data-li-level="4#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/es-es/snap-creator-framework/sap-hana-ops/task_restoring_databases_after_a_primary_storage_failure_with_clustered_data_ontap.html">
+        Restauración de bases de datos después de un fallo de almacenamiento principal con Clustered Data ONTAP
+      </a></li></ul></li></ul></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Parámetros del plugin de SAP HANA"
+      data-li-level="2#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/es-es/snap-creator-framework/sap-hana-ops/reference_sap_hana_plug_in_parameters.html">
+        Parámetros del plugin de SAP HANA
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Resolución de problemas"
+      data-li-level="2#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/es-es/snap-creator-framework/sap-hana-ops/reference_troubleshooting.html">
+        Resolución de problemas
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="A continuación, ¿dónde ir"
+      data-li-level="2#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/es-es/snap-creator-framework/sap-hana-ops/reference_where_to_go_next_sap_hana.html">
+        A continuación, ¿dónde ir
+      </a></li></ul></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Administración"
+      data-li-level="1" 
+      class="subfolders "
+    ><a href="/es-es/snap-creator-framework/administration/index.html">
+        <div class="na-navbar-padding"> Administración</div>
+      </a>
+      <ul style="display: none;">
+        <li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Lo que hace Snap Creator Framework"
+      data-li-level="2" 
+      class="subfolders "
+    ><a href="/es-es/snap-creator-framework/administration/concept_what_snap_creator_does.html">
+        <div class="na-navbar-padding"> Lo que hace Snap Creator Framework</div>
+      </a>
+      <ul style="display: none;">
+        <li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Ventajas de utilizar Snap Creator"
+      data-li-level="3#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/es-es/snap-creator-framework/administration/concept_benefits_of_using_snap_creator.html">
+        Ventajas de utilizar Snap Creator
+      </a></li></ul></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Arquitectura de Snap Creator"
+      data-li-level="2" 
+      class="subfolders "
+    ><a href="/es-es/snap-creator-framework/administration/concept_snap_creator_architecture.html">
+        <div class="na-navbar-padding"> Arquitectura de Snap Creator</div>
+      </a>
+      <ul style="display: none;">
+        <li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Descripción general de Snap Creator Server"
+      data-li-level="3#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/es-es/snap-creator-framework/administration/concept_what_snap_creator_server_overview.html">
+        Descripción general de Snap Creator Server
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Descripción general del agente de Snap Creator"
+      data-li-level="3#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/es-es/snap-creator-framework/administration/concept_what_snap_creator_agent_is.html">
+        Descripción general del agente de Snap Creator
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Complementos para la integración de aplicaciones"
+      data-li-level="3#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/es-es/snap-creator-framework/administration/concept_scf_component_plug_ins_ag.html">
+        Complementos para la integración de aplicaciones
+      </a></li></ul></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Gestión de Snap Creator Server"
+      data-li-level="2" 
+      class="subfolders "
+    ><a href="/es-es/snap-creator-framework/administration/concept_managing_snap_creator_server.html">
+        <div class="na-navbar-padding"> Gestión de Snap Creator Server</div>
+      </a>
+      <ul style="display: none;">
+        <li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Inicio, verificación y detención de Snap Creator Server en Windows"
+      data-li-level="3#" 
+      class="  active "
+    ><a class="na-navbar-padding" href="/es-es/snap-creator-framework/administration/task_starting_verifying_and_stopping_the_snap_creator_server_on_windows.html">
+        Inicio, verificación y detención de Snap Creator Server en Windows
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Iniciar, verificar y detener Snap Creator Server en UNIX"
+      data-li-level="3#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/es-es/snap-creator-framework/administration/task_starting_verifying_and_stopping_the_snap_creator_server_on_unix.html">
+        Iniciar, verificar y detener Snap Creator Server en UNIX
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Cambiar el puerto de Snap Creator Server tras la instalación"
+      data-li-level="3#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/es-es/snap-creator-framework/administration/task_changing_the_snap_creator_server_port.html">
+        Cambiar el puerto de Snap Creator Server tras la instalación
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Configurar las credenciales del servidor de Snap Creator"
+      data-li-level="3#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/es-es/snap-creator-framework/administration/task_setting_snap_creator_server_credentials.html">
+        Configurar las credenciales del servidor de Snap Creator
+      </a></li></ul></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Administrar el agente de Snap Creator"
+      data-li-level="2" 
+      class="subfolders "
+    ><a href="/es-es/snap-creator-framework/administration/concept_managing_snap_creator_agent.html">
+        <div class="na-navbar-padding"> Administrar el agente de Snap Creator</div>
+      </a>
+      <ul style="display: none;">
+        <li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Inicio, verificación y detención del agente de Snap Creator en Windows"
+      data-li-level="3#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/es-es/snap-creator-framework/administration/task_starting_verifying_and_stopping_the_snap_creator_agent_on_windows.html">
+        Inicio, verificación y detención del agente de Snap Creator en Windows
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Inicio, verificación y detención de Snap Creator Agent en UNIX"
+      data-li-level="3#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/es-es/snap-creator-framework/administration/task_starting_verifying_and_stopping_the_snap_creator_agent_on_unix.html">
+        Inicio, verificación y detención de Snap Creator Agent en UNIX
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Cambiar el puerto del agente de Snap Creator tras la instalación"
+      data-li-level="3#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/es-es/snap-creator-framework/administration/task_changing_the_snap_creator_agent_port_after_installation.html">
+        Cambiar el puerto del agente de Snap Creator tras la instalación
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Seguridad del agente de Snap Creator"
+      data-li-level="3" 
+      class="subfolders "
+    ><a href="/es-es/snap-creator-framework/administration/concept_snap_creator_agent_security.html">
+        <div class="na-navbar-padding"> Seguridad del agente de Snap Creator</div>
+      </a>
+      <ul style="display: none;">
+        <li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Administración de la seguridad del agente de Snap Creator"
+      data-li-level="4#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/es-es/snap-creator-framework/administration/task_managing_snap_creator_agent_security.html">
+        Administración de la seguridad del agente de Snap Creator
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Personalización del almacén de claves predeterminado"
+      data-li-level="4#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/es-es/snap-creator-framework/administration/task_customizing_the_default_keystore.html">
+        Personalización del almacén de claves predeterminado
+      </a></li></ul></li></ul></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Flujo de trabajo de backup y recuperación"
+      data-li-level="2" 
+      class="subfolders "
+    ><a href="/es-es/snap-creator-framework/administration/concept_backup_and_recovery_workflow_with_plug_ins.html">
+        <div class="na-navbar-padding"> Flujo de trabajo de backup y recuperación</div>
+      </a>
+      <ul style="display: none;">
+        <li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Creación de perfiles"
+      data-li-level="3#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/es-es/snap-creator-framework/administration/task_creating_profiles.html">
+        Creación de perfiles
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Crear archivos de configuración global"
+      data-li-level="3#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/es-es/snap-creator-framework/administration/task_creating_global_configuration_files.html">
+        Crear archivos de configuración global
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Creando archivos de configuración"
+      data-li-level="3#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/es-es/snap-creator-framework/administration/task_creating_configuration_files_using_sc_gui.html">
+        Creando archivos de configuración
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Crear backups"
+      data-li-level="3#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/es-es/snap-creator-framework/administration/task_creating_backups_using_the_snap_creator_gui.html">
+        Crear backups
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Supervisar trabajos de"
+      data-li-level="3#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/es-es/snap-creator-framework/administration/task_monitoring_jobs_using_the_gui.html">
+        Supervisar trabajos de
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Supervisión de registros"
+      data-li-level="3#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/es-es/snap-creator-framework/administration/task_monitoring_logs_by_using_the_snap_creator_gui.html">
+        Supervisión de registros
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Creación de trabajos programados"
+      data-li-level="3#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/es-es/snap-creator-framework/administration/task_creating_scheduled_jobs_using_sc_gui.html">
+        Creación de trabajos programados
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Creación de políticas de retención"
+      data-li-level="3" 
+      class="subfolders "
+    ><a href="/es-es/snap-creator-framework/administration/concept_creating_retention_policies.html">
+        <div class="na-navbar-padding"> Creación de políticas de retención</div>
+      </a>
+      <ul style="display: none;">
+        <li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Directrices para definir políticas de Snap Creator"
+      data-li-level="4#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/es-es/snap-creator-framework/administration/concept_guidelines_to_define_snap_creator_policies.html">
+        Directrices para definir políticas de Snap Creator
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Creando tipos de backup"
+      data-li-level="4#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/es-es/snap-creator-framework/administration/task_creating_backup_types.html">
+        Creando tipos de backup
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Creación de programaciones de políticas"
+      data-li-level="4#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/es-es/snap-creator-framework/administration/task_creating_policy_schedules.html">
+        Creación de programaciones de políticas
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Crear políticas"
+      data-li-level="4#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/es-es/snap-creator-framework/administration/task_creating_policies.html">
+        Crear políticas
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Asignación de políticas"
+      data-li-level="4#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/es-es/snap-creator-framework/administration/task_assigning_policies.html">
+        Asignación de políticas
+      </a></li></ul></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Crear clones"
+      data-li-level="3" 
+      class="subfolders "
+    ><a href="/es-es/snap-creator-framework/administration/concept_creating_clones.html">
+        <div class="na-navbar-padding"> Crear clones</div>
+      </a>
+      <ul style="display: none;">
+        <li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Crear clones a partir de un backup nuevo"
+      data-li-level="4#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/es-es/snap-creator-framework/administration/task_creating_clones_from_a_new_backup.html">
+        Crear clones a partir de un backup nuevo
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Crear clones a partir de un backup existente"
+      data-li-level="4#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/es-es/snap-creator-framework/administration/task_creating_clones_using_a_mounted_backup.html">
+        Crear clones a partir de un backup existente
+      </a></li></ul></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Realizando operaciones de restauración"
+      data-li-level="3" 
+      class="subfolders "
+    ><a href="/es-es/snap-creator-framework/administration/concept_performing_restore_operations.html">
+        <div class="na-navbar-padding"> Realizando operaciones de restauración</div>
+      </a>
+      <ul style="display: none;">
+        <li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Restauración de volúmenes"
+      data-li-level="4#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/es-es/snap-creator-framework/administration/task_performing_volume_restore_using_the_gui.html">
+        Restauración de volúmenes
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Ejecución de operaciones de restauración de archivos individuales"
+      data-li-level="4#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/es-es/snap-creator-framework/administration/task_performing_single_file_restore_using_the_gui.html">
+        Ejecución de operaciones de restauración de archivos individuales
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Realización de operaciones de restauración definidas por la aplicación"
+      data-li-level="4#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/es-es/snap-creator-framework/administration/task_performing_application_defined_restore_operations.html">
+        Realización de operaciones de restauración definidas por la aplicación
+      </a></li></ul></li></ul></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Gestión del acceso de usuarios"
+      data-li-level="2" 
+      class="subfolders "
+    ><a href="/es-es/snap-creator-framework/administration/concept_managing_user_access.html">
+        <div class="na-navbar-padding"> Gestión del acceso de usuarios</div>
+      </a>
+      <ul style="display: none;">
+        <li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Creando usuarios de Snap Creator"
+      data-li-level="3#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/es-es/snap-creator-framework/administration/task_creating_users.html">
+        Creando usuarios de Snap Creator
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Asignar perfiles a usuarios de Snap Creator"
+      data-li-level="3#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/es-es/snap-creator-framework/administration/task_assigning_profiles_to_snap_creator_users.html">
+        Asignar perfiles a usuarios de Snap Creator
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Ver una lista de usuarios de Snap Creator y perfiles asignados mediante la CLI"
+      data-li-level="3#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/es-es/snap-creator-framework/administration/task_viewing_a_list_of_users_with_profiles_by_using_the_cli.html">
+        Ver una lista de usuarios de Snap Creator y perfiles asignados mediante la CLI
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Creando roles de Snap Creator"
+      data-li-level="3#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/es-es/snap-creator-framework/administration/task_creating_snap_creator_roles.html">
+        Creando roles de Snap Creator
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Asignar roles a usuarios de Snap Creator"
+      data-li-level="3#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/es-es/snap-creator-framework/administration/task_assigning_roles_to_snap_creator_users.html">
+        Asignar roles a usuarios de Snap Creator
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Ver una lista de usuarios de Snap Creator y roles asignados"
+      data-li-level="3#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/es-es/snap-creator-framework/administration/task_viewing_a_list_of_snap_creator_users_by_using_the_gui.html">
+        Ver una lista de usuarios de Snap Creator y roles asignados
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Ver los usuarios de Snap Creator asignados a un rol mediante la CLI"
+      data-li-level="3#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/es-es/snap-creator-framework/administration/task_viewing_user_names_assigned_to_a_role_by_using_the_cli.html">
+        Ver los usuarios de Snap Creator asignados a un rol mediante la CLI
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Crear permisos de Snap Creator mediante la CLI"
+      data-li-level="3#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/es-es/snap-creator-framework/administration/task_creating_snap_creator_permissions.html">
+        Crear permisos de Snap Creator mediante la CLI
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Asignar permisos a roles de Snap Creator"
+      data-li-level="3#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/es-es/snap-creator-framework/administration/task_assigning_permissions_to_snap_creator_roles.html">
+        Asignar permisos a roles de Snap Creator
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Crear una lista de todos los permisos de Snap Creator mediante la CLI"
+      data-li-level="3#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/es-es/snap-creator-framework/administration/task_viewing_a_list_all_snap_creator_permissions_by_using_the_cli.html">
+        Crear una lista de todos los permisos de Snap Creator mediante la CLI
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Ver los permisos de Snap Creator asignados a un rol"
+      data-li-level="3#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/es-es/snap-creator-framework/administration/task_viewing_permissions_assigned_to_a_role_by_using_the_gui.html">
+        Ver los permisos de Snap Creator asignados a un rol
+      </a></li></ul></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Gestión de perfiles"
+      data-li-level="2" 
+      class="subfolders "
+    ><a href="/es-es/snap-creator-framework/administration/concept_managing_profiles.html">
+        <div class="na-navbar-padding"> Gestión de perfiles</div>
+      </a>
+      <ul style="display: none;">
+        <li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Creación de perfiles"
+      data-li-level="3#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/es-es/snap-creator-framework/administration/task_creating_profiles.html">
+        Creación de perfiles
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Ver perfiles"
+      data-li-level="3#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/es-es/snap-creator-framework/administration/task_viewing_snap_creator_profiles.html">
+        Ver perfiles
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Eliminar perfiles"
+      data-li-level="3#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/es-es/snap-creator-framework/administration/task_deleting_snap_creator_profiles.html">
+        Eliminar perfiles
+      </a></li></ul></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Gestión de archivos de configuración"
+      data-li-level="2" 
+      class="subfolders "
+    ><a href="/es-es/snap-creator-framework/administration/concept_managing_configuration_files.html">
+        <div class="na-navbar-padding"> Gestión de archivos de configuración</div>
+      </a>
+      <ul style="display: none;">
+        <li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Creando archivos de configuración"
+      data-li-level="3#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/es-es/snap-creator-framework/administration/task_creating_configuration_files_using_sc_gui.html">
+        Creando archivos de configuración
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Crear nuevos archivos de configuración descargando los archivos de configuración existentes"
+      data-li-level="3#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/es-es/snap-creator-framework/administration/task_creating_new_configuration_files_by_downloading_existing_configuration_files.html">
+        Crear nuevos archivos de configuración descargando los archivos de configuración existentes
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Crear nuevos archivos de configuración copiando los archivos de configuración existentes"
+      data-li-level="3#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/es-es/snap-creator-framework/administration/task_creating_new_configuration_files_by_copying_existing_configuration_files_using_the_cli.html">
+        Crear nuevos archivos de configuración copiando los archivos de configuración existentes
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Ver una lista de archivos de configuración asignados a un perfil"
+      data-li-level="3#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/es-es/snap-creator-framework/administration/task_viewing_assigned_configuration_files_for_a_profile.html">
+        Ver una lista de archivos de configuración asignados a un perfil
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Eliminar archivos de configuración de un perfil"
+      data-li-level="3#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/es-es/snap-creator-framework/administration/task_deleting_configuration_files.html">
+        Eliminar archivos de configuración de un perfil
+      </a></li></ul></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Gestión de políticas de retención"
+      data-li-level="2" 
+      class="subfolders "
+    ><a href="/es-es/snap-creator-framework/administration/concept_managing_policies.html">
+        <div class="na-navbar-padding"> Gestión de políticas de retención</div>
+      </a>
+      <ul style="display: none;">
+        <li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Creando tipos de backup"
+      data-li-level="3#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/es-es/snap-creator-framework/administration/task_creating_backup_types.html">
+        Creando tipos de backup
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Creación de programaciones de políticas"
+      data-li-level="3#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/es-es/snap-creator-framework/administration/task_creating_policy_schedules.html">
+        Creación de programaciones de políticas
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Crear políticas"
+      data-li-level="3#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/es-es/snap-creator-framework/administration/task_creating_policies.html">
+        Crear políticas
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Asignación de políticas"
+      data-li-level="3#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/es-es/snap-creator-framework/administration/task_assigning_policies.html">
+        Asignación de políticas
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Visualización de políticas de retención"
+      data-li-level="3#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/es-es/snap-creator-framework/administration/task_viewing_policies.html">
+        Visualización de políticas de retención
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Eliminar políticas de retención"
+      data-li-level="3#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/es-es/snap-creator-framework/administration/task_deleting_retention_policies.html">
+        Eliminar políticas de retención
+      </a></li></ul></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Gestionar backups"
+      data-li-level="2" 
+      class="subfolders "
+    ><a href="/es-es/snap-creator-framework/administration/concept_managing_backups.html">
+        <div class="na-navbar-padding"> Gestionar backups</div>
+      </a>
+      <ul style="display: none;">
+        <li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Debe realizarse una copia de seguridad de la información de Snap Creator"
+      data-li-level="3#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/es-es/snap-creator-framework/administration/reference_what_you_should_back_up.html">
+        Debe realizarse una copia de seguridad de la información de Snap Creator
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Crear backups"
+      data-li-level="3#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/es-es/snap-creator-framework/administration/task_creating_backups_using_the_snap_creator_gui.html">
+        Crear backups
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Ver una lista de copias de seguridad de un archivo de configuración"
+      data-li-level="3#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/es-es/snap-creator-framework/administration/task_viewing_a_list_of_backup_copies_of_a_configuration_file.html">
+        Ver una lista de copias de seguridad de un archivo de configuración
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Eliminar backups"
+      data-li-level="3#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/es-es/snap-creator-framework/administration/task_deleting_backups.html">
+        Eliminar backups
+      </a></li></ul></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Gestión de trabajos programados"
+      data-li-level="2" 
+      class="subfolders "
+    ><a href="/es-es/snap-creator-framework/administration/concept_managing_scheduled_jobs.html">
+        <div class="na-navbar-padding"> Gestión de trabajos programados</div>
+      </a>
+      <ul style="display: none;">
+        <li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Creación de trabajos programados"
+      data-li-level="3#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/es-es/snap-creator-framework/administration/task_creating_scheduled_jobs_using_sc_gui.html">
+        Creación de trabajos programados
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Ejecución de trabajos programados"
+      data-li-level="3#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/es-es/snap-creator-framework/administration/task_running_a_scheduled_job.html">
+        Ejecución de trabajos programados
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Visualización de una lista de trabajos programados"
+      data-li-level="3#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/es-es/snap-creator-framework/administration/task_viewing_a_list_of_scheduled_jobs.html">
+        Visualización de una lista de trabajos programados
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Edición de trabajos programados"
+      data-li-level="3#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/es-es/snap-creator-framework/administration/task_editing_scheduled_jobs.html">
+        Edición de trabajos programados
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Eliminación de trabajos programados"
+      data-li-level="3#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/es-es/snap-creator-framework/administration/task_deleting_scheduled_jobs.html">
+        Eliminación de trabajos programados
+      </a></li></ul></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Gestionar clones"
+      data-li-level="2" 
+      class="subfolders "
+    ><a href="/es-es/snap-creator-framework/administration/concept_managing_clones.html">
+        <div class="na-navbar-padding"> Gestionar clones</div>
+      </a>
+      <ul style="display: none;">
+        <li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Crear clones a partir de un backup nuevo"
+      data-li-level="3#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/es-es/snap-creator-framework/administration/task_creating_clones_from_a_new_backup.html">
+        Crear clones a partir de un backup nuevo
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Crear clones a partir de un backup existente"
+      data-li-level="3#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/es-es/snap-creator-framework/administration/task_creating_clones_using_a_mounted_backup.html">
+        Crear clones a partir de un backup existente
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Desmontar clones"
+      data-li-level="3#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/es-es/snap-creator-framework/administration/task_deleting_clones.html">
+        Desmontar clones
+      </a></li></ul></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Es necesario contar con información sobre el complemento para configurar Snap Creator"
+      data-li-level="2" 
+      class="subfolders "
+    ><a href="/es-es/snap-creator-framework/administration/reference_information_required_to_configure_snap_creator.html">
+        <div class="na-navbar-padding"> Es necesario contar con información sobre el complemento para configurar Snap Creator</div>
+      </a>
+      <ul style="display: none;">
+        <li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Plugin de registro de archivo"
+      data-li-level="3#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/es-es/snap-creator-framework/administration/reference_archive_log_plug_in.html">
+        Plugin de registro de archivo
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Complemento Citrix XenServer"
+      data-li-level="3#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/es-es/snap-creator-framework/administration/reference_citrix_xen_plug_in.html">
+        Complemento Citrix XenServer
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Complemento DB2"
+      data-li-level="3#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/es-es/snap-creator-framework/administration/reference_db2_plug_in.html">
+        Complemento DB2
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Complemento IBM Domino"
+      data-li-level="3#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/es-es/snap-creator-framework/administration/reference_ibm_domino_plug_in.html">
+        Complemento IBM Domino
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Plug-in maxdb"
+      data-li-level="3#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/es-es/snap-creator-framework/administration/reference_maxdb_plug_in.html">
+        Plug-in maxdb
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Plugin de MySQL"
+      data-li-level="3#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/es-es/snap-creator-framework/administration/reference_mysql_plug_in_parameters_settings_and_descriptions.html">
+        Plugin de MySQL
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Plugin de Oracle"
+      data-li-level="3#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/es-es/snap-creator-framework/administration/reference_oracle_plug_in.html">
+        Plugin de Oracle
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Directrices sobre el complemento Red Hat KVM"
+      data-li-level="3#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/es-es/snap-creator-framework/administration/reference_red_hat_kvm_plug_in.html">
+        Directrices sobre el complemento Red Hat KVM
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Complemento de SAP HANA"
+      data-li-level="3#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/es-es/snap-creator-framework/administration/reference_sap_hana_plug_in.html">
+        Complemento de SAP HANA
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Complemento de SnapManager para Microsoft Exchange"
+      data-li-level="3#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/es-es/snap-creator-framework/administration/reference_snapmanager_for_microsoft_exchange_plug_in.html">
+        Complemento de SnapManager para Microsoft Exchange
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Complemento de SnapManager para Microsoft SQL Server"
+      data-li-level="3#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/es-es/snap-creator-framework/administration/reference_snapmanager_for_microsoft_sql_server_plug_in.html">
+        Complemento de SnapManager para Microsoft SQL Server
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Complemento ASE de Sybase"
+      data-li-level="3#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/es-es/snap-creator-framework/administration/reference_sybase_plug_in.html">
+        Complemento ASE de Sybase
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Complemento de VMware VIBE"
+      data-li-level="3" 
+      class="subfolders "
+    ><a href="/es-es/snap-creator-framework/administration/reference_vmware_vibe_plug_in.html">
+        <div class="na-navbar-padding"> Complemento de VMware VIBE</div>
+      </a>
+      <ul style="display: none;">
+        <li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Requisitos para las operaciones de backup y restauración de vCloud vApp mediante el complemento de VMware"
+      data-li-level="4#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/es-es/snap-creator-framework/administration/concept_requirements_for_vcloud_vapp_backup_and_restore_operations_using_the_vmware_plug_in.html">
+        Requisitos para las operaciones de backup y restauración de vCloud vApp mediante el complemento de VMware
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Backup y restauración de máquinas virtuales mediante el complemento VMware"
+      data-li-level="4#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/es-es/snap-creator-framework/administration/concept_vm_backup_and_restore_using_vmware_plug_in.html">
+        Backup y restauración de máquinas virtuales mediante el complemento VMware
+      </a></li></ul></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Uso del marco de plugins para crear plugins personalizados"
+      data-li-level="3#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/es-es/snap-creator-framework/administration/concept_using_the_plug_in_framework_to_create_custom_plug_ins.html">
+        Uso del marco de plugins para crear plugins personalizados
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Configurar Snap Creator para operaciones de inactividad de aplicaciones multinivel cuando se utilizan complementos del hipervisor"
+      data-li-level="3#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/es-es/snap-creator-framework/administration/task_configuring_snap_creator_for_multilevel_application_quiesce_operations.html">
+        Configurar Snap Creator para operaciones de inactividad de aplicaciones multinivel cuando se utilizan complementos del hipervisor
+      </a></li></ul></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Solucionar problemas de Snap Creator"
+      data-li-level="2" 
+      class="subfolders "
+    ><a href="/es-es/snap-creator-framework/administration/reference_troubleshooting_snap_creator_issues.html">
+        <div class="na-navbar-padding"> Solucionar problemas de Snap Creator</div>
+      </a>
+      <ul style="display: none;">
+        <li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Tipos de mensajes de error y registros de solución de problemas"
+      data-li-level="3" 
+      class="subfolders "
+    ><a href="/es-es/snap-creator-framework/administration/reference_logs.html">
+        <div class="na-navbar-padding"> Tipos de mensajes de error y registros de solución de problemas</div>
+      </a>
+      <ul style="display: none;">
+        <li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Realización de un volcado de Snap Creator"
+      data-li-level="4#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/es-es/snap-creator-framework/administration/task_running_a_snap_creator_dump.html">
+        Realización de un volcado de Snap Creator
+      </a></li></ul></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Solucionar los errores de la interfaz gráfica de usuario de Snap Creator"
+      data-li-level="3" 
+      class="subfolders "
+    ><a href="/es-es/snap-creator-framework/administration/concept_troubleshooting_snap_creator_gui_errors.html">
+        <div class="na-navbar-padding"> Solucionar los errores de la interfaz gráfica de usuario de Snap Creator</div>
+      </a>
+      <ul style="display: none;">
+        <li 
+      data-pdf-exists="true" 
+      data-pdf-filename="No se puede conectar a la GUI de Snap Creator"
+      data-li-level="4#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/es-es/snap-creator-framework/administration/reference_cannot_connect_to_the_gui.html">
+        No se puede conectar a la GUI de Snap Creator
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Error al iniciar la GUI de Snap Creator"
+      data-li-level="4#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/es-es/snap-creator-framework/administration/reference_error_starting_the_gui.html">
+        Error al iniciar la GUI de Snap Creator
+      </a></li></ul></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Solucionar problemas de red"
+      data-li-level="3#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/es-es/snap-creator-framework/administration/reference_troubleshooting_network_issues.html">
+        Solucionar problemas de red
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Resolución de problemas de seguridad"
+      data-li-level="3" 
+      class="subfolders "
+    ><a href="/es-es/snap-creator-framework/administration/concept_troubleshooting_security_issues.html">
+        <div class="na-navbar-padding"> Resolución de problemas de seguridad</div>
+      </a>
+      <ul style="display: none;">
+        <li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Defectos criptográficos en Seguridad de la capa de transporte"
+      data-li-level="4#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/es-es/snap-creator-framework/administration/reference_transport_layer_security_tls.html">
+        Defectos criptográficos en Seguridad de la capa de transporte
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="El certificado SSL autofirmado no coincide con la URL"
+      data-li-level="4#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/es-es/snap-creator-framework/administration/reference_self_signed_ssl_certificate.html">
+        El certificado SSL autofirmado no coincide con la URL
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Se requiere un certificado SSL firmado por CA para Snap Creator Framework"
+      data-li-level="4#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/es-es/snap-creator-framework/administration/reference_ca_signed_ssl_certificate.html">
+        Se requiere un certificado SSL firmado por CA para Snap Creator Framework
+      </a></li></ul></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Solucionar problemas de Snap Creator Server o Snap Creator Agent"
+      data-li-level="3" 
+      class="subfolders "
+    ><a href="/es-es/snap-creator-framework/administration/concept_troubleshooting_snap_creator_server_or_agent_issues.html">
+        <div class="na-navbar-padding"> Solucionar problemas de Snap Creator Server o Snap Creator Agent</div>
+      </a>
+      <ul style="display: none;">
+        <li 
+      data-pdf-exists="true" 
+      data-pdf-filename="El servidor o el agente de Snap Creator no se está iniciando"
+      data-li-level="4#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/es-es/snap-creator-framework/administration/reference_snap_creator_server_or_agent_not_starting.html">
+        El servidor o el agente de Snap Creator no se está iniciando
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="El agente de Snap Creator no responde"
+      data-li-level="4#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/es-es/snap-creator-framework/administration/reference_snap_creator_agent_not_responding.html">
+        El agente de Snap Creator no responde
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Restablecimiento de la contraseña de Snap Creator"
+      data-li-level="4#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/es-es/snap-creator-framework/administration/reference_snap_creator_password_reset.html">
+        Restablecimiento de la contraseña de Snap Creator
+      </a></li></ul></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Solucionar problemas de errores de comandos de la CLI"
+      data-li-level="3" 
+      class="subfolders "
+    ><a href="/es-es/snap-creator-framework/administration/concept_troubleshooting_cli_command_errors.html">
+        <div class="na-navbar-padding"> Solucionar problemas de errores de comandos de la CLI</div>
+      </a>
+      <ul style="display: none;">
+        <li 
+      data-pdf-exists="true" 
+      data-pdf-filename="El comando CLI produce un error Prohibido 403"
+      data-li-level="4#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/es-es/snap-creator-framework/administration/reference_cli_command_results_in_403_forbidden_error.html">
+        El comando CLI produce un error Prohibido 403
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="El comando de la CLI produce un error 404 no se encuentra"
+      data-li-level="4#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/es-es/snap-creator-framework/administration/reference_cli_command_results_in_404_not_found_error.html">
+        El comando de la CLI produce un error 404 no se encuentra
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="El comando CLI produce un error de objeto 500 no se puede encontrar"
+      data-li-level="4#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/es-es/snap-creator-framework/administration/reference_cli_command_results_in_500_cannot_locate_object_error.html">
+        El comando CLI produce un error de objeto 500 no se puede encontrar
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="El comando de la CLI produce un error de conexión con errores 500"
+      data-li-level="4#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/es-es/snap-creator-framework/administration/reference_cli_command_results_in_500_connect_failed_error.html">
+        El comando de la CLI produce un error de conexión con errores 500
+      </a></li></ul></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="ClonVol informa que no existe agregado"
+      data-li-level="3#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/es-es/snap-creator-framework/administration/reference_clonevol_reports_that_aggregate_does_not_exist.html">
+        ClonVol informa que no existe agregado
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Mensajes de error"
+      data-li-level="3" 
+      class="subfolders "
+    ><a href="/es-es/snap-creator-framework/administration/reference_error_messages.html">
+        <div class="na-navbar-padding"> Mensajes de error</div>
+      </a>
+      <ul style="display: none;">
+        <li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Mensajes de error de Snap Creator Framework"
+      data-li-level="4#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/es-es/snap-creator-framework/administration/reference_snap_creator_framework_error_messages.html">
+        Mensajes de error de Snap Creator Framework
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Mensajes de error del agente de Snap Creator"
+      data-li-level="4#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/es-es/snap-creator-framework/administration/reference_snap_creator_agent_error_messages.html">
+        Mensajes de error del agente de Snap Creator
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Mensajes de error del repositorio"
+      data-li-level="4#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/es-es/snap-creator-framework/administration/reference_repository_error_messages.html">
+        Mensajes de error del repositorio
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Mensajes de error de almacenamiento"
+      data-li-level="4#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/es-es/snap-creator-framework/administration/reference_storage_error_messages.html">
+        Mensajes de error de almacenamiento
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Mensajes de error de la interfaz gráfica de usuario de Snap Creator"
+      data-li-level="4#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/es-es/snap-creator-framework/administration/reference_snap_creator_gui_error_messages.html">
+        Mensajes de error de la interfaz gráfica de usuario de Snap Creator
+      </a></li></ul></li></ul></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Variables, parámetros y comandos del archivo de configuración de Snap Creator"
+      data-li-level="2" 
+      class="subfolders "
+    ><a href="/es-es/snap-creator-framework/administration/reference_snap_creator_configuration_file_variables.html">
+        <div class="na-navbar-padding"> Variables, parámetros y comandos del archivo de configuración de Snap Creator</div>
+      </a>
+      <ul style="display: none;">
+        <li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Descripciones de variables y parámetros de Snap Creator"
+      data-li-level="3#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/es-es/snap-creator-framework/administration/reference_snap_creator_variable_and_parameter_descriptions.html">
+        Descripciones de variables y parámetros de Snap Creator
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Parámetros para configurar el cliente host de Snap Creator Agent y el servidor de Snap Creator"
+      data-li-level="3#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/es-es/snap-creator-framework/administration/reference_parameters_used_to_configure_the_client_and_server.html">
+        Parámetros para configurar el cliente host de Snap Creator Agent y el servidor de Snap Creator
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Para conectarse a las unidades vFiler e interfaces"
+      data-li-level="3#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/es-es/snap-creator-framework/administration/reference_parameters_to_connect_to_vfiler_units_and_interface.html">
+        Para conectarse a las unidades vFiler e interfaces
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Parámetros para configurar las operaciones de clonado"
+      data-li-level="3#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/es-es/snap-creator-framework/administration/reference_parameters_to_set_up_cloning.html">
+        Parámetros para configurar las operaciones de clonado
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Parámetros para configurar la gestión de eventos"
+      data-li-level="3#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/es-es/snap-creator-framework/administration/reference_parameters_to_set_up_event_management.html">
+        Parámetros para configurar la gestión de eventos
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Parámetros para configurar la consola de Operations Manager"
+      data-li-level="3#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/es-es/snap-creator-framework/administration/reference_parameters_to_set_up_operations_manager_console.html">
+        Parámetros para configurar la consola de Operations Manager
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Parámetros para configurar OSSV"
+      data-li-level="3#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/es-es/snap-creator-framework/administration/reference_parameters_to_set_up_ossv.html">
+        Parámetros para configurar OSSV
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Parámetros para configurar SnapMirror"
+      data-li-level="3#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/es-es/snap-creator-framework/administration/reference_parameters_to_set_up_snapmirror.html">
+        Parámetros para configurar SnapMirror
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Parámetros para configurar las copias Snapshot"
+      data-li-level="3#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/es-es/snap-creator-framework/administration/reference_parameters_to_set_up_a_snapshot_copy.html">
+        Parámetros para configurar las copias Snapshot
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Parámetros para configurar SnapVault"
+      data-li-level="3#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/es-es/snap-creator-framework/administration/reference_parameters_to_set_up_snapvault.html">
+        Parámetros para configurar SnapVault
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Parámetros para configurar la funcionalidad de protección de datos de la Consola de gestión de NetApp"
+      data-li-level="3#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/es-es/snap-creator-framework/administration/reference_parameters_to_set_up_netapp_management_console_data_protection_capability.html">
+        Parámetros para configurar la funcionalidad de protección de datos de la Consola de gestión de NetApp
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Comandos de APLICACIÓN"
+      data-li-level="3#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/es-es/snap-creator-framework/administration/reference_app_commands.html">
+        Comandos de APLICACIÓN
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Comandos de montaje y desmontaje"
+      data-li-level="3#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/es-es/snap-creator-framework/administration/reference_mount_and_unmount_commands.html">
+        Comandos de montaje y desmontaje
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="COMANDOS PREVIOS"
+      data-li-level="3#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/es-es/snap-creator-framework/administration/reference_pre_commands.html">
+        COMANDOS PREVIOS
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="COMANDOS POSTERIORES"
+      data-li-level="3#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/es-es/snap-creator-framework/administration/reference_post_commands.html">
+        COMANDOS POSTERIORES
+      </a></li></ul></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Terminología de Snap Creator"
+      data-li-level="2#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/es-es/snap-creator-framework/administration/reference_snap_creator_terminology.html">
+        Terminología de Snap Creator
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Directrices para usar la interfaz de línea de comandos de Snap Creator"
+      data-li-level="2" 
+      class="subfolders "
+    ><a href="/es-es/snap-creator-framework/administration/reference_guidelines_for_using_the_snap_creator_command_line.html">
+        <div class="na-navbar-padding"> Directrices para usar la interfaz de línea de comandos de Snap Creator</div>
+      </a>
+      <ul style="display: none;">
+        <li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Comandos de la CLI de Snap Creator para acciones del flujo de trabajo"
+      data-li-level="3#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/es-es/snap-creator-framework/administration/reference_snap_creator_cli_commands_for_workflow_actions.html">
+        Comandos de la CLI de Snap Creator para acciones del flujo de trabajo
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Comandos que se utilizan para gestionar el acceso de usuarios de Snap Creator"
+      data-li-level="3#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/es-es/snap-creator-framework/administration/reference_cli_command_for_snap_creator_rbac_actions.html">
+        Comandos que se utilizan para gestionar el acceso de usuarios de Snap Creator
+      </a></li></ul></li></ul></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Avisos legales"
+      data-li-level="1#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/es-es/snap-creator-framework/reference_legal_notices.html">
+        Avisos legales
+      </a></li></ul>
+</div>
+<script>
+  window.onscroll = () => {
+    const value = -40 - (document.body.scrollHeight - (window.innerHeight + document.scrollingElement.scrollTop));
+    
+    document.getElementById("sidebar-height").style.bottom = Math.max(0,value) + "px";
+};
+</script>
+<!-- this highlights the active parent class in the navgoco sidebar. this is critical so that the parent expands when you're viewing a page. This must appear below the sidebar code above. Otherwise, if placed inside customscripts.js, the script runs before the sidebar code runs and the class never gets inserted.-->
+<script>$("li.active").parents('li').toggleClass("active");</script>
+<script>$("#mysidebar li.active").parents('ul').css("display","block");</script>
+
+
+  </div>
+  
+
+  <div class="ie-content-pane n-doc__component-detail-content n-doc__component-detail-content--show-code">
+    <!-- Begin of page container --><article class="page-content" id="main">
+      <div class="ie-utility">
+  <button id="btn-sidebar-expand" onclick="showSidebar()"><img src="/es-es/snap-creator-framework/images/expand.png" alt="Expandir panel de navegación"></button>
+  <div class="ie-menu">
+    <div class="n-breadcrumb">
+      <ul class="n-breadcrumb__list">
+        <li class="n-breadcrumb__list-item">
+          <a href="https://docs.netapp.com">docs.netapp.com</a>
+        </li>
+        
+
+        
+
+        <li class="n-breadcrumb__list-item">
+          <a href="/es-es/snap-creator-framework/">Snap&nbsp;Creator&nbsp;Framework</a>
+        </li>
+
+      </ul>
+    </div>
+    <div style="clear: both"></div><!-- Main needs to have height -->
+  </div>
+</div>
+
+      <div class="ie-nmt-disclaimer">
+  <span>
+    <div class="ie-nmt-disclaimer-container">
+      <div class="ie-nmt-disclaimer-icon">
+        <svg class="luci-icon" aria-hidden="true">
+          <use xlink:href="/es-es/snap-creator-framework/common/svg/sprite.svg#circle-info">
+        </svg>
+      </div>
+      <div class="ie-nmt-disclaimer-content">
+        <span> Se proporciona el idioma español mediante traducción automática para su comodidad. En caso de alguna inconsistencia, el inglés precede al español. </span>
+      </div>
+      <div style="clear:both;"></div>
+    </div>
+  </span>
+</div><div class="n-doc__component-detail-heading-wrap">
+  <h1 class="n-doc__component-detail-heading">Inicio, verificación y detención de Snap Creator Server en Windows</h1>
+</div>
+
+
+<p class="page-details">
+  
+    
+    <time datetime="2023-02-20 20:53:31 +0000">02/20/2023</time>
+    
+  
+
+<span>Colaboradores
+</span>
+
+
+</p>
+
+<div class="paragraph lead">
+<p>Puede iniciar y detener el servicio Snap Creator Server y comprobar si el servicio Snap Creator Server se está ejecutando en el sistema Windows.</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Si la interfaz gráfica de usuario (GUI) de Snap Creator no está abierta, ábrala:</p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>Introduzca la URL del servidor de Snap Creator en un navegador web: "<a href="https://IP_address:gui_port"" class="bare">https://IP_address:gui_port"</a></p>
+<div class="paragraph">
+<p>De manera predeterminada, el puerto es 8443.</p>
+</div>
+</li>
+<li>
+<p>Inicie sesión con las credenciales de la interfaz gráfica de usuario de Snap Creator.</p>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p>Si se abre la GUI de Snap Creator, el servicio de Snap Creator Server se está ejecutando.</p>
+</div>
+</li>
+<li>
+<p>En el símbolo del sistema, inicie o detenga el servicio Snap Creator Server, o bien compruebe si el servicio Snap Creator Server se está ejecutando, según corresponda:</p>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 50%;">
+<col style="width: 50%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Si desea&#8230;&#8203;</th>
+<th class="tableblock halign-left valign-top">Introduzca lo siguiente&#8230;&#8203;</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Inicie el servicio Snap Creator Server</p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>sc inicia el servicio snapcreatorserverservice</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Comprobar si el servicio Snap Creator Server se está ejecutando</p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>consulta sc snapcreatorserverservice</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Detenga el servicio Snap Creator Server</p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>sc stop snapcreatorserverservice</p>
+</div></div></td>
+</tr>
+</tbody>
+</table>
+<div class="paragraph">
+<p>Si desea ejecutar Snap Creator en primer plano, en lugar de utilizar el comando sc start, realice los siguientes pasos:</p>
+</div>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>Abra un símbolo del sistema en el host en el que está instalado Snap Creator Server y, a continuación, desplácese hasta el directorio ServerSnap Creator: <code>cd \install_path\scServer4.3.0\bin\</code></p>
+</li>
+<li>
+<p>Para iniciar Snap Creator Server, ejecute la secuencia de comandos por lotes:
+<code>scServer.bat start</code></p>
+<div class="paragraph">
+<p>Al cerrar el símbolo del sistema se detiene el servicio Snap Creator Server. Puesto que la secuencia de comandos por lotes (scServer.bat) ejecuta Snap Creator en primer plano, el servidor de Snap Creator sólo se ejecutará mientras esté abierto el símbolo del sistema. Para ejecutar Snap Creator en segundo plano, debe utilizar el comando de servicio Snap Creator Server.</p>
+</div>
+</li>
+</ol>
+</div>
+</li>
+</ol>
+</div>
+
+    </article>
+    <!-- Page Container -->
+  </div>
+
+  <div style="clear: both"></div><!-- Main needs to have height --></div>
+
+        </main>
+
+        <footer class="n-footer">
+  <div class="n-footer__bottom">
+    <div class="n-container">
+      <div class="n-footer__bottom-left">
+        <div class="n-footer__copyright">
+          <ul class="n-footer__copyright-list">
+            <li class="n-footer__copyright-link">
+              <a href="https://www.netapp.com/company/legal/copyright/">© 2023 NetApp, Inc.</a>
+            </li>
+            <li class="n-footer__copyright-link">
+              <a href="https://www.netapp.com/company/legal/terms-of-use/">Términos y condiciones</a>
+            </li>
+            <li class="n-footer__copyright-link">
+              <a href="https://www.netapp.com/company/legal/privacy-policy/">Política de privacidad</a>
+            </li>
+            <li class="n-footer__copyright-link">
+              <a href="https://www.netapp.com/company/legal/cookie-policy/">Política de Cookies</a>
+            </li>
+            <li class="n-footer__copyright-link">
+              <a class="ot-sdk-show-settings">Configuración de cookies</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+      <div class="n-footer__bottom-right">
+        <div class="n-footer__copyright">
+          <ul class="n-footer__copyright-list">
+            <li class="n-footer__copyright-link">
+              <a target="_self" href="javascript:netapp_mailto()">Enviar comentarios sobre esta página</a>
+            </li>
+          </ul>
+        </div>
+        <div class="n-footer__social-links">
+          <ul class="n-footer__social-link-list">
+            <li class="n-footer__social-link-list-item">
+              <a class="n-footer__social-link" data-ntap-social="follow-blog" href="https://blog.netapp.com"
+                target="_blank" title="blog" alt="blog">
+                <span class="n-footer__social-link-text">blog</span>
+                <svg class="n-icon-blog n-footer__social-link-icon" aria-labelledby="title">
+                  <title>blog@</title>
+                  <use xmlns:xlink="http://www.w3.org/1999/xlink"
+                    xlink:href="/es-es/snap-creator-framework/common/svg/sprite.svg#blog"></use>
+                </svg>
+              </a>
+            </li>
+            <li class="n-footer__social-link-list-item">
+              <a class="n-footer__social-link" data-ntap-social="follow-community" href="https://community.netapp.com/"
+                target="_blank" title="community" alt="community">
+                <span class="n-footer__social-link-text">community</span>
+                <svg class="n-icon-community n-footer__social-link-icon" aria-labelledby="title">
+                  <title>community@</title>
+                  <use xmlns:xlink="http://www.w3.org/1999/xlink"
+                    xlink:href="/es-es/snap-creator-framework/common/svg/sprite.svg#comments"></use>
+                </svg>
+              </a>
+            </li>
+            <li class="n-footer__social-link-list-item">
+              <a class="n-footer__social-link" data-ntap-social="follow-twitter" href="https://twitter.com/netapp"
+                target="_blank" title="twitter" alt="twitter">
+                <span class="n-footer__social-link-text">twitter</span>
+                <svg class="n-icon-twitter n-footer__social-link-icon" aria-labelledby="title">
+                  <title>twitter@</title>
+                  <use xmlns:xlink="http://www.w3.org/1999/xlink"
+                    xlink:href="/es-es/snap-creator-framework/common/svg/sprite.svg#twitter"></use>
+                </svg>
+              </a>
+            </li>
+            <li class="n-footer__social-link-list-item">
+              <a class="n-footer__social-link" data-ntap-social="follow-facebook" href="https://www.facebook.com/NetApp"
+                target="_blank" title="facebook" alt="facebook">
+                <span class="n-footer__social-link-text">facebook</span>
+                <svg class="n-icon-facebook n-footer__social-link-icon" aria-labelledby="title">
+                  <title>facebook@</title>
+                  <use xmlns:xlink="http://www.w3.org/1999/xlink"
+                    xlink:href="/es-es/snap-creator-framework/common/svg/sprite.svg#facebook"></use>
+                </svg>
+              </a>
+            </li>
+            <li class="n-footer__social-link-list-item">
+              <a class="n-footer__social-link" data-ntap-social="follow-linkedin"
+                href="https://www.linkedin.com/company/netapp" target="_blank" title="linkedin" alt="linkedin">
+                <span class="n-footer__social-link-text">linkedin</span>
+                <svg class="n-icon-linkedin n-footer__social-link-icon" aria-labelledby="title">
+                  <title>linkedin@</title>
+                  <use xmlns:xlink="http://www.w3.org/1999/xlink"
+                    xlink:href="/es-es/snap-creator-framework/common/svg/sprite.svg#linkedin"></use>
+                </svg>
+              </a>
+            </li>
+            <li class="n-footer__social-link-list-item">
+              <a class="n-footer__social-link" data-ntap-social="follow-youtube"
+                href="https://www.youtube.com/user/NetAppTV" target="_blank" title="youtube" alt="youtube">
+                <span class="n-footer__social-link-text">youtube</span>
+                <svg class="n-icon-youtube n-footer__social-link-icon" aria-labelledby="title">
+                  <title>youtube@</title>
+                  <use xmlns:xlink="http://www.w3.org/1999/xlink"
+                    xlink:href="/es-es/snap-creator-framework/common/svg/sprite.svg#youtube"></use>
+                </svg>
+              </a>
+            </li>
+            <li class="n-footer__social-link-list-item">
+              <a class="n-footer__social-link" data-ntap-social="follow-slideshare"
+                href="https://www.slideshare.net/NetApp" target="_blank" title="slideshare" alt="slideshare">
+                <span class="n-footer__social-link-text">slideshare</span>
+                <svg class="n-icon-slideshare n-footer__social-link-icon" aria-labelledby="title">
+                  <title>slideshare@</title>
+                  <use xmlns:xlink="http://www.w3.org/1999/xlink"
+                    xlink:href="/es-es/snap-creator-framework/common/svg/sprite.svg#slideshare"></use>
+                </svg>
+              </a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>
+
+      </div><!-- Elasticsearch JS -->
+      <script type="text/javascript" src='/es-es/snap-creator-framework/js/bundle.js'></script>
+
+      <!-- Syntax Highlighting -->
+      <script type="text/javascript" src='/es-es/snap-creator-framework/js/prism.js'></script>
+      <script type="text/javascript" src='/es-es/snap-creator-framework/js/prism-curl.js'></script>
+    </div>
+    <script>
+      document.body.offsetWidth=1903;
+      cookieLaw = {}
+      cookieLaw.euCountry = "US";
+      cookieLaw.invoke = function(){return false;}
+    </script>
+    <script src='/es-es/snap-creator-framework/js/www-ntap.js'></script>
+    <script src='/es-es/snap-creator-framework/js/tabbed-blocks.js'></script>
+    <script src='/es-es/snap-creator-framework/js/sidebar.js'></script>
+  </body></html>
