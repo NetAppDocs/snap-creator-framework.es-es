@@ -66,7 +66,7 @@ Además, elimine el directorio de instalación de Snap Creator 3.6.x.
 
 IMPORTANT: No elimine las copias de backup hasta que tenga la seguridad de que no necesita revertir a una versión anterior.
 
-También debe validar el inicio de la interfaz gráfica de usuario de Snap Creator Framework; para ello, debe navegar hasta el host local del puerto especificado (https://IP_address:gui_port)[].
+También debe validar el inicio de la interfaz gráfica de usuario de Snap Creator Framework; para ello, debe navegar hasta el host local del puerto especificado .
 
 Debe conectarse mediante HTTPS; de lo contrario, la conexión no se redirige automáticamente a una conexión HTTPS y la GUI no funcionará.
 

@@ -96,7 +96,7 @@ NOTE: Aunque el valor máximo aceptado para *Tamaño de registro de trabajo* es 
 Durante la instalación del servicio Snap Creator Server, se muestra un símbolo del sistema si se ha seleccionado un servicio como parte de las opciones de instalación. Este proceso intenta iniciar servicios existentes; por lo tanto, es común ver los mensajes de error enumerados como parte de este paso.
 
 .. Haga clic en *Finalizar* para cerrar el instalador de Windows.
-.. Valide el inicio de la interfaz gráfica de usuario de Snap Creator Framework accediendo al host local del puerto especificado (https://IP_address:gui_port)[].
+.. Valide el inicio de la interfaz gráfica de usuario de Snap Creator Framework accediendo al host local del puerto especificado .
 +
 Debe conectarse mediante HTTPS; de lo contrario, la conexión no se redirige automáticamente a una conexión HTTPS y la GUI no funcionará.
 
