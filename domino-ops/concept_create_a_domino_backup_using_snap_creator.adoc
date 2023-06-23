@@ -14,9 +14,10 @@ summary: Es posible realizar un backup de bases de datos bajo demanda o por una 
 Es posible realizar un backup de bases de datos bajo demanda o por una programación. Puede utilizar la GUI de Snap Creator o la CLI de Snap Creator para realizar backups de bases de datos.
 
 
-NOTE: Esta guía muestra cómo usar la interfaz gráfica de usuario para realizar backups de las bases de datos. Para obtener información acerca de cómo utilizar la CLI, consulte https://library.netapp.com/ecm/ecm_download_file/ECMP12395422["Guía de administración de Snap Creator Framework 4.1.2"].
+NOTE: La interfaz gráfica de usuario se puede usar para realizar backups de bases de datos. Para obtener información acerca de cómo utilizar la CLI, consulte https://library.netapp.com/ecm/ecm_download_file/ECMP12395422["Guía de administración de Snap Creator Framework 4.1.2"^].
 
 *Información relacionada*
 
-link:task_creating_a_domino_backup_using_the_snap_creator_gui.adoc["Realizar backups de bases de datos bajo demanda"]
-link:task_scheduling_actions_using_the_snap_creator_gui.adoc["Programación de backups"]
+* link:task_creating_a_domino_backup_using_the_snap_creator_gui.adoc["Realizar backups de bases de datos bajo demanda"]
+* link:task_scheduling_actions_using_the_snap_creator_gui.adoc["Programación de backups"]
+
