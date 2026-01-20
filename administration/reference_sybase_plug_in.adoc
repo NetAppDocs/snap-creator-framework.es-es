@@ -92,55 +92,52 @@ A continuación se muestra un ejemplo: `%S_%D_%T.log`
  a| 
 SYBASE_TRAN_DUMP_COMPRESS
  a| 
-(Y
-| N ) 
-
-
+(S|N )
  a| 
 Habilita o deshabilita la compresión de volcado de transacciones nativa de Sybase.
+
+
+
  a| 
 SYBASE_ISQL_CMD
  a| 
 Ejemplo: /Opt/sybase/OCS-15__0/bin/isql
-
-
-
  a| 
 Define la ruta al comando isql.
+
+
+
  a| 
 SYBASE
  a| 
 Ejemplo: /Sybase
-
-
-
  a| 
 Especifica la ubicación de la instalación de Sybase.
+
+
+
  a| 
 SYBASE_LOGDIR
  a| 
 Ejemplo: /Usr/local/ntap/scServer/logs
-
-
-
  a| 
 Define el directorio en el que se colocan los registros de Snap Creator.
+
+
+
  a| 
 SYBASE_MANIFEST
  a| 
 Ejemplo: `DBAtest2:/t_inf_nzl_devs/`
-
-
-
  a| 
 Especifica las bases de datos para las que se debe crear el archivo de manifiesto, junto con la ubicación en la que se debe colocar el archivo de manifiesto.
+
+
+
  a| 
 SYBASE_MANIFEST_FORMAT
  a| 
 %S_%D_%T.ejemplo de manifiesto: `%S_%D_%T.manifest`
-
-
-
  a| 
 Permite especificar la convención de nomenclatura de archivos de manifiesto. Se pueden especificar las siguientes claves:
 
@@ -148,23 +145,23 @@ Permite especificar la convención de nomenclatura de archivos de manifiesto. Se
 * %D = base de datos DE SYBASE_BASES de DATOS
 * %T = Marca de hora única, que es la misma que la utilizada para la nomenclatura de copias snapshot
 
+
+
+
  a| 
 SYBASE_MANIFEST_DELETE
  a| 
-(Y
-
-
-
-| N )  a| 
+(S|N )
+ a| 
 Permite eliminar el manifiesto una vez que se creó la copia Snapshot. El archivo de manifiesto debe capturarse en la copia snapshot para que esté siempre disponible con la copia de seguridad.
+
+
+
  a| 
 SYBASE_EXCLUDE_TEMPDB
-
-
-
  a| 
-(Y
-| N )  a| 
+(S|N )
+ a| 
 Habilita la exclusión automática de bases de datos temporales creadas por el usuario.
 
 |===

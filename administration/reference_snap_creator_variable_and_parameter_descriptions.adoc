@@ -64,8 +64,6 @@ Se utiliza para enviar un mensaje de error a otro programa, como correo electró
 En la siguiente tabla se enumeran y se describen los parámetros de Snap Creator utilizados en una configuración básica:
 
 |===
-
-
 | Parámetro | Ajuste | Descripción 
 
 
@@ -80,18 +78,15 @@ Especifica la convención de nomenclatura de copias Snapshot que debe ser única
  a| 
 SNAP_TIMESTAMP_ONLY
  a| 
-(Y
-| N) 
-
-
+(S|N)
  a| 
 Establece la convención de nomenclatura de instantáneas Si se establece en y, las copias snapshot finalizan con YYYYYMMDDHHMMSS. De lo contrario, las nuevas copias snapshot se cambian de nombre para terminar con YYYYYMMDDHHMMSS.
+
+
+
  a| 
 VOLÚMENES
  a| 
-
-
-
  a| 
 Enumera las controladoras de almacenamiento principal y los volúmenes de los que desea crear una copia Snapshot, por ejemplo:
 
@@ -100,13 +95,13 @@ Enumera las controladoras de almacenamiento principal y los volúmenes de los qu
 controller1:vol1,vol2,vol3;
 controller2:vol1;
 controller3:vol2,vol3
----- a| 
+----
+
+
+ a| 
 GRUPOS_VOLÚMENES
  a| 
 vol_1,vol_2,vol_n
-
-
-
  a| 
 Define varios volúmenes en un único grupo. Varios volúmenes se especifican como un ejemplo de lista separada por comas:
 
@@ -119,24 +114,24 @@ VOLUME_GROUPS=VOLUMES_01,VOLUMES_02,VOLUMES_03
 ----
 
 NOTE: VOLUME_GROUPS solo es compatible para las operaciones de backup. Si se establece este parámetro, se ignora el parámetro VOLUMES durante el backup.
+
+
+
  a| 
 NTAP_SNAPSHOT_RETENTIONS
  a| 
-
-
-
  a| 
 Determina el número de copias Snapshot que se retendrán para un determinado efecto de políticas o ejemplo:
 
 [listing]
 ----
 daily:7,weekly:4,monthly:1
----- a| 
+----
+
+
+ a| 
 USUARIOS_NTAP
  a| 
-
-
-
  a| 
 Muestra los sistemas de almacenamiento y sus nombres de usuario y contraseñas correspondientes.ejemplo:
 
@@ -148,58 +143,58 @@ controller3:ken/password3
 ----
 
 NOTE: La contraseña debe contener al menos dos caracteres.
+
+
+
  a| 
 PROTECCIÓN_PWD_NTAP
  a| 
-(Y
-
-
-
-| N)  a| 
+(S|N)
+ a| 
 Habilita o deshabilita la protección con contraseña debe cifrar todas las contraseñas (sistema de almacenamiento y aplicaciones o plugins) y guardar las contraseñas cifradas en el archivo de configuración.
+
+
+
  a| 
 TRANSPORTE
-
+ a| 
+HTTP
+| HTTPS 
 
 
  a| 
-HTTP
-| HTTPS  a| 
 Permite utilizar HTTP o HTTPS para conectarse a la controladora de almacenamiento**Nota:** HTTPS puede requerir bibliotecas openssl-devel.
-
-
-
  a| 
 PUERTO
  a| 
+
+
+
  a| 
 Configura el número de puerto que utilizan las controladoras de almacenamiento; normalmente: 80 y 443
-
-
-
  a| 
 NÚM_REGISTRO
  a| 
+
+
+
  a| 
 Especifica el número de informes .debug y .out que Snap Creator tiene que retener
-
-
-
  a| 
 TIPO_CONFIG
  a| 
 PLUG-IN
-| ESTÁNDAR 
 
 
- a| 
+
+| ESTÁNDAR  a| 
 Especifica el tipo de configuraciónHere dos tipos de configuraciones: Plug-in y standard. Puede utilizar varias configuraciones de complementos para crear flujos de trabajo complejos de activación y reanudación de los backups.
  a| 
 CMODE_CLUSTER_USERS
+
+
+
  a| 
-
-
-
  a| 
 (Necesario para Clustered Data ONTAP) enumera los clústeres de Data ONTAP en clúster primario y secundario y sus nombres de usuario y contraseñas correspondientes.ejemplo:
 
@@ -212,20 +207,20 @@ cluster2:bob/password2
 NOTE: La contraseña debe contener al menos dos caracteres.
  a| 
 CMODE_CLUSTER_NAME
+
+
+
  a| 
-
-
-
  a| 
 (Necesario para Clustered Data ONTAP) especifica el nombre del clúster de Data ONTAP principal
  a| 
 CMODE_SNAPSHOT_FORCE_DELETE
+
+
+
  a| 
-(Y
-
-
-
-| N)  a| 
+(S|N)
+ a| 
 Garantiza la eliminación de las copias Snapshot que deben eliminarse en función de la política de copia de Snapshot en Clustered Data ONTAP, las copias de Snapshot no se eliminan si tienen dependencias, como un clon.
  a| 
 LOG_TRACE_ENABLE
@@ -233,36 +228,33 @@ LOG_TRACE_ENABLE
 
 
  a| 
-(Y
-| N)  a| 
+(S|N)
+ a| 
 Habilita o deshabilita el registro de todos los eventos Si está deshabilitado, los objetos de resultados de la solución Administrar ONTAP no se registran.
-
-
-
  a| 
 TIEMPO_ESPERA_NTAP
+
+
+
  a| 
 Segundos
  a| 
 Configura el valor de tiempo de espera para todas las llamadas de la controladora de almacenamiento que gestionan la solución ONTAP; el valor predeterminado es 60 segundos
-
-
-
  a| 
 USE_GLOBAL_CONFIG
+
+
+
  a| 
-(Y
-| N) 
-
-
+(S|N)
  a| 
 Permite utilizar la configuración global para almacenar valores
  a| 
 APLICACIONES_FEDERADAS
+
+
+
  a| 
-
-
-
  a| 
 Muestra los nombres de configuración y perfil de las aplicaciones federadas en la configuración, por ejemplo:
 
@@ -271,12 +263,12 @@ Muestra los nombres de configuración y perfil de las aplicaciones federadas en 
 databases@db2;databases@oracle
 ---- a| 
 CMODE_SET
+
+
+
  a| 
-(Y
-
-
-
-| N)  a| 
+(S|N)
+ a| 
 Define si la configuración es para Clustered Data ONTAP o Data ONTAP en 7-Mode
  a| 
 ALLOW_DUPLICATE_SNAME
@@ -284,15 +276,10 @@ ALLOW_DUPLICATE_SNAME
 
 
  a| 
-(Y
-| N)  a| 
+(S|N)
+ a| 
 (Opcional) activa o desactiva la capacidad para crear un archivo de configuración con un nombre de instantánea duplicado este parámetro no funcionará con los archivos de configuración globales (Super Global o Profile Global).
-
-
-
  a| 
 SNAPCREATOR_MISSEDJOB_RUN
- a| 
-(Y
-| N) 
+
 |===

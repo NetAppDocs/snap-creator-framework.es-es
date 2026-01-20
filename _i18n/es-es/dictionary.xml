@@ -2170,7 +2170,6 @@
   <block id="e8ae3afbd0c910f20b1ef4ae6478767c" category="paragraph">PUERTO_OM</block>
   <block id="7c7c80b92a60171212c7e2552c9a2662" category="paragraph">El puerto que se debe usar para las comunicaciones con la consola de Operations Manager; 8088 es el puerto HTTP predeterminado y 8488 es el puerto HTTPS predeterminado que utiliza la consola de Operations Manager.</block>
   <block id="6bd62fbbb2c00c9062975c43203fcb96" category="paragraph">OM_EVENT_GENERATE</block>
-  <block id="b3ece1f3eecb9db7cbfc880c8f76c58d" category="paragraph">(Y</block>
   <block id="702d85fa2ec6c3fb97501d4c0cd298bd" category="cell">N)</block>
   <block id="b98b34fb8458a66e6197420f9fa719a9" category="summary">Es posible que no se inicie Snap Creator Server o Snap Creator Agent.</block>
   <block id="33a386a40c10f365c533887c072924ff" category="doc">El servidor o el agente de Snap Creator no se está iniciando</block>
@@ -2408,7 +2407,6 @@
   <block id="a49f27ed85d7cc90f7976cd39ec12a78" category="doc">Plugin de registro de archivo</block>
   <block id="8c7dc9b130a71ed7c1a47474378707c8" category="paragraph">En la siguiente tabla se enumeran los parámetros del plugin del registro de archivo, se proporciona su configuración y se describen:</block>
   <block id="96611acf5bf8bf22163153db770f7f60" category="paragraph">ARCHIVE_LOG_ENABLE</block>
-  <block id="2fb33ec1462b9029d75715a12e44964a" category="cell">política:edad)</block>
   <block id="3291ad0946050f7aa4f9a9380b2bec20" category="paragraph">Permite la gestión de los registros de archivos (eliminación de los registros de archivos antiguos).</block>
   <block id="0012a5e5e44a9bf77fffdc82e8b485cd" category="paragraph">RETENCIÓN_LOG_ARCHIVO</block>
   <block id="21f2f76c313df826d6e15803c794ee11" category="paragraph">número_de_días</block>
@@ -3261,15 +3259,12 @@
   <block id="3420213108d85f921270d8bf4116781c" category="paragraph">ORA_TEMP</block>
   <block id="122ad43559cb7c871a7232ce20c529b1" category="paragraph">Ruta de acceso al directorio para almacenar el archivo temporal, por ejemplo, /tmp.el usuario de Oracle debe tener los permisos adecuados para este directorio.</block>
   <block id="f5078f21f47485897c87d1fbf5d9e19f" category="paragraph">ARCHIVE_LOG_ONLY</block>
-  <block id="971063cd9d6a788d0c6a3fe3ea0df2ff" category="cell">Política:&lt;Y</block>
-  <block id="ed6602eb57ddaa11f48abca427c60f87" category="cell">N&gt;)</block>
   <block id="101f18023eaa7790ef6ba727af65d6be" category="paragraph">Informa al plugin de Oracle para que realice solo un registro de switches.esta opción es útil si gestiona backups de registros de archivos de forma independiente a los backups de datos.</block>
   <block id="e1f651debac4f720c13ae930ff3ca14a" category="paragraph">ORACLE_HOME</block>
   <block id="84f63854b03bc743e9613cb2423fba8f" category="paragraph">Ruta al directorio inicial de Oracle</block>
   <block id="d9d6fdba68448106aac5729e8c538906" category="paragraph">ORACLE_HOME_SID</block>
   <block id="7564a8506de540057f4a75b92113eddd" category="paragraph">Ruta al directorio inicial de Oracle para un identificador de sistema (SID) dado al realizar la copia de seguridad de varias bases de datos, puede ser importante especificar más de un directorio raíz de Oracle.</block>
   <block id="65fc35d1054d0995c4d10ad24cd695fa" category="paragraph">ORACLE_EXPORT_PARAMETERS</block>
-  <block id="6cf67f81440dbb166c74c36ba4c92808" category="cell">N )</block>
   <block id="e38df05b7bc8106cbcaa3d5564d87ff8" category="paragraph">Los parámetros de entorno ORACLE_HOME y ORACLE_SID se exportan mediante el comando export. Esto sólo es aplicable en entornos basados en UNIX o Linux.</block>
   <block id="8b2da37f068707b163e017f0609318eb" category="paragraph">ORACLE_BACKUPMODE</block>
   <block id="5907a203d13cd6e76d9e09273adbfef7" category="paragraph">Opción de configurar backups en línea o sin conexión mediante la normativa de Snap Creator. La opción predeterminada es online. ORACLE_BACKUPMODE=Hourly:online, Daily:offline</block>
@@ -4601,4 +4596,32 @@
   <block id="b76926cf8f58acc96af344359c5d2b2c" category="admonition">Para obtener información sobre los errores genéricos de Snap Creator, consulte la<block ref="3b0c025e228e0d658ee39b24066f4d94" category="inline-link-macro-rx"></block> .</block>
   <block id="1d7ce8621814d7cbb17fc470a4344f97" category="inline-link-macro">Guía de instalación de Snap Creator Framework : Agregar la ruta a las variables de entorno</block>
   <block id="b407da2907a6b37afb80f35075ea8531" category="list-text">En los hosts Windows, debe agregar la ruta de instalación de IBM Domino a la variable de entorno PATH. Para obtener más información, consulte la<block ref="48a25fc471122170a85c7c8edf958c44" category="inline-link-macro-rx"></block> .</block>
+  <block id="a4b10ba4184c91876de7584578453006" category="paragraph">(Y|N|política:edad)</block>
+  <block id="6c66b4d2e5944ca886c4b9a9893da0b7" category="paragraph">(S|N)</block>
+  <block id="8d777f385d3dfec8815d20f7496026dc" category="paragraph">data</block>
+  <block id="29052802445f7d4f3d102b5c718b66ce" category="paragraph">Valida que todos los volúmenes en los que reside la base de datos sean parte de la operación de respaldo. Actualmente existen limitaciones:</block>
+  <block id="44d74d7cf83cd1c3bf4ab4bb1ae30dc5" category="list-text">Sólo se admite el sistema de archivos de red (NFS).</block>
+  <block id="26a3433cdd66ec88654d1ebf84e4d35b" category="list-text">Sólo se comprueban los archivos de datos de las bases de datos compatibles.</block>
+  <block id="9585cd9ea994c167725cd420361fa76e" category="paragraph">(S|N )</block>
+  <block id="798b04090e54a1cdf065909a17bb574e" category="paragraph">El parámetro funciona para la configuración de la base de datos maestro-esclavo MySQL.</block>
+  <block id="ec33ae0eab0cbcf0f68a1beeebab63c0" category="paragraph">Si se establece como Y, purgará los registros binarios al último archivo de registro binario disponible.</block>
+  <block id="489a578ac452aa637e84a849df71b5f0" category="paragraph">Si se establece como N, utiliza la marca de tiempo reciente para la consulta de purga.</block>
+  <block id="dcf1732d7559ab7b8aa81bdea2e96a8c" category="paragraph">(Y|N|política:&lt;Y|N&gt;)</block>
+  <block id="757be32f0616f9f740892c8c0fc80776" category="paragraph">Si se configura en Y mientras se realiza la copia de seguridad sin conexión de Oracle, utiliza el mecanismo de interrupción de apagado para garantizar que la base de datos se apague en un estado consistente. Los pasos de apagado para el parámetro ORACLE_SHUTDOWNABORT son los siguientes:</block>
+  <block id="5d1c258a7bd4c15972e657524837311b" category="list-text">Abortar apagado</block>
+  <block id="672525866c66061a202ac9dd9e123406" category="list-text">Restricción de inicio</block>
+  <block id="89e2c99b632a7bfeb86bb5d15d993ac7" category="list-text">Apagado inmediato</block>
+  <block id="ea9053cb7d9a5295733a4c597e3c402f" category="paragraph">Permite que la dirección IP se utilice para el sistema de almacenamiento. Esto se aplica a SnapVault, SnapMirror y la capacidad de protección de datos de NetApp Management Console. El uso de direcciones IP puede crear problemas y solo debe utilizarse en determinadas condiciones.</block>
+  <block id="fc663145389e04ad399fafe44ed4e642" category="paragraph">Configuración opcional para el formato de las copias de instantáneas secundarias cuando se utiliza la capacidad de protección de datos de NetApp Management Console. Esta opción requiere OnCommand 5.0 o posterior. Variable requerida:</block>
+  <block id="b3d419be703283d1c8ff46f1a9162193" category="list-text">Marca de tiempo: %T</block>
+  <block id="2f865c4db2240014a15a1afb9250d27e" category="paragraph">Variables opcionales:</block>
+  <block id="ba7a8922105719869fea7de673955831" category="list-text">Tipo de retención: %R</block>
+  <block id="811cf16f1a1fba73bff1d3e73cc09894" category="list-text">Etiqueta del conjunto de datos: %L</block>
+  <block id="c5995da4091638026ed9470567f8c933" category="list-text">Controlador de almacenamiento: %H</block>
+  <block id="cbe2e8252606346bc2a477117e7c22db" category="list-text">Nombre del volumen: %N</block>
+  <block id="b49c482aa020f7e97d705602777a831b" category="list-text">Datos específicos de la aplicación: %A</block>
+  <block id="936fd30e8735631071cb62e403722ec4" category="paragraph">Si esta opción no está configurada, se utiliza la convención de nomenclatura predeterminada para la capacidad de protección de datos de NetApp Management Console. La convención de nomenclatura solo se puede establecer en el momento de la creación del conjunto de datos.</block>
+  <block id="388306add449258c47380d6b7db98378" category="paragraph">Habilita o deshabilita la creación de eventos en la consola de Operations Manager.</block>
+  <block id="957338adada6845bcc51f661d173fbb3" category="paragraph">Ejecute estos scripts o comandos durante o antes del proceso de copia de seguridad de OSSV, donde ## es un número del 01 al 99. Esto se puede utilizar para realizar copias de seguridad del sistema de archivos mediante OSSV.</block>
+  <block id="17c3a9f520927a583d184a69999e24cf" category="paragraph">Habilita o deshabilita el uso de la versión de 32 bits de PowerShell.</block>
 </blocks>

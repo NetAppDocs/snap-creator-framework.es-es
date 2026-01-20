@@ -56,8 +56,10 @@ Especifica el nombre del servidor de SnapManager para Microsoft Exchange.
  a| 
 SME_32 bits
  a| 
-(Y
-| N) 
+(S|N)
+ a| 
+Habilita o deshabilita el uso de la versión de 32 bits de PowerShell.
+
 |===
 *Información relacionada*
 

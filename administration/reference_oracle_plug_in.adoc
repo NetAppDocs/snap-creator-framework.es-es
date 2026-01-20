@@ -75,11 +75,8 @@ Ruta de acceso al directorio para almacenar el archivo temporal, por ejemplo, /t
  a| 
 ARCHIVE_LOG_ONLY
  a| 
-(Y
-| N 
-
-
-| Política:<Y | N>)  a| 
+(Y|N|política:<Y|N>)
+ a| 
 Informa al plugin de Oracle para que realice solo un registro de switches.esta opción es útil si gestiona backups de registros de archivos de forma independiente a los backups de datos.
 
 
@@ -103,24 +100,31 @@ Ruta al directorio inicial de Oracle para un identificador de sistema (SID) dado
  a| 
 ORACLE_EXPORT_PARAMETERS
  a| 
-(Y
-| N ) 
-
-
+(S|N )
  a| 
 Los parámetros de entorno ORACLE_HOME y ORACLE_SID se exportan mediante el comando export. Esto sólo es aplicable en entornos basados en UNIX o Linux.
+
+
+
  a| 
 ORACLE_BACKUPMODE
  a| 
-
-
-
  a| 
 Opción de configurar backups en línea o sin conexión mediante la normativa de Snap Creator. La opción predeterminada es online. ORACLE_BACKUPMODE=Hourly:online, Daily:offline
+
+
+
  a| 
 ORACLE_SHUTDOWNABORT
  a| 
-(Y
+(S|N )
+ a| 
+Si se configura en Y mientras se realiza la copia de seguridad sin conexión de Oracle, utiliza el mecanismo de interrupción de apagado para garantizar que la base de datos se apague en un estado consistente. Los pasos de apagado para el parámetro ORACLE_SHUTDOWNABORT son los siguientes:
+
+* Abortar apagado
+* Restricción de inicio
+* Apagado inmediato
+
 
 |===
 *Información relacionada*

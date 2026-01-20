@@ -62,10 +62,7 @@ Lista de bases de datos y de los puertos en los que están escuchando, por ejemp
  a| 
 MAESTRO_ESCLAVO
  a| 
-(Y
-| N) 
-
-
+(S|N)
  a| 
 Especifica el entorno de la base de datos de copia de seguridad:Si se establece en y, realiza una copia de seguridad de la base de datos maestra.
 
@@ -73,10 +70,19 @@ Si se establece en N, realiza una copia de seguridad de la base de datos esclava
 
 
 NOTE: La copia de seguridad de Snap Creator Framework elimina los archivos de registro binarios de MySQL necesarios en el servidor MySQL con la opción Master_Slave activada. El backup de la base de datos de MySQL (maestro) mediante Snap Creator Framework elimina todos los archivos de registro binarios y solo deja un único archivo de registro binario vacío con una numeración de restablecimiento (.000001). Debido a este problema, el servidor esclavo no inicia después de la operación de backup.
+
+
+
  a| 
 PURGAR_REGISTRO_BINARIO
  a| 
-(Y
+(S|N )
+ a| 
+El parámetro funciona para la configuración de la base de datos maestro-esclavo MySQL.
+
+Si se establece como Y, purgará los registros binarios al último archivo de registro binario disponible.
+
+Si se establece como N, utiliza la marca de tiempo reciente para la consulta de purga.
 
 |===
 *Información relacionada*

@@ -52,6 +52,8 @@ El puerto que se debe usar para las comunicaciones con la consola de Operations 
  a| 
 OM_EVENT_GENERATE
  a| 
-(Y
-| N) 
+(S|N)
+ a| 
+Habilita o deshabilita la creación de eventos en la consola de Operations Manager.
+
 |===
