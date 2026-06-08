@@ -22,7 +22,7 @@ Los pasos de alto nivel son los siguientes:
 . Compruebe si hay bases de datos incoherentes o dañadas.
 +
 
-NOTE: Es posible forzar el plugin para que continúe con las operaciones de backup a pesar de los errores, como se describe en el paso link:task_using_the_gui_to_create_a_configuration_file.md#STEP_AA41331683A24598B7845367CB967F99["Task_Using_the_gui_to_create_a_Configuration_file.md#STEP_AA4133168A24598B7845367CB967F99"].
+NOTE: Puedes forzar al plug-in a continuar con las operaciones de copia de seguridad a pesar de los errores, como se describe en el paso link:task_using_the_gui_to_create_a_configuration_file.html["tarea_utilizar_la_interfaz_de_usuario_para_crear_un_archivo_de_configuración"].
 
 . Haga una copia Snapshot de cada volumen.
 . Si se está utilizando el registro de transacciones de Domino, se utilizarán copias de archivos de registros de transacciones de Domino para operaciones de restauración de último minuto.

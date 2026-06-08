@@ -25,7 +25,7 @@ Cuando se restaura una copia SnapVault desde el almacenamiento secundario, solo 
 
 == Descripción de los directorios de destino
 
-Las restauraciones de volúmenes y de un solo archivo suelen tener distintos directorios de destino. Especifique el directorio de destino en el parámetro Directorio de restauración de datos en el archivo de configuración copia de seguridad y restauración (consulte el paso link:task_using_the_gui_to_create_a_configuration_file.md#STEP_E6C507729B3647FD8B2E8D0818F22D3B["Task_Using_the_gui_to_create_a_Configuration_File.md#STEP_E6C507729B3647FD2E8D0818F22D3B"]):
+Las restauraciones por volumen y las restauraciones de un solo archivo suelen tener directorios de destino diferentes. Especificas el directorio de destino en el parámetro Directorio de restauración de datos del archivo de configuración de backup y restauración (consulta el paso link:task_using_the_gui_to_create_a_configuration_file.html["tarea que utiliza la gui para crear un archivo de configuración"]):
 
 * Para restaurar un volumen, debe establecer el directorio de restauración de datos en el directorio de datos de Domino.
 * Para restaurar un único archivo, es necesario establecer el directorio de restauración de datos en un subdirectorio del volumen de datos de Domino.

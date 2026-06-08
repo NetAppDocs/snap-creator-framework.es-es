@@ -55,7 +55,7 @@ Al seleccionar *Restaurar* se inicia automáticamente el Asistente para restaura
 
 +
 
-NOTE: Si va a realizar una restauración desde una copia SnapVault, se le solicita que restaure desde el almacenamiento principal o secundario. Su selección depende de cómo se esté manejando la limitación descrita en link:concept_domino_database_restore_overview.md#GUID-4D864E27-DE54-43BF-9B9F-EF2F240F65D9["Concept_domino_database_restore_overview.md#GUID-4D864E27-DE54-43BF-9B9F-EF2F240F65D9"].
+NOTE: Si estás restaurando desde una copia de SnapVault, se te pedirá que restaures desde almacenamiento primario o secundario. Tu selección depende de cómo estés manejando la limitación descrita en link:concept_domino_database_restore_overview.html["Concept_domino_database_restore_overview.md#GUID-4D864E27-DE54-43BF-9B9F-EF2F240F65D9"].
 
 . En la página Restore details, especifique los detalles de la restauración:
 +

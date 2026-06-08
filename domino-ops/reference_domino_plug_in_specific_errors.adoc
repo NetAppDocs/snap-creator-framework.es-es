@@ -57,7 +57,7 @@ Estos mensajes de errores aparecen si no se cumple alguna de las siguientes cond
 
 == Se produce un error en el backup de Snap Creator debido a una base de datos incorrecta
 
-De forma predeterminada, se producirá un error en la operación de backup si una o varias bases de datos están en estado incoherente o dañado. Es posible forzar el plugin para que continúe con las operaciones de backup a pesar de los errores, como se describe en el paso link:task_using_the_gui_to_create_a_configuration_file.md#STEP_AA41331683A24598B7845367CB967F99["tarea que utiliza la gui para crear un archivo de configuración"].
+Por defecto, una operación de copia de seguridad fallará si una o más bases de datos se encuentran en un estado incoherente o dañado. Puedes forzar al complemento a continuar con las operaciones de copia de seguridad a pesar de los errores, como se describe en el paso link:task_using_the_gui_to_create_a_configuration_file.html["tarea que utiliza la gui para crear un archivo de configuración"].
 
 
 
@@ -97,7 +97,7 @@ ltd-00001
  a| 
 El plug-in de Domino no puede funcionar con SNAP_TIMESTAMP_ONLY = N. SNAP_TIMESTAMP_ONLY debe ser Y.
  a| 
-Para obtener más información, consulte el paso link:task_using_the_gui_to_create_a_configuration_file.md#STEP_81795CF9D6294AC891BC3D0CE4827CA3["Task_Using_the_gui_to_create_a_Configuration_file.md#STEP_81795CF9D6294AC891BC3D0CE4827CA3"].
+Para más información, consulta el paso link:task_using_the_gui_to_create_a_configuration_file.html["tarea_utilizar_la_interfaz_de_usuario_para_crear_un_archivo_de_configuración"].
 
 
 

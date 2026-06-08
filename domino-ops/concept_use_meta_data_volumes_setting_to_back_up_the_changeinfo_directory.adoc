@@ -13,7 +13,7 @@ summary: Si tiene previsto realizar una copia de seguridad del directorio chcamb
 [role="lead"]
 Si tiene previsto realizar una copia de seguridad del directorio chcambiinfo, debe configurar el volumen que contiene el directorio como volumen de metadatos. Si lo hace, se le indica al complemento IBM Domino que cree una copia snapshot del volumen chcambiinfo _after_ creando la copia snapshot para los archivos de la base de datos.
 
-Ya debería haber identificado el volumen de intercambio como un volumen de copia de seguridad cuando creó el archivo de configuración. Para obtener más información, consulte el paso link:task_using_the_gui_to_create_a_configuration_file.md#STEP_2036E43A6921415985798979F2226786["tarea que utiliza la gui para crear una configuración"].
+Ya deberías haber identificado el volumen changeinfo como un volumen del que hacer copia de seguridad cuando creaste el archivo de configuración. Para más información, consulta el paso link:task_using_the_gui_to_create_a_configuration_file.html["tarea que utiliza la gui para crear una configuración"].
 
 El parámetro META_DATA_VOLUME se utiliza en el archivo de configuración para identificar el volumen de intercambio como un volumen de metadatos. El parámetro no está disponible en la interfaz gráfica de usuario.
 

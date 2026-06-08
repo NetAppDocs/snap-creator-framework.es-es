@@ -230,7 +230,7 @@ Los volúmenes especificados se muestran en la página Controller/Vserver Creden
 IMPORTANT: Si tiene previsto realizar una copia de seguridad del directorio chcambiinfo, debe configurar el volumen que contiene el directorio como volumen de metadatos, como se describe en xref:concept_use_meta_data_volumes_setting_to_back_up_the_changeinfo_directory.adoc[Hacer una copia de seguridad del directorio chcambiinfo]. Esta opción indica al complemento IBM Domino que cree una copia snapshot del volumen chcambiinfo _after_ creando la copia snapshot para los archivos de la base de datos.
 
 . En la página Controller/Vserver Credentials, haga clic en *Add* si desea especificar los detalles de SVM y los volúmenes de los que se va a realizar una copia de seguridad para otro sistema de almacenamiento primario.
-. En la página de detalles Snapshot, especifique la información para la configuración de Snapshot:
+. [[thirteenth-step]]En la página de detalles de la instantánea, especifica la información de configuración de la instantánea:
 +
 |===
 | Para este campo... | Realice lo siguiente... 
@@ -299,7 +299,7 @@ La política para las copias Snapshot duplicadas es la misma que la de las copia
 
 .. Haga clic en *SnapVault* para archivar copias snapshot.
 .. Especifique la política para las copias de Snapshot archivadas.
-.. Las instrucciones se encuentran en el paso siguiente<<STEP_81795CF9D6294AC891BC3D0CE4827CA3,13>>.
+.. Las instrucciones se encuentran en el siguiente paso<<thirteenth-step,13>>.
 .. En *tiempo de espera de SnapVault*, introduzca el número de minutos que desea que Snap Creator espere a que finalice la operación de SnapVault.
 .. Debe haber configurado relaciones de SnapMirror y SnapVault antes de ejecutar la replicación en el almacenamiento secundario. Para obtener más información, consulte xref:concept_snapmirror_and_snapvault_setup.adoc[Configuración de SnapMirror y SnapVault].
 
