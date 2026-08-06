@@ -42,6 +42,7 @@ En el caso de varias máquinas virtuales, la duración de la VM en estado de pau
 
 
 
+[[supported-citrix-xenserver-configurations]]
 == Configuraciones de Citrix XenServer compatibles
 
 Se admiten las siguientes configuraciones de Citrix XenServer:
@@ -62,6 +63,7 @@ Se admiten las siguientes configuraciones de Citrix XenServer:
 
 
 
+[[parameters]]
 == Parámetros
 
 En la siguiente tabla, se enumeran y describen los parámetros de los plugins de Citrix XenServer:

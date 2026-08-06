@@ -54,6 +54,7 @@ En caso de varias máquinas virtuales, la duración de la máquina virtual en es
 
 
 
+[[supported-kvm-configurations]]
 == Configuraciones de KVM compatibles
 
 * SAN: Admite máquinas virtuales invitadas instaladas en un dispositivo multivía bruto (LUN con varias rutas).

@@ -17,6 +17,7 @@ El control de acceso basado en roles implica usuarios, roles, permisos, operacio
 
 
 
+[[users]]
 == Usuarios
 
 * Los usuarios se identifican de forma exclusiva con un nombre de usuario y una contraseña.
@@ -27,6 +28,7 @@ El control de acceso basado en roles implica usuarios, roles, permisos, operacio
 
 
 
+[[roles]]
 == Funciones
 
 Los roles tienen uno o varios permisos. Los permisos asignados determinan las acciones que un usuario puede realizar y también a qué elementos GUI puede acceder. Existen tres roles integrados:
@@ -49,6 +51,7 @@ Estos roles integrados no se pueden agregar, quitar ni modificar.
 
 
 
+[[permissions]]
 == Permisos
 
 Los permisos son un conjunto de operaciones que el usuario está autorizado a realizar. Los siguientes son permisos integrados:
@@ -105,6 +108,7 @@ Proporciona autorización para operaciones de solo lectura.
 
 
 
+[[operations]]
 == Operaciones
 
 Las operaciones son los valores básicos que Snap Creator comprueba para obtener autorización. Algunos ejemplos de operaciones son getTask, fileCloneCreate, createTask, dirCreate, etc.
@@ -114,6 +118,7 @@ NOTE: Las operaciones no se pueden agregar, quitar ni modificar.
 
 
 
+[[profiles]]
 == Perfiles
 
 * Los perfiles se asignan a los usuarios.
@@ -127,6 +132,7 @@ Por ejemplo, si un usuario desea el estado de un trabajo, RBAC verifica si el us
 
 
 
+[[managing-user-access-for-storage-controllers]]
 == Gestionar el acceso de usuarios para las controladoras de almacenamiento
 
 Si no utiliza el proxy Active IQ Unified Manager, necesita un nombre de usuario y una contraseña para comunicarse con las controladoras de almacenamiento. Las contraseñas pueden cifrarse para obtener seguridad.

@@ -18,6 +18,7 @@ NOTE: Para obtener información sobre los errores genéricos de Snap Creator, co
 
 
 
+[[domino-plug-in-is-not-supported-on-this-platform]]
 == El complemento Domino no se admite en esta plataforma
 
 Normalmente recibe este error cuando no se cumplen los requisitos previos del complemento Domino. Por lo general, el mensaje de error es similar al siguiente:
@@ -55,12 +56,14 @@ Estos mensajes de errores aparecen si no se cumple alguna de las siguientes cond
 
 
 
+[[snap-creator-backup-fails-because-of-a-bad-database]]
 == Se produce un error en el backup de Snap Creator debido a una base de datos incorrecta
 
 Por defecto, una operación de copia de seguridad fallará si una o más bases de datos se encuentran en un estado incoherente o dañado. Puedes forzar al complemento a continuar con las operaciones de copia de seguridad a pesar de los errores, como se describe en el paso link:task_using_the_gui_to_create_a_configuration_file.html["tarea que utiliza la gui para crear un archivo de configuración"].
 
 
 
+[[domino-restore-using-custom-action-fails]]
 == Error en la restauración de Domino mediante la acción personalizada
 
 Normalmente, se producen errores de restauración cuando las rutas de restauración no están configuradas correctamente. Compruebe las rutas para ver si hay caracteres adicionales y barras diagonales inversas. Asimismo, compruebe que el Directorio de restauración de datos esté configurado correctamente.
@@ -84,6 +87,7 @@ Recovery Manager: Recovery only supported for Backup Files.ERROR_CODE:5114
 ----
 
 
+[[all-domino-plug-in-specific-errors]]
 == Todos los errores específicos del complemento Domino
 
 En la siguiente tabla se enumeran los mensajes de error específicos del plug-in de IBM Domino en formato de referencia:

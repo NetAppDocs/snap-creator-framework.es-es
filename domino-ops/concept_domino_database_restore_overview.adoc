@@ -15,6 +15,7 @@ El complemento IBM Domino restaura archivos de base de datos desde la copia Snap
 
 
 
+[[understanding-snapmirror-and-snapvault-restore-operations]]
 == Comprender las operaciones de restauración de SnapMirror y SnapVault
 
 No puede utilizar Snap Creator para restaurar una copia de SnapMirror de los datos. Si desea restaurar una copia de mirroring, primero debe interrumpir el reflejo, luego restaurar manualmente los datos. Para obtener más información, consulte link:http://docs.netapp.com/ontap-9/topic/com.netapp.doc.exp-sm-ic-fr/home.html["Guía exprés de recuperación de desastres de volúmenes de ONTAP 9"].
@@ -23,6 +24,7 @@ Cuando se restaura una copia SnapVault desde el almacenamiento secundario, solo 
 
 
 
+[[understanding-destination-directories]]
 == Descripción de los directorios de destino
 
 Las restauraciones por volumen y las restauraciones de un solo archivo suelen tener directorios de destino diferentes. Especificas el directorio de destino en el parámetro Directorio de restauración de datos del archivo de configuración de backup y restauración (consulta el paso link:task_using_the_gui_to_create_a_configuration_file.html["tarea que utiliza la gui para crear un archivo de configuración"]):
@@ -35,6 +37,7 @@ Esto significa que si alternativo tipos de restauración, deberá modificar el d
 
 
 
+[[where-to-run-a-restore]]
 == Dónde se ejecuta una restauración
 
 Con una excepción, puede utilizar la interfaz gráfica de usuario de Snap Creator o la interfaz de línea de comandos de Snap Creator para restaurar bases de datos. Para las restauraciones de archivos individuales en un entorno SAN, debe usar la CLI, como se describe en xref:concept_single_file_restore_in_fc_iscsi_environments.adoc[Restaurar archivos individuales en un entorno SAN].

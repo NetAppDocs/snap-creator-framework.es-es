@@ -22,6 +22,7 @@ Los pasos de alto nivel son los siguientes:
 
 
 
+[[restore-options]]
 == Opciones de restauración
 
 El complemento ofrece una amplia variedad de opciones de restauración:
